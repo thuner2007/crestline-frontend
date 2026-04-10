@@ -1,0 +1,30 @@
+import { Group } from "../groups/group.type";
+import { Subgroup } from "../groups/subgroup.type";
+import { CustomizationOptions } from "./customizazion.type";
+import { StickerTranslations } from "./stickerTranslations.type";
+import { VariationGroup } from "./variationGroup.type";
+
+export type Sticker = {
+  id: string;
+  pricePerCm2Printable: string;
+  pricePerCm2Vinyl: string;
+  generalPrice?: string;
+  quantity: number;
+  printable: boolean;
+  vinyl: boolean;
+  standardMethod: "printable" | "vinyl";
+  customizationOptions: CustomizationOptions;
+  images: string[];
+  sold: number;
+  sortingRank: number;
+  widthToHeightRatio: string;
+  active: boolean;
+  textToWidthResponsiveness: boolean;
+  variationsGroupId: string;
+  createdAt: string;
+  updatedAt: string;
+  translations: StickerTranslations[];
+  groups: Group[];
+  subgroups: Subgroup[];
+  variationGroup: VariationGroup;
+};

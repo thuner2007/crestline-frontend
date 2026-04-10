@@ -1,0 +1,3 @@
+# Ads.txt file for revsticks
+# This website does not currently use any advertising networks.
+# For more information about ads.txt, visit: https://iabtechlab.com/ads-txt/

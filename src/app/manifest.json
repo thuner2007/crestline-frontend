@@ -1,0 +1,48 @@
+{
+  "name": "Revsticks.ch",
+  "short_name": "Revsticks",
+  "description": "Revsticks.ch - The best way to get your sticks",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "categories": ["shopping", "customization"],
+  "lang": "de",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "type": "image/x-icon",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Shop Stickers",
+      "short_name": "Shop",
+      "description": "Browse and customize stickers",
+      "url": "/stickers",
+      "icons": [{ "src": "/192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Design Editor",
+      "short_name": "Design",
+      "description": "Create custom designs",
+      "url": "/editor",
+      "icons": [{ "src": "/192x192.png", "sizes": "192x192" }]
+    }
+  ],
+  "prefer_related_applications": false
+}

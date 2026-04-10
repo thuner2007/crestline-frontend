@@ -1,0 +1,1362 @@
+{
+  "common": {
+    "home": "Home",
+    "parts": "Parti",
+    "login": "Accedi"
+  },
+
+  "metadata": {
+    "partGroup": {
+      "title": "Parti Supermoto | Revsticks - Personalizzazione per Ogni Stile",
+      "description": "Esplora la nostra selezione di parti di alta qualità per la tua moto supermoto. Personalizza la tua moto con componenti premium.",
+      "keywords": "parti supermoto, parti moto, accessori moto, personalizzazione supermoto, parti di alta qualità"
+    },
+    "parts": {
+      "title": "Parti Supermoto | Revsticks - Personalizzazione per Ogni Stile",
+      "description": "Esplora la nostra selezione di parti di alta qualità per la tua moto supermoto. Personalizza la tua moto con componenti premium.",
+      "keywords": "parti supermoto, parti moto, accessori moto, personalizzazione supermoto, parti di alta qualità"
+    },
+    "part": {
+      "title": "{name} | Revsticks - Customization for Every Style",
+      "description": "Scopri e personalizza la tua moto con i nostri accessori di alta qualità.",
+      "keywords": "parti supermoto, parti moto, accessori moto, personalizzazione supermoto, parti di alta qualità"
+    },
+    "home": {
+      "title": "Adesivi Personalizzati & Parti Supermoto - RevSticks Svizzera",
+      "description": "Acquista ricambi e adesivi Supermoto in Svizzera. Accessori personalizzati per moto, design professionali e spedizione rapida in Svizzera.",
+      "keywords": "adesivi, personalizzati, design, stile, unico, colorato, vinile, stampabile, adesivi personalizzati"
+    },
+    "account": {
+      "designStickers": "Progetta adesivi",
+      "fastShipping": "Spedizione veloce",
+      "securePayment": "100% Sicuro",
+      "trustedBrand": "Marca affidabile",
+      "title": "Account | Revsticks",
+      "description": "Gestisci il tuo account Revsticks, modifica le tue informazioni personali e visualizza la cronologia degli ordini.",
+      "keywords": "account, utente, informazioni, ordini, cronologia, Revsticks"
+    },
+    "admin": {
+      "title": "Admin | Revsticks",
+      "description": "Pannello di amministrazione Revsticks per la gestione degli utenti, degli ordini e dei prodotti.",
+      "keywords": "admin, pannello di amministrazione, utenti, ordini, prodotti, Revsticks"
+    },
+    "agb": {
+      "title": "Termini e condizioni | Revsticks",
+      "description": "Termini e condizioni di Revsticks per l'utilizzo del sito web e l'acquisto di adesivi personalizzati.",
+      "keywords": "termini, condizioni, Revsticks, adesivi, personalizzati, acquisto"
+    },
+    "withdrawal": {
+      "title": "Diritto di recesso | Revsticks",
+      "description": "Diritto di recesso di Revsticks per gli adesivi personalizzati.",
+      "keywords": "diritto di recesso, politica di restituzione, Revsticks"
+    },
+    "manuals": {
+      "title": "Manuali & Guide | Revsticks",
+      "description": "Scarica manuali, guide e tutorial utili per ottenere il massimo dai nostri prodotti e servizi.",
+      "keywords": "manuali, guide, tutorial, guide utente, documentazione di aiuto, manuali di prodotto, guide di installazione"
+    },
+    "cart": {
+      "title": "Carrello | Revsticks",
+      "description": "Visualizza il tuo carrello Revsticks, modifica le quantità e procedi al pagamento.",
+      "keywords": "carrello, acquisto, adesivi, personalizzati, Revsticks"
+    },
+    "checkout": {
+      "title": "Checkout | Revsticks",
+      "description": "Procedi al pagamento per gli adesivi personalizzati Revsticks.",
+      "keywords": "checkout, pagamento, adesivi, personalizzati, Revsticks"
+    },
+    "cookie": {
+      "title": "Cookie | Revsticks",
+      "description": "Informativa sui cookie di Revsticks.",
+      "keywords": "cookie, informativa, Revsticks"
+    },
+    "editor": {
+      "title": "Editor di adesivi | Revsticks",
+      "description": "Crea adesivi personalizzati con l'editor di adesivi Revsticks.",
+      "keywords": "editor, adesivi, personalizzati, design, Revsticks"
+    },
+    "history": {
+      "title": "Cronologia ordini | Revsticks",
+      "description": "Visualizza la cronologia degli ordini Revsticks.",
+      "keywords": "cronologia, ordini, Revsticks"
+    },
+    "imprint": {
+      "title": "Imprint | Revsticks",
+      "description": "Imprint di Revsticks.",
+      "keywords": "imprint, Revsticks"
+    },
+    "login": {
+      "title": "Accedi | Revsticks",
+      "description": "Accedi al tuo account Revsticks.",
+      "keywords": "accedi, account, utente, Revsticks"
+    },
+    "paymentSuccess": {
+      "title": "Pagamento avvenuto con successo | Revsticks",
+      "description": "Pagamento avvenuto con successo per gli adesivi personalizzati Revsticks.",
+      "keywords": "pagamento, avvenuto, successo, adesivi, personalizzati, Revsticks"
+    },
+    "privacy": {
+      "title": "Informativa sulla privacy | Revsticks",
+      "description": "Informativa sulla privacy di Revsticks.",
+      "keywords": "informativa, privacy, Revsticks"
+    },
+    "blog": {
+      "title": "Blog | RevSticks - Storie, Consigli & Approfondimenti",
+      "description": "Leggi le ultime notizie, consigli e storie di RevSticks. Scopri approfondimenti supermoto, guide alla personalizzazione e punti salienti della comunità.",
+      "keywords": "blog supermoto, consigli moto, personalizzazione bici, notizie RevSticks, approfondimenti supermoto"
+    },
+    "contact": {
+      "title": "Contatti | RevSticks - Mettiti in contatto",
+      "description": "Mettiti in contatto con RevSticks. Siamo qui per aiutarti con domande sui nostri prodotti e servizi.",
+      "keywords": "contatti, mettiti in contatto, supporto clienti, email, whatsapp, instagram"
+    },
+    "register": {
+      "title": "Registrati | Revsticks",
+      "description": "Registrati per un account Revsticks.",
+      "keywords": "registrati, account, utente, Revsticks"
+    },
+    "shop": {
+      "title": "Negozio | Revsticks",
+      "description": "Acquista adesivi personalizzati Revsticks.",
+      "keywords": "negozio, adesivi, personalizzati, Revsticks"
+    },
+    "stickers": {
+      "title": "Adesivo | Revsticks - Adesivi personalizzati per ogni stile",
+      "description": "Personalizza il tuo adesivo {name}. Scegli dimensioni, colori e quantità.",
+      "keywords": "adesivo, adesivo personalizzato, {name}, design adesivo"
+    },
+    "variation": {
+      "title": "Variante | Revsticks",
+      "description": "Seleziona una variante",
+      "keywords": "adesivi, personalizzati, design, stile, unico, colorato, vinile, stampabile, adesivi personalizzati"
+    },
+    "payment-check": {
+      "title": "Controllo pagamento | Revsticks - Personalizzazione per ogni stile",
+      "description": "Stiamo elaborando il tuo pagamento. Attendi mentre verifichiamo la tua transazione.",
+      "keywords": "elaborazione pagamento, controllo pagamento, verifica pagamento, elaborazione ordine"
+    },
+    "payment-success": {
+      "title": "Pagamento riuscito | Revsticks - Personalizzazione per ogni stile",
+      "description": "Il tuo pagamento è stato elaborato con successo. Grazie per il tuo acquisto!",
+      "keywords": "pagamento riuscito, pagamento completato, ordine completato, pagamento elaborato"
+    },
+    "payment-failed": {
+      "title": "Pagamento fallito | Revsticks - Personalizzazione per ogni stile",
+      "description": "Si è verificato un problema durante l'elaborazione del pagamento. Riprova o contatta il supporto.",
+      "keywords": "pagamento fallito, errore pagamento, problema pagamento, fallimento pagamento"
+    },
+    "maintenance": {
+      "title": "Manutenzione | Revsticks - Torneremo presto",
+      "description": "Stiamo effettuando una manutenzione programmata per migliorare i nostri servizi. Si prega di riprovare più tardi."
+    },
+    "riders": {
+      "title": "I Nostri Piloti | Revsticks - Team & Comunità",
+      "description": "Incontra i nostri piloti talentuosi e ambasciatori che rappresentano il marchio RevSticks con stile e passione.",
+      "keywords": "piloti, team, ambasciatori, piloti moto, piloti supermoto, team RevSticks"
+    },
+    "story": {
+      "title": "La Nostra Storia | RevSticks",
+      "description": "Scopri come RevSticks è iniziata - con un sogno di costruire prodotti economici e belli in Svizzera.",
+      "keywords": "storia, sogno, Svizzera, RevSticks, origini, visione"
+    },
+    "powdercoat": {
+      "title": "Servizi di Verniciatura a Polvere - RevSticks",
+      "description": "Servizi professionali di verniciatura a polvere per parti supermoto. Finiture di alta qualità e durevoli con tempi di lavorazione rapidi."
+    },
+    "powdercoatColors": {
+      "title": "Colori Verniciatura a Polvere - RevSticks",
+      "description": "Esplora la nostra gamma di colori di verniciatura a polvere premium per parti supermoto. Scegli tra blu, rosso, arancione, viola, nero e bianco con qualità professionale e durata."
+    },
+    "powdercoatInformation": {
+      "title": "Informazioni Verniciatura a Polvere - RevSticks",
+      "description": "Informazioni di spedizione e dettagli di contatto per i nostri servizi di verniciatura a polvere. Invia le tue parti in Svizzera per una finitura professionale."
+    }
+  },
+
+  "maintenance": {
+    "title": "Torneremo presto",
+    "message": "Stiamo effettuando una manutenzione programmata per migliorare i nostri servizi. Si prega di riprovare più tardi.",
+    "tryAgain": "Riprova",
+    "refresh": "Aggiorna pagina"
+  },
+
+  "anania": {
+    "title": "Collaborazione Revsticks x Anania.ch",
+    "heroSubtitle": "Collaborazione ufficiale tra Revsticks e Anania.ch",
+    "about": "Su Anania.ch",
+    "description": "Anania.ch è un versatile negozio online svizzero specializzato in elettronica a prezzi accessibili, accessori per la casa e idee regalo creative. L'assortimento spazia da pratici aiutanti quotidiani come stampanti, cavi e accessori per il gaming fino a eleganti articoli decorativi – ideale per gli appassionati di tecnologia e gli amanti del lifestyle. Particolarmente apprezzati sono la spedizione veloce con la Posta Svizzera e il servizio clienti personalizzato. Con prezzi equi, navigazione semplice e offerte continue, Anania.ch è un indirizzo affidabile per cacciatori di occasioni e idee regalo spontanee.",
+    "visitWebsite": "Visita Anania.ch",
+    "featuredProducts": "Prodotti in collaborazione",
+    "productPlaceholder": "Nome prodotto",
+    "comingSoon": "Prossimamente",
+    "ctaTitle": "Scopri i nostri prodotti",
+    "ctaDescription": "Esplora i prodotti Revsticks creati in collaborazione con Anania.ch",
+    "exploreStickers": "Esplora gli adesivi",
+    "exploreParts": "Esplora le parti"
+  },
+
+
+
+  "homepage": {
+    "title1": "Adesivi personalizzati per",
+    "title2": "Ogni stile",
+    "subtitle": "Individualità in ogni dettaglio – adesivi, parti e altro.",
+    "powdercoatingTitle": "Servizio di verniciatura a polvere",
+
+    "heroTitle": "Scatena il tuo stile",
+    "heroSubtitle": "Adesivi personalizzati e parti supermoto premium dalla Svizzera",
+    "heroDescription": "Progetta i tuoi adesivi, aggiorna la tua moto con parti premium e unisciti alla nostra comunità appassionata di motociclisti.",
+    "designStickers": "Progetta Adesivi",
+    "exploreAll": "Esplora Tutto",
+
+    "collabTitle": "COLLABORAZIONE UFFICIALE",
+    "collabSubtitle": "Abbiamo collaborato con Anania.ch per offrirti design accattivanti e prodotti di alta qualità.",
+    "collabText": "Scopri di più sulla nostra collaborazione",
+
+    "stickers": "Adesivi",
+    "stickersDescription": "Adesivi per la tua moto e altro",
+    "supermotoParts": "Parti Supermoto",
+    "superMotoPartsDescription": "Parti per la personalizzazione della tua supermoto",
+
+    "featuredDescription": "Scopri la nostra selezione premium di parti supermoto, progettate e testate da professionisti per massime prestazioni e stile.",
+    "exploreNow": "Esplora ora",
+
+    "shopNow": "Acquista ora",
+    "createCustomSticker": "Crea adesivo personalizzato",
+    "ourStickers": "I nostri adesivi",
+    "viewAll": "Visualizza tutti gli adesivi",
+
+    "todaysChoice": "Scelta di oggi",
+    "todaysChoiceDescription": "Scopri i nostri prodotti accuratamente selezionati per oggi",
+
+    "ctaReady": "Pronto per il tuo prossimo aggiornamento?",
+    "ctaDescription": "Crea i tuoi adesivi personalizzati e trova le parti perfette per il tuo progetto oggi.",
+    "shopParts": "Acquista parti",
+    "shopStickers": "Acquista adesivi",
+
+    "limitedTimeOffer": "🔥 OFFERTA LIMITATA: 25% DI SCONTO sui fasci!",
+    "happyCustomers": "Clienti soddisfatti",
+    "worldwideCommunity": "Comunità in crescita",
+    "partsSold": "Parti vendute",
+    "qualityProducts": "Prodotti di qualità",
+    "designsCreated": "Design creati",
+    "uniqueStyles": "Stili unici",
+    "rating": "Valutazione 4.9/5",
+    "trustedByRiders": "Di fiducia dei piloti",
+    "authentic": "Autentico e appassionato",
+
+    "securePayment": "Pagamento 100% sicuro",
+    "securePaymentText": "Crittografia SSL e conforme a PCI",
+    "fastShipping": "Spedizione veloce",
+    "trustedBrand": "Marca affidabile",
+    "dataProtection": "I tuoi dati sono protetti",
+    "dataProtectionText": "Conforme al GDPR e archiviazione crittografata",
+
+    "moneyBackGuarantee": "Garanzia di rimborso 100%",
+    "moneyBackText": "Non soddisfatto? Ottieni un rimborso completo entro 30 giorni. Nessuna domanda. Shopping senza rischi.",
+
+    "flashSale": "Solo 24 ore",
+    "exclusiveOffer": "🎉 Bundle Pilota Esclusivo",
+    "exclusiveOfferText": "Ottieni adesivi personalizzati + indicatori LED + parti premium a un prezzo imbattibile. Tempo limitato!",
+    "claimOffer": "Rivendica l'offerta ora",
+
+    "whyChooseUs": "Perché sceglierci",
+    "whyChooseUsTitle": "Prodotti che si distinguono",
+    "whyChooseUsSubtitle": "I nostri adesivi e le nostre parti sono più di semplici prodotti - sono un modo per mostrare la tua personalità e sottolineare il tuo stile.",
+
+    "style": "Stile unico",
+    "styleText": "I nostri prodotti rendono ogni oggetto unico. Che si tratti di adesivi che aggiungono colore o parti di qualità che migliorano la tua guida, aggiungono personalità al tuo mondo.",
+
+    "customDesigns": "Prodotti personalizzati",
+    "customDesignsText": "Crea i tuoi adesivi unici con il nostro editor online facile da usare e trova parti premium per la tua supermoto. La tua visione, la nostra esperienza!",
+
+    "cheapPrices": "Prezzi convenienti",
+    "cheapPricesText": "Offriamo prezzi accessibili senza compromettere la qualità. Ottieni adesivi e parti premium a tariffe competitive che non graveranno sul tuo budget.",
+
+    "fastShippingText": "Elaboriamo e spediamo il tuo ordine rapidamente. La spedizione prioritaria è standard per tutti gli ordini di adesivi e parti.",
+
+    "easyToUse": "Qualità garantita",
+    "easyToUseText": "I nostri adesivi sono facili da applicare e le nostre parti sono progettate per funzionare. Qualità svizzera in ogni prodotto!",
+
+    "swissBrand": "Made in Switzerland",
+    "swissBrandText": "Siamo un piccolo team svizzero di piloti che sanno cosa funziona. Tutto quello che produciamo lo testiamo prima sulle nostre moto.",
+
+    "readyText": "Pronto a creare il tuo adesivo?",
+    "startDesigning": "Inizia a progettare oggi.",
+    "getStarted": "Inizia",
+    "browse": "Sfoglia adesivi",
+    "featuredItems": "Articoli in evidenza",
+
+    "ridersTitle": "I nostri piloti della community",
+    "ridersSubtitle": "Incontra i piloti che rappresentano RevSticks",
+    "viewAllRiders": "Visualizza tutti i piloti",
+
+    "aboutUsLabel": "Chi siamo",
+    "fromRidersForRiders": "Da piloti per piloti",
+    "aboutUsDescription": "Siamo piloti appassionati che comprendono ciò di cui la community ha bisogno. I nostri prodotti nascono da una vera esperienza in pista e per strada.",
+    "aboutUsSecondParagraph": "Ogni adesivo, ogni parte e ogni design deriva dalla nostra profonda comprensione della cultura supermoto. Non vendiamo solo prodotti – condividiamo la nostra passione.",
+    "readOurStory": "Leggi la nostra storia",
+    "communityDriven": "Guidati dalla community",
+    "communityDrivenDescription": "Creato da piloti, per piloti",
+
+    "newInShop": "NUOVO NEL NEGOZIO",
+    "newProduct": "NUOVO NEL NEGOZIO",
+    "limitedStock": "Solo 8 rimasti",
+    "ledIndicator": "Indicatori LED",
+    "ledIndicatorsTitle": "Ora disponibili",
+    "ledIndicatorDescription": "L'ultima innovazione nell'illuminazione supermoto. Indicatori LED premium progettati per stile e prestazioni.",
+    "ledIndicatorsDescription": "Migliora la tua moto con i nostri indicatori di direzione LED premium. Alta qualità, design elegante e installazione facile.",
+    "shopLEDIndicators": "Acquista indicatori LED",
+    "getItNow": "Ottienilo ora",
+    "shopProducts": "Acquista prodotti",
+    "shopAllProducts": "Acquista tutti i prodotti",
+    "shopAllParts": "Acquista tutte le parti",
+
+    "limitedOffer": "OFFERTA LIMITATA",
+    "blackWeekTitle": "Saldi - Fino al 1° dicembre",
+    "blackWeekDescription": "Sconti speciali su prodotti selezionati. Non perdere l'occasione!",
+    "shopSale": "Acquista saldi"
+  },
+
+  "navigation": {
+    "parts": "Parti Supermoto",
+    "login": "Accesso",
+    "register": "Registrati"
+  },
+
+  "header": {
+    "home": "Home",
+    "powdercoating": "Verniciatura a polvere",
+    "shop": "Negozio",
+    "parts": "Parti Per Supermoto",
+    "blog": "Blog",
+    "cart": "Carrello",
+    "login": "Accedi",
+    "account": "Account"
+  },
+
+  "footer": {
+    "aboutUs": "Chi siamo",
+    "aboutUsText": "Parti supermoto dalla Svizzera. Scopri ora e ordina oggi stesso!",
+    "community": "Comunità",
+    "riders": "Piloti",
+    "social": "Social",
+    "rightsReserved": "Tutti i diritti riservati.",
+    "legal": "Informazioni legali",
+    "privacy": "Informativa sulla privacy",
+    "terms": "Termini e condizioni",
+    "withdrawal": "Diritto di recesso",
+    "imprint": "Imprint",
+    "cookies": "Politica sui cookie"
+  },
+
+  "shop": {
+    "noStickers": "Nessun adesivo trovato",
+    "errors": {
+      "tryAgain": "Riprova"
+    },
+    "loading": {
+      "stickers": "Caricamento adesivi in corso..."
+    },
+    "filters": {
+      "title": "Filtri",
+      "select": "Seleziona",
+      "clearAll": "Cancella tutto",
+      "active": "Filtri attivi",
+      "remove": "Rimuovi filtro",
+      "close": "Chiudi"
+    },
+    "sticker": {
+      "from": "Da",
+      "pricePerCM": "Prezzo al cm²:"
+    },
+    "pagination": {
+      "page": "Pagina {current} di {total}"
+    }
+  },
+
+  "variation": {
+    "loading": "Caricamento delle variazioni...",
+    "errors": {
+      "fetchFailed": "Impossibile caricare le variazioni"
+    },
+    "tryAgain": "Riprova",
+    "whichDesignPrefer": "Quale design preferisci?",
+    "pricePerCM": "Prezzo per cm²:",
+    "noVariationsFound": "Nessuna variazione trovata per questo adesivo.",
+    "goBack": "Indietro"
+  },
+
+  "editor": {
+    "addedToCart": "Design aggiunto al carrello!",
+    "price": "Prezzo",
+    "contactUs": "Hai bisogno di più opzioni o stai pianificando un grande ordine personalizzato?",
+    "contactEmail": "Contattaci a: ",
+
+    "title": "Editor di adesivi",
+    "mobileWarning": "L'Editor di adesivi è disponibile solo su dispositivi desktop.",
+    "mobileSubtitle": "Passa a un computer desktop o portatile per utilizzare l'editor.",
+
+    "returnHome": "Torna alla Home",
+
+    "canvasShape": "Forma della tela",
+    "box": "Rettangolo",
+    "rounded": "Arrotondato",
+    "canvasWidth": "Larghezza tela (cm)",
+    "canvasHeight": "Altezza tela (cm)",
+    "canvasSize": "Dimensioni tela:",
+    "properties": "Proprietà",
+    "deselectElement": "Deseleziona elemento",
+    "quantity": "Quantità",
+    "saveDesign": "Salva design",
+    "addToCart": "Aggiungi al carrello",
+
+    "addText": "Aggiungi testo",
+    "addShape": "Aggiungi forma",
+    "addImage": "Aggiungi immagine",
+    "normal": "Normale",
+    "bold": "Grassetto",
+    "bolder": "Più grassetto",
+    "boldest": "Massimo grassetto",
+    "circle": "Cerchio",
+    "square": "Quadrato",
+    "triangle": "Triangolo",
+
+    "dropImageTitle": "Trascina l'immagine qui...",
+    "dropImageSubtitle": "Trascina e rilascia un'immagine qui, oppure clicca per caricarla.",
+
+    "elementsTitle": "Lista degli elementi",
+    "layer": "Livello:",
+    "remove": "Rimuovi",
+    "noElements": "Nessun elemento aggiunto. Inizia aggiungendo testo o forme al tuo design.",
+
+    "text": "Testo",
+    "text2": "Inserisci il testo",
+    "fontFamily": "Carattere",
+    "fontSize": "Dimensione carattere",
+    "fontWeight": "Spessore carattere",
+    "imageSource": "Sorgente immagine",
+    "width": "Larghezza",
+    "height": "Altezza",
+    "shapeType": "Tipo di forma",
+    "color": "Colore",
+    "xPosition": "Posizione X",
+    "yPosition": "Posizione Y",
+    "zIndex": "Livello (Z-Index)",
+
+    "bulkDiscount": "Sconto quantità",
+    "originalPrice": "Prezzo originale",
+    "orderMore": "Ordina",
+    "moreForDiscount": "pezzi in più per uno sconto del 25%",
+    "moreForBiggerDiscount": "pezzi in più per uno sconto del 50%",
+    "offBulkOrder": "di sconto sull'ordine all'ingrosso",
+    "basePrice": "Prezzo base",
+    "total": "Totale"
+  },
+
+  "account": {
+    "accountTitle": "Il mio account",
+    "accountDescription": "Gestisci le impostazioni del tuo account e visualizza la cronologia degli ordini",
+    "details": "Dettagli account",
+    "logout": "Disconnetti",
+    "information": "Informazioni profilo",
+    "actions": "Azioni account",
+    "changePassword": "Cambia password",
+    "history": "Storico ordini",
+    "deleting": "Eliminazione in corso...",
+    "deleteAccount": "Elimina account",
+    "deleteAccountPrompt": "Questa azione non può essere annullata. Inserisci la tua password per confermare.",
+    "cancel": "Annulla",
+    "enterPassword": "Inserisci la password",
+
+    "username": "Nome utente",
+    "role": "Ruolo",
+    "since": "Membro da",
+
+    "errors": {
+      "csrfExpired": "Il token di sicurezza è scaduto. Riprova.",
+      "incorrectPassword": "Password errata",
+      "deleteFailed": "Impossibile eliminare l'account",
+      "verificationFailed": "Verifica password fallita",
+      "networkError": "Si è verificato un errore di rete",
+      "generic": "Si è verificato un errore",
+      "changeFailed": "Impossibile modificare la password",
+      "passwordRequirements": "La password deve contenere almeno 8 caratteri e almeno una lettera maiuscola"
+    },
+
+    "currentPassword": "Password attuale",
+    "newPassword": "Nuova password",
+    "changing": "Modifica in corso...",
+    "confirm": "Conferma"
+  },
+
+  "login": {
+    "title": "Accedi",
+    "email": "Email",
+    "password": "Password",
+    "noAccount": "Non hai un account?",
+    "createHere": "Creane uno qui.",
+    "errors": {
+      "csrfExpired": "Il token di sicurezza è scaduto. Riprova.",
+      "invalidCredentials": "Email o password non valide",
+      "serverError": "Si è verificato un errore del server",
+      "networkError": "Errore di connessione di rete",
+      "generic": "Si è verificato un errore durante l'accesso",
+      "userNotFound": "Utente non trovato",
+      "tryAgain": "Per favore riprova"
+    }
+  },
+
+  "parts": {
+    "partsTitle": "Parti Supermoto",
+    "partsDescription": "Parti supermoto e accessori di alta qualità per la tua moto",
+    "title": "Parti Supermoto",
+    "loading": "Caricamento parti in corso...",
+    "loadingParts": "Ottenendo le ultime informazioni sulle parti...",
+    "noParts": "Nessuna parte trovata",
+    "noPartsDescription": "Non abbiamo trovato parti. Si prega di controllare più tardi.",
+    "exploreCategory": "Esplora questa categoria",
+    "description": "Descrizione",
+    "inStock": "Disponibile",
+    "outOfStock": "Non disponibile",
+    "designStickers": "Progetta Adesivi",
+    "customizable": "Personalizzabile",
+    "backToCategories": "Torna alle categorie",
+    "noPartsInGroup": "Nessuna parte trovata in questo gruppo",
+    "tryAgain": "Riprova",
+    "errors": {
+      "title": "Errore di caricamento",
+      "fetchFailed": "Impossibile caricare le parti",
+      "tryAgain": "Riprova"
+    },
+    "exploreParts": "Esplora parti",
+    "searchAllParts": "Cerca tutte le parti",
+    "hotParts": "Parti popolari",
+    "bestSellers": "Bestseller",
+    "bestSeller": "Bestseller",
+    "limitedOnly": "Solo 5 rimasti",
+    "fastShippingTag": "Consegna veloce",
+    "fastShippingDesc": "Spedito con Posta prioritaria",
+    "limitedStockTag": "Stock limitato",
+    "limitedStockDesc": "Articoli popolari si vendono velocemente",
+    "securePaymentTag": "100% Sicuro",
+    "securePaymentDesc": "Crittografia SSL",
+    "viewNow": "Visualizza prodotti",
+    "superMotoParts": "Parti Supermoto",
+    "superMotoHero": "Parti di alta qualità progettate per massime prestazioni e stile",
+    "qualityParts": "Parti di qualità",
+    "qualityDesc": "Tutte le nostre parti sono realizzate con materiali premium e progettate per durare",
+    "fastDelivery": "Consegna veloce",
+    "deliveryDesc": "Spedizione rapida per farti avere le parti il prima possibile",
+    "expertSupport": "Supporto esperto",
+    "supportDesc": "Il nostro team di appassionati di moto è qui per aiutarti",
+    "browseCategories": "Sfoglia categorie",
+    "browseCategoriesDesc": "Trova le parti di cui hai bisogno per la tua supermoto",
+    "explore": "Esplora",
+    "hot": "NOVITÀ",
+    "browseTip": "Sfoglia tutte le categorie e trova le tue parti perfette. Spedizione gratuita sopra 100 CHF!",
+    "joinThousands": "Unisciti a 500+ piloti soddisfatti",
+    "freeShipping": "Spedizione gratuita sopra 100 CHF",
+    "easyReturns": "Resi facili entro 30 giorni",
+    "customerSupport": "Supporto clienti 24/7",
+    "ridersFavorites": "Preferiti dai piloti",
+    "rider1Name": "Max S.",
+    "rider1Location": "Zurigo",
+    "rider1Quote": "Queste parti hanno completamente trasformato la mia esperienza di guida. La qualità è eccezionale!",
+    "rider2Name": "Anna K.",
+    "rider2Location": "Ginevra",
+    "rider2Quote": "Spedizione veloce e le parti si adattano perfettamente. Ordinerò sicuramente ancora.",
+    "rider3Name": "Tom R.",
+    "rider3Location": "Lucerna",
+    "rider3Quote": "Grande selezione di parti di alta qualità. La mia moto non ha mai performato meglio!",
+    "readyToRide": "Pronto a migliorare la tua moto?",
+    "readyToRideDesc": "Costruisci la tua supermoto da sogno con la nostra collezione di parti premium",
+    "startBuilding": "Inizia a costruire",
+    "unnamedGroup": "Gruppo senza nome",
+
+    "addToCart": "Aggiungi al carrello",
+    "addedToCart": "Parte aggiunta al carrello!",
+    "totalPrice": "Prezzo totale",
+    "customOptions": "Opzioni personalizzate",
+    "quantity": "Quantità",
+    "accessories": "Accessori",
+    "noDescription": "Nessuna descrizione disponibile",
+    "shippingReady": "Spedizione",
+    "shippingStatus": {
+      "now": "Pronto per la spedizione",
+      "in_1_3_days": "Spedizione in 1-3 giorni",
+      "in_4_7_days": "Spedizione in 4-7 giorni",
+      "in_8_14_days": "Spedizione in 8-14 giorni",
+      "unknown": "Tempo di spedizione sconosciuto"
+    },
+    "partsForBike": "Parti per {bike}",
+    "universalParts": "Parti Universali",
+    "noPartsForBike": "Attualmente non abbiamo parti specifiche per la tua moto in questa categoria.",
+    "checkUniversalParts": "Dai un'occhiata alle nostre parti universali qui sotto che si adattano a varie moto.",
+    "compatibleWith": "Compatibile con:"
+  },
+
+  "register": {
+    "title": "Registrati",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Conferma Password",
+    "passwordMinLength": "Almeno 8 caratteri",
+    "passwordUpperCase": "Almeno una lettera maiuscola",
+    "haveAccount": "Hai già un account?",
+    "loginHere": "Accedi qui.",
+    "errors": {
+      "csrfExpired": "Il token di sicurezza è scaduto. Riprova.",
+      "passwordMismatch": "Le password non corrispondono",
+      "passwordRequirements": "La password deve contenere almeno 8 caratteri e almeno una lettera maiuscola",
+      "emailExists": "Email già registrata",
+      "invalidEmail": "Inserisci un'email valida",
+      "passwordTooShort": "La password deve contenere almeno 8 caratteri",
+      "serverError": "Si è verificato un errore del server",
+      "networkError": "Errore di connessione di rete",
+      "registrationFailed": "Registrazione fallita",
+      "generic": "Si è verificato un errore durante la registrazione"
+    }
+  },
+
+  "cart": {
+    "title": "Il Tuo Carrello",
+    "emptyCart": "Il tuo carrello è vuoto.",
+    "continueShopping": "Continua gli Acquisti",
+    "checkout": "Vai al Checkout",
+    "proceedToCheckout": "Procedi al checkout",
+    "product": "Prodotto",
+    "details": "Dettagli",
+    "specifications": "Specifiche",
+    "price": "Prezzo",
+    "quantity": "Quantità",
+    "total": "Totale",
+    "shipment": "Spedizione",
+    "actions": "Azioni",
+    "size": "Dimensione:",
+    "type": "Tipo:",
+    "color": "Colore:",
+    "free": "Gratuito",
+    "customizations": "Personalizzazioni",
+    "customized": "Personalizzato",
+    "text": "Testo",
+    "text2": "Testo secondario",
+    "backgroundColor": "Colore di sfondo",
+    "mainColor": "Colore principale",
+    "secondaryColor": "Colore secondario",
+    "tertiaryColor": "Colore terziario",
+    "transparent": "Sfondo trasparente",
+    "discount": "Sconto",
+    "discountedPrice": "Prezzo scontato",
+    "bulkDiscount": "Sconto quantità",
+    "discountApplied": "sconto applicato",
+    "orderSummary": "Riepilogo ordine",
+    "vinyl": "Vinile",
+    "printable": "Stampabile",
+    "subtotal": "Subtotale",
+    "shipping": "Spedizione",
+    "returnShipping": "Ritorno verniciatura a polvere",
+    "returnShippingAndShipping": "Ritorno verniciatura a polvere e spedizione",
+    "mixedCartInfo": "Le parti e gli adesivi saranno spediti quando la verniciatura a polvere sarà terminata. Se vuoi che le tue parti siano spedite separatamente in modo che arrivino prima, effettua gli ordini singolarmente.",
+    "priceError": "Errore di prezzo",
+    "freeShippingMessage": "Solo {amount}.- in più per la spedizione gratuita!",
+    "stickersSubtotal": "Subtotale adesivi",
+    "partsSubtotal": "Subtotale parti",
+    "codeDiscount": "Codice sconto",
+    "calculatingPrice": "Calcolo del prezzo in corso...",
+    "calculationError": "Impossibile calcolare i prezzi",
+    "unableToCalculate": "Impossibile calcolare i prezzi",
+    "freeShippingThreshold": "Spedizione gratuita per ordini superiori a {amount}",
+    "showMore": "Mostra altro",
+    "showLess": "Mostra meno",
+    "moreItems": "articoli in più",
+    "itemsHidden": "articoli nascosti",
+    "powdercoatBadge": "Verniciatura a polvere",
+    "powdercoatServicesSubtotal": "Subtotale servizio verniciatura a polvere",
+    "recommendationsTitle": "Quasi fatto! Spedizione gratuita",
+    "recommendationsSubtitle": "Aggiungi solo {amount} CHF in più per ottenere la spedizione gratuita",
+    "recommendedItems": "Articoli consigliati per raggiungere 100 CHF:",
+    "addToCart": "Aggiungi al carrello",
+    "loadingRecommendations": "Caricamento raccomandazioni...",
+    "noRecommendations": "Nessuna raccomandazione disponibile",
+    "recommendationError": "Impossibile caricare le raccomandazioni",
+    "completeCheckoutSoon": "Completa il checkout presto per assicurarti i tuoi articoli!",
+    "peopleViewing": "persone stanno visualizzando questo ora",
+    "soldLast24h": "venduti nelle ultime 24 ore",
+    "trustedBy": "Fidato da",
+    "riders": "piloti",
+    "sslEncrypted": "Checkout crittografato SSL",
+    "gdprCompliant": "Conforme GDPR e sicuro",
+    "almostFreeShipping": "Quasi spedizione gratuita!",
+    "addMoreForFreeShipping": "Aggiungi {amount} CHF in più per la spedizione gratuita",
+    "freeShippingUnlocked": "Spedizione gratuita sbloccata! 🎉",
+    "savingOnShipping": "Stai risparmiando sulle spese di spedizione!",
+    "secureCheckout": "Checkout sicuro",
+    "swissMade": "Swiss Made",
+    "fastShipping": "Spedizione veloce"
+  },
+
+  "riders": {
+    "title": "I Nostri Piloti",
+    "subtitle": "I Nostri Piloti",
+    "followersLabel": "follower",
+    "viewProfile": "Visualizza profilo Instagram",
+    "featuredCta": "Vuoi essere presentato? Scrivici su Instagram o via email!"
+  },
+
+  "legals": {
+    "download": "Scarica PDF"
+  },
+
+  "cookieConsent": {
+    "title": "Impostazioni cookie",
+    "message": "Utilizziamo tecnologie essenziali come i cookie e l'archiviazione locale per garantire la sicurezza del nostro sito web (ad esempio, protezione CSRF). Queste sono necessarie per il funzionamento del sito e non possono essere disabilitate. Ulteriori informazioni nella nostra informativa sulla privacy.",
+    "learnMore": "Scopri di più",
+    "acceptAll": "Accetta tutti i cookie",
+    "acceptOptional": "Accetta solo i cookie opzionali"
+  },
+
+  "history": {
+    "customizations": "Personalizzazioni",
+    "vinyl": "Vinile",
+    "printable": "Stampabile",
+    "pieces": "pezzi",
+    "title": "Cronologia ordini - I miei ordini",
+    "noOrders": "Nessun ordine trovato",
+    "orderNumber": "Ordine n. #{number}",
+    "total": "Totale",
+    "shipping": "Spedizione",
+    "freeShipping": "Spedizione gratuita",
+    "orderItems": "Articoli ordinati",
+    "page": "Pagina",
+    "price": "Prezzo",
+    "errors": {
+      "title": "Errore",
+      "tryAgain": "Riprova",
+      "fetchFailed": "Impossibile recuperare gli ordini",
+      "unauthorized": "Accedi per visualizzare i tuoi ordini",
+      "network": "Errore di rete",
+      "unknown": "Si è verificato un errore sconosciuto",
+      "serverError": "Si è verificato un errore del server",
+      "invalidResponse": "Risposta non valida ricevuta"
+    }
+  },
+
+  "checkout": {
+    "checkoutTitle": "Completa il tuo ordine",
+    "checkoutDescription": "Inserisci il tuo indirizzo di spedizione, rivedi i tuoi articoli e procedi al pagamento.",
+    "title": "Checkout",
+    "shippingAddress": "Indirizzo di spedizione",
+    "firstName": "Nome",
+    "lastName": "Cognome",
+    "email": "E-mail",
+    "phone": "Telefono",
+    "street": "Via",
+    "houseNumber": "Numero civico",
+    "zipCode": "CAP",
+    "city": "Città",
+    "country": "Paese",
+    "additionalAddressInfo": "Informazioni aggiuntive",
+    "processing": "Elaborazione...",
+    "payNow": "Paga ora",
+    "completePayment": "Completa il pagamento",
+    "proceedToPayment": "Procedi al pagamento",
+    "secureCheckout": "Pagamento Sicuro",
+    "swissMade": "Fabbricato in Svizzera",
+    "sslEncrypted": "Crittografia SSL",
+    "lightningFast": "Veloce come un fulmine",
+    "takes2Minutes": "Richiede 2 minuti",
+    "premiumQuality": "Qualità Premium",
+    "reviewItems": "Rivedi i tuoi articoli",
+    "enterAddress": "Inserisci l'indirizzo",
+    "completePaymentStep": "Completa il pagamento",
+    "autoFillAddressHint": "Compila automaticamente il tuo indirizzo per un pagamento più veloce",
+    "takes1Minute": "Richiede 1 minuto",
+    "payment": "Pagamento",
+    "secure": "Sicuro",
+    "enterDiscountCode": "Inserisci il codice sconto",
+    "apply": "Applica",
+    "completeOrder": "Completa ordine",
+    "tryAgain": "Riprova",
+    "calculatingPrice": "Calcolo del prezzo in corso...",
+    "startTypingAddress": "Inizia a digitare il tuo indirizzo...",
+    "enterEmailToLoad": "Inserisci un'email valida per continuare",
+    "emailRequiredForPayment": "Compila il tuo indirizzo email sopra per caricare il modulo di pagamento",
+    "stickersSubtotal": "Subtotale adesivi",
+    "partsSubtotal": "Subtotale parti",
+    "powdercoatServicesSubtotal": "Subtotale servizi verniciatura a polvere",
+    "powdercoatBadge": "Verniciatura a polvere",
+    "codeDiscount": "Codice sconto",
+    "unableToCalculate": "Impossibile calcolare i prezzi",
+    "showAll": "Mostra tutto",
+    "showLess": "Mostra meno",
+    "items": "articoli",
+    "moreItems": "altri articoli",
+
+    "switzerland": "Svizzera",
+    "germany": "Germania",
+    "austria": "Austria",
+    "france": "Francia",
+    "italy": "Italia",
+    "liechtenstein": "Liechtenstein",
+
+    "agbCheckbox": "Accetto i <a>termini e le condizioni</a>",
+    "agbRequired": "Devi accettare i termini e le condizioni",
+
+    "reassurance": {
+      "securePayment": "Il tuo pagamento è sicuro al 100%",
+      "orderEmail": "La conferma dell'ordine sarà inviata alla tua email",
+      "freeShipping": "Spedizione gratuita per ordini superiori a 100 CHF"
+    },
+
+    "orderOverview": "Riepilogo ordine",
+    "pieces": "pezzi",
+    "vinyl": "Vinile",
+    "printable": "Stampabile",
+    "discount": "sconto",
+    "subtotal": "Subtotale",
+    "shipping": "Spedizione",
+    "returnShipping": "Spedizione di ritorno",
+    "returnShippingAndShipping": "Spedizione di ritorno e spedizione",
+    "total": "Totale",
+    "text": "Testo",
+    "text2": "Testo secondario",
+    "free": "Gratuito",
+
+    "validation": {
+      "firstName": "Il nome è obbligatorio",
+      "lastName": "Il cognome è obbligatorio",
+      "email": "Indirizzo e-mail non valido",
+      "phone": "Il numero di telefono è obbligatorio",
+      "street": "La via è obbligatoria",
+      "houseNumber": "Il numero civico è obbligatorio",
+      "zipCode": "CAP valido obbligatorio",
+      "city": "La città è obbligatoria"
+    },
+
+    "errors": {
+      "paymentFailed": "Pagamento fallito",
+      "unexpectedError": "Si è verificato un errore imprevisto",
+      "unknownError": "Errore sconosciuto",
+      "invalidCode": "Codice sconto non valido",
+      "validationFailed": "Validazione fallita",
+      "calculationError": "Errore nel calcolo dei prezzi"
+    },
+
+    "discountHints": {
+      "initialPriceWarning": "Alcuni articoli hanno prezzi iniziali con sconti più alti del tuo codice. Il codice sconto si applica solo agli articoli dove offre un sconto migliore."
+    },
+
+    "paymentLoadError": "Le opzioni di pagamento non hanno potuto essere caricate",
+    "paymentLoadErrorDescription": "Il modulo di pagamento sta impiegando più tempo del previsto.",
+    "commonCause": "Causa comune: Blocco pubblicità",
+    "adblockerMayBlock": "I blocchi pubblicità spesso bloccano l'elaborazione dei pagamenti. Provare:",
+    "disableAdblockerTemp": "Disabilitare temporaneamente il blocco pubblicità",
+    "whitelistSite": "Aggiungere questo sito all'elenco consentiti",
+    "allowStripe": "Consentire stripe.com e r.stripe.com",
+    "retryAttempt": "Tentativo di ripetizione",
+    "retryPaymentLoad": "Riprova a caricare",
+    "refreshPage": "Aggiorna pagina",
+    "persistentIssue": "Se il problema persiste, contatta il supporto",
+    "fullReload": "Ricaricamento completo"
+  },
+
+  "payment-check": {
+    "checkingPayment": "Controllo pagamento",
+    "paymentSucceeded": "Pagamento riuscito",
+    "paymentFailed": "Pagamento fallito",
+    "title": "Pagamento avvenuto con successo",
+    "subtitle": "Grazie per il tuo acquisto. Il pagamento è stato elaborato correttamente.",
+    "returnHome": "Torna alla Home",
+    "orderId": "ID ordine",
+    "paymentIssueTitle": "Problema di pagamento",
+    "paymentIssueSubtitle": "Si è verificato un problema durante l'elaborazione del tuo ordine.",
+    "tryAgain": "Riprova il pagamento",
+    "contactSupport": "Contatta il Supporto",
+    "tip": "Se il problema persiste, contatta il nostro team di supporto o riprova più tardi.",
+    "verifyingPayment": "Attendere prego...",
+    "paymentSuccessful": "Pagamento avvenuto con successo",
+    "thankYou": "Grazie per il tuo acquisto.",
+    "orderProcessing": "Il tuo ordine è stato elaborato e sarà presto spedito.",
+    "continueShopping": "Continua lo shopping",
+    "viewAccount": "Visualizza account",
+    "viewHistory": "Visualizza cronologia ordini",
+    "paymentErrorMessage": "Si è verificato un problema durante l'elaborazione del tuo pagamento.",
+    "backToCheckout": "Torna al checkout",
+    "paymentId": "ID pagamento",
+    "processingPayment": "Elaborazione del pagamento...",
+    "confirmationEmail": "Apprezziamo la tua fiducia! Un'email di conferma sarà inviata a",
+    "questions": "Se hai domande, contattaci.",
+    "paymentNotCompleted": "Il tuo pagamento non è stato completato. Stato:",
+    "checkBackSoon": "Controlla tra qualche istante.",
+    "home": "Home",
+    "discountTitle": "Grazie per il tuo acquisto!",
+    "discountMessage": "Ottieni il 10% di sconto sul tuo prossimo ordine con questo codice:",
+    "discountValidity": "Valido per 30 giorni, utilizzo unico"
+  },
+
+  "sticker": {
+    "errors": {
+      "fetchFailed": "Impossibile recuperare i dettagli dell'adesivo",
+      "notFound": "Adesivo non trovato",
+      "networkError": "Errore di connessione di rete",
+      "serverError": "Si è verificato un errore del server",
+      "generic": "Si è verificato un errore"
+    },
+    "bulkDiscount": "Sconto quantità",
+    "originalPrice": "Prezzo originale",
+    "orderMore": "Ordina",
+    "moreForDiscount": "pezzi in più per uno sconto del 25%",
+    "moreForBiggerDiscount": "pezzi in più per uno sconto del 50%",
+    "offBulkOrder": "di sconto sull'ordine all'ingrosso",
+    "youSave": "Risparmi",
+    "noOptionsForType": "Nessuna opzione disponibile per questo tipo di adesivo.",
+    "customRequest": "Non hai trovato quello che cerchi?",
+    "customRequestText": "Scrivici una email per dimensioni, colori, quantità personalizzate e altro!",
+    "contactEmail": "Contattaci a:",
+    "orSocials": "o contattaci sui social media, link nel footer qui sotto.",
+    "loading": "Caricamento dettagli adesivo...",
+    "customizeOrder": "Personalizza il tuo ordine",
+    "width": "Larghezza",
+    "height": "Altezza",
+    "amount": "Quantità:",
+    "price": "Prezzo al cm²:",
+    "area": "Area:",
+    "pieces": "Pezzi",
+    "total": "Prezzo totale:",
+    "inStock": "Disponibile:",
+    "sold": "Venduto:",
+    "ratio": "Rapporto",
+    "customizeSticker": "Personalizza adesivo",
+    "selectType": "Seleziona il tipo",
+    "printableMethod": "Stampabile",
+    "vinylMethod": "Vinile",
+    "default": "(predefinito)",
+    "perCm2": "per cm²",
+    "customText": "Testo personalizzato",
+    "customText2": "Testo secondario personalizzato",
+    "backgroundColor": "Colore di sfondo",
+    "mainColor": "Colore principale",
+    "secondaryColor": "Colore secondario",
+    "tertiaryColor": "Colore terziario",
+    "outOfStock": "Non disponibile",
+    "addToCart": "Aggiungi al carrello",
+    "addedToCart": "Adesivo aggiunto al carrello!",
+    "transparent": "Sfondo trasparente",
+    "pleaseSelect": "Seleziona",
+    "notExactColorInfo": "I colori possono differire leggermente dalla visualizzazione",
+    "types": "Tipi di adesivi",
+    "printable": "Adesivi stampabili",
+    "vinyl": "Adesivi in vinile",
+    "productionMethod": "Metodo di produzione",
+    "bestFor": "Ideale per",
+    "close": "Chiudi",
+    "durability": "Resistenza",
+    "costFactor": "Fattore di costo",
+    "printableMethodDescription": "Processo di stampa digitale che stampa tutti i colori contemporaneamente",
+    "printableMethodDescription2": "Foto e immagini complesse",
+    "printableMethodDescription3": "Sfumature e mescolanze di colore",
+    "printableMethodDescription4": "Testo piccolo e dettagli fini",
+    "printableMethodDescription5": "Grandi quantità di design dettagliati",
+    "printableMethodDescription6": "Fino a 5 anni all'aperto con rivestimento protettivo",
+    "printableMethodDescription7": "Prezzo basato sulle dimensioni, non sulla complessità dei colori",
+    "vinylMethodDescription": "Tagliati da fogli di vinile colorati - ogni colore è un livello separato",
+    "vinylMethodDescription2": "Loghi e testo",
+    "vinylMethodDescription3": "Colori pieni e design semplici",
+    "vinylMethodDescription4": "Utilizzo a lungo termine all'aperto",
+    "vinylMethodDescription5": "Nessun colore sfumato o mescolanze di colori",
+    "vinylMethodDescription6": "Fino a 7 anni all'aperto, resistente ai raggi UV e agli agenti atmosferici",
+    "vinylMethodDescription7": "Prezzo più alto a causa della complessità dei colori e del lavoro richiesto",
+    "bulkOrderDiscount": "Ordina {count} in più per raggiungere {tier} pezzi e ottenere lo sconto massimo!",
+    "oneMoreForDiscount": "Ordina 1 in più per uno sconto del {discount}%!",
+    "itemsAwayFromDiscount": "Ordina {count} in più per uno sconto del {discount}%!",
+    "addMoreToSave": "Aggiungi altri per risparmiare! Raggiungi {tier} pezzi per uno sconto del {discount}%",
+    "bulkOrderBenefits": "Gli ordini grandi ottengono lo sconto massimo del 25%!",
+    "addToReachTier": "Aggiungi per raggiungere questo livello",
+    "pricePerCM2": "Prezzo al cm²",
+    "pricePerCM": "Prezzo al cm²:",
+    "pricePerSticker": "Prezzo per adesivo",
+    "fixedPrice": "Prezzo fisso:",
+    "additionalPrice": "Prezzo base",
+    "customOptions": "Opzioni personalizzate",
+    "indoorOutdoor": "✅Adatto per uso esterno ed interno"
+  },
+
+  "notFound": {
+    "title": "Ops! Pagina non trovata",
+    "description": "La pagina che stai cercando non esiste o è stata spostata.",
+    "backToHome": "Torna alla Home"
+  },
+
+  "ShipCostInfo": {
+    "freeShippingMessage": "Spedizione gratuita per ordini a {amount}!"
+  },
+
+  "whatsappPopup": {
+    "title": "Unisciti alla nostra comunità WhatsApp!",
+    "description": "Unisciti alla nostra comunità WhatsApp per non perdere mai sconti e annunci!",
+    "joinButton": "Unisciti alla comunità",
+    "laterButton": "Forse più tardi",
+    "close": "Chiudi",
+    "imageAlt": "Comunità WhatsApp"
+  },
+
+  "story": {
+    "title": "La Nostra Storia",
+    "subtitle": "Come tutto è iniziato",
+    "heroTitle": "È iniziato con un sogno",
+    "heroSubtitle": "Costruire prodotti economici e belli in Svizzera",
+
+    "introTitle": "L'Inizio",
+    "introText": "RevSticks è nato da una semplice visione: creare prodotti supermoto di alta qualità e convenienti che sono progettati in Svizzera e fatti da piloti per piloti.",
+
+    "dreamTitle": "Il Sogno",
+    "dreamText": "Tutto è iniziato con un sogno - la visione di costruire prodotti convenienti ma belli proprio qui in Svizzera. Credevamo che la qualità non debba essere costosa e che la vera innovazione venga dalla passione.",
+
+    "passionTitle": "La Passione Incontra l'Innovazione",
+    "passionText": "Come piloti supermoto appassionati noi stessi, comprendevamo le esigenze della community di prima mano. Sapevamo quali prodotti mancavano e come potevamo migliorarli.",
+
+    "swissQualityTitle": "Qualità Svizzera",
+    "swissQualityText": "Made in Switzerland significa precisione, qualità e affidabilità. Questi valori sono vissuti in ogni prodotto che sviluppiamo.",
+
+    "communityTitle": "Community Prima di Tutto",
+    "communityText": "La nostra community è al centro di tutto quello che facciamo. I loro feedback, idee e passione ci spingono a migliorare sempre.",
+
+    "futureTitle": "Il Futuro",
+    "futureText": "Quello che è iniziato come un sogno è diventato realtà oggi. Ma questo è solo l'inizio. Continuiamo a lavorare per sviluppare i migliori prodotti per la community supermoto.",
+
+    "ctaTitle": "Diventa parte della nostra storia",
+    "ctaText": "Scopri i nostri prodotti e diventa parte della famiglia RevSticks.",
+    "exploreProducts": "Esplora i Prodotti"
+  },
+
+  "powdercoatColors": {
+    "title": "Colori Verniciatura a Polvere",
+    "description": "Scopri la nostra gamma di colori di verniciatura a polvere di alta qualità per i tuoi pezzi supermoto. Scegli tra finiture vibranti che offrono sia protezione che stile.",
+    "selectedColor": "Colore Selezionato",
+    "confirmSelection": "Conferma la tua selezione di colore per continuare.",
+    "cancel": "Annulla",
+    "confirm": "Conferma Selezione",
+    "loading": "Elaborazione...",
+    "infoTitle": "Finiture di Qualità Professionale",
+    "infoDescription": "Tutti i nostri colori di verniciatura a polvere presentano proprietà resistenti ai raggi UV e preparazione con sabbiatura per la migliore adesione e durata. Ogni finitura è applicata professionalmente per garantire un risultato liscio e duraturo che proteggerà e migliorerà i tuoi pezzi supermoto.",
+    "selectColorButton": "Seleziona Colore",
+    "breadcrumb": {
+      "home": "Home",
+      "powdercoatColors": "Colori Verniciatura a Polvere"
+    },
+    "colors": {
+      "blue": {
+        "name": "Blu"
+      },
+      "red": {
+        "name": "Rosso"
+      },
+      "orange": {
+        "name": "Arancione"
+      },
+      "purple": {
+        "name": "Viola"
+      },
+      "black": {
+        "name": "Nero"
+      },
+      "white": {
+        "name": "Bianco"
+      }
+    }
+  },
+
+  "powdercoat": {
+    "comingSoon": "Arrivo presto!",
+    "title": "Servizi di Verniciatura a Polvere",
+    "description": "Servizi professionali di verniciatura a polvere per parti supermoto",
+    "subtitle": "Verniciatura professionale a polvere per i tuoi pezzi supermoto",
+    "blackWeekBanner": {
+      "title": "Saldi Black Week!",
+      "description": "Ottieni il 20% di sconto su tutti i servizi di verniciatura a polvere fino al 1° dicembre",
+      "codeLabel": "Usa il codice",
+      "code": "POWDER20",
+      "atCheckout": "al checkout",
+      "limitedTime": "Offerta a tempo limitato"
+    },
+    "loading": "Caricamento servizi...",
+    "loadingServices": "Ottenimento delle ultime informazioni sui servizi...",
+    "loadingService": "Caricamento dettagli del servizio...",
+    "gettingDetails": "Recupero informazioni del servizio...",
+    "noServices": "Nessun servizio disponibile",
+    "noServicesDesc": "Attualmente non abbiamo servizi di verniciatura a polvere disponibili. Si prega di controllare più tardi.",
+    "exploreServices": "Esplora i Servizi",
+    "ourServices": "I Nostri Servizi",
+    "ourServicesDesc": "Servizi professionali di verniciatura a polvere per dare ai tuoi pezzi la finitura perfetta",
+    "viewDetails": "Vedi Dettagli",
+    "professional": "Professionale",
+    "available": "Disponibile",
+    "whyChooseUs": "Perché scegliere i nostri servizi?",
+    "whyChooseUsDesc": "Verniciatura a polvere di qualità professionale con attenzione ai dettagli",
+    "durableFinish": "Finitura Durevole",
+    "durableFinishDesc": "Rivestimento durevole e resistente ai graffi che protegge i tuoi pezzi",
+    "professionalQuality": "Qualità Professionale",
+    "professionalQualityDesc": "Tecniche di applicazione esperte per risultati coerenti e di alta qualità",
+    "fastTurnaround": "Elaborazione dopo il ricevimento entro 1-3 giorni lavorativi",
+    "fastTurnaroundDesc": "Servizio rapido per riavere i tuoi pezzi il prima possibile",
+    "readyToCoat": "Pronto a trasformare i tuoi pezzi?",
+    "readyToCoatDesc": "Ottieni servizi professionali di verniciatura a polvere che faranno risaltare la tua supermoto dalla folla.",
+    "getStarted": "Inizia",
+    "browseTip": "Clicca su qualsiasi servizio per vedere informazioni dettagliate e richiedere un preventivo.",
+    "serviceFeatures": "Caratteristiche del Servizio",
+    "getQuote": "Ottieni un Preventivo",
+    "getQuoteDesc": "Contattaci per discutere del tuo progetto e ottenere un preventivo personalizzato per le tue esigenze di verniciatura a polvere.",
+    "requestQuote": "Richiedi Preventivo",
+    "backToServices": "Torna ai Servizi",
+    "home": "Home",
+    "noImage": "Nessuna immagine disponibile",
+    "whyChooseOurService": "Perché scegliere il nostro servizio?",
+    "expertCraftsmanship": "Artigianato Esperto",
+    "expertCraftsmanshipDesc": "Anni di esperienza nelle tecniche professionali di verniciatura a polvere",
+    "guaranteedResults": "Risultati Garantiti",
+    "guaranteedResultsDesc": "Sosteniamo il nostro lavoro con garanzie di qualità",
+    "quickService": "Servizio Veloce",
+    "quickServiceDesc": "Elaborazione rapida senza compromettere la qualità",
+    "errors": {
+      "title": "Errore nel Caricamento del Servizio",
+      "serviceNotFound": "Servizio non trovato",
+      "fetchFailed": "Impossibile recuperare i dettagli del servizio",
+      "network": "Errore di rete. Controlla la tua connessione.",
+      "serverError": "Errore del server. Riprova più tardi.",
+      "unknown": "Si è verificato un errore imprevisto.",
+      "notFound": "Il servizio richiesto non è stato trovato.",
+      "tryAgain": "Riprova"
+    },
+    "howItWorks": "Come funziona",
+    "step1": "Aggiungi l'articolo desiderato e il colore preferito al carrello",
+    "step2": "Per il colore preferito, ti preghiamo di contattarci prima su Instagram, via email o WhatsApp.",
+    "step3": "Ordina e paga",
+    "step4Part1": "Confeziona i pezzi e inviaceli (Puoi trovare l'indirizzo di spedizione",
+    "step4Part2": ")",
+    "step5": "Dopo aver ricevuto i tuoi pezzi processeremo tutto e te li rispediremo.",
+    "here": "qui",
+    "addToCartTitle": "Aggiungi al Carrello",
+    "quantity": "Quantità",
+    "colorSelection": "Selezione Colore",
+    "loadingColors": "Caricamento colori...",
+    "noColorsAvailable": "Nessun colore disponibile al momento",
+    "customColorName": "Nome colore personalizzato",
+    "selectColor": "Si prega di selezionare un colore",
+    "colorRequired": "La selezione del colore è obbligatoria",
+    "selected": "Selezionato",
+    "total": "Totale",
+    "adding": "Aggiungendo...",
+    "addedToCart": "Aggiunto al carrello!",
+    "addToCart": "Aggiungi al Carrello",
+    "viewAllColors": "Visualizza Tutti i Colori Disponibili",
+    "customColorTipTitle": "Vuoi un colore diverso?",
+    "customColorTipMessage": "Inviaci un messaggio su WhatsApp o Instagram se hai bisogno di qualsiasi altro colore non elencato sopra. Possiamo discutere opzioni di colori personalizzati per il tuo progetto.",
+    "uvResistant": "Resistente ai UV",
+    "sandBlastingInclusive": "Sabbiatura inclusa",
+    "colors": {
+      "black": "Nero",
+      "white": "Bianco",
+      "red": "Rosso",
+      "blue": "Blu",
+      "green": "Verde",
+      "yellow": "Giallo",
+      "purple": "Viola",
+      "orange": "Arancione",
+      "pink": "Rosa",
+      "brown": "Marrone",
+      "gray": "Grigio",
+      "cyan": "Ciano",
+      "magenta": "Magenta",
+      "lime": "Lime",
+      "teal": "Verde Acqua",
+      "indigo": "Indaco",
+      "violet": "Violetto",
+      "maroon": "Granata",
+      "navy": "Blu Navy",
+      "olive": "Verde Oliva",
+      "silver": "Argento",
+      "gold": "Oro",
+      "black matt": "Nero Opaco",
+      "black gloss": "Nero Lucido",
+      "black satin": "Nero Satinato",
+      "black metallic": "Nero Metallizzato",
+      "anthracite": "Antracite",
+      "charcoal": "Carbone",
+      "jet black": "Nero Profondo",
+      "white matt": "Bianco Opaco",
+      "white gloss": "Bianco Lucido",
+      "white satin": "Bianco Satinato",
+      "cream white": "Bianco Crema",
+      "pearl white": "Bianco Perla",
+      "off white": "Bianco Sporco",
+      "snow white": "Bianco Neve",
+      "red matt": "Rosso Opaco",
+      "red gloss": "Rosso Lucido",
+      "crimson": "Cremisi",
+      "scarlet": "Scarlatto",
+      "burgundy": "Borgogna",
+      "cherry red": "Rosso Ciliegia",
+      "fire red": "Rosso Fuoco",
+      "blue matt": "Blu Opaco",
+      "blue gloss": "Blu Lucido",
+      "royal blue": "Blu Reale",
+      "sky blue": "Azzurro Cielo",
+      "midnight blue": "Blu Mezzanotte",
+      "steel blue": "Blu Acciaio",
+      "cobalt blue": "Blu Cobalto",
+      "green matt": "Verde Opaco",
+      "green gloss": "Verde Lucido",
+      "forest green": "Verde Foresta",
+      "emerald": "Smeraldo",
+      "sage green": "Verde Salvia",
+      "mint green": "Verde Menta",
+      "olive green": "Verde Oliva",
+      "orange matt": "Arancione Opaco",
+      "orange gloss": "Arancione Lucido",
+      "tangerine": "Mandarino",
+      "pumpkin": "Zucca",
+      "coral": "Corallo",
+      "amber": "Ambra",
+      "peach": "Pesca",
+      "purple matt": "Viola Opaco",
+      "purple gloss": "Viola Lucido",
+      "lavender": "Lavanda",
+      "plum": "Prugna",
+      "mauve": "Malva",
+      "amethyst": "Ametista",
+      "chrome": "Cromo",
+      "brushed aluminum": "Alluminio Spazzolato",
+      "copper": "Rame",
+      "bronze": "Bronzo",
+      "titanium": "Titanio",
+      "gunmetal": "Metallo Scuro",
+      "champagne": "Champagne",
+      "textured black": "Nero Strutturato",
+      "textured white": "Bianco Strutturato",
+      "hammer tone": "Effetto Martellato",
+      "wrinkle finish": "Finitura Rugosa",
+      "sand texture": "Texture Sabbia"
+    }
+  },
+  "powdercoatInformation": {
+    "title": "Informazioni Verniciatura a Polvere - RevSticks",
+    "description": "Informazioni di spedizione e dettagli di contatto per i nostri servizi di verniciatura a polvere. Invia le tue parti in Svizzera per una finitura professionale.",
+    "heroTitle": "Informazioni Verniciatura a Polvere",
+    "heroSubtitle": "Tutto quello che devi sapere sull'invio delle tue parti per la verniciatura a polvere professionale",
+    "shippingTitle": "Indirizzo di Spedizione",
+    "shippingDescription": "Si prega di inviare le parti al seguente indirizzo in Svizzera.",
+    "addressTitle": "Invia le tue parti a:",
+    "customOrderTitle": "Colori Personalizzati & Richieste Speciali",
+    "customOrderDescription": "Cerchi colori personalizzati o parti che non sono disponibili nel nostro negozio? Siamo qui per aiutarti! Contattaci attraverso uno dei canali qui sotto per discutere le tue esigenze specifiche e ottenere un preventivo personalizzato.",
+    "preparationTitle": "Istruzioni di Preparazione Importanti",
+    "plasticRemovalTitle": "Rimuovi le Parti in Plastica",
+    "plasticRemovalDescription": "Rimuovi tutte le parti in plastica, le guarnizioni in gomma e i componenti non metallici prima della spedizione. Le alte temperature durante la verniciatura a polvere possono danneggiare o distruggere questi materiali.",
+    "separationTitle": "Separa le Parti",
+    "separationDescription": "Smonta e separa tutte le singole parti l'una dall'altra. Ogni parte deve essere lavorata separatamente per garantire un rivestimento uniforme e di alta qualità.",
+    "importantNoteTitle": "Nota Importante",
+    "importantNoteDescription": "Una preparazione adeguata è fondamentale per la qualità della verniciatura a polvere. Parti preparate impropriamente possono causare ritardi o costi aggiuntivi.",
+    "contactTitle": "Mettiti in Contatto",
+    "instagramDescription": "Seguici e invia messaggi diretti",
+    "emailDescription": "Inviaci richieste dettagliate",
+    "whatsappDescription": "Domande rapide e supporto istantaneo",
+    "ctaTitle": "Pronto a Iniziare il Tuo Progetto?",
+    "ctaDescription": "Sfoglia i nostri servizi di verniciatura a polvere disponibili e inizia oggi il tuo progetto di finitura personalizzata.",
+    "ctaButton": "Visualizza Servizi di Verniciatura a Polvere"
+  },
+
+  "blog": {
+    "title": "Blog RevSticks",
+    "description": "Leggi le ultime notizie, consigli e istruzioni dalla squadra RevSticks",
+    "subtitle": "Storie, consigli e approfondimenti dalla nostra comunità",
+    "recentPosts": "Post Recenti",
+    "welcome": "Benvenuto",
+    "loadingPosts": "Caricamento articoli del blog...",
+    "welcomeTitle": "Benvenuto nel Blog RevSticks!",
+    "gallery": "Galleria",
+    "relatedLinks": "Link Correlati",
+    "sharePost": "Condividi questo post",
+    "noPostsFound": "Nessun articolo del blog trovato",
+    "author": "Autore",
+    "date": "Data",
+    "linkCopied": "Link copiato negli appunti!",
+    "read": "visualizzazione",
+    "reads": "visualizzazioni",
+
+    "management": {
+      "title": "Gestione Blog",
+      "newPost": "Nuovo Post",
+      "cancel": "Annulla",
+      "createPost": "Crea Nuovo Articolo del Blog",
+      "editPost": "Modifica Articolo del Blog",
+      "save": "Salva Articolo",
+      "delete": "Elimina",
+      "edit": "Modifica",
+      "activate": "Attiva",
+      "deactivate": "Disattiva",
+      "confirmDelete": "Sei sicuro di voler eliminare questo articolo del blog?",
+      "uploadFailed": "Caricamento immagini non riuscito",
+      "saveFailed": "Salvataggio articolo del blog non riuscito",
+      "deleteFailed": "Eliminazione articolo del blog non riuscita",
+      "statusUpdateFailed": "Aggiornamento stato articolo del blog non riuscito",
+      "uploading": "Caricamento...",
+      "noPostsYet": "Nessun articolo del blog ancora. Crea il primo!",
+
+      "form": {
+        "author": "Autore",
+        "authorRequired": "Autore *",
+        "writingDate": "Data di Scrittura",
+        "writingDateRequired": "Data di Scrittura *",
+        "active": "Attivo",
+        "publishImmediately": "Pubblica immediatamente",
+        "translations": "Traduzioni",
+        "language": "Lingua",
+        "title": "Titolo",
+        "titleRequired": "Titolo *",
+        "content": "Contenuto (HTML)",
+        "contentRequired": "Contenuto (HTML) *",
+        "contentPlaceholder": "Inserisci qui il contenuto HTML...",
+        "contentHint": "Puoi utilizzare tag HTML per la formattazione. Visualizza l'anteprima del risultato sulla pagina pubblica del blog.",
+        "addTranslation": "Aggiungi Traduzione",
+        "removeTranslation": "Rimuovi Traduzione",
+        "images": "Immagini",
+        "uploadImages": "Carica Immagini",
+        "uploadImagesHint": "Carica più immagini contemporaneamente. La prima immagine sarà utilizzata come immagine di copertina.",
+        "orAddManually": "Oppure aggiungi manualmente l'URL dell'immagine:",
+        "imageUrl": "URL Immagine",
+        "imageAltText": "Testo Alternativo (opzionale)",
+        "addImage": "Aggiungi Immagine",
+        "removeImage": "Rimuovi Immagine",
+        "links": "Link Correlati",
+        "linkUrl": "URL Link",
+        "linkTitle": "Titolo Link",
+        "addLink": "Aggiungi Link",
+        "removeLink": "Rimuovi Link"
+      }
+    }
+  },
+
+  "contact": {
+    "title": "Contattaci",
+    "description": "Mettiti in contatto con noi attraverso uno di questi canali. Siamo qui per aiutarti!",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "chat": "Chatta con noi su WhatsApp",
+    "instagram": "Instagram"
+  },
+
+  "Manuals": {
+    "title": "Manuali & Guide",
+    "description": "Scarica manuali, guide e tutorial utili per ottenere il massimo dai nostri prodotti e servizi.",
+    "searchPlaceholder": "Cerca manuali...",
+    "download": "Scarica",
+    "view": "Visualizza",
+    "noResults": "Nessun manuale trovato corrispondente alla tua ricerca."
+  },
+  "ManualViewer": {
+    "notFound": "Manuale non trovato",
+    "backToManuals": "Torna ai manuali",
+    "download": "Scarica",
+    "previewNotAvailable": "Anteprima non disponibile per questo tipo di file. Si prega di scaricare il file per visualizzarlo."
+  }
+}

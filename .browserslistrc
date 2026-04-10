@@ -1,0 +1,14 @@
+# Production: modern evergreen browsers only
+[production]
+supports es6-module
+last 2 Chrome versions
+last 2 Firefox versions
+last 2 Safari versions
+not dead
+not ie <= 11
+
+# Development: fastest rebuilds
+[development]
+last 1 chrome version
+last 1 firefox version
+last 1 safari version

@@ -1,0 +1,173 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - "main"
+  release:
+    types: [published]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Combined lint and build job - faster as we only install deps once
+  build-and-lint:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: 'npm'
+
+      - name: Cache Next.js build
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+
+      # Install once for both lint and build
+      - name: Install dependencies
+        run: npm ci
+
+      # Run lint and build in parallel using background jobs
+      - name: Lint
+        run: npm run lint &
+
+      - name: Set version
+        id: version
+        run: echo "version=${{ github.event_name == 'release' && github.ref_name || github.sha }}" >> $GITHUB_OUTPUT
+
+      - name: Build
+        env:
+          APP_VERSION: "${{ github.event_name == 'release' && github.ref_name || github.sha }}"
+        run: npm run build
+
+      # Wait for lint to complete
+      - name: Wait for lint
+        run: wait
+
+      # Remove cache before uploading to save space
+      - name: Remove build cache
+        run: rm -rf .next/cache
+
+      # Use GitHub artifacts instead of rsync - faster and more reliable
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: ${{ github.workspace }}/.next
+          name: nextjs-build-${{ github.sha }}
+          if-no-files-found: error
+          include-hidden-files: true
+          retention-days: 5
+          compression-level: 6
+
+  docker:
+    needs: [build-and-lint]
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: 'npm'
+
+      # Cache production dependencies
+      - name: Cache prod node_modules
+        id: cache-prod-deps
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-prod-deps-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install prod packages
+        if: steps.cache-prod-deps.outputs.cache-hit != 'true'
+        run: npm ci --omit=dev
+
+      # Download build artifact
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: nextjs-build-${{ github.sha }}
+          path: .next
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to Docker registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ vars.DOCKER_REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create image metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ vars.DOCKER_REGISTRY }}/${{ vars.DOCKER_NAMESPACE }}/${{ vars.DOCKER_IMAGE_NAME }}
+          tags: |
+            type=raw,value=dev,enable=${{ github.ref_name == 'main' }}
+            type=raw,value=latest,enable=${{ github.event_name == 'release' }}
+            type=raw,value=${{ github.ref_name }},enable=${{ github.event_name == 'release' }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: linux/amd64,linux/arm64
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          annotations: ${{ steps.meta.outputs.annotations }}
+          push: ${{ github.ref_name == 'main' || github.event_name == 'release' }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          build-args: |
+            APP_VERSION=${{ needs.build-and-lint.outputs.version }}
+
+  # Run cleanup as separate job to not block deployment
+  cleanup:
+    needs: [docker]
+    runs-on: ubuntu-latest
+    if: always()
+    
+    permissions:
+      packages: write
+      actions: write
+
+    steps:
+      - name: Cleanup older images
+        uses: actions/delete-package-versions@v5
+        continue-on-error: true
+        with:
+          package-name: sticker-frontend
+          package-type: container
+          min-versions-to-keep: 10
+          delete-only-pre-release-versions: "true"
+
+      - name: Cleanup old artifacts
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          THRESHOLD_DATE=$(date -d '7 days ago' --utc +%Y-%m-%dT%H:%M:%SZ)
+          gh api repos/${{ github.repository }}/actions/artifacts --paginate | \
+            jq -r --arg THRESHOLD "$THRESHOLD_DATE" '.artifacts[] | select(.created_at < $THRESHOLD) | .id' | \
+            while read id; do
+              echo "Deleting artifact ID: $id"
+              gh api --method DELETE repos/${{ github.repository }}/actions/artifacts/$id || true
+            done
