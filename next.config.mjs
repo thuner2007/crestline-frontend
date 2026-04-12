@@ -1,9 +1,8 @@
-import { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n.ts");
 
-const nextConfig: NextConfig = {
+const nextConfig = {
   // Expose version to client
   env: {
     NEXT_PUBLIC_APP_VERSION: process.env.APP_VERSION || "dev",

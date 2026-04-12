@@ -15,7 +15,7 @@ COPY --chown=appuser:appgroup ./.next /app/.next
 COPY --chown=appuser:appgroup ./node_modules /app/node_modules
 COPY --chown=appuser:appgroup ./public /app/public
 COPY --chown=appuser:appgroup ./entrypoint.sh /app/entrypoint.sh
-COPY --chown=appuser:appgroup ./next.config.ts /app/next.config.ts
+COPY --chown=appuser:appgroup ./next.config.mjs /app/next.config.mjs
 COPY --chown=appuser:appgroup ./package.json /app/package.json
 
 # Set environment variables
