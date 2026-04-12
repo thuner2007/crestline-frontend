@@ -1,7 +1,7 @@
 'use client';
 import { useTranslations } from 'next-intl';
 
-const pdfUrl = '/Impressum_RevSticks.pdf';
+const pdfUrl = '/Impressum_Crestline.pdf';
 
 export default function ImprintPage() {
   const t = useTranslations('legals');
@@ -19,7 +19,7 @@ export default function ImprintPage() {
       <div className='h-20 flex items-center justify-center mt-4'>
         <a
           href={pdfUrl}
-          download='Impressum_RevSticks.pdf'
+          download='Impressum_Crestline.pdf'
           className='btn btn-primary px-6 py-2'
         >
           {t('download')}

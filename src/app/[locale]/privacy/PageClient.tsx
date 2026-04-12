@@ -1,7 +1,7 @@
 "use client";
 import { useTranslations } from "next-intl";
 
-const pdfUrl = "/Datenschutzerklärung_RevSticks.pdf";
+const pdfUrl = "/Datenschutzerklärung_Crestline.pdf";
 
 export default function PrivacyPage() {
   const t = useTranslations("legals");
@@ -19,7 +19,7 @@ export default function PrivacyPage() {
       <div className="h-20 flex items-center justify-center mt-4">
         <a
           href={pdfUrl}
-          download="Datenschutzerklärung_RevSticks.pdf"
+          download="Datenschutzerklärung_Crestline.pdf"
           className="btn btn-primary px-6 py-2"
         >
           {t("download")}

@@ -647,9 +647,9 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
       )}
 
       {success && (
-        <div className="mb-4 rounded-lg bg-purple-100 p-4 flex items-center gap-3">
-          <AlertCircle className="text-purple-600" />
-          <p className="text-purple-800">{success}</p>
+        <div className="mb-4 rounded-lg bg-amber-500/10 p-4 flex items-center gap-3">
+          <AlertCircle className="text-amber-400" />
+          <p className="text-amber-300">{success}</p>
         </div>
       )}
 
@@ -666,12 +666,12 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
             <div
               key={step}
               className={`flex flex-col items-center ${
-                index <= currentStep ? "text-purple-700" : "text-gray-400"
+                index <= currentStep ? "text-amber-400" : "text-zinc-500"
               }`}
             >
               <div
                 className={`w-8 h-8 rounded-full ${
-                  index <= currentStep ? "bg-purple-700" : "bg-gray-200"
+                  index <= currentStep ? "bg-amber-600" : "bg-zinc-700"
                 } flex items-center justify-center text-white mb-1`}
               >
                 {index + 1}
@@ -692,12 +692,12 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
 
           <Tab.Panels className="mt-4">
             {/* Basic Information Panel */}
-            <Tab.Panel className="rounded-xl bg-white p-6 border border-gray-200">
+            <Tab.Panel className="rounded-xl bg-zinc-900 p-6 border border-zinc-700">
               <h3 className="text-lg font-medium mb-4">Basic Information</h3>
 
               {/* Pricing Mode Switch */}
-              <div className="mb-6 p-4 bg-gray-50 rounded-lg">
-                <label className="block text-sm font-medium text-gray-700 mb-3">
+              <div className="mb-6 p-4 bg-zinc-800 rounded-lg">
+                <label className="block text-sm font-medium text-zinc-300 mb-3">
                   Pricing Mode
                 </label>
                 <div className="flex space-x-4">
@@ -709,11 +709,11 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                       value="perCm2"
                       checked={pricingMode === "perCm2"}
                       onChange={() => setPricingMode("perCm2")}
-                      className="h-4 w-4 border-gray-300 text-purple-700 focus:ring-purple-600"
+                      className="h-4 w-4 border-zinc-700 text-amber-400 focus:ring-purple-600"
                     />
                     <label
                       htmlFor="pricingModePerCm2"
-                      className="ml-2 text-sm text-gray-700"
+                      className="ml-2 text-sm text-zinc-300"
                     >
                       Price per cm²
                     </label>
@@ -727,17 +727,17 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                       value="fixed"
                       checked={pricingMode === "fixed"}
                       onChange={() => setPricingMode("fixed")}
-                      className="h-4 w-4 border-gray-300 text-purple-700 focus:ring-purple-600"
+                      className="h-4 w-4 border-zinc-700 text-amber-400 focus:ring-purple-600"
                     />
                     <label
                       htmlFor="pricingModeFixed"
-                      className="ml-2 text-sm text-gray-700"
+                      className="ml-2 text-sm text-zinc-300"
                     >
                       Fixed price
                     </label>
                   </div>
                 </div>
-                <p className="mt-1 text-xs text-gray-500">
+                <p className="mt-1 text-xs text-zinc-400">
                   Choose between dynamic pricing per cm² or a fixed price for
                   the sticker
                 </p>
@@ -750,7 +750,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                     <div>
                       <label
                         htmlFor="pricePerCm2Printable"
-                        className="block text-sm font-medium text-gray-700 mb-1"
+                        className="block text-sm font-medium text-zinc-300 mb-1"
                       >
                         Price per cm² (Printable)
                       </label>
@@ -762,7 +762,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                         className={`w-full rounded-md border ${
                           errors.pricePerCm2Printable
                             ? "border-red-300"
-                            : "border-gray-300"
+                            : "border-zinc-700"
                         } px-3 py-2`}
                         {...register("pricePerCm2Printable", {
                           required:
@@ -783,7 +783,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                     <div>
                       <label
                         htmlFor="pricePerCm2Vinyl"
-                        className="block text-sm font-medium text-gray-700 mb-1"
+                        className="block text-sm font-medium text-zinc-300 mb-1"
                       >
                         Price per cm² (Vinyl)
                       </label>
@@ -795,7 +795,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                         className={`w-full rounded-md border ${
                           errors.pricePerCm2Vinyl
                             ? "border-red-300"
-                            : "border-gray-300"
+                            : "border-zinc-700"
                         } px-3 py-2`}
                         {...register("pricePerCm2Vinyl", {
                           required:
@@ -818,7 +818,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                     <div>
                       <label
                         htmlFor="generalPrice"
-                        className="block text-sm font-medium text-gray-700 mb-1"
+                        className="block text-sm font-medium text-zinc-300 mb-1"
                       >
                         Fixed Price
                       </label>
@@ -830,7 +830,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                         className={`w-full rounded-md border ${
                           errors.generalPrice
                             ? "border-red-300"
-                            : "border-gray-300"
+                            : "border-zinc-700"
                         } px-3 py-2`}
                         {...register("generalPrice", {
                           required:
@@ -845,7 +845,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                           {errors.generalPrice.message}
                         </p>
                       )}
-                      <p className="mt-1 text-xs text-gray-500">
+                      <p className="mt-1 text-xs text-zinc-400">
                         Set a fixed price regardless of sticker size
                       </p>
                     </div>
@@ -856,7 +856,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                 <div>
                   <label
                     htmlFor="quantity"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-zinc-300 mb-1"
                   >
                     Quantity in Stock
                   </label>
@@ -864,7 +864,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                     id="quantity"
                     type="number"
                     className={`w-full rounded-md border ${
-                      errors.quantity ? "border-red-300" : "border-gray-300"
+                      errors.quantity ? "border-red-300" : "border-zinc-700"
                     } px-3 py-2`}
                     {...register("quantity", {
                       required: "This field is required",
@@ -882,7 +882,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                 <div>
                   <label
                     htmlFor="sortingRank"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-zinc-300 mb-1"
                   >
                     Sorting Rank
                   </label>
@@ -890,13 +890,13 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                     id="sortingRank"
                     type="number"
                     className={`w-full rounded-md border ${
-                      errors.sortingRank ? "border-red-300" : "border-gray-300"
+                      errors.sortingRank ? "border-red-300" : "border-zinc-700"
                     } px-3 py-2`}
                     {...register("sortingRank", {
                       required: "This field is required",
                     })}
                   />
-                  <p className="mt-1 text-xs text-gray-500">
+                  <p className="mt-1 text-xs text-zinc-400">
                     Higher numbers appear first in the listing
                   </p>
                 </div>
@@ -905,7 +905,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                 <div>
                   <label
                     htmlFor="widthToHeightRatio"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-zinc-300 mb-1"
                   >
                     Width to Height Ratio
                   </label>
@@ -917,13 +917,13 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                     className={`w-full rounded-md border ${
                       errors.widthToHeightRatio
                         ? "border-red-300"
-                        : "border-gray-300"
+                        : "border-zinc-700"
                     } px-3 py-2`}
                     {...register("widthToHeightRatio", {
                       min: { value: 0.1, message: "Ratio must be positive" },
                     })}
                   />
-                  <p className="mt-1 text-xs text-gray-500">
+                  <p className="mt-1 text-xs text-zinc-400">
                     E.g., 1.5 means the width is 1.5 times the height
                   </p>
                 </div>
@@ -934,12 +934,12 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                     <input
                       id="printable"
                       type="checkbox"
-                      className="h-4 w-4 rounded border-gray-300 text-purple-700 focus:ring-purple-600"
+                      className="h-4 w-4 rounded border-zinc-700 text-amber-400 focus:ring-purple-600"
                       {...register("printable")}
                     />
                     <label
                       htmlFor="printable"
-                      className="ml-2 text-sm text-gray-700"
+                      className="ml-2 text-sm text-zinc-300"
                     >
                       Printable
                     </label>
@@ -949,12 +949,12 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                     <input
                       id="vinyl"
                       type="checkbox"
-                      className="h-4 w-4 rounded border-gray-300 text-purple-700 focus:ring-purple-600"
+                      className="h-4 w-4 rounded border-zinc-700 text-amber-400 focus:ring-purple-600"
                       {...register("vinyl")}
                     />
                     <label
                       htmlFor="vinyl"
-                      className="ml-2 text-sm text-gray-700"
+                      className="ml-2 text-sm text-zinc-300"
                     >
                       Vinyl
                     </label>
@@ -963,7 +963,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
 
                 {/* Standard Method */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-zinc-300 mb-1">
                     Standard Method
                   </label>
                   <div className="flex space-x-4">
@@ -972,12 +972,12 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                         id="standardMethodPrintable"
                         type="radio"
                         value="printable"
-                        className="h-4 w-4 border-gray-300 text-purple-700 focus:ring-purple-600"
+                        className="h-4 w-4 border-zinc-700 text-amber-400 focus:ring-purple-600"
                         {...register("standardMethod")}
                       />
                       <label
                         htmlFor="standardMethodPrintable"
-                        className="ml-2 text-sm text-gray-700"
+                        className="ml-2 text-sm text-zinc-300"
                       >
                         Printable
                       </label>
@@ -988,12 +988,12 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                         id="standardMethodVinyl"
                         type="radio"
                         value="vinyl"
-                        className="h-4 w-4 border-gray-300 text-purple-700 focus:ring-purple-600"
+                        className="h-4 w-4 border-zinc-700 text-amber-400 focus:ring-purple-600"
                         {...register("standardMethod")}
                       />
                       <label
                         htmlFor="standardMethodVinyl"
-                        className="ml-2 text-sm text-gray-700"
+                        className="ml-2 text-sm text-zinc-300"
                       >
                         Vinyl
                       </label>
@@ -1006,12 +1006,12 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                   <input
                     id="active"
                     type="checkbox"
-                    className="h-4 w-4 rounded border-gray-300 text-purple-700 focus:ring-purple-600"
+                    className="h-4 w-4 rounded border-zinc-700 text-amber-400 focus:ring-purple-600"
                     {...register("active")}
                   />
                   <label
                     htmlFor="active"
-                    className="ml-2 text-sm text-gray-700"
+                    className="ml-2 text-sm text-zinc-300"
                   >
                     Active (visible in shop)
                   </label>
@@ -1022,16 +1022,16 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                   <input
                     id="textToWidthResponsiveness"
                     type="checkbox"
-                    className="h-4 w-4 rounded border-gray-300 text-purple-700 focus:ring-purple-600"
+                    className="h-4 w-4 rounded border-zinc-700 text-amber-400 focus:ring-purple-600"
                     {...register("textToWidthResponsiveness")}
                   />
                   <label
                     htmlFor="textToWidthResponsiveness"
-                    className="ml-2 text-sm text-gray-700"
+                    className="ml-2 text-sm text-zinc-300"
                   >
                     Text to Width Responsiveness
                   </label>
-                  <p className="ml-2 text-xs text-gray-500">
+                  <p className="ml-2 text-xs text-zinc-400">
                     Enable responsive width sizing based on stickers text size
                   </p>
                 </div>
@@ -1040,7 +1040,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                 <div>
                   <label
                     htmlFor="variationsGroupId"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-zinc-300 mb-1"
                   >
                     Variation Group
                   </label>
@@ -1049,7 +1049,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                     className={`w-full rounded-md border ${
                       errors.variationsGroupId
                         ? "border-red-300"
-                        : "border-gray-300"
+                        : "border-zinc-700"
                     } px-3 py-2`}
                     {...register("variationsGroupId")}
                   >
@@ -1060,7 +1060,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                       </option>
                     ))}
                   </select>
-                  <p className="mt-1 text-xs text-gray-500">
+                  <p className="mt-1 text-xs text-zinc-400">
                     Optionally add this sticker to a variation group
                   </p>
                 </div>
@@ -1071,16 +1071,16 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                     <input
                       id="defaultInVariation"
                       type="checkbox"
-                      className="h-4 w-4 rounded border-gray-300 text-purple-700 focus:ring-purple-600"
+                      className="h-4 w-4 rounded border-zinc-700 text-amber-400 focus:ring-purple-600"
                       {...register("defaultInVariation")}
                     />
                     <label
                       htmlFor="defaultInVariation"
-                      className="ml-2 text-sm text-gray-700"
+                      className="ml-2 text-sm text-zinc-300"
                     >
                       Default in Variation
                     </label>
-                    <p className="ml-2 text-xs text-gray-500">
+                    <p className="ml-2 text-xs text-zinc-400">
                       This sticker will be shown first in the variation
                     </p>
                   </div>
@@ -1088,7 +1088,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
 
                 {/* Keywords */}
                 <div className="col-span-full">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-zinc-300 mb-1">
                     Keywords
                   </label>
                   <div className="space-y-2">
@@ -1099,12 +1099,12 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                         onChange={(e) => setKeywordInput(e.target.value)}
                         onKeyDown={handleKeywordInputKeyDown}
                         placeholder="Add a keyword..."
-                        className="flex-1 rounded-md border border-gray-300 px-3 py-2 focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+                        className="flex-1 rounded-md border border-zinc-700 px-3 py-2 focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
                       />
                       <button
                         type="button"
                         onClick={addKeyword}
-                        className="px-4 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800 flex items-center"
+                        className="px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 flex items-center"
                       >
                         <Plus className="h-4 w-4" />
                       </button>
@@ -1114,13 +1114,13 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                         {keywords.map((keyword, index) => (
                           <span
                             key={index}
-                            className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-purple-100 text-purple-800"
+                            className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-amber-500/10 text-amber-300"
                           >
                             {keyword}
                             <button
                               type="button"
                               onClick={() => removeKeyword(index)}
-                              className="ml-2 text-purple-600 hover:text-purple-800"
+                              className="ml-2 text-amber-400 hover:text-amber-300"
                             >
                               <X className="h-4 w-4" />
                             </button>
@@ -1128,7 +1128,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                         ))}
                       </div>
                     )}
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-zinc-400">
                       Keywords help users find your sticker more easily
                     </p>
                   </div>
@@ -1139,7 +1139,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                 <button
                   type="button"
                   onClick={goToNextStep}
-                  className="px-6 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800 flex items-center"
+                  className="px-6 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 flex items-center"
                 >
                   Next Step
                 </button>
@@ -1147,23 +1147,23 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
             </Tab.Panel>
 
             {/* Translations Panel */}
-            <Tab.Panel className="rounded-xl bg-white p-6 border border-gray-200">
+            <Tab.Panel className="rounded-xl bg-zinc-900 p-6 border border-zinc-700">
               <h3 className="text-lg font-medium mb-4">Translations</h3>
               <div className="space-y-6">
                 {["en", "de", "fr", "it"].map((language) => (
                   <div key={language} className="border-b pb-4">
-                    <h3 className="font-medium text-gray-800 uppercase mb-3">
+                    <h3 className="font-medium text-zinc-200 uppercase mb-3">
                       {language} Translation
                     </h3>
 
                     <div className="space-y-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                        <label className="block text-sm font-medium text-zinc-300 mb-1">
                           Title
                         </label>
                         <input
                           type="text"
-                          className="w-full rounded-md border border-gray-300 px-3 py-2"
+                          className="w-full rounded-md border border-zinc-700 px-3 py-2"
                           {...register(
                             `translations.${language}.title` as FieldPath<FormData>
                           )}
@@ -1171,12 +1171,12 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                        <label className="block text-sm font-medium text-zinc-300 mb-1">
                           Description
                         </label>
                         <textarea
                           rows={3}
-                          className="w-full rounded-md border border-gray-300 px-3 py-2"
+                          className="w-full rounded-md border border-zinc-700 px-3 py-2"
                           {...register(
                             `translations.${language}.description` as FieldPath<FormData>
                           )}
@@ -1191,14 +1191,14 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                 <button
                   type="button"
                   onClick={goToPreviousStep}
-                  className="px-6 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300"
+                  className="px-6 py-2 bg-zinc-700 text-zinc-300 rounded-md hover:bg-zinc-600"
                 >
                   Previous Step
                 </button>
                 <button
                   type="button"
                   onClick={goToNextStep}
-                  className="px-6 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800"
+                  className="px-6 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700"
                 >
                   Next Step
                 </button>
@@ -1206,10 +1206,10 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
             </Tab.Panel>
 
             {/* Images Panel */}
-            <Tab.Panel className="rounded-xl bg-white p-6 border border-gray-200">
+            <Tab.Panel className="rounded-xl bg-zinc-900 p-6 border border-zinc-700">
               <h3 className="text-lg font-medium mb-4">Upload Images</h3>
               <div className="space-y-4">
-                <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                <div className="border-2 border-dashed border-zinc-700 rounded-lg p-6 text-center">
                   <input
                     type="file"
                     id="images"
@@ -1220,11 +1220,11 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                   />
                   <label htmlFor="images" className="cursor-pointer">
                     <div className="flex flex-col items-center">
-                      <Upload className="h-12 w-12 text-gray-400" />
-                      <p className="mt-2 text-sm text-gray-600">
+                      <Upload className="h-12 w-12 text-zinc-500" />
+                      <p className="mt-2 text-sm text-zinc-400">
                         Click to upload images
                       </p>
-                      <p className="text-xs text-gray-500">
+                      <p className="text-xs text-zinc-400">
                         PNG, JPG, GIF up to 10MB each
                       </p>
                     </div>
@@ -1233,20 +1233,20 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
 
                 {uploading && (
                   <div className="flex justify-center">
-                    <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-purple-600"></div>
+                    <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-amber-500"></div>
                   </div>
                 )}
 
                 {uploadedImages.length > 0 && (
                   <div>
-                    <h3 className="font-medium text-gray-800 mb-3">
+                    <h3 className="font-medium text-zinc-200 mb-3">
                       Uploaded Images
                     </h3>
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                       {uploadedImages.map((image, index) => (
                         <div
                           key={index}
-                          className="relative rounded-lg overflow-hidden border border-gray-200 group"
+                          className="relative rounded-lg overflow-hidden border border-zinc-700 group"
                         >
                           <div className="h-32 w-full relative">
                             <Image
@@ -1274,14 +1274,14 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                 <button
                   type="button"
                   onClick={goToPreviousStep}
-                  className="px-6 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300"
+                  className="px-6 py-2 bg-zinc-700 text-zinc-300 rounded-md hover:bg-zinc-600"
                 >
                   Previous Step
                 </button>
                 <button
                   type="button"
                   onClick={goToNextStep}
-                  className="px-6 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800"
+                  className="px-6 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700"
                 >
                   Next Step
                 </button>
@@ -1289,18 +1289,18 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
             </Tab.Panel>
 
             {/* Customization Panel */}
-            <Tab.Panel className="rounded-xl bg-white p-6 border border-gray-200">
+            <Tab.Panel className="rounded-xl bg-zinc-900 p-6 border border-zinc-700">
               <h3 className="text-lg font-medium mb-4">
                 Customization Options
               </h3>
               <div className="space-y-6">
                 <div className="flex items-end space-x-4">
                   <div className="flex-1">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-zinc-300 mb-1">
                       Option Type
                     </label>
                     <select
-                      className="w-full rounded-md border border-gray-300 px-3 py-2"
+                      className="w-full rounded-md border border-zinc-700 px-3 py-2"
                       value={optionType}
                       onChange={(e) =>
                         setOptionType(
@@ -1321,11 +1321,11 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
 
                   {/* Add this new dropdown for applicableTo */}
                   <div className="flex-1">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-zinc-300 mb-1">
                       Applicable To
                     </label>
                     <select
-                      className="w-full rounded-md border border-gray-300 px-3 py-2"
+                      className="w-full rounded-md border border-zinc-700 px-3 py-2"
                       value={applicableToValue}
                       onChange={(e) =>
                         setApplicableToValue(
@@ -1342,7 +1342,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                   <button
                     type="button"
                     onClick={addCustomizationOption}
-                    className="px-4 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800 flex items-center"
+                    className="px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 flex items-center"
                   >
                     <Plus className="h-4 w-4 mr-1" />
                     Add Option
@@ -1354,7 +1354,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                     {customizationOptions.map((option, optionIndex) => (
                       <div
                         key={optionIndex}
-                        className="border rounded-lg p-4 bg-gray-50 relative"
+                        className="border rounded-lg p-4 bg-zinc-800 relative"
                       >
                         <button
                           type="button"
@@ -1367,7 +1367,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                         <div className="space-y-4">
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                              <h4 className="font-medium text-gray-800 mb-2">
+                              <h4 className="font-medium text-zinc-200 mb-2">
                                 Option Type: {option.type}
                                 {/* Add this badge to show applicableTo */}
                                 <span
@@ -1376,7 +1376,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                                       ? "bg-green-100 text-green-800"
                                       : option.applicableTo === "vinyl"
                                       ? "bg-blue-100 text-blue-800"
-                                      : "bg-purple-100 text-purple-800"
+                                      : "bg-amber-500/10 text-amber-300"
                                   }`}
                                 >
                                   {option.applicableTo === "both"
@@ -1392,13 +1392,13 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                                 {["en", "de", "fr", "it"].map((language) => (
                                   <div key={language} className="space-y-2">
                                     <div className="flex items-center">
-                                      <span className="text-xs font-semibold bg-gray-200 px-2 py-1 rounded mr-2 uppercase">
+                                      <span className="text-xs font-semibold bg-zinc-700 px-2 py-1 rounded mr-2 uppercase">
                                         {language}
                                       </span>
                                       <input
                                         type="text"
                                         placeholder={`${language.toUpperCase()} Title`}
-                                        className="flex-1 rounded-md border border-gray-300 px-3 py-1 text-sm"
+                                        className="flex-1 rounded-md border border-zinc-700 px-3 py-1 text-sm"
                                         value={
                                           option.translations[
                                             language as keyof typeof option.translations
@@ -1417,7 +1417,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                                     <input
                                       type="text"
                                       placeholder={`${language.toUpperCase()} Description (Optional)`}
-                                      className="w-full rounded-md border border-gray-300 px-3 py-1 text-sm"
+                                      className="w-full rounded-md border border-zinc-700 px-3 py-1 text-sm"
                                       value={
                                         option.translations[
                                           language as keyof typeof option.translations
@@ -1441,12 +1441,12 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                               {/* Type-specific settings */}
                               {option.type === "inputfield" && (
                                 <div>
-                                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                                  <label className="block text-sm font-medium text-zinc-300 mb-1">
                                     Maximum Characters
                                   </label>
                                   <input
                                     type="number"
-                                    className="w-full rounded-md border border-gray-300 px-3 py-2"
+                                    className="w-full rounded-md border border-zinc-700 px-3 py-2"
                                     value={
                                       (option as InputFieldOption).max || 50
                                     }
@@ -1464,7 +1464,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                               {option.type === "dropdown" && (
                                 <div className="space-y-3">
                                   <div className="flex justify-between items-center">
-                                    <h5 className="font-medium text-gray-700">
+                                    <h5 className="font-medium text-zinc-300">
                                       Dropdown Items
                                     </h5>
                                     <button
@@ -1483,7 +1483,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                                     (item, itemIndex) => (
                                       <div
                                         key={item.id}
-                                        className="border rounded p-2 bg-white relative"
+                                        className="border rounded p-2 bg-zinc-900 relative"
                                       >
                                         <button
                                           type="button"
@@ -1510,7 +1510,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                                                 </span>
                                                 <input
                                                   type="text"
-                                                  className="flex-1 rounded-md border border-gray-300 px-2 py-1 text-sm"
+                                                  className="flex-1 rounded-md border border-zinc-700 px-2 py-1 text-sm"
                                                   value={
                                                     item.translations[
                                                       language as keyof typeof item.translations
@@ -1541,7 +1541,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                     ))}
                   </div>
                 ) : (
-                  <div className="text-center py-8 text-gray-500">
+                  <div className="text-center py-8 text-zinc-400">
                     No customization options added yet. Add one using the button
                     above.
                   </div>
@@ -1552,14 +1552,14 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                 <button
                   type="button"
                   onClick={goToPreviousStep}
-                  className="px-6 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300"
+                  className="px-6 py-2 bg-zinc-700 text-zinc-300 rounded-md hover:bg-zinc-600"
                 >
                   Previous Step
                 </button>
                 <button
                   type="button"
                   onClick={goToNextStep}
-                  className="px-6 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800"
+                  className="px-6 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700"
                 >
                   Next Step
                 </button>
@@ -1567,11 +1567,11 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
             </Tab.Panel>
 
             {/* Categories Panel (Final Step) */}
-            <Tab.Panel className="rounded-xl bg-white p-6 border border-gray-200">
+            <Tab.Panel className="rounded-xl bg-zinc-900 p-6 border border-zinc-700">
               <h3 className="text-lg font-medium mb-4">Categories</h3>
               <div className="space-y-6">
                 <div>
-                  <h3 className="font-medium text-gray-800 mb-3">Groups</h3>
+                  <h3 className="font-medium text-zinc-200 mb-3">Groups</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {groups.map((group) => {
                       const enTranslation =
@@ -1584,12 +1584,12 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                             type="checkbox"
                             id={`group-${group.id}`}
                             value={group.id}
-                            className="h-4 w-4 rounded border-gray-300 text-purple-700 focus:ring-purple-600"
+                            className="h-4 w-4 rounded border-zinc-700 text-amber-400 focus:ring-purple-600"
                             {...register("groups")}
                           />
                           <label
                             htmlFor={`group-${group.id}`}
-                            className="ml-2 text-sm text-gray-700"
+                            className="ml-2 text-sm text-zinc-300"
                           >
                             {enTranslation}
                           </label>
@@ -1600,7 +1600,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                 </div>
 
                 <div>
-                  <h3 className="font-medium text-gray-800 mb-3">Subgroups</h3>
+                  <h3 className="font-medium text-zinc-200 mb-3">Subgroups</h3>
                   {availableSubgroups.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {availableSubgroups.map((subgroup) => (
@@ -1609,12 +1609,12 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                             type="checkbox"
                             id={`subgroup-${subgroup.id}`}
                             value={subgroup.id}
-                            className="h-4 w-4 rounded border-gray-300 text-purple-700 focus:ring-purple-600"
+                            className="h-4 w-4 rounded border-zinc-700 text-amber-400 focus:ring-purple-600"
                             {...register("subgroups")}
                           />
                           <label
                             htmlFor={`subgroup-${subgroup.id}`}
-                            className="ml-2 text-sm text-gray-700"
+                            className="ml-2 text-sm text-zinc-300"
                           >
                             {subgroup.title}
                           </label>
@@ -1622,7 +1622,7 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                       ))}
                     </div>
                   ) : (
-                    <p className="text-gray-500">
+                    <p className="text-zinc-400">
                       {watchGroups?.length
                         ? "No subgroups found for selected groups"
                         : "Select one or more groups to see available subgroups"}
@@ -1635,14 +1635,14 @@ const AddSticker: React.FC<Props> = ({ csrfToken }) => {
                 <button
                   type="button"
                   onClick={goToPreviousStep}
-                  className="px-6 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300"
+                  className="px-6 py-2 bg-zinc-700 text-zinc-300 rounded-md hover:bg-zinc-600"
                 >
                   Previous Step
                 </button>
                 <button
                   type="submit"
                   disabled={loading}
-                  className="px-6 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800 disabled:bg-gray-400 disabled:cursor-not-allowed"
+                  className="px-6 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 disabled:bg-zinc-600 disabled:cursor-not-allowed"
                 >
                   {loading ? (
                     <div className="flex items-center">

@@ -466,11 +466,11 @@ const PushNotifications: React.FC<PushNotificationsProps> = ({ csrfToken }) => {
                   security policies.
                 </p>
 
-                <div className="bg-white rounded-md p-4 mb-3 border border-red-200">
-                  <p className="text-sm text-gray-800 font-semibold mb-2">
+                <div className="bg-zinc-900 rounded-md p-4 mb-3 border border-red-200">
+                  <p className="text-sm text-zinc-200 font-semibold mb-2">
                     ✅ Recommended Solutions:
                   </p>
-                  <ol className="text-sm text-gray-700 space-y-2 ml-4">
+                  <ol className="text-sm text-zinc-300 space-y-2 ml-4">
                     <li className="flex items-start gap-2">
                       <span className="text-green-600 font-bold">1.</span>
                       <span>
@@ -488,9 +488,9 @@ const PushNotifications: React.FC<PushNotificationsProps> = ({ csrfToken }) => {
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-purple-600 font-bold">3.</span>
+                      <span className="text-amber-400 font-bold">3.</span>
                       <span>
-                        <strong className="text-purple-700">
+                        <strong className="text-amber-400">
                           Deploy to production
                         </strong>{" "}
                         - Push works perfectly with HTTPS
@@ -542,11 +542,11 @@ const PushNotifications: React.FC<PushNotificationsProps> = ({ csrfToken }) => {
         </div>
       )}
 
-      <div className="bg-white rounded-lg shadow-sm border p-6 space-y-4">
+      <div className="bg-zinc-900 rounded-lg shadow-sm border p-6 space-y-4">
         <div className="flex items-center justify-between pb-4 border-b">
           <div>
             <h3 className="text-lg font-semibold">Notification Status</h3>
-            <p className="text-sm text-gray-600 mt-1">
+            <p className="text-sm text-zinc-400 mt-1">
               {isSubscribed
                 ? "You are currently subscribed to push notifications"
                 : "You are not subscribed to push notifications"}
@@ -556,7 +556,7 @@ const PushNotifications: React.FC<PushNotificationsProps> = ({ csrfToken }) => {
             className={`px-4 py-2 rounded-full text-sm font-semibold ${
               isSubscribed
                 ? "bg-green-100 text-green-800"
-                : "bg-gray-100 text-gray-800"
+                : "bg-zinc-800 text-zinc-200"
             }`}
           >
             {isSubscribed ? "Active" : "Inactive"}
@@ -569,7 +569,7 @@ const PushNotifications: React.FC<PushNotificationsProps> = ({ csrfToken }) => {
               <button
                 onClick={subscribeToPush}
                 disabled={isLoading}
-                className="w-full flex items-center justify-center gap-2 bg-purple-700 text-white px-6 py-3 rounded-md hover:bg-purple-800 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+                className="w-full flex items-center justify-center gap-2 bg-amber-600 text-white px-6 py-3 rounded-md hover:bg-amber-700 transition-colors disabled:bg-zinc-600 disabled:cursor-not-allowed"
               >
                 <Bell className="h-5 w-5" />
                 {isLoading ? "Subscribing..." : "Enable Notifications"}
@@ -578,11 +578,11 @@ const PushNotifications: React.FC<PushNotificationsProps> = ({ csrfToken }) => {
               <button
                 onClick={resetServiceWorker}
                 disabled={isLoading}
-                className="w-full flex items-center justify-center gap-2 bg-orange-600 text-white px-6 py-3 rounded-md hover:bg-orange-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed text-sm"
+                className="w-full flex items-center justify-center gap-2 bg-orange-600 text-white px-6 py-3 rounded-md hover:bg-orange-700 transition-colors disabled:bg-zinc-600 disabled:cursor-not-allowed text-sm"
               >
                 🔄 Reset Service Worker
               </button>
-              <p className="text-xs text-gray-500 text-center">
+              <p className="text-xs text-zinc-400 text-center">
                 Try this if you&apos;re having issues subscribing
               </p>
             </>
@@ -591,7 +591,7 @@ const PushNotifications: React.FC<PushNotificationsProps> = ({ csrfToken }) => {
               <button
                 onClick={unsubscribeFromPush}
                 disabled={isLoading}
-                className="w-full flex items-center justify-center gap-2 bg-red-600 text-white px-6 py-3 rounded-md hover:bg-red-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+                className="w-full flex items-center justify-center gap-2 bg-red-600 text-white px-6 py-3 rounded-md hover:bg-red-700 transition-colors disabled:bg-zinc-600 disabled:cursor-not-allowed"
               >
                 <BellOff className="h-5 w-5" />
                 {isLoading ? "Unsubscribing..." : "Disable Notifications"}
@@ -600,7 +600,7 @@ const PushNotifications: React.FC<PushNotificationsProps> = ({ csrfToken }) => {
               <button
                 onClick={sendTestNotification}
                 disabled={isLoading}
-                className="w-full flex items-center justify-center gap-2 bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+                className="w-full flex items-center justify-center gap-2 bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700 transition-colors disabled:bg-zinc-600 disabled:cursor-not-allowed"
               >
                 <Send className="h-5 w-5" />
                 {isLoading ? "Sending..." : "Send Test Notification"}
@@ -610,9 +610,9 @@ const PushNotifications: React.FC<PushNotificationsProps> = ({ csrfToken }) => {
         </div>
       </div>
 
-      <div className="mt-6 bg-gray-50 rounded-lg p-6 border">
+      <div className="mt-6 bg-zinc-800 rounded-lg p-6 border">
         <h3 className="text-lg font-semibold mb-3">iOS Setup Instructions</h3>
-        <ol className="list-decimal list-inside space-y-2 text-sm text-gray-700">
+        <ol className="list-decimal list-inside space-y-2 text-sm text-zinc-300">
           <li>Open this page in Safari on your iPhone or iPad</li>
           <li>Tap the Share button (square with arrow pointing up)</li>
           <li>Select &quot;Add to Home Screen&quot;</li>
@@ -621,7 +621,7 @@ const PushNotifications: React.FC<PushNotificationsProps> = ({ csrfToken }) => {
           <li>Tap &quot;Enable Notifications&quot; and allow permissions</li>
           <li>You&apos;ll now receive notifications for new orders!</li>
         </ol>
-        <p className="text-sm text-gray-600 mt-4 italic">
+        <p className="text-sm text-zinc-400 mt-4 italic">
           Note: Push notifications on iOS only work when the page is added to
           the home screen and opened as a standalone web app.
         </p>
@@ -639,11 +639,11 @@ const PushNotifications: React.FC<PushNotificationsProps> = ({ csrfToken }) => {
       </div>
 
       {/* Debug Information */}
-      <div className="mt-6 bg-gray-100 rounded-lg p-6 border">
+      <div className="mt-6 bg-zinc-800 rounded-lg p-6 border">
         <h3 className="text-lg font-semibold mb-3">Debug Information</h3>
         <div className="space-y-2 text-sm font-mono">
           <div className="flex justify-between">
-            <span className="text-gray-600">Service Worker Support:</span>
+            <span className="text-zinc-400">Service Worker Support:</span>
             <span
               className={`font-semibold ${
                 typeof window !== "undefined" && "serviceWorker" in navigator
@@ -657,7 +657,7 @@ const PushNotifications: React.FC<PushNotificationsProps> = ({ csrfToken }) => {
             </span>
           </div>
           <div className="flex justify-between">
-            <span className="text-gray-600">Push Manager Support:</span>
+            <span className="text-zinc-400">Push Manager Support:</span>
             <span
               className={`font-semibold ${
                 typeof window !== "undefined" && "PushManager" in window
@@ -671,7 +671,7 @@ const PushNotifications: React.FC<PushNotificationsProps> = ({ csrfToken }) => {
             </span>
           </div>
           <div className="flex justify-between">
-            <span className="text-gray-600">Notification Permission:</span>
+            <span className="text-zinc-400">Notification Permission:</span>
             <span
               className={`font-semibold ${
                 typeof window !== "undefined" &&
@@ -688,7 +688,7 @@ const PushNotifications: React.FC<PushNotificationsProps> = ({ csrfToken }) => {
             </span>
           </div>
           <div className="flex justify-between">
-            <span className="text-gray-600">VAPID Key Loaded:</span>
+            <span className="text-zinc-400">VAPID Key Loaded:</span>
             <span
               className={`font-semibold ${
                 vapidPublicKey ? "text-green-600" : "text-red-600"
@@ -698,9 +698,9 @@ const PushNotifications: React.FC<PushNotificationsProps> = ({ csrfToken }) => {
             </span>
           </div>
           {vapidPublicKey && (
-            <div className="mt-2 pt-2 border-t border-gray-300">
-              <span className="text-gray-600">VAPID Key (first 20 chars):</span>
-              <div className="mt-1 p-2 bg-white rounded text-xs break-all">
+            <div className="mt-2 pt-2 border-t border-zinc-700">
+              <span className="text-zinc-400">VAPID Key (first 20 chars):</span>
+              <div className="mt-1 p-2 bg-zinc-900 rounded text-xs break-all">
                 {vapidPublicKey.substring(0, 20)}...
               </div>
             </div>

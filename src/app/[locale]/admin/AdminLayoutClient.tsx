@@ -14,47 +14,49 @@ import {
   FolderTree,
   Compass,
   Megaphone,
+  X,
+  Menu,
 } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 
 const sidebarItems = [
-  { id: "users", label: "Users", icon: <Users className="h-5 w-5" /> },
-  { id: "add-items", label: "Add Items", icon: <Plus className="h-5 w-5" /> },
+  { id: "users", label: "Users", icon: <Users className="h-4 w-4" /> },
+  { id: "add-items", label: "Add Items", icon: <Plus className="h-4 w-4" /> },
   {
     id: "product-catalog",
     label: "Product Catalog",
-    icon: <FolderTree className="h-5 w-5" />,
+    icon: <FolderTree className="h-4 w-4" />,
   },
   {
     id: "services-inventory",
     label: "Services & Inventory",
-    icon: <Package className="h-5 w-5" />,
+    icon: <Package className="h-4 w-4" />,
   },
-  { id: "orders", label: "Orders", icon: <History className="h-5 w-5" /> },
+  { id: "orders", label: "Orders", icon: <History className="h-4 w-4" /> },
   {
     id: "marketing",
     label: "Marketing",
-    icon: <Megaphone className="h-5 w-5" />,
+    icon: <Megaphone className="h-4 w-4" />,
   },
   {
     id: "discount-codes",
     label: "Discount Codes",
-    icon: <Tag className="h-5 w-5" />,
+    icon: <Tag className="h-4 w-4" />,
   },
   {
     id: "colors",
     label: "Color Settings",
-    icon: <Palette className="h-5 w-5" />,
+    icon: <Palette className="h-4 w-4" />,
   },
   {
     id: "tracking",
     label: "Tracking",
-    icon: <Compass className="h-5 w-5" />,
+    icon: <Compass className="h-4 w-4" />,
   },
   {
     id: "settings",
     label: "Settings",
-    icon: <Settings className="h-5 w-5" />,
+    icon: <Settings className="h-4 w-4" />,
   },
 ];
 
@@ -75,13 +77,13 @@ export default function AdminLayoutClient({
 
   if (user?.role !== "admin") {
     return (
-      <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-zinc-950 w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
-          <div className="bg-white rounded-lg shadow p-6 text-center">
-            <h2 className="text-xl font-bold text-red-600">
+          <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6 text-center">
+            <h2 className="text-xl font-bold uppercase tracking-widest text-red-400">
               Unauthorized Access
             </h2>
-            <p className="mt-2 text-gray-600">
+            <p className="mt-2 text-zinc-400">
               You don&apos;t have permission to view this page
             </p>
           </div>
@@ -91,46 +93,27 @@ export default function AdminLayoutClient({
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-zinc-950 w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
         <div className="flex items-center justify-between mb-4 sm:mb-8">
-          <h1 className="text-xl sm:text-3xl font-bold text-gray-900">
-            RevSticks Admin Dashboard
-          </h1>
+          <div className="flex items-center gap-3">
+            <div className="h-6 w-1 bg-amber-500" />
+            <h1 className="text-xl sm:text-2xl font-bold uppercase tracking-[0.15em] text-white">
+              Admin <span className="text-amber-400">Dashboard</span>
+            </h1>
+          </div>
 
           {/* Mobile menu button */}
           <button
-            className="block md:hidden p-2 bg-purple-700 text-white rounded-md"
+            className="block md:hidden p-2 text-zinc-400 hover:text-white transition-colors"
             onClick={() => setSidebarOpen(!sidebarOpen)}
             aria-label="Toggle menu"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {sidebarOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
+            {sidebarOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-4 md:gap-8">
+        <div className="flex flex-col md:flex-row gap-4 md:gap-6">
           {/* Mobile Sidebar (overlay) */}
           <div
             className={`
@@ -143,53 +126,45 @@ export default function AdminLayoutClient({
             `}
           >
             <div
-              className="absolute inset-0 bg-black opacity-50"
+              className="absolute inset-0 bg-black/70 backdrop-blur-sm"
               onClick={() => setSidebarOpen(false)}
-            ></div>
+            />
             <div
-              className="absolute inset-y-0 left-0 max-w-xs w-full bg-white shadow-xl transform transition-transform duration-300 ease-in-out z-10"
+              className="absolute inset-y-0 left-0 max-w-xs w-full bg-zinc-900 border-r border-zinc-800 shadow-[4px_0_32px_rgba(0,0,0,0.6)] transform transition-transform duration-300 ease-in-out z-10"
               style={{
                 transform: sidebarOpen
                   ? "translateX(0)"
                   : "translateX(-100%)",
               }}
             >
-              <div className="p-4 flex justify-between items-center border-b">
-                <h2 className="text-lg font-semibold">Menu</h2>
+              <div className="p-4 flex justify-between items-center border-b border-zinc-800">
+                <div className="flex items-center gap-2">
+                  <div className="h-4 w-0.5 bg-amber-500" />
+                  <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-100">
+                    Menu
+                  </h2>
+                </div>
                 <button
                   onClick={() => setSidebarOpen(false)}
-                  className="text-gray-600"
+                  className="text-zinc-400 hover:text-white transition-colors"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
+                  <X size={18} />
                 </button>
               </div>
               <nav
-                className="p-4 overflow-y-auto"
+                className="p-3 overflow-y-auto"
                 style={{ maxHeight: "calc(100vh - 64px)" }}
               >
-                <ul className="space-y-2">
+                <ul className="space-y-1">
                   {sidebarItems.map((item) => (
                     <li key={item.id}>
                       <Link
                         href={`/${locale}/admin/${item.id}`}
                         onClick={() => setSidebarOpen(false)}
-                        className={`w-full flex items-center gap-3 px-4 py-2 rounded-md text-left ${
+                        className={`w-full flex items-center gap-3 px-3 py-2.5 text-xs font-bold uppercase tracking-widest transition-all border-l-2 ${
                           activeSection === item.id
-                            ? "bg-purple-100 text-purple-700"
-                            : "text-gray-600 hover:bg-gray-50"
+                            ? "border-amber-500 text-amber-400 bg-amber-500/10"
+                            : "border-transparent text-zinc-400 hover:text-white hover:bg-zinc-800"
                         }`}
                       >
                         {item.icon}
@@ -203,17 +178,17 @@ export default function AdminLayoutClient({
           </div>
 
           {/* Desktop Sidebar */}
-          <div className="hidden md:block w-64 bg-white rounded-lg shadow flex-shrink-0">
-            <nav className="p-4">
-              <ul className="space-y-2">
+          <div className="hidden md:block w-56 flex-shrink-0">
+            <nav className="bg-zinc-900 border border-zinc-800 rounded-lg p-3 sticky top-20">
+              <ul className="space-y-1">
                 {sidebarItems.map((item) => (
                   <li key={item.id}>
                     <Link
                       href={`/${locale}/admin/${item.id}`}
-                      className={`w-full flex items-center gap-3 px-4 py-2 rounded-md text-left ${
+                      className={`w-full flex items-center gap-3 px-3 py-2.5 text-xs font-bold uppercase tracking-widest transition-all border-l-2 ${
                         activeSection === item.id
-                          ? "bg-purple-100 text-purple-700"
-                          : "text-gray-600 hover:bg-gray-50"
+                          ? "border-amber-500 text-amber-400 bg-amber-500/10"
+                          : "border-transparent text-zinc-400 hover:text-white hover:bg-zinc-800"
                       }`}
                     >
                       {item.icon}
@@ -226,7 +201,7 @@ export default function AdminLayoutClient({
           </div>
 
           {/* Main Content */}
-          <div className="flex-1 bg-white rounded-lg shadow p-3 sm:p-6">
+          <div className="flex-1 bg-zinc-900 border border-zinc-800 rounded-lg p-3 sm:p-6 min-w-0 text-white">
             {children}
           </div>
         </div>

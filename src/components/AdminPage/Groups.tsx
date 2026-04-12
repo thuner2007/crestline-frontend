@@ -619,7 +619,7 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
         <h2 className='text-xl font-semibold'>Groups Management</h2>
         <button
           onClick={() => setShowAddGroupModal(true)}
-          className='px-4 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800 flex items-center'
+          className='px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 flex items-center'
         >
           <Plus className='h-4 w-4 mr-1' />
           Add Group
@@ -628,7 +628,7 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
 
       {/* Success message */}
       {successMessage && (
-        <div className='bg-purple-100 border border-purple-400 text-purple-800 p-3 rounded-md'>
+        <div className='bg-amber-500/10 border border-purple-400 text-amber-300 p-3 rounded-md'>
           {successMessage}
         </div>
       )}
@@ -643,7 +643,7 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
 
       {loading ? (
         <div className='flex justify-center items-center h-64'>
-          <div className='animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-600'></div>
+          <div className='animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-amber-500'></div>
         </div>
       ) : (
         <div className='space-y-4'>
@@ -651,11 +651,11 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
             groups.map((group) => (
               <div key={group.id} className='border rounded-lg overflow-hidden'>
                 {/* Group Header */}
-                <div className='bg-gray-50 px-4 py-3 flex items-center justify-between'>
+                <div className='bg-zinc-800 px-4 py-3 flex items-center justify-between'>
                   <div className='flex items-center'>
                     <button
                       onClick={() => toggleGroupExpansion(group.id)}
-                      className='mr-2 text-gray-500 hover:text-gray-700'
+                      className='mr-2 text-zinc-400 hover:text-zinc-300'
                       aria-label={
                         expandedGroups.has(group.id) ? 'Collapse' : 'Expand'
                       }
@@ -666,17 +666,17 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
                         <ChevronDown className='h-5 w-5' />
                       )}
                     </button>
-                    <h3 className='font-medium text-gray-900'>
+                    <h3 className='font-medium text-zinc-100'>
                       {getTranslatedTitle(group.translations)}
                     </h3>
-                    <div className='ml-4 text-sm text-gray-500'>
+                    <div className='ml-4 text-sm text-zinc-400'>
                       {group.subgroups.length} subgroups
                     </div>
                   </div>
                   <div className='flex items-center space-x-2'>
                     <button
                       onClick={() => openAddSubgroupModal(group.id)}
-                      className='p-2 text-purple-700 hover:text-purple-900'
+                      className='p-2 text-amber-400 hover:text-amber-300'
                       aria-label='Add Subgroup'
                       title='Add Subgroup'
                     >
@@ -703,19 +703,19 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
 
                 {/* Subgroups Collapsible Section */}
                 {expandedGroups.has(group.id) && (
-                  <div className='p-4 bg-white'>
+                  <div className='p-4 bg-zinc-900'>
                     {group.subgroups.length > 0 ? (
                       <div className='space-y-2'>
                         {group.subgroups.map((subgroup) => (
                           <div
                             key={subgroup.id}
-                            className='border rounded-md p-3 flex justify-between items-center bg-gray-50'
+                            className='border rounded-md p-3 flex justify-between items-center bg-zinc-800'
                           >
                             <div>
                               <h4 className='font-medium'>
                                 {getTranslatedTitle(subgroup.translations)}
                               </h4>
-                              <div className='mt-1 grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-gray-500'>
+                              <div className='mt-1 grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-zinc-400'>
                                 <div>
                                   <span className='font-semibold'>DE:</span>{' '}
                                   {getTranslatedTitle(
@@ -772,7 +772,7 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
                         ))}
                       </div>
                     ) : (
-                      <div className='text-center py-4 text-gray-500'>
+                      <div className='text-center py-4 text-zinc-400'>
                         No subgroups found for this group
                       </div>
                     )}
@@ -781,11 +781,11 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
               </div>
             ))
           ) : (
-            <div className='text-center py-12 bg-gray-50 rounded-lg'>
-              <p className='text-gray-500'>No groups found</p>
+            <div className='text-center py-12 bg-zinc-800 rounded-lg'>
+              <p className='text-zinc-400'>No groups found</p>
               <button
                 onClick={() => setShowAddGroupModal(true)}
-                className='mt-4 px-4 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800'
+                className='mt-4 px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700'
               >
                 Create Your First Group
               </button>
@@ -797,14 +797,14 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
       {/* Add Group Modal */}
       {showAddGroupModal && (
         <div className='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4'>
-          <div className='bg-white rounded-lg max-w-md w-full p-6'>
+          <div className='bg-zinc-900 rounded-lg max-w-md w-full p-6'>
             <div className='flex justify-between items-center mb-4'>
-              <h3 className='text-lg font-medium text-gray-900'>
+              <h3 className='text-lg font-medium text-zinc-100'>
                 Add New Group
               </h3>
               <button
                 onClick={() => setShowAddGroupModal(false)}
-                className='text-gray-400 hover:text-gray-500'
+                className='text-zinc-500 hover:text-zinc-400'
               >
                 <X className='h-5 w-5' />
               </button>
@@ -815,14 +815,14 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
               <div>
                 <label
                   htmlFor='title-en'
-                  className='block text-sm font-medium text-gray-700'
+                  className='block text-sm font-medium text-zinc-300'
                 >
                   English Title <span className='text-red-500'>*</span>
                 </label>
                 <input
                   id='title-en'
                   type='text'
-                  className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-600 focus:ring-purple-600'
+                  className='mt-1 block w-full rounded-md border-zinc-700 shadow-sm focus:border-amber-500 focus:ring-purple-600'
                   value={groupFormData.translations.en.title}
                   onChange={(e) =>
                     setGroupFormData({
@@ -841,14 +841,14 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
               <div>
                 <label
                   htmlFor='title-de'
-                  className='block text-sm font-medium text-gray-700'
+                  className='block text-sm font-medium text-zinc-300'
                 >
                   German Title
                 </label>
                 <input
                   id='title-de'
                   type='text'
-                  className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-600 focus:ring-purple-600'
+                  className='mt-1 block w-full rounded-md border-zinc-700 shadow-sm focus:border-amber-500 focus:ring-purple-600'
                   value={groupFormData.translations.de.title}
                   onChange={(e) =>
                     setGroupFormData({
@@ -866,14 +866,14 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
               <div>
                 <label
                   htmlFor='title-fr'
-                  className='block text-sm font-medium text-gray-700'
+                  className='block text-sm font-medium text-zinc-300'
                 >
                   French Title
                 </label>
                 <input
                   id='title-fr'
                   type='text'
-                  className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-600 focus:ring-purple-600'
+                  className='mt-1 block w-full rounded-md border-zinc-700 shadow-sm focus:border-amber-500 focus:ring-purple-600'
                   value={groupFormData.translations.fr.title}
                   onChange={(e) =>
                     setGroupFormData({
@@ -891,14 +891,14 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
               <div>
                 <label
                   htmlFor='title-it'
-                  className='block text-sm font-medium text-gray-700'
+                  className='block text-sm font-medium text-zinc-300'
                 >
                   Italian Title
                 </label>
                 <input
                   id='title-it'
                   type='text'
-                  className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-600 focus:ring-purple-600'
+                  className='mt-1 block w-full rounded-md border-zinc-700 shadow-sm focus:border-amber-500 focus:ring-purple-600'
                   value={groupFormData.translations.it.title}
                   onChange={(e) =>
                     setGroupFormData({
@@ -916,13 +916,13 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
             <div className='mt-6 flex justify-end space-x-3'>
               <button
                 onClick={() => setShowAddGroupModal(false)}
-                className='px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50'
+                className='px-4 py-2 border border-zinc-700 rounded-md text-zinc-300 hover:bg-zinc-800'
               >
                 Cancel
               </button>
               <button
                 onClick={handleAddGroup}
-                className='px-4 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800 disabled:bg-gray-400 flex items-center'
+                className='px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 disabled:bg-zinc-600 flex items-center'
                 disabled={processing || !groupFormData.translations.en.title}
               >
                 {processing ? (
@@ -945,12 +945,12 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
       {/* Edit Group Modal */}
       {showEditGroupModal && selectedGroup && (
         <div className='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4'>
-          <div className='bg-white rounded-lg max-w-md w-full p-6'>
+          <div className='bg-zinc-900 rounded-lg max-w-md w-full p-6'>
             <div className='flex justify-between items-center mb-4'>
-              <h3 className='text-lg font-medium text-gray-900'>Edit Group</h3>
+              <h3 className='text-lg font-medium text-zinc-100'>Edit Group</h3>
               <button
                 onClick={() => setShowEditGroupModal(false)}
-                className='text-gray-400 hover:text-gray-500'
+                className='text-zinc-500 hover:text-zinc-400'
               >
                 <X className='h-5 w-5' />
               </button>
@@ -961,14 +961,14 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
               <div>
                 <label
                   htmlFor='edit-title-en'
-                  className='block text-sm font-medium text-gray-700'
+                  className='block text-sm font-medium text-zinc-300'
                 >
                   English Title <span className='text-red-500'>*</span>
                 </label>
                 <input
                   id='edit-title-en'
                   type='text'
-                  className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-600 focus:ring-purple-600'
+                  className='mt-1 block w-full rounded-md border-zinc-700 shadow-sm focus:border-amber-500 focus:ring-purple-600'
                   value={groupFormData.translations.en.title}
                   onChange={(e) =>
                     setGroupFormData({
@@ -987,14 +987,14 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
               <div>
                 <label
                   htmlFor='edit-title-de'
-                  className='block text-sm font-medium text-gray-700'
+                  className='block text-sm font-medium text-zinc-300'
                 >
                   German Title
                 </label>
                 <input
                   id='edit-title-de'
                   type='text'
-                  className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-600 focus:ring-purple-600'
+                  className='mt-1 block w-full rounded-md border-zinc-700 shadow-sm focus:border-amber-500 focus:ring-purple-600'
                   value={groupFormData.translations.de.title}
                   onChange={(e) =>
                     setGroupFormData({
@@ -1012,14 +1012,14 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
               <div>
                 <label
                   htmlFor='edit-title-fr'
-                  className='block text-sm font-medium text-gray-700'
+                  className='block text-sm font-medium text-zinc-300'
                 >
                   French Title
                 </label>
                 <input
                   id='edit-title-fr'
                   type='text'
-                  className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-600 focus:ring-purple-600'
+                  className='mt-1 block w-full rounded-md border-zinc-700 shadow-sm focus:border-amber-500 focus:ring-purple-600'
                   value={groupFormData.translations.fr.title}
                   onChange={(e) =>
                     setGroupFormData({
@@ -1037,14 +1037,14 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
               <div>
                 <label
                   htmlFor='edit-title-it'
-                  className='block text-sm font-medium text-gray-700'
+                  className='block text-sm font-medium text-zinc-300'
                 >
                   Italian Title
                 </label>
                 <input
                   id='edit-title-it'
                   type='text'
-                  className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-600 focus:ring-purple-600'
+                  className='mt-1 block w-full rounded-md border-zinc-700 shadow-sm focus:border-amber-500 focus:ring-purple-600'
                   value={groupFormData.translations.it.title}
                   onChange={(e) =>
                     setGroupFormData({
@@ -1062,13 +1062,13 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
             <div className='mt-6 flex justify-end space-x-3'>
               <button
                 onClick={() => setShowEditGroupModal(false)}
-                className='px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50'
+                className='px-4 py-2 border border-zinc-700 rounded-md text-zinc-300 hover:bg-zinc-800'
               >
                 Cancel
               </button>
               <button
                 onClick={handleUpdateGroup}
-                className='px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-gray-400 flex items-center'
+                className='px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-zinc-600 flex items-center'
                 disabled={processing || !groupFormData.translations.en.title}
               >
                 {processing ? (
@@ -1091,11 +1091,11 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
       {/* Delete Group Modal */}
       {showDeleteGroupModal && selectedGroup && (
         <div className='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4'>
-          <div className='bg-white rounded-lg max-w-md w-full p-6'>
-            <h3 className='text-lg font-medium text-gray-900 mb-4'>
+          <div className='bg-zinc-900 rounded-lg max-w-md w-full p-6'>
+            <h3 className='text-lg font-medium text-zinc-100 mb-4'>
               Confirm Deletion
             </h3>
-            <p className='text-gray-600 mb-6'>
+            <p className='text-zinc-400 mb-6'>
               Are you sure you want to delete the group &quot;
               {getTranslatedTitle(selectedGroup.translations)}&quot;?
               {selectedGroup.subgroups.length > 0 && (
@@ -1110,13 +1110,13 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
             <div className='flex justify-end space-x-3'>
               <button
                 onClick={() => setShowDeleteGroupModal(false)}
-                className='px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50'
+                className='px-4 py-2 border border-zinc-700 rounded-md text-zinc-300 hover:bg-zinc-800'
               >
                 Cancel
               </button>
               <button
                 onClick={handleDeleteGroup}
-                className='px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 disabled:bg-gray-400 flex items-center'
+                className='px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 disabled:bg-zinc-600 flex items-center'
                 disabled={processing}
               >
                 {processing ? (
@@ -1139,14 +1139,14 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
       {/* Add Subgroup Modal */}
       {showAddSubgroupModal && (
         <div className='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4'>
-          <div className='bg-white rounded-lg max-w-md w-full p-6'>
+          <div className='bg-zinc-900 rounded-lg max-w-md w-full p-6'>
             <div className='flex justify-between items-center mb-4'>
-              <h3 className='text-lg font-medium text-gray-900'>
+              <h3 className='text-lg font-medium text-zinc-100'>
                 Add New Subgroup
               </h3>
               <button
                 onClick={() => setShowAddSubgroupModal(false)}
-                className='text-gray-400 hover:text-gray-500'
+                className='text-zinc-500 hover:text-zinc-400'
               >
                 <X className='h-5 w-5' />
               </button>
@@ -1157,13 +1157,13 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
               <div>
                 <label
                   htmlFor='parent-group'
-                  className='block text-sm font-medium text-gray-700'
+                  className='block text-sm font-medium text-zinc-300'
                 >
                   Parent Group
                 </label>
                 <select
                   id='parent-group'
-                  className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-600 focus:ring-purple-600 bg-gray-100'
+                  className='mt-1 block w-full rounded-md border-zinc-700 shadow-sm focus:border-amber-500 focus:ring-purple-600 bg-zinc-800'
                   value={subgroupFormData.groupId}
                   disabled={true}
                 >
@@ -1179,14 +1179,14 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
               <div>
                 <label
                   htmlFor='subgroup-title-en'
-                  className='block text-sm font-medium text-gray-700'
+                  className='block text-sm font-medium text-zinc-300'
                 >
                   English Title <span className='text-red-500'>*</span>
                 </label>
                 <input
                   id='subgroup-title-en'
                   type='text'
-                  className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-600 focus:ring-purple-600'
+                  className='mt-1 block w-full rounded-md border-zinc-700 shadow-sm focus:border-amber-500 focus:ring-purple-600'
                   value={subgroupFormData.translations.en.title}
                   onChange={(e) =>
                     setSubgroupFormData({
@@ -1205,14 +1205,14 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
               <div>
                 <label
                   htmlFor='subgroup-title-de'
-                  className='block text-sm font-medium text-gray-700'
+                  className='block text-sm font-medium text-zinc-300'
                 >
                   German Title
                 </label>
                 <input
                   id='subgroup-title-de'
                   type='text'
-                  className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-600 focus:ring-purple-600'
+                  className='mt-1 block w-full rounded-md border-zinc-700 shadow-sm focus:border-amber-500 focus:ring-purple-600'
                   value={subgroupFormData.translations.de.title}
                   onChange={(e) =>
                     setSubgroupFormData({
@@ -1230,14 +1230,14 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
               <div>
                 <label
                   htmlFor='subgroup-title-fr'
-                  className='block text-sm font-medium text-gray-700'
+                  className='block text-sm font-medium text-zinc-300'
                 >
                   French Title
                 </label>
                 <input
                   id='subgroup-title-fr'
                   type='text'
-                  className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-600 focus:ring-purple-600'
+                  className='mt-1 block w-full rounded-md border-zinc-700 shadow-sm focus:border-amber-500 focus:ring-purple-600'
                   value={subgroupFormData.translations.fr.title}
                   onChange={(e) =>
                     setSubgroupFormData({
@@ -1255,14 +1255,14 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
               <div>
                 <label
                   htmlFor='subgroup-title-it'
-                  className='block text-sm font-medium text-gray-700'
+                  className='block text-sm font-medium text-zinc-300'
                 >
                   Italian Title
                 </label>
                 <input
                   id='subgroup-title-it'
                   type='text'
-                  className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-600 focus:ring-purple-600'
+                  className='mt-1 block w-full rounded-md border-zinc-700 shadow-sm focus:border-amber-500 focus:ring-purple-600'
                   value={subgroupFormData.translations.it.title}
                   onChange={(e) =>
                     setSubgroupFormData({
@@ -1280,13 +1280,13 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
             <div className='mt-6 flex justify-end space-x-3'>
               <button
                 onClick={() => setShowAddSubgroupModal(false)}
-                className='px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50'
+                className='px-4 py-2 border border-zinc-700 rounded-md text-zinc-300 hover:bg-zinc-800'
               >
                 Cancel
               </button>
               <button
                 onClick={handleAddSubgroup}
-                className='px-4 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800 disabled:bg-gray-400 flex items-center'
+                className='px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 disabled:bg-zinc-600 flex items-center'
                 disabled={processing || !subgroupFormData.translations.en.title}
               >
                 {processing ? (
@@ -1309,14 +1309,14 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
       {/* Edit Subgroup Modal */}
       {showEditSubgroupModal && selectedSubgroup && (
         <div className='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4'>
-          <div className='bg-white rounded-lg max-w-md w-full p-6'>
+          <div className='bg-zinc-900 rounded-lg max-w-md w-full p-6'>
             <div className='flex justify-between items-center mb-4'>
-              <h3 className='text-lg font-medium text-gray-900'>
+              <h3 className='text-lg font-medium text-zinc-100'>
                 Edit Subgroup
               </h3>
               <button
                 onClick={() => setShowEditSubgroupModal(false)}
-                className='text-gray-400 hover:text-gray-500'
+                className='text-zinc-500 hover:text-zinc-400'
               >
                 <X className='h-5 w-5' />
               </button>
@@ -1327,13 +1327,13 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
               <div>
                 <label
                   htmlFor='edit-parent-group'
-                  className='block text-sm font-medium text-gray-700'
+                  className='block text-sm font-medium text-zinc-300'
                 >
                   Parent Group
                 </label>
                 <select
                   id='edit-parent-group'
-                  className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-600 focus:ring-purple-600'
+                  className='mt-1 block w-full rounded-md border-zinc-700 shadow-sm focus:border-amber-500 focus:ring-purple-600'
                   value={subgroupFormData.groupId}
                   onChange={(e) =>
                     setSubgroupFormData({
@@ -1354,14 +1354,14 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
               <div>
                 <label
                   htmlFor='edit-subgroup-title-en'
-                  className='block text-sm font-medium text-gray-700'
+                  className='block text-sm font-medium text-zinc-300'
                 >
                   English Title <span className='text-red-500'>*</span>
                 </label>
                 <input
                   id='edit-subgroup-title-en'
                   type='text'
-                  className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-600 focus:ring-purple-600'
+                  className='mt-1 block w-full rounded-md border-zinc-700 shadow-sm focus:border-amber-500 focus:ring-purple-600'
                   value={subgroupFormData.translations.en.title}
                   onChange={(e) =>
                     setSubgroupFormData({
@@ -1380,14 +1380,14 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
               <div>
                 <label
                   htmlFor='edit-subgroup-title-de'
-                  className='block text-sm font-medium text-gray-700'
+                  className='block text-sm font-medium text-zinc-300'
                 >
                   German Title
                 </label>
                 <input
                   id='edit-subgroup-title-de'
                   type='text'
-                  className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-600 focus:ring-purple-600'
+                  className='mt-1 block w-full rounded-md border-zinc-700 shadow-sm focus:border-amber-500 focus:ring-purple-600'
                   value={subgroupFormData.translations.de.title}
                   onChange={(e) =>
                     setSubgroupFormData({
@@ -1405,14 +1405,14 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
               <div>
                 <label
                   htmlFor='edit-subgroup-title-fr'
-                  className='block text-sm font-medium text-gray-700'
+                  className='block text-sm font-medium text-zinc-300'
                 >
                   French Title
                 </label>
                 <input
                   id='edit-subgroup-title-fr'
                   type='text'
-                  className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-600 focus:ring-purple-600'
+                  className='mt-1 block w-full rounded-md border-zinc-700 shadow-sm focus:border-amber-500 focus:ring-purple-600'
                   value={subgroupFormData.translations.fr.title}
                   onChange={(e) =>
                     setSubgroupFormData({
@@ -1430,14 +1430,14 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
               <div>
                 <label
                   htmlFor='edit-subgroup-title-it'
-                  className='block text-sm font-medium text-gray-700'
+                  className='block text-sm font-medium text-zinc-300'
                 >
                   Italian Title
                 </label>
                 <input
                   id='edit-subgroup-title-it'
                   type='text'
-                  className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-600 focus:ring-purple-600'
+                  className='mt-1 block w-full rounded-md border-zinc-700 shadow-sm focus:border-amber-500 focus:ring-purple-600'
                   value={subgroupFormData.translations.it.title}
                   onChange={(e) =>
                     setSubgroupFormData({
@@ -1455,13 +1455,13 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
             <div className='mt-6 flex justify-end space-x-3'>
               <button
                 onClick={() => setShowEditSubgroupModal(false)}
-                className='px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50'
+                className='px-4 py-2 border border-zinc-700 rounded-md text-zinc-300 hover:bg-zinc-800'
               >
                 Cancel
               </button>
               <button
                 onClick={handleUpdateSubgroup}
-                className='px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-gray-400 flex items-center'
+                className='px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-zinc-600 flex items-center'
                 disabled={processing || !subgroupFormData.translations.en.title}
               >
                 {processing ? (
@@ -1484,11 +1484,11 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
       {/* Delete Subgroup Modal */}
       {showDeleteSubgroupModal && selectedSubgroup && (
         <div className='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4'>
-          <div className='bg-white rounded-lg max-w-md w-full p-6'>
-            <h3 className='text-lg font-medium text-gray-900 mb-4'>
+          <div className='bg-zinc-900 rounded-lg max-w-md w-full p-6'>
+            <h3 className='text-lg font-medium text-zinc-100 mb-4'>
               Confirm Deletion
             </h3>
-            <p className='text-gray-600 mb-6'>
+            <p className='text-zinc-400 mb-6'>
               Are you sure you want to delete the subgroup &quot;
               {getTranslatedTitle(selectedSubgroup.translations)}&quot;? This
               action cannot be undone.
@@ -1497,13 +1497,13 @@ const Groups: React.FC<GroupsProps> = ({ csrfToken }) => {
             <div className='flex justify-end space-x-3'>
               <button
                 onClick={() => setShowDeleteSubgroupModal(false)}
-                className='px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50'
+                className='px-4 py-2 border border-zinc-700 rounded-md text-zinc-300 hover:bg-zinc-800'
               >
                 Cancel
               </button>
               <button
                 onClick={handleDeleteSubgroup}
-                className='px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 disabled:bg-gray-400 flex items-center'
+                className='px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 disabled:bg-zinc-600 flex items-center'
                 disabled={processing}
               >
                 {processing ? (

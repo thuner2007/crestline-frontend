@@ -420,7 +420,7 @@ const PartGroups: React.FC<PartGroupsProps> = ({ csrfToken }) => {
             resetForm();
             setShowAddModal(true);
           }}
-          className='px-4 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800 flex items-center'
+          className='px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 flex items-center'
         >
           <Plus className='h-4 w-4 mr-1' />
           Add Part Group
@@ -429,7 +429,7 @@ const PartGroups: React.FC<PartGroupsProps> = ({ csrfToken }) => {
 
       {/* Success message */}
       {successMessage && (
-        <div className='bg-purple-100 border border-purple-400 text-purple-800 p-3 rounded-md'>
+        <div className='bg-amber-500/10 border border-purple-400 text-amber-300 p-3 rounded-md'>
           {successMessage}
         </div>
       )}
@@ -444,7 +444,7 @@ const PartGroups: React.FC<PartGroupsProps> = ({ csrfToken }) => {
 
       {loading ? (
         <div className='flex justify-center items-center h-64'>
-          <div className='animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-600'></div>
+          <div className='animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-amber-500'></div>
         </div>
       ) : (
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
@@ -452,9 +452,9 @@ const PartGroups: React.FC<PartGroupsProps> = ({ csrfToken }) => {
             partGroups.map((partGroup) => (
               <div
                 key={partGroup.id}
-                className='border rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow'
+                className='border rounded-lg overflow-hidden bg-zinc-900 shadow-sm hover:shadow-md transition-shadow'
               >
-                <div className='h-48 bg-gray-100 relative'>
+                <div className='h-48 bg-zinc-800 relative'>
                   {partGroup.image && !imageErrors[partGroup.id] ? (
                     <Image
                       src={processImageUrl(partGroup.image) || ''}
@@ -472,15 +472,15 @@ const PartGroups: React.FC<PartGroupsProps> = ({ csrfToken }) => {
                     />
                   ) : (
                     <div className='absolute inset-0 flex items-center justify-center'>
-                      <ImageIcon className='h-12 w-12 text-gray-400' />
+                      <ImageIcon className='h-12 w-12 text-zinc-500' />
                     </div>
                   )}
                 </div>
                 <div className='p-4'>
-                  <h3 className='font-medium text-gray-900'>
+                  <h3 className='font-medium text-zinc-100'>
                     {getTranslatedTitle(partGroup.translations)}
                   </h3>
-                  <div className='mt-2 text-sm text-gray-500 flex flex-col gap-1'>
+                  <div className='mt-2 text-sm text-zinc-400 flex flex-col gap-1'>
                     <div>
                       <span className='font-semibold'>DE:</span>{' '}
                       {getTranslatedTitle(partGroup.translations, 'de')}
@@ -516,15 +516,15 @@ const PartGroups: React.FC<PartGroupsProps> = ({ csrfToken }) => {
               </div>
             ))
           ) : (
-            <div className='col-span-full text-center py-12 bg-gray-50 rounded-lg'>
-              <p className='text-gray-500'>No part groups found</p>
+            <div className='col-span-full text-center py-12 bg-zinc-800 rounded-lg'>
+              <p className='text-zinc-400'>No part groups found</p>
               <button
                 onClick={() => {
                   setImagePreview(null);
                   setFormData({ ...formData, image: '' });
                   setImageFile(null);
                 }}
-                className='mt-4 px-4 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800'
+                className='mt-4 px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700'
               >
                 Create Your First Part Group
               </button>
@@ -536,9 +536,9 @@ const PartGroups: React.FC<PartGroupsProps> = ({ csrfToken }) => {
       {/* Add/Edit Modal (shared UI) */}
       {(showAddModal || showEditModal) && (
         <div className='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4'>
-          <div className='bg-white rounded-lg max-w-md w-full p-6'>
+          <div className='bg-zinc-900 rounded-lg max-w-md w-full p-6'>
             <div className='flex justify-between items-center mb-4'>
-              <h3 className='text-lg font-medium text-gray-900'>
+              <h3 className='text-lg font-medium text-zinc-100'>
                 {showAddModal ? 'Add New Part Group' : 'Edit Part Group'}
               </h3>
               <button
@@ -549,7 +549,7 @@ const PartGroups: React.FC<PartGroupsProps> = ({ csrfToken }) => {
                     setShowEditModal(false);
                   }
                 }}
-                className='text-gray-400 hover:text-gray-500'
+                className='text-zinc-500 hover:text-zinc-400'
               >
                 <X className='h-5 w-5' />
               </button>
@@ -560,14 +560,14 @@ const PartGroups: React.FC<PartGroupsProps> = ({ csrfToken }) => {
               <div>
                 <label
                   htmlFor='name'
-                  className='block text-sm font-medium text-gray-700'
+                  className='block text-sm font-medium text-zinc-300'
                 >
                   Internal Name (Optional)
                 </label>
                 <input
                   id='name'
                   type='text'
-                  className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-600 focus:ring-purple-600'
+                  className='mt-1 block w-full rounded-md border-zinc-700 shadow-sm focus:border-amber-500 focus:ring-purple-600'
                   value={formData.name}
                   onChange={(e) =>
                     setFormData({
@@ -576,7 +576,7 @@ const PartGroups: React.FC<PartGroupsProps> = ({ csrfToken }) => {
                     })
                   }
                 />
-                <p className='text-xs text-gray-500 mt-1'>
+                <p className='text-xs text-zinc-400 mt-1'>
                   Internal reference name (not visible to users)
                 </p>
               </div>
@@ -585,13 +585,13 @@ const PartGroups: React.FC<PartGroupsProps> = ({ csrfToken }) => {
               <div>
                 <label
                   htmlFor='image'
-                  className='block text-sm font-medium text-gray-700 mb-1'
+                  className='block text-sm font-medium text-zinc-300 mb-1'
                 >
                   Group Image
                 </label>
 
                 {imagePreview ? (
-                  <div className='relative h-48 bg-gray-100 rounded-md mb-2'>
+                  <div className='relative h-48 bg-zinc-800 rounded-md mb-2'>
                     <Image
                       src={imagePreview}
                       alt='Preview'
@@ -615,13 +615,13 @@ const PartGroups: React.FC<PartGroupsProps> = ({ csrfToken }) => {
                     </button>
                   </div>
                 ) : (
-                  <div className='flex items-center justify-center h-48 bg-gray-100 rounded-md mb-2'>
-                    <ImageIcon className='h-12 w-12 text-gray-400' />
+                  <div className='flex items-center justify-center h-48 bg-zinc-800 rounded-md mb-2'>
+                    <ImageIcon className='h-12 w-12 text-zinc-500' />
                   </div>
                 )}
 
                 <div className='flex items-center'>
-                  <label className='flex-1 cursor-pointer bg-white border border-gray-300 rounded-md shadow-sm px-4 py-2 hover:bg-gray-50 text-sm text-center'>
+                  <label className='flex-1 cursor-pointer bg-zinc-900 border border-zinc-700 rounded-md shadow-sm px-4 py-2 hover:bg-zinc-800 text-sm text-center'>
                     <span className='flex justify-center items-center'>
                       <Upload className='h-4 w-4 mr-1' />
                       {imagePreview ? 'Change Image' : 'Upload Image'}
@@ -640,14 +640,14 @@ const PartGroups: React.FC<PartGroupsProps> = ({ csrfToken }) => {
               <div>
                 <label
                   htmlFor='title-en'
-                  className='block text-sm font-medium text-gray-700'
+                  className='block text-sm font-medium text-zinc-300'
                 >
                   English Title <span className='text-red-500'>*</span>
                 </label>
                 <input
                   id='title-en'
                   type='text'
-                  className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-600 focus:ring-purple-600'
+                  className='mt-1 block w-full rounded-md border-zinc-700 shadow-sm focus:border-amber-500 focus:ring-purple-600'
                   value={formData.translations.en.title}
                   onChange={(e) =>
                     setFormData({
@@ -666,14 +666,14 @@ const PartGroups: React.FC<PartGroupsProps> = ({ csrfToken }) => {
               <div>
                 <label
                   htmlFor='title-de'
-                  className='block text-sm font-medium text-gray-700'
+                  className='block text-sm font-medium text-zinc-300'
                 >
                   German Title
                 </label>
                 <input
                   id='title-de'
                   type='text'
-                  className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-600 focus:ring-purple-600'
+                  className='mt-1 block w-full rounded-md border-zinc-700 shadow-sm focus:border-amber-500 focus:ring-purple-600'
                   value={formData.translations.de.title}
                   onChange={(e) =>
                     setFormData({
@@ -691,14 +691,14 @@ const PartGroups: React.FC<PartGroupsProps> = ({ csrfToken }) => {
               <div>
                 <label
                   htmlFor='title-fr'
-                  className='block text-sm font-medium text-gray-700'
+                  className='block text-sm font-medium text-zinc-300'
                 >
                   French Title
                 </label>
                 <input
                   id='title-fr'
                   type='text'
-                  className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-600 focus:ring-purple-600'
+                  className='mt-1 block w-full rounded-md border-zinc-700 shadow-sm focus:border-amber-500 focus:ring-purple-600'
                   value={formData.translations.fr.title}
                   onChange={(e) =>
                     setFormData({
@@ -716,14 +716,14 @@ const PartGroups: React.FC<PartGroupsProps> = ({ csrfToken }) => {
               <div>
                 <label
                   htmlFor='title-it'
-                  className='block text-sm font-medium text-gray-700'
+                  className='block text-sm font-medium text-zinc-300'
                 >
                   Italian Title
                 </label>
                 <input
                   id='title-it'
                   type='text'
-                  className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-600 focus:ring-purple-600'
+                  className='mt-1 block w-full rounded-md border-zinc-700 shadow-sm focus:border-amber-500 focus:ring-purple-600'
                   value={formData.translations.it.title}
                   onChange={(e) =>
                     setFormData({
@@ -747,7 +747,7 @@ const PartGroups: React.FC<PartGroupsProps> = ({ csrfToken }) => {
                     handleUpdatePartGroup();
                   }
                 }}
-                className='px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50'
+                className='px-4 py-2 border border-zinc-700 rounded-md text-zinc-300 hover:bg-zinc-800'
               >
                 Cancel
               </button>
@@ -757,9 +757,9 @@ const PartGroups: React.FC<PartGroupsProps> = ({ csrfToken }) => {
                 }
                 className={`px-4 py-2 ${
                   showAddModal
-                    ? 'bg-purple-700 hover:bg-purple-800'
+                    ? 'bg-amber-600 hover:bg-amber-700'
                     : 'bg-blue-600 hover:bg-blue-700'
-                } text-white rounded-md disabled:bg-gray-400 flex items-center`}
+                } text-white rounded-md disabled:bg-zinc-600 flex items-center`}
                 disabled={processing || !formData.translations.en.title}
               >
                 {processing ? (
@@ -782,11 +782,11 @@ const PartGroups: React.FC<PartGroupsProps> = ({ csrfToken }) => {
       {/* Delete Modal */}
       {showDeleteModal && selectedPartGroup && (
         <div className='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4'>
-          <div className='bg-white rounded-lg max-w-md w-full p-6'>
-            <h3 className='text-lg font-medium text-gray-900 mb-4'>
+          <div className='bg-zinc-900 rounded-lg max-w-md w-full p-6'>
+            <h3 className='text-lg font-medium text-zinc-100 mb-4'>
               Confirm Deletion
             </h3>
-            <p className='text-gray-600 mb-6'>
+            <p className='text-zinc-400 mb-6'>
               Are you sure you want to delete the part group &quot;
               {getTranslatedTitle(selectedPartGroup.translations)}&quot;? This
               action cannot be undone.
@@ -795,13 +795,13 @@ const PartGroups: React.FC<PartGroupsProps> = ({ csrfToken }) => {
             <div className='flex justify-end space-x-3'>
               <button
                 onClick={() => setShowDeleteModal(false)}
-                className='px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50'
+                className='px-4 py-2 border border-zinc-700 rounded-md text-zinc-300 hover:bg-zinc-800'
               >
                 Cancel
               </button>
               <button
                 onClick={handleDeletePartGroup}
-                className='px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 disabled:bg-gray-400 flex items-center'
+                className='px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 disabled:bg-zinc-600 flex items-center'
                 disabled={processing}
               >
                 {processing ? (

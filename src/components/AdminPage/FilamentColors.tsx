@@ -231,7 +231,7 @@ const FilamentColors = ({ csrfToken }: FilamentColorsProps) => {
         <button
           onClick={fetchColors}
           disabled={loading || !selectedFilament}
-          className="flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 disabled:opacity-50"
+          className="flex items-center gap-2 px-4 py-2 bg-zinc-800 text-zinc-300 rounded-md hover:bg-zinc-700 disabled:opacity-50"
         >
           <RefreshCw className={`h-4 w-4 ${loading ? "animate-spin" : ""}`} />
           Refresh
@@ -240,13 +240,13 @@ const FilamentColors = ({ csrfToken }: FilamentColorsProps) => {
 
       {/* Filament Type Selector */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+        <label className="block text-sm font-medium text-zinc-300 mb-2">
           Select Filament Type
         </label>
         <select
           value={selectedFilament}
           onChange={(e) => setSelectedFilament(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+          className="w-full px-3 py-2 border border-zinc-700 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
           disabled={loading}
         >
           {filamentTypes.map((type) => (
@@ -270,7 +270,7 @@ const FilamentColors = ({ csrfToken }: FilamentColorsProps) => {
       )}
 
       {/* Add Single Color */}
-      <div className="bg-white border border-gray-200 rounded-lg p-4">
+      <div className="bg-zinc-900 border border-zinc-700 rounded-lg p-4">
         <h4 className="font-semibold mb-3">Add Single Color</h4>
         <div className="flex gap-2">
           <input
@@ -278,14 +278,14 @@ const FilamentColors = ({ csrfToken }: FilamentColorsProps) => {
             value={newColor}
             onChange={(e) => setNewColor(e.target.value)}
             placeholder="Enter color name (e.g., transparent-blue)"
-            className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="flex-1 px-3 py-2 border border-zinc-700 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
             disabled={loading || !selectedFilament}
             onKeyPress={(e) => e.key === "Enter" && handleAddColor()}
           />
           <button
             onClick={handleAddColor}
             disabled={loading || !selectedFilament}
-            className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 disabled:opacity-50"
+            className="flex items-center gap-2 px-4 py-2 bg-amber-500 text-white rounded-md hover:bg-amber-600 disabled:opacity-50"
           >
             <Plus className="h-4 w-4" />
             Add
@@ -294,9 +294,9 @@ const FilamentColors = ({ csrfToken }: FilamentColorsProps) => {
       </div>
 
       {/* Bulk Update */}
-      <div className="bg-white border border-gray-200 rounded-lg p-4">
+      <div className="bg-zinc-900 border border-zinc-700 rounded-lg p-4">
         <h4 className="font-semibold mb-3">Bulk Update Colors</h4>
-        <p className="text-sm text-gray-600 mb-2">
+        <p className="text-sm text-zinc-400 mb-2">
           Enter comma-separated color names. This will replace all existing
           colors.
         </p>
@@ -305,7 +305,7 @@ const FilamentColors = ({ csrfToken }: FilamentColorsProps) => {
             value={bulkColors}
             onChange={(e) => setBulkColors(e.target.value)}
             placeholder="black, white, red, blue, transparent-green"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full px-3 py-2 border border-zinc-700 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
             rows={3}
             disabled={loading || !selectedFilament}
           />
@@ -321,24 +321,24 @@ const FilamentColors = ({ csrfToken }: FilamentColorsProps) => {
       </div>
 
       {/* Current Colors */}
-      <div className="bg-white border border-gray-200 rounded-lg p-4">
+      <div className="bg-zinc-900 border border-zinc-700 rounded-lg p-4">
         <h4 className="font-semibold mb-3">
           Current Colors for {selectedFilament}
         </h4>
         {loading ? (
-          <p className="text-gray-500">Loading...</p>
+          <p className="text-zinc-400">Loading...</p>
         ) : colors.length === 0 ? (
-          <p className="text-gray-500">No colors available</p>
+          <p className="text-zinc-400">No colors available</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {colors.map((colorItem) => (
               <div
                 key={colorItem.id}
-                className="flex items-center justify-between p-3 bg-gray-50 rounded-md border border-gray-200"
+                className="flex items-center justify-between p-3 bg-zinc-800 rounded-md border border-zinc-700"
               >
                 <div className="flex items-center gap-3">
                   <div
-                    className="w-8 h-8 rounded border border-gray-300"
+                    className="w-8 h-8 rounded border border-zinc-700"
                     style={{
                       backgroundColor: getColorStyle(colorItem.color),
                     }}
@@ -346,7 +346,7 @@ const FilamentColors = ({ csrfToken }: FilamentColorsProps) => {
                   />
                   <div>
                     <span className="font-medium text-sm">{colorItem.color}</span>
-                    <p className="text-xs text-gray-400">ID: {colorItem.id}</p>
+                    <p className="text-xs text-zinc-500">ID: {colorItem.id}</p>
                   </div>
                 </div>
                 <button

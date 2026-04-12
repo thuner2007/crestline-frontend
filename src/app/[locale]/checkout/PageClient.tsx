@@ -1214,10 +1214,6 @@ function CheckoutForm({
           <span>📧</span>
           <span>{t("reassurance.orderEmail")}</span>
         </div>
-        <div className="flex items-center justify-center gap-2 text-amber-400 font-semibold">
-          <span>🎁</span>
-          <span>{t("reassurance.freeShipping")}</span>
-        </div>
       </div>
 
       {/* Error Modal */}

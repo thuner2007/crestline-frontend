@@ -117,7 +117,7 @@ export async function POST(request: NextRequest) {
 
     // Create checkout session
     const sessionParams: Stripe.Checkout.SessionCreateParams = {
-      payment_method_types: ["card", "twint", "paypal", "klarna"],
+      payment_method_types: ["card", "twint", "paypal", "klarna", 'bancontact', 'eps', 'ideal', 'p24', 'sepa_debit'],
       line_items: stripeLineItems,
       mode: "payment",
       success_url: `${baseUrl}/${locale}/payment-check?session_id={CHECKOUT_SESSION_ID}`,

@@ -8,6 +8,21 @@ import { usePathname } from "next/navigation";
 import { useCart } from "@/components/CartContext";
 import useAxios from "@/useAxios";
 import storage from "@/lib/storage";
+import { Oswald, DM_Sans } from "next/font/google";
+
+const oswald = Oswald({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-body",
+  display: "swap",
+});
 
 interface PaymentSuccessResponse {
   success: boolean;
@@ -220,12 +235,17 @@ export default function PaymentCheckPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center px-4">
-        <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md text-center">
-          <div className="flex justify-center mb-4">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-600"></div>
+      <div className={`${oswald.variable} ${dmSans.variable} min-h-screen w-full bg-zinc-950 flex flex-col items-center justify-center px-4`}>
+        <div className="bg-zinc-900 border border-zinc-800 p-10 w-full max-w-md text-center">
+          <div className="flex justify-center mb-6">
+            <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-amber-500"></div>
           </div>
-          <p className="text-gray-600">{t("checkingPayment")}</p>
+          <p
+            className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            {t("checkingPayment")}
+          </p>
         </div>
       </div>
     );
@@ -234,11 +254,143 @@ export default function PaymentCheckPage() {
   // Handle payment success (now based on actual Stripe verification)
   if (paymentVerified) {
     return (
-      <div className="min-h-screen flex items-center justify-center px-4 py-8">
-        <div className="bg-white p-6 sm:p-8 rounded-lg shadow-lg w-full max-w-md overflow-hidden">
-          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-green-600 flex items-center justify-center">
+      <div className={`${oswald.variable} ${dmSans.variable} min-h-screen w-full bg-zinc-950 flex items-center justify-center px-4 py-16`}>
+        <div className="bg-zinc-900 border border-zinc-800 w-full max-w-md overflow-hidden">
+          {/* Amber top bar */}
+          <div className="h-1 w-full bg-amber-500" />
+
+          <div className="p-8 sm:p-10">
+            {/* Success icon */}
+            <div className="w-14 h-14 mx-auto mb-8 border-2 border-amber-500 flex items-center justify-center">
+              <svg
+                className="w-7 h-7 text-amber-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M5 13l4 4L19 7"
+                ></path>
+              </svg>
+            </div>
+
+            <h2
+              className="text-2xl font-bold mb-3 text-white text-center uppercase tracking-[0.08em]"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              {t("paymentSucceeded")}
+            </h2>
+            <p
+              className="text-zinc-400 mb-1 text-center text-sm"
+              style={{ fontFamily: "var(--font-body)" }}
+            >
+              {t("thankYou")}
+            </p>
+            <p
+              className="text-zinc-500 mb-8 text-center text-sm"
+              style={{ fontFamily: "var(--font-body)" }}
+            >
+              {t("orderProcessing")}
+            </p>
+
+            <div className="border border-zinc-800 bg-zinc-950 p-3 mb-8">
+              <p
+                className="text-xs uppercase tracking-[0.15em] text-zinc-500"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {t("orderId")}:{" "}
+                <span className="text-amber-400 font-bold">{orderId}</span>
+              </p>
+            </div>
+
+            {discountCode && (
+              <div className="border-2 border-amber-500 bg-zinc-950 p-5 mb-8">
+                <div className="flex items-center justify-center gap-2 mb-3">
+                  <svg
+                    className="w-4 h-4 text-amber-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                  <h3
+                    className="text-sm font-bold uppercase tracking-[0.18em] text-amber-400"
+                    style={{ fontFamily: "var(--font-display)" }}
+                  >
+                    {t("discountTitle") || "Special Offer!"}
+                  </h3>
+                </div>
+                <p
+                  className="text-center text-zinc-400 text-xs mb-4"
+                  style={{ fontFamily: "var(--font-body)" }}
+                >
+                  {t("discountMessage") ||
+                    "Get 10% off your next order with this code:"}
+                </p>
+                <div className="border border-zinc-800 bg-zinc-900 p-3 text-center">
+                  <code
+                    className="text-xl font-bold text-amber-400 tracking-[0.25em]"
+                    style={{ fontFamily: "var(--font-display)" }}
+                  >
+                    {discountCode}
+                  </code>
+                </div>
+                <p
+                  className="text-center text-zinc-600 text-xs mt-2 uppercase tracking-wider"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  {t("discountValidity") || "Valid for one-time use"}
+                </p>
+              </div>
+            )}
+
+            <div className="flex flex-col sm:flex-row gap-3 w-full">
+              <Link
+                href={`/${locale}`}
+                className="flex-1 min-w-0 px-5 py-3 bg-zinc-800 text-zinc-200 text-xs font-bold uppercase tracking-[0.15em] hover:bg-zinc-700 transition-colors text-center flex items-center justify-center"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {t("continueShopping")}
+              </Link>
+              {accessToken && (
+                <Link
+                  href={`/${locale}/history`}
+                  className="flex-1 min-w-0 px-5 py-3 bg-amber-500 text-zinc-950 text-xs font-bold uppercase tracking-[0.15em] hover:bg-amber-400 transition-colors text-center flex items-center justify-center"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  {t("viewHistory")}
+                </Link>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Handle payment failure or other status
+  return (
+      <div className={`${oswald.variable} ${dmSans.variable} min-h-screen w-full bg-zinc-950 flex items-center justify-center px-4 py-16`}>
+      <div className="bg-zinc-900 border border-zinc-800 w-full max-w-md overflow-hidden">
+        {/* Red top bar for failure */}
+        <div className="h-1 w-full bg-red-600" />
+
+        <div className="p-8 sm:p-10">
+          {/* Error icon */}
+          <div className="w-14 h-14 mx-auto mb-8 border-2 border-red-600 flex items-center justify-center">
             <svg
-              className="w-8 h-8 text-white"
+              className="w-7 h-7 text-red-500"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -248,135 +400,52 @@ export default function PaymentCheckPage() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
-                d="M5 13l4 4L19 7"
+                d="M6 18L18 6M6 6l12 12"
               ></path>
             </svg>
           </div>
 
-          <h2 className="text-2xl font-bold mb-4 text-gray-800 text-center">
-            {t("paymentSucceeded")}
+          <h2
+            className="text-2xl font-bold mb-3 text-white text-center uppercase tracking-[0.08em]"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            {t("paymentFailed")}
           </h2>
-          <p className="text-gray-600 mb-2 text-center">{t("thankYou")}</p>
-          <p className="text-gray-600 mb-6 text-center">
-            {t("orderProcessing")}
+          <p
+            className="text-zinc-400 mb-8 text-center text-sm"
+            style={{ fontFamily: "var(--font-body)" }}
+          >
+            {paymentVerificationError || t("paymentErrorMessage")}
           </p>
 
-          <div className="bg-gray-50 rounded p-3 mb-6 text-sm">
-            <p className="text-gray-500">
-              {t("orderId")}:{" "}
-              <span className="font-medium text-gray-700">{orderId}</span>
-            </p>
-          </div>
-
-          {discountCode && (
-            <div className="bg-gradient-to-r from-purple-50 to-purple-100 border-2 border-purple-300 rounded-lg p-4 mb-6">
-              <div className="flex items-center justify-center mb-2">
-                <svg
-                  className="w-5 h-5 text-purple-600 mr-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  ></path>
-                </svg>
-                <h3 className="text-lg font-bold text-purple-800">
-                  {t("discountTitle") || "Special Offer!"}
-                </h3>
-              </div>
-              <p className="text-center text-purple-700 text-sm mb-3">
-                {t("discountMessage") ||
-                  "Get 10% off your next order with this code:"}
-              </p>
-              <div className="bg-white rounded-md p-3 text-center">
-                <code className="text-2xl font-bold text-purple-600 tracking-wider">
-                  {discountCode}
-                </code>
-              </div>
-              <p className="text-center text-purple-600 text-xs mt-2">
-                {t("discountValidity") || "Valid for one-time use"}
+          {paymentIntentId && (
+            <div className="border border-zinc-800 bg-zinc-950 p-3 mb-8">
+              <p
+                className="text-xs uppercase tracking-[0.15em] text-zinc-500"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {t("paymentId")}:{" "}
+                <span className="text-zinc-300 font-bold">{paymentIntentId}</span>
               </p>
             </div>
           )}
 
-          <div className="flex flex-col sm:flex-row gap-4 w-full">
+          <div className="flex flex-col sm:flex-row gap-3 w-full">
             <Link
-              href={`/${locale}`}
-              className="flex-1 min-w-0 px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 text-center flex items-center justify-center"
+              href={`/${locale}/checkout`}
+              className="flex-1 min-w-0 px-5 py-3 bg-zinc-800 text-zinc-200 text-xs font-bold uppercase tracking-[0.15em] hover:bg-zinc-700 transition-colors text-center"
+              style={{ fontFamily: "var(--font-display)" }}
             >
-              {t("continueShopping")}
+              {t("backToCheckout")}
             </Link>
-            {accessToken && (
-              <Link
-                href={`/${locale}/history`}
-                className="flex-1 min-w-0 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-600 text-center flex items-center justify-center"
-              >
-                {t("viewHistory")}
-              </Link>
-            )}
+            <Link
+              href={`/${locale}/contact`}
+              className="flex-1 min-w-0 px-5 py-3 bg-red-600 text-white text-xs font-bold uppercase tracking-[0.15em] hover:bg-red-500 transition-colors text-center"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              {t("contactSupport")}
+            </Link>
           </div>
-        </div>
-      </div>
-    );
-  }
-
-  // Handle payment failure or other status
-  return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-8">
-      <div className="bg-white p-6 sm:p-8 rounded-lg shadow-lg w-full max-w-md overflow-hidden">
-        <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-red-100 flex items-center justify-center">
-          <svg
-            className="w-8 h-8 text-red-600"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M6 18L18 6M6 6l12 12"
-            ></path>
-          </svg>
-        </div>
-
-        <h2 className="text-2xl font-bold mb-4 text-gray-800 text-center">
-          {t("paymentFailed")}
-        </h2>
-        <p className="text-gray-600 mb-6 text-center">
-          {paymentVerificationError || t("paymentErrorMessage")}
-        </p>
-
-        {paymentIntentId && (
-          <div className="bg-gray-50 rounded p-3 mb-6 text-sm">
-            <p className="text-gray-500">
-              {t("paymentId")}:{" "}
-              <span className="font-medium text-gray-700">
-                {paymentIntentId}
-              </span>
-            </p>
-          </div>
-        )}
-
-        <div className="flex flex-col sm:flex-row gap-4 w-full">
-          <Link
-            href={`/${locale}/checkout`}
-            className="flex-1 min-w-0 px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 text-center"
-          >
-            {t("backToCheckout")}
-          </Link>
-          <Link
-            href={`/${locale}/contact`}
-            className="flex-1 min-w-0 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-purple-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-600 text-center"
-          >
-            {t("contactSupport")}
-          </Link>
         </div>
       </div>
     </div>

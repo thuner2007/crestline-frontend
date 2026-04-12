@@ -1,7 +1,7 @@
 "use client";
 import { useTranslations } from "next-intl";
 
-const pdfUrl = "/Widerrufsrecht Revsticks.pdf";
+const pdfUrl = "/Widerrufsrecht_Crestline.pdf";
 
 export default function WithdrawalPage() {
   const t = useTranslations("legals");
@@ -19,7 +19,7 @@ export default function WithdrawalPage() {
       <div className="h-20 flex items-center justify-center mt-4">
         <a
           href={pdfUrl}
-          download="Widerrufsrecht Revsticks.pdf"
+          download="Widerrufsrecht_Crestline.pdf"
           className="btn btn-primary px-6 py-2"
         >
           {t("download")}

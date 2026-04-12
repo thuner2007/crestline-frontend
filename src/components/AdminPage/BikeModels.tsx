@@ -163,7 +163,7 @@ export default function BikeModels({ csrfToken }: BikeModelsProps) {
   if (loading) {
     return (
       <div className="flex justify-center items-center py-12">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-amber-500"></div>
       </div>
     );
   }
@@ -171,10 +171,10 @@ export default function BikeModels({ csrfToken }: BikeModelsProps) {
   return (
     <div>
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold text-gray-900">Bike Models</h2>
+        <h2 className="text-2xl font-bold text-zinc-100">Bike Models</h2>
         <button
           onClick={openAddModal}
-          className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700"
+          className="flex items-center gap-2 px-4 py-2 bg-amber-500 text-white rounded-lg hover:bg-amber-600"
         >
           <Plus className="h-5 w-5" />
           Add Bike Model
@@ -184,13 +184,13 @@ export default function BikeModels({ csrfToken }: BikeModelsProps) {
       {/* Filters */}
       <div className="mb-6 flex flex-wrap gap-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium text-zinc-300 mb-1">
             Status
           </label>
           <select
             value={filterStatus}
             onChange={(e) => setFilterStatus(e.target.value as "all" | "active" | "inactive")}
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+            className="px-4 py-2 border border-zinc-700 rounded-lg focus:ring-2 focus:ring-amber-500"
           >
             <option value="all">All</option>
             <option value="active">Active</option>
@@ -199,13 +199,13 @@ export default function BikeModels({ csrfToken }: BikeModelsProps) {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium text-zinc-300 mb-1">
             Manufacturer
           </label>
           <select
             value={filterManufacturer}
             onChange={(e) => setFilterManufacturer(e.target.value)}
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+            className="px-4 py-2 border border-zinc-700 rounded-lg focus:ring-2 focus:ring-amber-500"
           >
             <option value="">All Manufacturers</option>
             {manufacturers.map((mfr) => (
@@ -218,50 +218,50 @@ export default function BikeModels({ csrfToken }: BikeModelsProps) {
       </div>
 
       {/* Bike Models Table */}
-      <div className="bg-white rounded-lg shadow overflow-hidden">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
+      <div className="bg-zinc-900 rounded-lg shadow overflow-hidden">
+        <table className="min-w-full divide-y divide-zinc-800">
+          <thead className="bg-zinc-800">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-zinc-400 uppercase tracking-wider">
                 Manufacturer
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-zinc-400 uppercase tracking-wider">
                 Model
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-zinc-400 uppercase tracking-wider">
                 Year
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-zinc-400 uppercase tracking-wider">
                 Parts
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-zinc-400 uppercase tracking-wider">
                 Status
               </th>
-              <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-right text-xs font-medium text-zinc-400 uppercase tracking-wider">
                 Actions
               </th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="bg-zinc-900 divide-y divide-zinc-800">
             {bikeModels.length === 0 ? (
               <tr>
-                <td colSpan={6} className="px-6 py-4 text-center text-gray-500">
+                <td colSpan={6} className="px-6 py-4 text-center text-zinc-400">
                   No bike models found
                 </td>
               </tr>
             ) : (
               bikeModels.map((model) => (
-                <tr key={model.id} className="hover:bg-gray-50">
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                <tr key={model.id} className="hover:bg-zinc-800">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-zinc-100">
                     {model.manufacturer}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-zinc-100">
                     {model.model}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-zinc-400">
                     {model.year || "N/A"}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-zinc-400">
                     {model._count?.parts || 0}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
@@ -312,14 +312,14 @@ export default function BikeModels({ csrfToken }: BikeModelsProps) {
       {/* Add/Edit Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg max-w-md w-full p-6">
+          <div className="bg-zinc-900 rounded-lg max-w-md w-full p-6">
             <h3 className="text-xl font-bold mb-4">
               {editingModel ? "Edit Bike Model" : "Add Bike Model"}
             </h3>
             <form onSubmit={handleSubmit}>
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-zinc-300 mb-1">
                     Manufacturer *
                   </label>
                   <input
@@ -328,13 +328,13 @@ export default function BikeModels({ csrfToken }: BikeModelsProps) {
                     onChange={(e) =>
                       setFormData({ ...formData, manufacturer: e.target.value })
                     }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                    className="w-full px-3 py-2 border border-zinc-700 rounded-lg focus:ring-2 focus:ring-amber-500"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-zinc-300 mb-1">
                     Model *
                   </label>
                   <input
@@ -343,13 +343,13 @@ export default function BikeModels({ csrfToken }: BikeModelsProps) {
                     onChange={(e) =>
                       setFormData({ ...formData, model: e.target.value })
                     }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                    className="w-full px-3 py-2 border border-zinc-700 rounded-lg focus:ring-2 focus:ring-amber-500"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-zinc-300 mb-1">
                     Year (optional)
                   </label>
                   <input
@@ -360,7 +360,7 @@ export default function BikeModels({ csrfToken }: BikeModelsProps) {
                     onChange={(e) =>
                       setFormData({ ...formData, year: e.target.value })
                     }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                    className="w-full px-3 py-2 border border-zinc-700 rounded-lg focus:ring-2 focus:ring-amber-500"
                   />
                 </div>
 
@@ -372,11 +372,11 @@ export default function BikeModels({ csrfToken }: BikeModelsProps) {
                     onChange={(e) =>
                       setFormData({ ...formData, active: e.target.checked })
                     }
-                    className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+                    className="h-4 w-4 text-amber-400 focus:ring-amber-500 border-zinc-700 rounded"
                   />
                   <label
                     htmlFor="active"
-                    className="ml-2 block text-sm text-gray-900"
+                    className="ml-2 block text-sm text-zinc-100"
                   >
                     Active
                   </label>
@@ -390,13 +390,13 @@ export default function BikeModels({ csrfToken }: BikeModelsProps) {
                     setShowModal(false);
                     setEditingModel(null);
                   }}
-                  className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50"
+                  className="px-4 py-2 border border-zinc-700 rounded-lg text-zinc-300 hover:bg-zinc-800"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700"
+                  className="px-4 py-2 bg-amber-500 text-white rounded-lg hover:bg-amber-600"
                 >
                   {editingModel ? "Update" : "Create"}
                 </button>

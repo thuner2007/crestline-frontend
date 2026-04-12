@@ -205,14 +205,14 @@ const FilamentTypes = ({ csrfToken }: FilamentTypesProps) => {
           <button
             onClick={fetchFilamentTypes}
             disabled={loading}
-            className="flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 disabled:opacity-50"
+            className="flex items-center gap-2 px-4 py-2 bg-zinc-800 text-zinc-300 rounded-md hover:bg-zinc-700 disabled:opacity-50"
           >
             <RefreshCw className={`h-4 w-4 ${loading ? "animate-spin" : ""}`} />
             Refresh
           </button>
           <button
             onClick={() => setShowAddForm(!showAddForm)}
-            className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700"
+            className="flex items-center gap-2 px-4 py-2 bg-amber-500 text-white rounded-md hover:bg-amber-600"
           >
             <Plus className="h-4 w-4" />
             Add Filament Type
@@ -234,11 +234,11 @@ const FilamentTypes = ({ csrfToken }: FilamentTypesProps) => {
 
       {/* Add Form */}
       {showAddForm && (
-        <div className="bg-white border border-gray-200 rounded-lg p-4">
+        <div className="bg-zinc-900 border border-zinc-700 rounded-lg p-4">
           <h4 className="font-semibold mb-3">Add New Filament Type</h4>
           <div className="space-y-3">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-zinc-300 mb-1">
                 Name *
               </label>
               <input
@@ -248,11 +248,11 @@ const FilamentTypes = ({ csrfToken }: FilamentTypesProps) => {
                   setFormData((prev) => ({ ...prev, name: e.target.value }))
                 }
                 placeholder="e.g., ABS, PLA+"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full px-3 py-2 border border-zinc-700 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-zinc-300 mb-1">
                 Description
               </label>
               <textarea
@@ -264,7 +264,7 @@ const FilamentTypes = ({ csrfToken }: FilamentTypesProps) => {
                   }))
                 }
                 placeholder="Brief description of this filament type"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full px-3 py-2 border border-zinc-700 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
                 rows={2}
               />
             </div>
@@ -276,11 +276,11 @@ const FilamentTypes = ({ csrfToken }: FilamentTypesProps) => {
                 onChange={(e) =>
                   setFormData((prev) => ({ ...prev, active: e.target.checked }))
                 }
-                className="w-4 h-4 text-purple-600 rounded focus:ring-purple-500"
+                className="w-4 h-4 text-amber-400 rounded focus:ring-amber-500"
               />
               <label
                 htmlFor="active"
-                className="text-sm font-medium text-gray-700"
+                className="text-sm font-medium text-zinc-300"
               >
                 Active
               </label>
@@ -289,7 +289,7 @@ const FilamentTypes = ({ csrfToken }: FilamentTypesProps) => {
               <button
                 onClick={handleCreate}
                 disabled={loading}
-                className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 disabled:opacity-50"
+                className="flex items-center gap-2 px-4 py-2 bg-amber-500 text-white rounded-md hover:bg-amber-600 disabled:opacity-50"
               >
                 <Save className="h-4 w-4" />
                 Create
@@ -299,7 +299,7 @@ const FilamentTypes = ({ csrfToken }: FilamentTypesProps) => {
                   setShowAddForm(false);
                   setFormData({ name: "", description: "", active: true });
                 }}
-                className="flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200"
+                className="flex items-center gap-2 px-4 py-2 bg-zinc-800 text-zinc-300 rounded-md hover:bg-zinc-700"
               >
                 <X className="h-4 w-4" />
                 Cancel
@@ -310,33 +310,33 @@ const FilamentTypes = ({ csrfToken }: FilamentTypesProps) => {
       )}
 
       {/* Filament Types List */}
-      <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+      <div className="bg-zinc-900 border border-zinc-700 rounded-lg overflow-hidden">
         {loading && filamentTypes.length === 0 ? (
-          <p className="p-4 text-gray-500">Loading...</p>
+          <p className="p-4 text-zinc-400">Loading...</p>
         ) : filamentTypes.length === 0 ? (
-          <p className="p-4 text-gray-500">No filament types available</p>
+          <p className="p-4 text-zinc-400">No filament types available</p>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-50 border-b border-gray-200">
+              <thead className="bg-zinc-800 border-b border-zinc-700">
                 <tr>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-4 py-3 text-left text-xs font-medium text-zinc-400 uppercase tracking-wider">
                     Name
                   </th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-4 py-3 text-left text-xs font-medium text-zinc-400 uppercase tracking-wider">
                     Description
                   </th>
-                  <th className="px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-4 py-3 text-center text-xs font-medium text-zinc-400 uppercase tracking-wider">
                     Status
                   </th>
-                  <th className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-4 py-3 text-right text-xs font-medium text-zinc-400 uppercase tracking-wider">
                     Actions
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200">
+              <tbody className="divide-y divide-zinc-800">
                 {filamentTypes.map((filament) => (
-                  <tr key={filament.id} className="hover:bg-gray-50">
+                  <tr key={filament.id} className="hover:bg-zinc-800">
                     <td className="px-4 py-3">
                       {editingId === filament.id ? (
                         <input
@@ -349,10 +349,10 @@ const FilamentTypes = ({ csrfToken }: FilamentTypesProps) => {
                               e.target.value,
                             )
                           }
-                          className="w-full px-2 py-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
+                          className="w-full px-2 py-1 border border-zinc-700 rounded focus:outline-none focus:ring-2 focus:ring-amber-500"
                         />
                       ) : (
-                        <span className="font-medium text-gray-900">
+                        <span className="font-medium text-zinc-100">
                           {filament.name}
                         </span>
                       )}
@@ -368,11 +368,11 @@ const FilamentTypes = ({ csrfToken }: FilamentTypesProps) => {
                               e.target.value,
                             )
                           }
-                          className="w-full px-2 py-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
+                          className="w-full px-2 py-1 border border-zinc-700 rounded focus:outline-none focus:ring-2 focus:ring-amber-500"
                           rows={2}
                         />
                       ) : (
-                        <span className="text-sm text-gray-600">
+                        <span className="text-sm text-zinc-400">
                           {filament.description || "-"}
                         </span>
                       )}
@@ -384,7 +384,7 @@ const FilamentTypes = ({ csrfToken }: FilamentTypesProps) => {
                         className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium ${
                           filament.active
                             ? "bg-green-100 text-green-800"
-                            : "bg-gray-100 text-gray-800"
+                            : "bg-zinc-800 text-zinc-200"
                         } hover:opacity-80 disabled:opacity-50`}
                       >
                         <Power className="h-3 w-3" />
@@ -405,7 +405,7 @@ const FilamentTypes = ({ csrfToken }: FilamentTypesProps) => {
                             </button>
                             <button
                               onClick={handleCancelEdit}
-                              className="p-2 text-gray-600 hover:bg-gray-50 rounded-md"
+                              className="p-2 text-zinc-400 hover:bg-zinc-800 rounded-md"
                               title="Cancel"
                             >
                               <X className="h-4 w-4" />

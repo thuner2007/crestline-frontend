@@ -181,14 +181,14 @@ const AddPowdercoatService: React.FC<Props> = ({ csrfToken }) => {
       )}
 
       {success && (
-        <div className="mb-4 rounded-lg bg-purple-100 p-4 flex items-center gap-3">
-          <AlertCircle className="text-purple-600" />
-          <p className="text-purple-800">{success}</p>
+        <div className="mb-4 rounded-lg bg-amber-500/10 p-4 flex items-center gap-3">
+          <AlertCircle className="text-amber-400" />
+          <p className="text-amber-300">{success}</p>
         </div>
       )}
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        <div className="bg-white p-6 rounded-lg border border-gray-200">
+        <div className="bg-zinc-900 p-6 rounded-lg border border-zinc-700">
           <h3 className="text-lg font-medium mb-4">Service Information</h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -196,7 +196,7 @@ const AddPowdercoatService: React.FC<Props> = ({ csrfToken }) => {
             <div className="md:col-span-2">
               <label
                 htmlFor="name"
-                className="block text-sm font-medium text-gray-700 mb-1"
+                className="block text-sm font-medium text-zinc-300 mb-1"
               >
                 Service Name *
               </label>
@@ -204,7 +204,7 @@ const AddPowdercoatService: React.FC<Props> = ({ csrfToken }) => {
                 id="name"
                 type="text"
                 className={`w-full rounded-md border ${
-                  errors.name ? "border-red-300" : "border-gray-300"
+                  errors.name ? "border-red-300" : "border-zinc-700"
                 } px-3 py-2`}
                 {...register("name", {
                   required: "Service name is required",
@@ -222,7 +222,7 @@ const AddPowdercoatService: React.FC<Props> = ({ csrfToken }) => {
             <div className="md:col-span-2">
               <label
                 htmlFor="description"
-                className="block text-sm font-medium text-gray-700 mb-1"
+                className="block text-sm font-medium text-zinc-300 mb-1"
               >
                 Description *
               </label>
@@ -230,7 +230,7 @@ const AddPowdercoatService: React.FC<Props> = ({ csrfToken }) => {
                 id="description"
                 rows={4}
                 className={`w-full rounded-md border ${
-                  errors.description ? "border-red-300" : "border-gray-300"
+                  errors.description ? "border-red-300" : "border-zinc-700"
                 } px-3 py-2`}
                 {...register("description", {
                   required: "Description is required",
@@ -248,7 +248,7 @@ const AddPowdercoatService: React.FC<Props> = ({ csrfToken }) => {
             <div>
               <label
                 htmlFor="price"
-                className="block text-sm font-medium text-gray-700 mb-1"
+                className="block text-sm font-medium text-zinc-300 mb-1"
               >
                 Price (CHF) *
               </label>
@@ -258,7 +258,7 @@ const AddPowdercoatService: React.FC<Props> = ({ csrfToken }) => {
                 step="0.01"
                 min="0"
                 className={`w-full rounded-md border ${
-                  errors.price ? "border-red-300" : "border-gray-300"
+                  errors.price ? "border-red-300" : "border-zinc-700"
                 } px-3 py-2`}
                 {...register("price", {
                   required: "Price is required",
@@ -278,10 +278,10 @@ const AddPowdercoatService: React.FC<Props> = ({ csrfToken }) => {
                 <input
                   id="active"
                   type="checkbox"
-                  className="h-4 w-4 rounded border-gray-300 text-purple-700 focus:ring-purple-600"
+                  className="h-4 w-4 rounded border-zinc-700 text-amber-400 focus:ring-purple-600"
                   {...register("active")}
                 />
-                <label htmlFor="active" className="ml-2 text-sm text-gray-700">
+                <label htmlFor="active" className="ml-2 text-sm text-zinc-300">
                   Active (visible to customers)
                 </label>
               </div>
@@ -290,11 +290,11 @@ const AddPowdercoatService: React.FC<Props> = ({ csrfToken }) => {
         </div>
 
         {/* Images Section */}
-        <div className="bg-white p-6 rounded-lg border border-gray-200">
+        <div className="bg-zinc-900 p-6 rounded-lg border border-zinc-700">
           <h3 className="text-lg font-medium mb-4">Service Images *</h3>
 
           <div className="space-y-4">
-            <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+            <div className="border-2 border-dashed border-zinc-700 rounded-lg p-6 text-center">
               <input
                 type="file"
                 id="images"
@@ -305,14 +305,14 @@ const AddPowdercoatService: React.FC<Props> = ({ csrfToken }) => {
               />
               <label htmlFor="images" className="cursor-pointer">
                 <div className="flex flex-col items-center">
-                  <Upload className="h-12 w-12 text-gray-400" />
-                  <p className="mt-2 text-sm text-gray-600">
+                  <Upload className="h-12 w-12 text-zinc-500" />
+                  <p className="mt-2 text-sm text-zinc-400">
                     Click to upload images
                   </p>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-zinc-400">
                     PNG, JPG, GIF up to 500MB each (max 20 images)
                   </p>
-                  <p className="text-xs text-gray-500 mt-1">
+                  <p className="text-xs text-zinc-400 mt-1">
                     At least one image is required
                   </p>
                 </div>
@@ -321,19 +321,19 @@ const AddPowdercoatService: React.FC<Props> = ({ csrfToken }) => {
 
             {uploading && (
               <div className="flex justify-center">
-                <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-purple-600"></div>
+                <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-amber-500"></div>
               </div>
             )}
 
             {uploadedImages.length > 0 && (
               <div>
-                <h4 className="font-medium text-gray-800 mb-3">
+                <h4 className="font-medium text-zinc-200 mb-3">
                   Uploaded Images ({uploadedImages.length}/20)
                 </h4>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                   {uploadedImages.map((image, index) => (
                     <div key={index} className="relative">
-                      <div className="aspect-square relative overflow-hidden rounded-lg border border-gray-200">
+                      <div className="aspect-square relative overflow-hidden rounded-lg border border-zinc-700">
                         <NextImage
                           src={image}
                           alt={`Preview ${index + 1}`}
@@ -362,7 +362,7 @@ const AddPowdercoatService: React.FC<Props> = ({ csrfToken }) => {
           <button
             type="submit"
             disabled={loading || imageFiles.length === 0}
-            className="px-6 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800 disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center"
+            className="px-6 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 disabled:bg-zinc-600 disabled:cursor-not-allowed flex items-center"
           >
             {loading ? (
               <>

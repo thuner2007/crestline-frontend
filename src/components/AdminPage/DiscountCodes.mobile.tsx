@@ -323,7 +323,7 @@ const DiscountCodes = ({ csrfToken }: DiscountCodeProps) => {
             reset();
             setIsModalOpen(true);
           }}
-          className="px-4 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800 flex items-center gap-1"
+          className="px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 flex items-center gap-1"
         >
           <PlusCircle className="h-4 w-4" />{" "}
           <span className="hidden sm:inline">Create New Discount</span>
@@ -333,7 +333,7 @@ const DiscountCodes = ({ csrfToken }: DiscountCodeProps) => {
 
       {/* Success message */}
       {success && (
-        <div className="bg-purple-100 border border-purple-400 text-purple-800 p-3 rounded-md">
+        <div className="bg-amber-500/10 border border-purple-400 text-amber-300 p-3 rounded-md">
           {success}
         </div>
       )}
@@ -348,46 +348,46 @@ const DiscountCodes = ({ csrfToken }: DiscountCodeProps) => {
 
       {loading ? (
         <div className="flex justify-center items-center h-64">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-600"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-amber-500"></div>
         </div>
       ) : (
         <>
           {/* Desktop view */}
-          <div className="hidden md:block bg-white rounded-lg shadow overflow-hidden">
+          <div className="hidden md:block bg-zinc-900 rounded-lg shadow overflow-hidden">
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
+              <table className="min-w-full divide-y divide-zinc-800">
+                <thead className="bg-zinc-800">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-zinc-400 uppercase tracking-wider">
                       Code
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-zinc-400 uppercase tracking-wider">
                       Type
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-zinc-400 uppercase tracking-wider">
                       Value
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-zinc-400 uppercase tracking-wider">
                       Valid From
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-zinc-400 uppercase tracking-wider">
                       Valid Until
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-zinc-400 uppercase tracking-wider">
                       Usage / Max
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-zinc-400 uppercase tracking-wider">
                       Actions
                     </th>
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
+                <tbody className="bg-zinc-900 divide-y divide-zinc-800">
                   {discountCodes.length > 0 ? (
                     discountCodes.map((discount) => (
-                      <tr key={discount.id} className="hover:bg-gray-50">
+                      <tr key={discount.id} className="hover:bg-zinc-800">
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="flex items-center">
-                            <Tag className="h-4 w-4 text-gray-400 mr-2" />
+                            <Tag className="h-4 w-4 text-zinc-500 mr-2" />
                             <span className="font-medium">{discount.code}</span>
                           </div>
                         </td>
@@ -399,7 +399,7 @@ const DiscountCodes = ({ csrfToken }: DiscountCodeProps) => {
                                 Percentage
                               </span>
                             ) : (
-                              <span className="text-sm px-2 py-1 rounded-full bg-purple-200 text-purple-900">
+                              <span className="text-sm px-2 py-1 rounded-full bg-amber-500/20 text-amber-300">
                                 <DollarSign className="h-3 w-3 inline mr-1" />
                                 Fixed
                               </span>
@@ -421,7 +421,7 @@ const DiscountCodes = ({ csrfToken }: DiscountCodeProps) => {
                           {discount.usageCount || 0} /{" "}
                           {discount.maxUsage || "∞"}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-zinc-400">
                           <div className="flex space-x-2">
                             <button
                               onClick={() => handleEditDiscount(discount)}
@@ -450,7 +450,7 @@ const DiscountCodes = ({ csrfToken }: DiscountCodeProps) => {
                     <tr>
                       <td
                         colSpan={7}
-                        className="px-6 py-4 text-center text-gray-500"
+                        className="px-6 py-4 text-center text-zinc-400"
                       >
                         No discount codes found
                       </td>
@@ -467,12 +467,12 @@ const DiscountCodes = ({ csrfToken }: DiscountCodeProps) => {
               discountCodes.map((discount) => (
                 <div
                   key={discount.id}
-                  className="bg-white rounded-lg shadow p-4 border border-gray-200"
+                  className="bg-zinc-900 rounded-lg shadow p-4 border border-zinc-700"
                 >
                   <div className="flex justify-between items-start">
                     <div className="flex items-center">
-                      <Tag className="h-4 w-4 text-gray-400 mr-2" />
-                      <span className="font-medium text-gray-900">
+                      <Tag className="h-4 w-4 text-zinc-500 mr-2" />
+                      <span className="font-medium text-zinc-100">
                         {discount.code}
                       </span>
                     </div>
@@ -482,7 +482,7 @@ const DiscountCodes = ({ csrfToken }: DiscountCodeProps) => {
                         {discount.value}%
                       </span>
                     ) : (
-                      <span className="text-xs px-2 py-1 rounded-full bg-purple-200 text-purple-900">
+                      <span className="text-xs px-2 py-1 rounded-full bg-amber-500/20 text-amber-300">
                         <DollarSign className="h-3 w-3 inline mr-1" />
                         CHF {(Number(discount.value) || 0).toFixed(2)}
                       </span>
@@ -491,28 +491,28 @@ const DiscountCodes = ({ csrfToken }: DiscountCodeProps) => {
 
                   <div className="mt-3 space-y-2">
                     <div className="grid grid-cols-2 text-xs">
-                      <span className="text-gray-500">Valid From:</span>
-                      <span className="text-gray-700">
+                      <span className="text-zinc-400">Valid From:</span>
+                      <span className="text-zinc-300">
                         {formatDate(discount.validFrom)}
                       </span>
                     </div>
 
                     <div className="grid grid-cols-2 text-xs">
-                      <span className="text-gray-500">Valid Until:</span>
-                      <span className="text-gray-700">
+                      <span className="text-zinc-400">Valid Until:</span>
+                      <span className="text-zinc-300">
                         {formatDate(discount.validUntil)}
                       </span>
                     </div>
 
                     <div className="grid grid-cols-2 text-xs">
-                      <span className="text-gray-500">Usage / Max:</span>
-                      <span className="text-gray-700">
+                      <span className="text-zinc-400">Usage / Max:</span>
+                      <span className="text-zinc-300">
                         {discount.usageCount || 0} / {discount.maxUsage || "∞"}
                       </span>
                     </div>
                   </div>
 
-                  <div className="mt-3 pt-3 border-t border-gray-100 flex justify-end space-x-2">
+                  <div className="mt-3 pt-3 border-t border-zinc-800 flex justify-end space-x-2">
                     <button
                       onClick={() => handleEditDiscount(discount)}
                       className="flex items-center justify-center p-2 rounded-md bg-blue-50 text-blue-700"
@@ -536,7 +536,7 @@ const DiscountCodes = ({ csrfToken }: DiscountCodeProps) => {
                 </div>
               ))
             ) : (
-              <div className="text-center py-8 bg-white rounded-lg shadow text-gray-500">
+              <div className="text-center py-8 bg-zinc-900 rounded-lg shadow text-zinc-400">
                 No discount codes found
               </div>
             )}
@@ -547,16 +547,16 @@ const DiscountCodes = ({ csrfToken }: DiscountCodeProps) => {
       {/* Create/Edit Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg max-w-md w-full p-6">
+          <div className="bg-zinc-900 rounded-lg max-w-md w-full p-6">
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-lg font-medium text-gray-900">
+              <h3 className="text-lg font-medium text-zinc-100">
                 {editingDiscount
                   ? "Edit Discount Code"
                   : "Create New Discount Code"}
               </h3>
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="text-gray-400 hover:text-gray-500"
+                className="text-zinc-500 hover:text-zinc-400"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -566,18 +566,18 @@ const DiscountCodes = ({ csrfToken }: DiscountCodeProps) => {
               <div>
                 <label
                   htmlFor="code"
-                  className="block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-zinc-300"
                 >
                   Code
                 </label>
                 <div className="mt-1 relative rounded-md shadow-sm">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Hash className="h-4 w-4 text-gray-400" />
+                    <Hash className="h-4 w-4 text-zinc-500" />
                   </div>
                   <input
                     type="text"
                     id="code"
-                    className="pl-10 block w-full border-gray-300 rounded-md shadow-sm focus:ring-purple-600 focus:border-purple-600"
+                    className="pl-10 block w-full border-zinc-700 rounded-md shadow-sm focus:ring-purple-600 focus:border-amber-500"
                     placeholder="SUMMER2023"
                     {...register("code", {
                       required: "Discount code is required",
@@ -592,7 +592,7 @@ const DiscountCodes = ({ csrfToken }: DiscountCodeProps) => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-zinc-300">
                   Discount Type
                 </label>
                 <div className="mt-1 grid grid-cols-2 gap-3">
@@ -601,12 +601,12 @@ const DiscountCodes = ({ csrfToken }: DiscountCodeProps) => {
                       id="type-percentage"
                       type="radio"
                       value="percentage"
-                      className="h-4 w-4 border-gray-300 text-purple-700 focus:ring-purple-600"
+                      className="h-4 w-4 border-zinc-700 text-amber-400 focus:ring-purple-600"
                       {...register("type")}
                     />
                     <label
                       htmlFor="type-percentage"
-                      className="ml-2 block text-sm text-gray-700"
+                      className="ml-2 block text-sm text-zinc-300"
                     >
                       Percentage (%)
                     </label>
@@ -616,12 +616,12 @@ const DiscountCodes = ({ csrfToken }: DiscountCodeProps) => {
                       id="type-fixed"
                       type="radio"
                       value="fixed"
-                      className="h-4 w-4 border-gray-300 text-purple-700 focus:ring-purple-600"
+                      className="h-4 w-4 border-zinc-700 text-amber-400 focus:ring-purple-600"
                       {...register("type")}
                     />
                     <label
                       htmlFor="type-fixed"
-                      className="ml-2 block text-sm text-gray-700"
+                      className="ml-2 block text-sm text-zinc-300"
                     >
                       Fixed Amount (CHF)
                     </label>
@@ -632,7 +632,7 @@ const DiscountCodes = ({ csrfToken }: DiscountCodeProps) => {
               <div>
                 <label
                   htmlFor="value"
-                  className="block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-zinc-300"
                 >
                   Value
                 </label>
@@ -641,7 +641,7 @@ const DiscountCodes = ({ csrfToken }: DiscountCodeProps) => {
                   id="value"
                   step="0.01"
                   min="0"
-                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-purple-600 focus:border-purple-600"
+                  className="mt-1 block w-full border-zinc-700 rounded-md shadow-sm focus:ring-purple-600 focus:border-amber-500"
                   {...register("value", {
                     required: "Value is required",
                     min: { value: 0, message: "Value must be positive" },
@@ -658,28 +658,28 @@ const DiscountCodes = ({ csrfToken }: DiscountCodeProps) => {
                 <div>
                   <label
                     htmlFor="validFrom"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-zinc-300"
                   >
                     Valid From (optional)
                   </label>
                   <input
                     type="date"
                     id="validFrom"
-                    className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-purple-600 focus:border-purple-600"
+                    className="mt-1 block w-full border-zinc-700 rounded-md shadow-sm focus:ring-purple-600 focus:border-amber-500"
                     {...register("validFrom")}
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="validUntil"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-zinc-300"
                   >
                     Valid Until (optional)
                   </label>
                   <input
                     type="date"
                     id="validUntil"
-                    className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-purple-600 focus:border-purple-600"
+                    className="mt-1 block w-full border-zinc-700 rounded-md shadow-sm focus:ring-purple-600 focus:border-amber-500"
                     {...register("validUntil")}
                   />
                 </div>
@@ -688,7 +688,7 @@ const DiscountCodes = ({ csrfToken }: DiscountCodeProps) => {
               <div>
                 <label
                   htmlFor="maxUsage"
-                  className="block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-zinc-300"
                 >
                   Max Usage (optional)
                 </label>
@@ -696,7 +696,7 @@ const DiscountCodes = ({ csrfToken }: DiscountCodeProps) => {
                   type="number"
                   id="maxUsage"
                   min="0"
-                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-purple-600 focus:border-purple-600"
+                  className="mt-1 block w-full border-zinc-700 rounded-md shadow-sm focus:ring-purple-600 focus:border-amber-500"
                   placeholder="Leave empty for unlimited use"
                   {...register("maxUsage", {
                     min: { value: 1, message: "Max usage must be at least 1" },
@@ -717,13 +717,13 @@ const DiscountCodes = ({ csrfToken }: DiscountCodeProps) => {
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
+                  className="px-4 py-2 border border-zinc-700 rounded-md text-zinc-300 hover:bg-zinc-800"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800 flex items-center gap-1"
+                  className="px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 flex items-center gap-1"
                 >
                   <Check className="h-4 w-4" />
                   {editingDiscount ? "Save Changes" : "Create Discount"}
@@ -737,12 +737,12 @@ const DiscountCodes = ({ csrfToken }: DiscountCodeProps) => {
       {/* Delete Confirmation Modal */}
       {isDeleteModalOpen && deletingDiscount && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg max-w-md w-full p-6">
+          <div className="bg-zinc-900 rounded-lg max-w-md w-full p-6">
             <div className="mb-4">
-              <h3 className="text-lg font-medium text-gray-900">
+              <h3 className="text-lg font-medium text-zinc-100">
                 Confirm Deletion
               </h3>
-              <p className="mt-2 text-gray-600">
+              <p className="mt-2 text-zinc-400">
                 Are you sure you want to delete the discount code{" "}
                 <strong>{deletingDiscount.code}</strong>? This action cannot be
                 undone.
@@ -755,7 +755,7 @@ const DiscountCodes = ({ csrfToken }: DiscountCodeProps) => {
                   setIsDeleteModalOpen(false);
                   setDeletingDiscount(null);
                 }}
-                className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
+                className="px-4 py-2 border border-zinc-700 rounded-md text-zinc-300 hover:bg-zinc-800"
               >
                 Cancel
               </button>

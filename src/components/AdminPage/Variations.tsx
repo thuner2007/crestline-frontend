@@ -518,7 +518,7 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
   if (loading && variations.length === 0) {
     return (
       <div className='flex justify-center items-center h-64'>
-        <div className='animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-600'></div>
+        <div className='animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-amber-500'></div>
       </div>
     );
   }
@@ -536,11 +536,11 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <Search className='h-4 w-4 absolute left-3 top-3 text-gray-400' />
+            <Search className='h-4 w-4 absolute left-3 top-3 text-zinc-500' />
           </form>
           <button
             onClick={() => setIsCreateModalOpen(true)}
-            className='px-4 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800 flex items-center gap-1'
+            className='px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 flex items-center gap-1'
           >
             <Plus className='h-4 w-4' />
             New Variation
@@ -550,7 +550,7 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
 
       {/* Success message */}
       {success && (
-        <div className='bg-purple-100 border border-purple-400 text-purple-800 p-3 rounded-md'>
+        <div className='bg-amber-500/10 border border-purple-400 text-amber-300 p-3 rounded-md'>
           {success}
         </div>
       )}
@@ -565,8 +565,8 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
 
       {/* Variations list */}
       {filteredVariations.length === 0 ? (
-        <div className='text-center py-12 bg-gray-50 rounded-lg'>
-          <p className='text-gray-500'>No variations found</p>
+        <div className='text-center py-12 bg-zinc-800 rounded-lg'>
+          <p className='text-zinc-400'>No variations found</p>
         </div>
       ) : (
         <div className='space-y-4'>
@@ -575,7 +575,7 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
             return (
               <div
                 key={variation.id}
-                className='border rounded-lg overflow-hidden bg-white'
+                className='border rounded-lg overflow-hidden bg-zinc-900'
               >
                 {/* Variation Header - always visible */}
                 <div className='p-4 flex justify-between items-center'>
@@ -584,11 +584,11 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
                     onClick={() => toggleVariationExpansion(variation.id)}
                   >
                     {isExpanded ? (
-                      <ChevronUp className='h-5 w-5 text-gray-500' />
+                      <ChevronUp className='h-5 w-5 text-zinc-400' />
                     ) : (
-                      <ChevronDown className='h-5 w-5 text-gray-500' />
+                      <ChevronDown className='h-5 w-5 text-zinc-400' />
                     )}
-                    <h3 className='font-medium text-gray-900'>
+                    <h3 className='font-medium text-zinc-100'>
                       {variation.name}
                     </h3>
                   </div>
@@ -606,7 +606,7 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
                     </button>
                     <button
                       onClick={() => openStickerModal(variation)}
-                      className='p-2 text-purple-600 hover:bg-purple-50 rounded-md'
+                      className='p-2 text-amber-400 hover:bg-amber-500/5 rounded-md'
                       title='Manage stickers'
                     >
                       <Package className='h-4 w-4' />
@@ -626,19 +626,19 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
 
                 {/* Expanded content - shows stickers in this variation */}
                 {isExpanded && variation.stickers && (
-                  <div className='border-t border-gray-200 p-4 bg-gray-50'>
-                    <h4 className='text-sm font-medium text-gray-700 mb-3'>
+                  <div className='border-t border-zinc-700 p-4 bg-zinc-800'>
+                    <h4 className='text-sm font-medium text-zinc-300 mb-3'>
                       Stickers in this variation ({variation.stickers.length})
                     </h4>
 
                     {variation.stickers.length === 0 ? (
-                      <div className='text-center py-6 bg-white rounded-md'>
-                        <p className='text-gray-500'>
+                      <div className='text-center py-6 bg-zinc-900 rounded-md'>
+                        <p className='text-zinc-400'>
                           No stickers in this variation
                         </p>
                         <button
                           onClick={() => openStickerModal(variation)}
-                          className='mt-2 px-3 py-1 bg-purple-700 text-white text-sm rounded-md hover:bg-purple-800'
+                          className='mt-2 px-3 py-1 bg-amber-600 text-white text-sm rounded-md hover:bg-amber-700'
                         >
                           Add Stickers
                         </button>
@@ -648,9 +648,9 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
                         {variation.stickers.map((sticker) => (
                           <div
                             key={sticker.id}
-                            className='bg-white rounded-md overflow-hidden border border-gray-200 flex flex-col'
+                            className='bg-zinc-900 rounded-md overflow-hidden border border-zinc-700 flex flex-col'
                           >
-                            <div className='w-full h-32 relative bg-gray-100'>
+                            <div className='w-full h-32 relative bg-zinc-800'>
                               {sticker.images && sticker.images.length > 0 ? (
                                 <Image
                                   src={sticker.images[0]}
@@ -661,7 +661,7 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
                                 />
                               ) : (
                                 <div className='flex items-center justify-center h-full'>
-                                  <span className='text-gray-400 text-sm'>
+                                  <span className='text-zinc-500 text-sm'>
                                     No image
                                   </span>
                                 </div>
@@ -669,7 +669,7 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
                             </div>
 
                             <div className='p-3'>
-                              <h5 className='font-medium text-sm text-gray-900 truncate'>
+                              <h5 className='font-medium text-sm text-zinc-100 truncate'>
                                 {getStickerTitle(sticker)}
                               </h5>
 
@@ -705,14 +705,14 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
       {/* Modal: Create new variation */}
       {isCreateModalOpen && (
         <div className='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4'>
-          <div className='bg-white rounded-lg max-w-md w-full p-6'>
+          <div className='bg-zinc-900 rounded-lg max-w-md w-full p-6'>
             <div className='flex justify-between items-center mb-4'>
-              <h3 className='text-lg font-medium text-gray-900'>
+              <h3 className='text-lg font-medium text-zinc-100'>
                 Create New Variation
               </h3>
               <button
                 onClick={() => setIsCreateModalOpen(false)}
-                className='text-gray-400 hover:text-gray-500'
+                className='text-zinc-500 hover:text-zinc-400'
               >
                 <X className='h-5 w-5' />
               </button>
@@ -722,7 +722,7 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
               <div>
                 <label
                   htmlFor='variationName'
-                  className='block text-sm font-medium text-gray-700 mb-1'
+                  className='block text-sm font-medium text-zinc-300 mb-1'
                 >
                   Variation Name
                 </label>
@@ -731,7 +731,7 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
                   id='variationName'
                   value={newVariationName}
                   onChange={(e) => setNewVariationName(e.target.value)}
-                  className='w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-600'
+                  className='w-full rounded-md border border-zinc-700 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-600'
                   placeholder='Enter variation name'
                 />
               </div>
@@ -739,13 +739,13 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
               <div className='flex justify-end space-x-3 pt-4'>
                 <button
                   onClick={() => setIsCreateModalOpen(false)}
-                  className='px-4 py-2 text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50'
+                  className='px-4 py-2 text-zinc-300 border border-zinc-700 rounded-md hover:bg-zinc-800'
                 >
                   Cancel
                 </button>
                 <button
                   onClick={handleCreateVariation}
-                  className='px-4 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800'
+                  className='px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700'
                 >
                   Create
                 </button>
@@ -758,9 +758,9 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
       {/* Modal: Edit variation */}
       {isEditModalOpen && editingVariation && (
         <div className='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4'>
-          <div className='bg-white rounded-lg max-w-md w-full p-6'>
+          <div className='bg-zinc-900 rounded-lg max-w-md w-full p-6'>
             <div className='flex justify-between items-center mb-4'>
-              <h3 className='text-lg font-medium text-gray-900'>
+              <h3 className='text-lg font-medium text-zinc-100'>
                 Edit Variation
               </h3>
               <button
@@ -768,7 +768,7 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
                   setIsEditModalOpen(false);
                   setEditingVariation(null);
                 }}
-                className='text-gray-400 hover:text-gray-500'
+                className='text-zinc-500 hover:text-zinc-400'
               >
                 <X className='h-5 w-5' />
               </button>
@@ -778,7 +778,7 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
               <div>
                 <label
                   htmlFor='editVariationName'
-                  className='block text-sm font-medium text-gray-700 mb-1'
+                  className='block text-sm font-medium text-zinc-300 mb-1'
                 >
                   Variation Name
                 </label>
@@ -792,7 +792,7 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
                       name: e.target.value,
                     })
                   }
-                  className='w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-600'
+                  className='w-full rounded-md border border-zinc-700 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-600'
                 />
               </div>
 
@@ -802,13 +802,13 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
                     setIsEditModalOpen(false);
                     setEditingVariation(null);
                   }}
-                  className='px-4 py-2 text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50'
+                  className='px-4 py-2 text-zinc-300 border border-zinc-700 rounded-md hover:bg-zinc-800'
                 >
                   Cancel
                 </button>
                 <button
                   onClick={handleUpdateVariation}
-                  className='px-4 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800'
+                  className='px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700'
                 >
                   Save Changes
                 </button>
@@ -821,9 +821,9 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
       {/* Modal: Delete confirmation */}
       {isDeleteModalOpen && deletingVariation && (
         <div className='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4'>
-          <div className='bg-white rounded-lg max-w-md w-full p-6'>
+          <div className='bg-zinc-900 rounded-lg max-w-md w-full p-6'>
             <div className='flex justify-between items-center mb-4'>
-              <h3 className='text-lg font-medium text-gray-900'>
+              <h3 className='text-lg font-medium text-zinc-100'>
                 Delete Variation
               </h3>
               <button
@@ -831,14 +831,14 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
                   setIsDeleteModalOpen(false);
                   setDeletingVariation(null);
                 }}
-                className='text-gray-400 hover:text-gray-500'
+                className='text-zinc-500 hover:text-zinc-400'
               >
                 <X className='h-5 w-5' />
               </button>
             </div>
 
             <div className='space-y-4'>
-              <p className='text-gray-600'>
+              <p className='text-zinc-400'>
                 Are you sure you want to delete the variation &quot;
                 {deletingVariation.name}&quot;? This action cannot be undone.
               </p>
@@ -849,7 +849,7 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
                     setIsDeleteModalOpen(false);
                     setDeletingVariation(null);
                   }}
-                  className='px-4 py-2 text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50'
+                  className='px-4 py-2 text-zinc-300 border border-zinc-700 rounded-md hover:bg-zinc-800'
                 >
                   Cancel
                 </button>
@@ -868,16 +868,16 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
       {/* Modal: Manage stickers */}
       {isStickerModalOpen && selectedVariationForStickers && (
         <div className='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4'>
-          <div className='bg-white rounded-lg max-w-5xl w-full max-h-[90vh] overflow-hidden flex flex-col'>
+          <div className='bg-zinc-900 rounded-lg max-w-5xl w-full max-h-[90vh] overflow-hidden flex flex-col'>
             <div className='p-4 border-b'>
               <div className='flex justify-between items-center'>
-                <h3 className='text-lg font-medium text-gray-900'>
+                <h3 className='text-lg font-medium text-zinc-100'>
                   Manage Stickers for &quot;{selectedVariationForStickers.name}
                   &quot;
                 </h3>
                 <button
                   onClick={() => setIsStickerModalOpen(false)}
-                  className='text-gray-400 hover:text-gray-500'
+                  className='text-zinc-500 hover:text-zinc-400'
                 >
                   <X className='h-5 w-5' />
                 </button>
@@ -891,14 +891,14 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
                   placeholder='Search stickers...'
                   value={stickerSearchTerm}
                   onChange={(e) => setStickerSearchTerm(e.target.value)}
-                  className='w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-600'
+                  className='w-full rounded-md border border-zinc-700 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-600'
                 />
               </div>
 
               <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                 {/* Available stickers */}
                 <div className='border rounded-lg p-4'>
-                  <h4 className='font-medium text-gray-800 mb-3'>
+                  <h4 className='font-medium text-zinc-200 mb-3'>
                     Available Stickers
                   </h4>
 
@@ -918,9 +918,9 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
                       .map((sticker) => (
                         <div
                           key={sticker.id}
-                          className='flex items-center gap-3 p-2 border rounded bg-white hover:bg-gray-50'
+                          className='flex items-center gap-3 p-2 border rounded bg-zinc-900 hover:bg-zinc-800'
                         >
-                          <div className='w-12 h-12 relative bg-gray-100 rounded'>
+                          <div className='w-12 h-12 relative bg-zinc-800 rounded'>
                             {sticker.images && sticker.images.length > 0 ? (
                               <Image
                                 src={sticker.images[0]}
@@ -931,7 +931,7 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
                               />
                             ) : (
                               <div className='flex items-center justify-center h-full'>
-                                <span className='text-gray-400 text-xs'>
+                                <span className='text-zinc-500 text-xs'>
                                   No img
                                 </span>
                               </div>
@@ -952,7 +952,7 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
                               )
                             }
                             disabled={addingStickerIds.includes(sticker.id)}
-                            className='px-3 py-1 bg-purple-700 text-white text-xs rounded hover:bg-purple-800 flex items-center gap-1'
+                            className='px-3 py-1 bg-amber-600 text-white text-xs rounded hover:bg-amber-700 flex items-center gap-1'
                           >
                             {addingStickerIds.includes(sticker.id) ? (
                               <div className='animate-spin rounded-full h-3 w-3 border-t-2 border-b-2 border-white'></div>
@@ -973,7 +973,7 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
                           (s) => s.id === sticker.id
                         )
                     ).length === 0 && (
-                      <div className='text-center py-4 text-gray-500'>
+                      <div className='text-center py-4 text-zinc-400'>
                         No available stickers found
                       </div>
                     )}
@@ -982,7 +982,7 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
 
                 {/* Current stickers in variation */}
                 <div className='border rounded-lg p-4'>
-                  <h4 className='font-medium text-gray-800 mb-3'>
+                  <h4 className='font-medium text-zinc-200 mb-3'>
                     Stickers in Variation (
                     {(selectedVariationForStickers.stickers || []).length})
                   </h4>
@@ -997,9 +997,9 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
                       .map((sticker) => (
                         <div
                           key={sticker.id}
-                          className='flex items-center gap-3 p-2 border rounded bg-white hover:bg-gray-50'
+                          className='flex items-center gap-3 p-2 border rounded bg-zinc-900 hover:bg-zinc-800'
                         >
-                          <div className='w-12 h-12 relative bg-gray-100 rounded'>
+                          <div className='w-12 h-12 relative bg-zinc-800 rounded'>
                             {sticker.images && sticker.images.length > 0 ? (
                               <Image
                                 src={sticker.images[0]}
@@ -1010,7 +1010,7 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
                               />
                             ) : (
                               <div className='flex items-center justify-center h-full'>
-                                <span className='text-gray-400 text-xs'>
+                                <span className='text-zinc-500 text-xs'>
                                   No img
                                 </span>
                               </div>
@@ -1049,7 +1049,7 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
                           .toLowerCase()
                           .includes(stickerSearchTerm.toLowerCase())
                     ).length === 0 && (
-                      <div className='text-center py-4 text-gray-500'>
+                      <div className='text-center py-4 text-zinc-400'>
                         No stickers in this variation
                       </div>
                     )}
@@ -1058,11 +1058,11 @@ const Variations: React.FC<Props> = ({ csrfToken }) => {
               </div>
             </div>
 
-            <div className='p-4 border-t bg-gray-50 mt-auto'>
+            <div className='p-4 border-t bg-zinc-800 mt-auto'>
               <div className='flex justify-end'>
                 <button
                   onClick={() => setIsStickerModalOpen(false)}
-                  className='px-4 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800'
+                  className='px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700'
                 >
                   Done
                 </button>

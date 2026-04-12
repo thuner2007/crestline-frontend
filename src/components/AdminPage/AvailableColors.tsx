@@ -242,12 +242,12 @@ const AvailableColors: React.FC<Props> = ({ csrfToken }) => {
 
       <div className='flex gap-4 items-end mb-6'>
         <div className='relative'>
-          <label className='block text-sm font-medium text-gray-700 mb-1'>
+          <label className='block text-sm font-medium text-zinc-300 mb-1'>
             Color Name
           </label>
           <div className='flex items-center gap-2'>
             <div
-              className='w-8 h-8 rounded-full border border-gray-200'
+              className='w-8 h-8 rounded-full border border-zinc-700'
               style={{
                 backgroundColor: getColorValue(newColor),
                 border: '1px solid #e5e7eb',
@@ -263,24 +263,24 @@ const AvailableColors: React.FC<Props> = ({ csrfToken }) => {
                 size='small'
               />
               {isValidColor(newColor) && (
-                <div className='text-xs text-gray-500'>
+                <div className='text-xs text-zinc-400'>
                   {getColorInfo(newColor).hex} | {getColorInfo(newColor).rgb}
                 </div>
               )}
             </div>
             {showSuggestions && filteredColors.length > 0 && (
-              <div className='absolute top-full mt-1 w-full bg-white border rounded-md shadow-lg z-10'>
+              <div className='absolute top-full mt-1 w-full bg-zinc-900 border rounded-md shadow-lg z-10'>
                 {filteredColors.map((color) => (
                   <div
                     key={color}
-                    className='flex items-center gap-2 p-2 hover:bg-gray-50 cursor-pointer'
+                    className='flex items-center gap-2 p-2 hover:bg-zinc-800 cursor-pointer'
                     onClick={() => {
                       setNewColor(color);
                       setShowSuggestions(false);
                     }}
                   >
                     <div
-                      className='w-4 h-4 rounded-full border border-gray-200'
+                      className='w-4 h-4 rounded-full border border-zinc-700'
                       style={{ backgroundColor: color }}
                     />
                     <span>{color}</span>
@@ -317,13 +317,13 @@ const AvailableColors: React.FC<Props> = ({ csrfToken }) => {
               <TableRow key={color}>
                 <TableCell>
                   <div
-                    className='w-8 h-8 rounded-full border border-gray-200'
+                    className='w-8 h-8 rounded-full border border-zinc-700'
                     style={{ backgroundColor: colorInfo.hex }}
                   />
                 </TableCell>
                 <TableCell>{color}</TableCell>
                 <TableCell>
-                  <div className='text-sm text-gray-500'>
+                  <div className='text-sm text-zinc-400'>
                     {colorInfo.hex}
                     <br />
                     {colorInfo.rgb}

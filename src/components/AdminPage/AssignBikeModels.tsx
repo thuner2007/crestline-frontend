@@ -97,36 +97,36 @@ export default function AssignBikeModels({
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+      <div className="bg-zinc-900 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-hidden flex flex-col">
         {/* Header */}
-        <div className="p-6 border-b border-gray-200 flex items-center justify-between">
+        <div className="p-6 border-b border-zinc-700 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-purple-100 rounded-lg">
-              <Bike className="h-6 w-6 text-purple-600" />
+            <div className="p-2 bg-amber-500/10 rounded-lg">
+              <Bike className="h-6 w-6 text-amber-400" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-gray-900">
+              <h3 className="text-xl font-bold text-zinc-100">
                 Assign Bike Models
               </h3>
-              <p className="text-sm text-gray-600 mt-1">{partTitle}</p>
+              <p className="text-sm text-zinc-400 mt-1">{partTitle}</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600"
+            className="text-zinc-500 hover:text-zinc-400"
           >
             <X className="h-6 w-6" />
           </button>
         </div>
 
         {/* Search */}
-        <div className="p-4 border-b border-gray-200">
+        <div className="p-4 border-b border-zinc-700">
           <input
             type="text"
             placeholder="Search by manufacturer or model..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+            className="w-full px-4 py-2 border border-zinc-700 rounded-lg focus:ring-2 focus:ring-amber-500"
           />
         </div>
 
@@ -134,10 +134,10 @@ export default function AssignBikeModels({
         <div className="flex-1 overflow-y-auto p-4">
           {loading ? (
             <div className="flex justify-center items-center py-12">
-              <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-purple-600"></div>
+              <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-amber-500"></div>
             </div>
           ) : filteredBikeModels.length === 0 ? (
-            <div className="text-center py-12 text-gray-500">
+            <div className="text-center py-12 text-zinc-400">
               No bike models found
             </div>
           ) : (
@@ -150,8 +150,8 @@ export default function AssignBikeModels({
                     onClick={() => handleToggle(bikeModel.id)}
                     className={`p-4 border rounded-lg cursor-pointer transition-all ${
                       isSelected
-                        ? "border-purple-500 bg-purple-50"
-                        : "border-gray-200 hover:border-gray-300 hover:bg-gray-50"
+                        ? "border-amber-500 bg-amber-500/5"
+                        : "border-zinc-700 hover:border-zinc-700 hover:bg-zinc-800"
                     }`}
                   >
                     <div className="flex items-center justify-between">
@@ -159,8 +159,8 @@ export default function AssignBikeModels({
                         <div
                           className={`w-5 h-5 border-2 rounded flex items-center justify-center ${
                             isSelected
-                              ? "border-purple-600 bg-purple-600"
-                              : "border-gray-300"
+                              ? "border-amber-500 bg-amber-500"
+                              : "border-zinc-700"
                           }`}
                         >
                           {isSelected && (
@@ -180,11 +180,11 @@ export default function AssignBikeModels({
                           )}
                         </div>
                         <div>
-                          <p className="font-semibold text-gray-900">
+                          <p className="font-semibold text-zinc-100">
                             {bikeModel.manufacturer} {bikeModel.model}
                           </p>
                           {bikeModel.year && (
-                            <p className="text-sm text-gray-600">
+                            <p className="text-sm text-zinc-400">
                               Year: {bikeModel.year}
                             </p>
                           )}
@@ -199,22 +199,22 @@ export default function AssignBikeModels({
         </div>
 
         {/* Footer */}
-        <div className="p-4 border-t border-gray-200 flex items-center justify-between">
-          <div className="text-sm text-gray-600">
+        <div className="p-4 border-t border-zinc-700 flex items-center justify-between">
+          <div className="text-sm text-zinc-400">
             {selectedIds.length} bike model{selectedIds.length !== 1 ? "s" : ""}{" "}
             selected
           </div>
           <div className="flex gap-3">
             <button
               onClick={onClose}
-              className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50"
+              className="px-4 py-2 border border-zinc-700 rounded-lg text-zinc-300 hover:bg-zinc-800"
               disabled={saving}
             >
               Cancel
             </button>
             <button
               onClick={handleSave}
-              className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 disabled:opacity-50"
+              className="px-4 py-2 bg-amber-500 text-white rounded-lg hover:bg-amber-600 disabled:opacity-50"
               disabled={saving}
             >
               {saving ? "Saving..." : "Save"}

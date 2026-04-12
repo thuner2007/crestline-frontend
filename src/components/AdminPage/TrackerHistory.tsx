@@ -143,7 +143,7 @@ const TrackerHistory = ({ csrfToken }: { csrfToken: string }) => {
         <div className='flex items-center space-x-4'>
           <button
             onClick={fetchVisitHistory}
-            className='flex items-center px-3 py-2 bg-purple-100 text-purple-700 rounded-md hover:bg-purple-200 transition'
+            className='flex items-center px-3 py-2 bg-amber-500/10 text-amber-400 rounded-md hover:bg-amber-500/20 transition'
             disabled={loading}
           >
             <RefreshCw
@@ -169,46 +169,46 @@ const TrackerHistory = ({ csrfToken }: { csrfToken: string }) => {
         </div>
       )}
 
-      <div className='bg-white shadow rounded-lg overflow-hidden'>
-        <div className='px-4 py-5 sm:px-6 bg-gray-50 flex items-center'>
-          <Clock className='h-5 w-5 text-gray-500 mr-2' />
-          <h3 className='text-lg leading-6 font-medium text-gray-900'>
+      <div className='bg-zinc-900 shadow rounded-lg overflow-hidden'>
+        <div className='px-4 py-5 sm:px-6 bg-zinc-800 flex items-center'>
+          <Clock className='h-5 w-5 text-zinc-400 mr-2' />
+          <h3 className='text-lg leading-6 font-medium text-zinc-100'>
             Visit History by Page
           </h3>
         </div>
-        <div className='border-t border-gray-200'>
+        <div className='border-t border-zinc-700'>
           {loading ? (
             <div className='p-4 text-center'>
-              <div className='inline-block animate-spin h-6 w-6 border-2 border-purple-600 border-t-transparent rounded-full mr-2'></div>
-              <span className='text-gray-500'>Loading data...</span>
+              <div className='inline-block animate-spin h-6 w-6 border-2 border-amber-500 border-t-transparent rounded-full mr-2'></div>
+              <span className='text-zinc-400'>Loading data...</span>
             </div>
           ) : visitHistory.length > 0 ? (
-            <table className='min-w-full divide-y divide-gray-200'>
-              <thead className='bg-gray-50'>
+            <table className='min-w-full divide-y divide-zinc-800'>
+              <thead className='bg-zinc-800'>
                 <tr>
-                  <th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+                  <th className='px-6 py-3 text-left text-xs font-medium text-zinc-400 uppercase tracking-wider'>
                     Page Path
                   </th>
-                  <th className='px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider'>
+                  <th className='px-6 py-3 text-center text-xs font-medium text-zinc-400 uppercase tracking-wider'>
                     Total Visits
                   </th>
-                  <th className='px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider'>
+                  <th className='px-6 py-3 text-right text-xs font-medium text-zinc-400 uppercase tracking-wider'>
                     Last Visit
                   </th>
                 </tr>
               </thead>
-              <tbody className='bg-white divide-y divide-gray-200'>
+              <tbody className='bg-zinc-900 divide-y divide-zinc-800'>
                 {visitHistory
                   .sort((a, b) => b.visits - a.visits)
                   .map((item) => (
-                    <tr key={item.path} className='hover:bg-gray-50'>
-                      <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-900'>
+                    <tr key={item.path} className='hover:bg-zinc-800'>
+                      <td className='px-6 py-4 whitespace-nowrap text-sm text-zinc-100'>
                         {item.path || '(homepage)'}
                       </td>
-                      <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-purple-600 text-center'>
+                      <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-amber-400 text-center'>
                         {item.visits}
                       </td>
-                      <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right'>
+                      <td className='px-6 py-4 whitespace-nowrap text-sm text-zinc-400 text-right'>
                         {formatDate(item.lastVisit)}
                       </td>
                     </tr>
@@ -216,7 +216,7 @@ const TrackerHistory = ({ csrfToken }: { csrfToken: string }) => {
               </tbody>
             </table>
           ) : (
-            <div className='p-4 text-center text-gray-500'>
+            <div className='p-4 text-center text-zinc-400'>
               No visit history data available
             </div>
           )}
@@ -226,18 +226,18 @@ const TrackerHistory = ({ csrfToken }: { csrfToken: string }) => {
       {/* Reset Confirmation Modal */}
       {showResetConfirmation && (
         <div className='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50'>
-          <div className='bg-white rounded-lg max-w-md w-full p-6 shadow-xl'>
-            <h3 className='text-lg font-medium text-gray-900 mb-4'>
+          <div className='bg-zinc-900 rounded-lg max-w-md w-full p-6 shadow-xl'>
+            <h3 className='text-lg font-medium text-zinc-100 mb-4'>
               Confirm Reset
             </h3>
-            <p className='text-gray-600 mb-6'>
+            <p className='text-zinc-400 mb-6'>
               Are you sure you want to reset all visit history data? This action
               cannot be undone.
             </p>
             <div className='flex justify-end space-x-3'>
               <button
                 onClick={() => setShowResetConfirmation(false)}
-                className='px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50'
+                className='px-4 py-2 border border-zinc-700 rounded-md text-zinc-300 hover:bg-zinc-800'
                 disabled={resetting}
               >
                 Cancel

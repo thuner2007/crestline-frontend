@@ -523,7 +523,7 @@ const TodaysChoice = ({ csrfToken }: TodaysChoiceProps) => {
         </h2>
         <button
           onClick={openAddModal}
-          className="px-4 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800 flex items-center gap-1"
+          className="px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 flex items-center gap-1"
         >
           <Plus className="h-4 w-4" /> Add Item
         </button>
@@ -531,7 +531,7 @@ const TodaysChoice = ({ csrfToken }: TodaysChoiceProps) => {
 
       {/* Success message */}
       {successMessage && (
-        <div className="bg-purple-100 border border-purple-400 text-purple-800 p-3 rounded-md">
+        <div className="bg-amber-500/10 border border-purple-400 text-amber-300 p-3 rounded-md">
           {successMessage}
         </div>
       )}
@@ -546,15 +546,15 @@ const TodaysChoice = ({ csrfToken }: TodaysChoiceProps) => {
 
       {loading ? (
         <div className="flex justify-center items-center h-64">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-600"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-amber-500"></div>
         </div>
       ) : (
         <>
           {todaysChoiceItems.length === 0 ? (
-            <div className="text-center py-12 bg-gray-50 rounded-lg">
-              <ShoppingBag className="h-12 w-12 mx-auto text-gray-400 mb-3" />
-              <p className="text-gray-500">No items in Today&apos;s Choice</p>
-              <p className="text-sm text-gray-400 mt-1">
+            <div className="text-center py-12 bg-zinc-800 rounded-lg">
+              <ShoppingBag className="h-12 w-12 mx-auto text-zinc-500 mb-3" />
+              <p className="text-zinc-400">No items in Today&apos;s Choice</p>
+              <p className="text-sm text-zinc-500 mt-1">
                 Add featured items to showcase on the homepage
               </p>
             </div>
@@ -563,7 +563,7 @@ const TodaysChoice = ({ csrfToken }: TodaysChoiceProps) => {
               {todaysChoiceItems.map((item) => (
                 <div
                   key={item.id}
-                  className="border rounded-lg overflow-hidden bg-white"
+                  className="border rounded-lg overflow-hidden bg-zinc-900"
                 >
                   <div className="h-40 relative">
                     {item.sticker?.images && item.sticker.images.length > 0 ? (
@@ -591,11 +591,11 @@ const TodaysChoice = ({ csrfToken }: TodaysChoiceProps) => {
                         }}
                       />
                     ) : (
-                      <div className="flex items-center justify-center h-full bg-gray-100 text-gray-400">
+                      <div className="flex items-center justify-center h-full bg-zinc-800 text-zinc-500">
                         No Image
                       </div>
                     )}
-                    <div className="absolute top-2 left-2 bg-purple-100 text-purple-800 text-xs px-2 py-0.5 rounded-full">
+                    <div className="absolute top-2 left-2 bg-amber-500/10 text-amber-300 text-xs px-2 py-0.5 rounded-full">
                       {item.stickerId ? "Sticker" : "Part"}
                     </div>
                   </div>
@@ -603,7 +603,7 @@ const TodaysChoice = ({ csrfToken }: TodaysChoiceProps) => {
                   <div className="p-4 space-y-2">
                     <div className="flex justify-between items-start">
                       <h3
-                        className="font-medium text-gray-900 line-clamp-1"
+                        className="font-medium text-zinc-100 line-clamp-1"
                         title={getItemTitle(item)}
                       >
                         {getItemTitle(item)}
@@ -611,7 +611,7 @@ const TodaysChoice = ({ csrfToken }: TodaysChoiceProps) => {
                     </div>
 
                     <div className="flex justify-between text-sm">
-                      <span className="text-gray-500">
+                      <span className="text-zinc-400">
                         Added: {new Date(item.createdAt).toLocaleDateString()}
                       </span>
                     </div>
@@ -649,9 +649,9 @@ const TodaysChoice = ({ csrfToken }: TodaysChoiceProps) => {
       {/* Add Item Modal */}
       {showAddModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg max-w-lg w-full p-6">
+          <div className="bg-zinc-900 rounded-lg max-w-lg w-full p-6">
             <div className="flex justify-between items-center mb-6">
-              <h3 className="text-lg font-medium text-gray-900">
+              <h3 className="text-lg font-medium text-zinc-100">
                 Add Item to Today&apos;s Choice
               </h3>
               <button
@@ -661,7 +661,7 @@ const TodaysChoice = ({ csrfToken }: TodaysChoiceProps) => {
                   setSearchTerm("");
                   setSelectedItemId(null);
                 }}
-                className="text-gray-400 hover:text-gray-500"
+                className="text-zinc-500 hover:text-zinc-400"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -673,8 +673,8 @@ const TodaysChoice = ({ csrfToken }: TodaysChoiceProps) => {
                   onClick={() => handleItemTypeChange("sticker")}
                   className={`px-4 py-2 rounded ${
                     itemType === "sticker"
-                      ? "bg-purple-100 text-purple-800 border border-purple-300"
-                      : "bg-gray-100 text-gray-700 border border-gray-300"
+                      ? "bg-amber-500/10 text-amber-300 border border-amber-500/30"
+                      : "bg-zinc-800 text-zinc-300 border border-zinc-700"
                   }`}
                 >
                   Stickers
@@ -683,8 +683,8 @@ const TodaysChoice = ({ csrfToken }: TodaysChoiceProps) => {
                   onClick={() => handleItemTypeChange("part")}
                   className={`px-4 py-2 rounded ${
                     itemType === "part"
-                      ? "bg-purple-100 text-purple-800 border border-purple-300"
-                      : "bg-gray-100 text-gray-700 border border-gray-300"
+                      ? "bg-amber-500/10 text-amber-300 border border-amber-500/30"
+                      : "bg-zinc-800 text-zinc-300 border border-zinc-700"
                   }`}
                 >
                   Parts
@@ -706,13 +706,13 @@ const TodaysChoice = ({ csrfToken }: TodaysChoiceProps) => {
                     }
                   }}
                 />
-                <Search className="h-5 w-5 absolute left-3 top-2.5 text-gray-400" />
+                <Search className="h-5 w-5 absolute left-3 top-2.5 text-zinc-500" />
                 <button
                   onClick={() => {
                     setCurrentPage(0);
                     searchItems(0);
                   }}
-                  className="absolute right-2 top-2 px-2 py-1 bg-purple-700 text-white text-sm rounded"
+                  className="absolute right-2 top-2 px-2 py-1 bg-amber-600 text-white text-sm rounded"
                 >
                   Search
                 </button>
@@ -721,7 +721,7 @@ const TodaysChoice = ({ csrfToken }: TodaysChoiceProps) => {
 
             {/* Pagination info */}
             {!loadingItems && totalItems > 0 && (
-              <div className="text-sm text-gray-600 mb-2">
+              <div className="text-sm text-zinc-400 mb-2">
                 Showing {currentPage * itemsPerPage + 1}-
                 {Math.min((currentPage + 1) * itemsPerPage, totalItems)} of{" "}
                 {totalItems} items
@@ -731,10 +731,10 @@ const TodaysChoice = ({ csrfToken }: TodaysChoiceProps) => {
             <div className="max-h-80 overflow-y-auto mb-4">
               {loadingItems ? (
                 <div className="flex justify-center items-center py-8">
-                  <Loader2 className="h-8 w-8 animate-spin text-purple-600" />
+                  <Loader2 className="h-8 w-8 animate-spin text-amber-400" />
                 </div>
               ) : availableItems.length === 0 ? (
-                <div className="text-center py-8 text-gray-500">
+                <div className="text-center py-8 text-zinc-400">
                   {searchTerm ? "No items found" : "Loading items..."}
                 </div>
               ) : (
@@ -744,8 +744,8 @@ const TodaysChoice = ({ csrfToken }: TodaysChoiceProps) => {
                       key={item.id}
                       className={`flex items-center border rounded-md p-3 cursor-pointer ${
                         selectedItemId === item.id
-                          ? "bg-purple-50 border-purple-300"
-                          : "hover:bg-gray-50"
+                          ? "bg-amber-500/5 border-amber-500/30"
+                          : "hover:bg-zinc-800"
                       }`}
                       onClick={() => setSelectedItemId(item.id)}
                     >
@@ -763,7 +763,7 @@ const TodaysChoice = ({ csrfToken }: TodaysChoiceProps) => {
                             }}
                           />
                         ) : (
-                          <div className="flex items-center justify-center h-full w-full bg-gray-100 rounded text-gray-400 text-xs">
+                          <div className="flex items-center justify-center h-full w-full bg-zinc-800 rounded text-zinc-500 text-xs">
                             No Image
                           </div>
                         )}
@@ -772,7 +772,7 @@ const TodaysChoice = ({ csrfToken }: TodaysChoiceProps) => {
                         <h4 className="font-medium">
                           {getAvailableItemTitle(item)}
                         </h4>
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-zinc-400">
                           ID: {item.id.substring(0, 8)}...
                         </p>
                       </div>
@@ -781,7 +781,7 @@ const TodaysChoice = ({ csrfToken }: TodaysChoiceProps) => {
                           type="radio"
                           checked={selectedItemId === item.id}
                           onChange={() => setSelectedItemId(item.id)}
-                          className="h-4 w-4 text-purple-600 focus:ring-purple-500"
+                          className="h-4 w-4 text-amber-400 focus:ring-amber-500"
                         />
                       </div>
                     </div>
@@ -803,11 +803,11 @@ const TodaysChoice = ({ csrfToken }: TodaysChoiceProps) => {
                     }
                   }}
                   disabled={currentPage === 0}
-                  className="px-3 py-1 border rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
+                  className="px-3 py-1 border rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-zinc-800"
                 >
                   Previous
                 </button>
-                <span className="text-sm text-gray-600">
+                <span className="text-sm text-zinc-400">
                   Page {currentPage + 1} of{" "}
                   {Math.ceil(totalItems / itemsPerPage)}
                 </span>
@@ -821,7 +821,7 @@ const TodaysChoice = ({ csrfToken }: TodaysChoiceProps) => {
                     }
                   }}
                   disabled={(currentPage + 1) * itemsPerPage >= totalItems}
-                  className="px-3 py-1 border rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
+                  className="px-3 py-1 border rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-zinc-800"
                 >
                   Next
                 </button>
@@ -836,13 +836,13 @@ const TodaysChoice = ({ csrfToken }: TodaysChoiceProps) => {
                   setSearchTerm("");
                   setSelectedItemId(null);
                 }}
-                className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
+                className="px-4 py-2 border border-zinc-700 rounded-md text-zinc-300 hover:bg-zinc-800"
               >
                 Cancel
               </button>
               <button
                 onClick={addTodaysChoiceItem}
-                className="px-4 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800 flex items-center"
+                className="px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 flex items-center"
                 disabled={!selectedItemId || processingItemId === "adding"}
               >
                 {processingItemId === "adding" ? (
@@ -865,11 +865,11 @@ const TodaysChoice = ({ csrfToken }: TodaysChoiceProps) => {
       {/* Delete Confirmation Modal */}
       {showDeleteModal && itemToDelete && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg max-w-md w-full p-6">
-            <h3 className="text-lg font-medium text-gray-900 mb-4">
+          <div className="bg-zinc-900 rounded-lg max-w-md w-full p-6">
+            <h3 className="text-lg font-medium text-zinc-100 mb-4">
               Confirm Removal
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-zinc-400 mb-6">
               Are you sure you want to remove &quot;{getItemTitle(itemToDelete)}
               &quot; from Today&apos;s Choice?
             </p>
@@ -880,7 +880,7 @@ const TodaysChoice = ({ csrfToken }: TodaysChoiceProps) => {
                   setShowDeleteModal(false);
                   setItemToDelete(null);
                 }}
-                className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
+                className="px-4 py-2 border border-zinc-700 rounded-md text-zinc-300 hover:bg-zinc-800"
                 disabled={processingItemId === itemToDelete.id}
               >
                 Cancel

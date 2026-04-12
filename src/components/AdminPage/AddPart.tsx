@@ -739,9 +739,9 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
       )}
 
       {success && (
-        <div className="mb-4 rounded-lg bg-purple-100 p-4 flex items-center gap-3">
-          <AlertCircle className="text-purple-600" />
-          <p className="text-purple-800">{success}</p>
+        <div className="mb-4 rounded-lg bg-amber-500/10 p-4 flex items-center gap-3">
+          <AlertCircle className="text-amber-400" />
+          <p className="text-amber-300">{success}</p>
         </div>
       )}
 
@@ -753,12 +753,12 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
               <div
                 key={step}
                 className={`flex flex-col items-center ${
-                  index <= currentStep ? "text-purple-700" : "text-gray-400"
+                  index <= currentStep ? "text-amber-400" : "text-zinc-500"
                 }`}
               >
                 <div
                   className={`w-8 h-8 rounded-full ${
-                    index <= currentStep ? "bg-purple-700" : "bg-gray-200"
+                    index <= currentStep ? "bg-amber-600" : "bg-zinc-700"
                   } flex items-center justify-center text-white mb-1`}
                 >
                   {index + 1}
@@ -779,14 +779,14 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
 
           <Tab.Panels className="mt-4">
             {/* Basic Information Panel */}
-            <Tab.Panel className="rounded-xl bg-white p-6 border border-gray-200">
+            <Tab.Panel className="rounded-xl bg-zinc-900 p-6 border border-zinc-700">
               <h3 className="text-lg font-medium mb-4">Basic Information</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Price */}
                 <div>
                   <label
                     htmlFor="price"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-zinc-300 mb-1"
                   >
                     Price (CHF)
                   </label>
@@ -796,7 +796,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                     step="0.01"
                     min="0"
                     className={`w-full rounded-md border ${
-                      errors.price ? "border-red-300" : "border-gray-300"
+                      errors.price ? "border-red-300" : "border-zinc-700"
                     } px-3 py-2`}
                     {...register("price", {
                       required: "This field is required",
@@ -814,7 +814,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                 <div>
                   <label
                     htmlFor="initialPrice"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-zinc-300 mb-1"
                   >
                     Initial Price (CHF) - Optional
                   </label>
@@ -824,7 +824,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                     step="0.01"
                     min="0"
                     className={`w-full rounded-md border ${
-                      errors.initialPrice ? "border-red-300" : "border-gray-300"
+                      errors.initialPrice ? "border-red-300" : "border-zinc-700"
                     } px-3 py-2`}
                     {...register("initialPrice", {
                       min: {
@@ -834,7 +834,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                     })}
                     placeholder="Enter original price if on sale"
                   />
-                  <p className="mt-1 text-xs text-gray-500">
+                  <p className="mt-1 text-xs text-zinc-400">
                     If entered, this will show as crossed out with the current
                     price highlighted as a discount
                   </p>
@@ -849,7 +849,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                 <div>
                   <label
                     htmlFor="quantity"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-zinc-300 mb-1"
                   >
                     Quantity in Stock
                   </label>
@@ -857,7 +857,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                     id="quantity"
                     type="number"
                     className={`w-full rounded-md border ${
-                      errors.quantity ? "border-red-300" : "border-gray-300"
+                      errors.quantity ? "border-red-300" : "border-zinc-700"
                     } px-3 py-2`}
                     {...register("quantity", {
                       required: "This field is required",
@@ -875,7 +875,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                 <div>
                   <label
                     htmlFor="type"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-zinc-300 mb-1"
                   >
                     Type
                   </label>
@@ -883,7 +883,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                     id="type"
                     type="text"
                     className={`w-full rounded-md border ${
-                      errors.type ? "border-red-300" : "border-gray-300"
+                      errors.type ? "border-red-300" : "border-zinc-700"
                     } px-3 py-2`}
                     {...register("type", {
                       required: "This field is required",
@@ -900,7 +900,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                 <div>
                   <label
                     htmlFor="sortingRank"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-zinc-300 mb-1"
                   >
                     Sorting Rank
                   </label>
@@ -908,13 +908,13 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                     id="sortingRank"
                     type="number"
                     className={`w-full rounded-md border ${
-                      errors.sortingRank ? "border-red-300" : "border-gray-300"
+                      errors.sortingRank ? "border-red-300" : "border-zinc-700"
                     } px-3 py-2`}
                     {...register("sortingRank", {
                       required: "This field is required",
                     })}
                   />
-                  <p className="mt-1 text-xs text-gray-500">
+                  <p className="mt-1 text-xs text-zinc-400">
                     Higher numbers appear first in the listing
                   </p>
                 </div>
@@ -923,7 +923,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                 <div>
                   <label
                     htmlFor="weight"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-zinc-300 mb-1"
                   >
                     Weight (g) - Optional
                   </label>
@@ -932,7 +932,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                     type="number"
                     step="0.01"
                     min="0"
-                    className="w-full rounded-md border border-gray-300 px-3 py-2"
+                    className="w-full rounded-md border border-zinc-700 px-3 py-2"
                     {...register("weight", {
                       min: { value: 0, message: "Weight must be positive" },
                     })}
@@ -949,7 +949,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                 <div>
                   <label
                     htmlFor="width"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-zinc-300 mb-1"
                   >
                     Width (cm) - Optional
                   </label>
@@ -958,7 +958,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                     type="number"
                     step="0.01"
                     min="0"
-                    className="w-full rounded-md border border-gray-300 px-3 py-2"
+                    className="w-full rounded-md border border-zinc-700 px-3 py-2"
                     {...register("width", {
                       min: { value: 0, message: "Width must be positive" },
                     })}
@@ -975,7 +975,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                 <div>
                   <label
                     htmlFor="height"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-zinc-300 mb-1"
                   >
                     Height (cm) - Optional
                   </label>
@@ -984,7 +984,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                     type="number"
                     step="0.01"
                     min="0"
-                    className="w-full rounded-md border border-gray-300 px-3 py-2"
+                    className="w-full rounded-md border border-zinc-700 px-3 py-2"
                     {...register("height", {
                       min: { value: 0, message: "Height must be positive" },
                     })}
@@ -1001,7 +1001,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                 <div>
                   <label
                     htmlFor="length"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-zinc-300 mb-1"
                   >
                     Length (cm) - Optional
                   </label>
@@ -1010,7 +1010,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                     type="number"
                     step="0.01"
                     min="0"
-                    className="w-full rounded-md border border-gray-300 px-3 py-2"
+                    className="w-full rounded-md border border-zinc-700 px-3 py-2"
                     {...register("length", {
                       min: { value: 0, message: "Length must be positive" },
                     })}
@@ -1025,12 +1025,12 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
 
                 {/* Groups */}
                 <div className="col-span-full">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-zinc-300 mb-1">
                     Groups
                   </label>
                   <div className="mt-2 grid grid-cols-1 md:grid-cols-2 gap-2">
                     <div>
-                      <h5 className="text-sm font-medium text-gray-700 mb-1">
+                      <h5 className="text-sm font-medium text-zinc-300 mb-1">
                         Part Groups
                       </h5>
                       {partGroups.map((group) => {
@@ -1044,12 +1044,12 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                               type="checkbox"
                               id={`partGroup-${group.id}`}
                               value={group.id}
-                              className="h-4 w-4 rounded border-gray-300 text-purple-700 focus:ring-purple-600"
+                              className="h-4 w-4 rounded border-zinc-700 text-amber-400 focus:ring-purple-600"
                               {...register("groups")}
                             />
                             <label
                               htmlFor={`partGroup-${group.id}`}
-                              className="ml-2 text-sm text-gray-700"
+                              className="ml-2 text-sm text-zinc-300"
                             >
                               {translation}
                             </label>
@@ -1062,7 +1062,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
 
                 {/* Keywords */}
                 <div className="col-span-full">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-zinc-300 mb-1">
                     Keywords
                   </label>
                   <div className="space-y-2">
@@ -1073,12 +1073,12 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                         onChange={(e) => setKeywordInput(e.target.value)}
                         onKeyDown={handleKeywordInputKeyDown}
                         placeholder="Add a keyword..."
-                        className="flex-1 rounded-md border border-gray-300 px-3 py-2 focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+                        className="flex-1 rounded-md border border-zinc-700 px-3 py-2 focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
                       />
                       <button
                         type="button"
                         onClick={addKeyword}
-                        className="px-4 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800 flex items-center"
+                        className="px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 flex items-center"
                       >
                         <Plus className="h-4 w-4" />
                       </button>
@@ -1088,13 +1088,13 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                         {keywords.map((keyword, index) => (
                           <span
                             key={index}
-                            className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-purple-100 text-purple-800"
+                            className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-amber-500/10 text-amber-300"
                           >
                             {keyword}
                             <button
                               type="button"
                               onClick={() => removeKeyword(index)}
-                              className="ml-2 text-purple-600 hover:text-purple-800"
+                              className="ml-2 text-amber-400 hover:text-amber-300"
                             >
                               <X className="h-4 w-4" />
                             </button>
@@ -1102,7 +1102,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                         ))}
                       </div>
                     )}
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-zinc-400">
                       Keywords help users find your part more easily
                     </p>
                   </div>
@@ -1113,12 +1113,12 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                   <input
                     id="active"
                     type="checkbox"
-                    className="h-4 w-4 rounded border-gray-300 text-purple-700 focus:ring-purple-600"
+                    className="h-4 w-4 rounded border-zinc-700 text-amber-400 focus:ring-purple-600"
                     {...register("active")}
                   />
                   <label
                     htmlFor="active"
-                    className="ml-2 text-sm text-gray-700"
+                    className="ml-2 text-sm text-zinc-300"
                   >
                     Active (visible in shop)
                   </label>
@@ -1128,23 +1128,23 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
             </Tab.Panel>
 
             {/* Translations Panel */}
-            <Tab.Panel className="rounded-xl bg-white p-6 border border-gray-200">
+            <Tab.Panel className="rounded-xl bg-zinc-900 p-6 border border-zinc-700">
               <h3 className="text-lg font-medium mb-4">Translations</h3>
               <div className="space-y-6">
                 {["en", "de", "fr", "it"].map((language) => (
                   <div key={language} className="border-b pb-4">
-                    <h3 className="font-medium text-gray-800 uppercase mb-3">
+                    <h3 className="font-medium text-zinc-200 uppercase mb-3">
                       {language} Translation
                     </h3>
 
                     <div className="space-y-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                        <label className="block text-sm font-medium text-zinc-300 mb-1">
                           Title
                         </label>
                         <input
                           type="text"
-                          className="w-full rounded-md border border-gray-300 px-3 py-2"
+                          className="w-full rounded-md border border-zinc-700 px-3 py-2"
                           {...register(
                             `translations.${language}.title` as FieldPath<FormData>,
                           )}
@@ -1152,12 +1152,12 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                        <label className="block text-sm font-medium text-zinc-300 mb-1">
                           Description
                         </label>
                         <textarea
                           rows={3}
-                          className="w-full rounded-md border border-gray-300 px-3 py-2"
+                          className="w-full rounded-md border border-zinc-700 px-3 py-2"
                           {...register(
                             `translations.${language}.description` as FieldPath<FormData>,
                           )}
@@ -1171,15 +1171,15 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
             </Tab.Panel>
 
             {/* Images Panel */}
-            <Tab.Panel className="rounded-xl bg-white p-6 border border-gray-200">
+            <Tab.Panel className="rounded-xl bg-zinc-900 p-6 border border-zinc-700">
               <h3 className="text-lg font-medium mb-4">
                 Upload Images & Videos
               </h3>
               <div className="space-y-8">
                 {/* Images Upload */}
                 <div>
-                  <h4 className="font-medium text-gray-800 mb-3">Images</h4>
-                  <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                  <h4 className="font-medium text-zinc-200 mb-3">Images</h4>
+                  <div className="border-2 border-dashed border-zinc-700 rounded-lg p-6 text-center">
                     <input
                       type="file"
                       id="images"
@@ -1190,11 +1190,11 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                     />
                     <label htmlFor="images" className="cursor-pointer">
                       <div className="flex flex-col items-center">
-                        <Upload className="h-12 w-12 text-gray-400" />
-                        <p className="mt-2 text-sm text-gray-600">
+                        <Upload className="h-12 w-12 text-zinc-500" />
+                        <p className="mt-2 text-sm text-zinc-400">
                           Click to upload images
                         </p>
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-zinc-400">
                           PNG, JPG, GIF up to 10MB each
                         </p>
                       </div>
@@ -1203,20 +1203,20 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
 
                   {uploading && (
                     <div className="flex justify-center mt-4">
-                      <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-purple-600"></div>
+                      <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-amber-500"></div>
                     </div>
                   )}
 
                   {uploadedImages.length > 0 && (
                     <div className="mt-4">
-                      <h3 className="font-medium text-gray-800 mb-3">
+                      <h3 className="font-medium text-zinc-200 mb-3">
                         Uploaded Images
                       </h3>
                       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                         {uploadedImages.map((image, index) => (
                           <div
                             key={index}
-                            className="relative rounded-lg overflow-hidden border border-gray-200 group"
+                            className="relative rounded-lg overflow-hidden border border-zinc-700 group"
                           >
                             <div className="h-32 w-full relative">
                               <Image
@@ -1242,10 +1242,10 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
 
                 {/* Videos Upload */}
                 <div>
-                  <h4 className="font-medium text-gray-800 mb-3">
+                  <h4 className="font-medium text-zinc-200 mb-3">
                     Videos (Optional)
                   </h4>
-                  <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                  <div className="border-2 border-dashed border-zinc-700 rounded-lg p-6 text-center">
                     <input
                       type="file"
                       id="videos"
@@ -1256,11 +1256,11 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                     />
                     <label htmlFor="videos" className="cursor-pointer">
                       <div className="flex flex-col items-center">
-                        <Upload className="h-12 w-12 text-gray-400" />
-                        <p className="mt-2 text-sm text-gray-600">
+                        <Upload className="h-12 w-12 text-zinc-500" />
+                        <p className="mt-2 text-sm text-zinc-400">
                           Click to upload videos
                         </p>
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-zinc-400">
                           MP4, WebM, Ogg up to 100MB each
                         </p>
                       </div>
@@ -1269,14 +1269,14 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
 
                   {uploadedVideos.length > 0 && (
                     <div className="mt-4">
-                      <h3 className="font-medium text-gray-800 mb-3">
+                      <h3 className="font-medium text-zinc-200 mb-3">
                         Uploaded Videos
                       </h3>
                       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                         {uploadedVideos.map((video, index) => (
                           <div
                             key={index}
-                            className="relative rounded-lg overflow-hidden border border-gray-200 group"
+                            className="relative rounded-lg overflow-hidden border border-zinc-700 group"
                           >
                             <div className="h-32 w-full relative bg-black flex items-center justify-center">
                               <video
@@ -1304,18 +1304,18 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
             </Tab.Panel>
 
             {/* Customization Panel */}
-            <Tab.Panel className="rounded-xl bg-white p-6 border border-gray-200">
+            <Tab.Panel className="rounded-xl bg-zinc-900 p-6 border border-zinc-700">
               <h3 className="text-lg font-medium mb-4">
                 Customization Options
               </h3>
               <div className="space-y-6">
                 <div className="flex items-end space-x-4">
                   <div className="flex-1">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-zinc-300 mb-1">
                       Option Type
                     </label>
                     <select
-                      className="w-full rounded-md border border-gray-300 px-3 py-2"
+                      className="w-full rounded-md border border-zinc-700 px-3 py-2"
                       value={optionType}
                       onChange={(e) =>
                         setOptionType(
@@ -1340,7 +1340,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                   <button
                     type="button"
                     onClick={addCustomizationOption}
-                    className="px-4 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800 flex items-center"
+                    className="px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 flex items-center"
                   >
                     <Plus className="h-4 w-4 mr-1" />
                     Add Option
@@ -1352,7 +1352,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                     {customizationOptions.map((option, optionIndex) => (
                       <div
                         key={optionIndex}
-                        className="border rounded-lg p-4 bg-gray-50 relative"
+                        className="border rounded-lg p-4 bg-zinc-800 relative"
                       >
                         <button
                           type="button"
@@ -1365,19 +1365,19 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                         <div className="space-y-4">
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                              <h4 className="font-medium text-gray-800 mb-2">
+                              <h4 className="font-medium text-zinc-200 mb-2">
                                 Option Type: {option.type}
                               </h4>
 
                               {/* Price Adjustment */}
                               <div className="mt-2">
-                                <label className="block text-sm font-medium text-gray-700 mb-1">
+                                <label className="block text-sm font-medium text-zinc-300 mb-1">
                                   Price Adjustment (CHF)
                                 </label>
                                 <input
                                   type="number"
                                   step="0.01"
-                                  className="w-full rounded-md border border-gray-300 px-3 py-2"
+                                  className="w-full rounded-md border border-zinc-700 px-3 py-2"
                                   value={option.priceAdjustment ?? 0}
                                   onChange={(e) =>
                                     updateOptionPriceAdjustment(
@@ -1393,13 +1393,13 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                                 {["en", "de", "fr", "it"].map((language) => (
                                   <div key={language} className="space-y-2">
                                     <div className="flex items-center">
-                                      <span className="text-xs font-semibold bg-gray-200 px-2 py-1 rounded mr-2 uppercase">
+                                      <span className="text-xs font-semibold bg-zinc-700 px-2 py-1 rounded mr-2 uppercase">
                                         {language}
                                       </span>
                                       <input
                                         type="text"
                                         placeholder={`${language.toUpperCase()} Title`}
-                                        className="flex-1 rounded-md border border-gray-300 px-3 py-1 text-sm"
+                                        className="flex-1 rounded-md border border-zinc-700 px-3 py-1 text-sm"
                                         value={
                                           option.translations[
                                             language as keyof typeof option.translations
@@ -1418,7 +1418,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                                     <input
                                       type="text"
                                       placeholder={`${language.toUpperCase()} Description (Optional)`}
-                                      className="w-full rounded-md border border-gray-300 px-3 py-1 text-sm"
+                                      className="w-full rounded-md border border-zinc-700 px-3 py-1 text-sm"
                                       value={
                                         option.translations[
                                           language as keyof typeof option.translations
@@ -1442,12 +1442,12 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                               {/* Type-specific settings */}
                               {option.type === "inputfield" && (
                                 <div>
-                                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                                  <label className="block text-sm font-medium text-zinc-300 mb-1">
                                     Maximum Characters
                                   </label>
                                   <input
                                     type="number"
-                                    className="w-full rounded-md border border-gray-300 px-3 py-2"
+                                    className="w-full rounded-md border border-zinc-700 px-3 py-2"
                                     value={
                                       (option as InputFieldOption).max || 50
                                     }
@@ -1465,7 +1465,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                               {option.type === "dropdown" && (
                                 <div className="space-y-3">
                                   <div className="flex justify-between items-center">
-                                    <h5 className="font-medium text-gray-700">
+                                    <h5 className="font-medium text-zinc-300">
                                       Dropdown Items
                                     </h5>
                                     <button
@@ -1484,7 +1484,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                                     (item, itemIndex) => (
                                       <div
                                         key={item.id}
-                                        className="border rounded p-2 bg-white relative"
+                                        className="border rounded p-2 bg-zinc-900 relative"
                                       >
                                         <button
                                           type="button"
@@ -1501,13 +1501,13 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
 
                                         {/* Price adjustment for this item */}
                                         <div className="mb-2">
-                                          <label className="block text-xs font-medium text-gray-700">
+                                          <label className="block text-xs font-medium text-zinc-300">
                                             Price Adjustment (CHF)
                                           </label>
                                           <input
                                             type="number"
                                             step="0.01"
-                                            className="w-full rounded-md border border-gray-300 px-2 py-1 text-sm"
+                                            className="w-full rounded-md border border-zinc-700 px-2 py-1 text-sm"
                                             value={item.priceAdjustment}
                                             onChange={(e) =>
                                               updateDropdownItemPriceAdjustment(
@@ -1531,7 +1531,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                                                 </span>
                                                 <input
                                                   type="text"
-                                                  className="flex-1 rounded-md border border-gray-300 px-2 py-1 text-sm"
+                                                  className="flex-1 rounded-md border border-zinc-700 px-2 py-1 text-sm"
                                                   value={
                                                     item.translations[
                                                       language as keyof typeof item.translations
@@ -1558,7 +1558,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
 
                               {option.type === "powdercoatColors" && (
                                 <div className="space-y-3">
-                                  <div className="text-sm text-gray-600">
+                                  <div className="text-sm text-zinc-400">
                                     <p className="font-medium mb-2">
                                       Powdercoat Colors
                                     </p>
@@ -1572,13 +1572,13 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                                   </div>
 
                                   <div className="mt-3">
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                                    <label className="block text-sm font-medium text-zinc-300 mb-1">
                                       Price Adjustment per Color (CHF)
                                     </label>
                                     <input
                                       type="number"
                                       step="0.01"
-                                      className="w-full rounded-md border border-gray-300 px-3 py-2"
+                                      className="w-full rounded-md border border-zinc-700 px-3 py-2"
                                       value={option.priceAdjustment ?? 0}
                                       onChange={(e) =>
                                         updateOptionPriceAdjustment(
@@ -1587,7 +1587,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                                         )
                                       }
                                     />
-                                    <p className="text-xs text-gray-500 mt-1">
+                                    <p className="text-xs text-zinc-400 mt-1">
                                       Additional cost when customer selects a
                                       powdercoat color
                                     </p>
@@ -1597,7 +1597,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
 
                               {option.type === "filamentColor" && (
                                 <div className="space-y-3">
-                                  <div className="text-sm text-gray-600">
+                                  <div className="text-sm text-zinc-400">
                                     <p className="font-medium mb-2">
                                       Filament Color
                                     </p>
@@ -1610,11 +1610,11 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                                   </div>
 
                                   <div className="mt-3">
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                                    <label className="block text-sm font-medium text-zinc-300 mb-1">
                                       Filament Type
                                     </label>
                                     <select
-                                      className="w-full rounded-md border border-gray-300 px-3 py-2"
+                                      className="w-full rounded-md border border-zinc-700 px-3 py-2"
                                       value={
                                         (option as FilamentColorOption)
                                           .filamentTypeId || ""
@@ -1641,20 +1641,20 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                                         ))
                                       )}
                                     </select>
-                                    <p className="text-xs text-gray-500 mt-1">
+                                    <p className="text-xs text-zinc-400 mt-1">
                                       Select which filament type&apos;s colors
                                       to display
                                     </p>
                                   </div>
 
                                   <div className="mt-3">
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                                    <label className="block text-sm font-medium text-zinc-300 mb-1">
                                       Price Adjustment per Color (CHF)
                                     </label>
                                     <input
                                       type="number"
                                       step="0.01"
-                                      className="w-full rounded-md border border-gray-300 px-3 py-2"
+                                      className="w-full rounded-md border border-zinc-700 px-3 py-2"
                                       value={option.priceAdjustment ?? 0}
                                       onChange={(e) =>
                                         updateOptionPriceAdjustment(
@@ -1663,7 +1663,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                                         )
                                       }
                                     />
-                                    <p className="text-xs text-gray-500 mt-1">
+                                    <p className="text-xs text-zinc-400 mt-1">
                                       Additional cost when customer selects a
                                       color
                                     </p>
@@ -1677,7 +1677,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                     ))}
                   </div>
                 ) : (
-                  <div className="text-center py-8 text-gray-500">
+                  <div className="text-center py-8 text-zinc-400">
                     No customization options added yet. Add one using the button
                     above.
                   </div>
@@ -1688,12 +1688,12 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
           </Tab.Panels>
         </Tab.Group>
       </form>
-      <div className="sticky bottom-0 bg-white border-t px-6 py-4 flex justify-between items-center">
+      <div className="sticky bottom-0 bg-zinc-900 border-t px-6 py-4 flex justify-between items-center">
         <button
           type="button"
           onClick={goToPreviousStep}
           disabled={currentStep === 0}
-          className="px-6 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-6 py-2 bg-zinc-700 text-zinc-300 rounded-md hover:bg-zinc-600 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Previous Step
         </button>
@@ -1702,7 +1702,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
             <button
               type="button"
               onClick={goToNextStep}
-              className="px-6 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800"
+              className="px-6 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700"
             >
               Next Step
             </button>
@@ -1711,7 +1711,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
             type="submit"
             form="add-part-form"
             disabled={loading}
-            className="px-6 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800 disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center"
+            className="px-6 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 disabled:bg-zinc-600 disabled:cursor-not-allowed flex items-center"
           >
             {loading ? (
               <>

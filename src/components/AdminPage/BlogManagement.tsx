@@ -387,7 +387,7 @@ const BlogManagement = ({ csrfToken }: BlogManagementProps) => {
         <h2 className="text-2xl font-bold">Blog Management</h2>
         <button
           onClick={() => setShowForm(!showForm)}
-          className="flex items-center gap-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition"
+          className="flex items-center gap-2 bg-amber-500 text-white px-4 py-2 rounded-lg hover:bg-amber-600 transition"
         >
           {showForm ? <X className="h-5 w-5" /> : <Plus className="h-5 w-5" />}
           {showForm ? "Cancel" : "New Post"}
@@ -397,7 +397,7 @@ const BlogManagement = ({ csrfToken }: BlogManagementProps) => {
       {showForm && (
         <form
           onSubmit={handleSubmit}
-          className="bg-gray-50 p-6 rounded-lg mb-6"
+          className="bg-zinc-800 p-6 rounded-lg mb-6"
         >
           <h3 className="text-xl font-semibold mb-4">
             {editingPost ? "Edit Blog Post" : "Create New Blog Post"}
@@ -450,7 +450,7 @@ const BlogManagement = ({ csrfToken }: BlogManagementProps) => {
           {/* Language Tabs */}
           <div className="mb-6">
             <div className="flex items-center gap-2 mb-4">
-              <Globe className="h-5 w-5 text-gray-600" />
+              <Globe className="h-5 w-5 text-zinc-400" />
               <h4 className="font-semibold text-lg">Translations</h4>
             </div>
 
@@ -472,8 +472,8 @@ const BlogManagement = ({ csrfToken }: BlogManagementProps) => {
                     onClick={() => setActiveLanguageTab(lang)}
                     className={`px-4 py-2 font-medium transition relative ${
                       activeLanguageTab === lang
-                        ? "text-purple-600 border-b-2 border-purple-600"
-                        : "text-gray-600 hover:text-gray-900"
+                        ? "text-amber-400 border-b-2 border-amber-500"
+                        : "text-zinc-400 hover:text-zinc-100"
                     }`}
                   >
                     {langNames[lang]}
@@ -486,7 +486,7 @@ const BlogManagement = ({ csrfToken }: BlogManagementProps) => {
             </div>
 
             {/* Translation Form for Active Language */}
-            <div className="bg-white p-4 rounded-lg border">
+            <div className="bg-zinc-900 p-4 rounded-lg border">
               <div className="mb-4">
                 <label className="block text-sm font-medium mb-1">
                   Title ({activeLanguageTab.toUpperCase()})
@@ -527,7 +527,7 @@ const BlogManagement = ({ csrfToken }: BlogManagementProps) => {
                   rows={12}
                   placeholder={`# Heading 1\n\nThis is **bold** and this is *italic*.\n\n![Image Alt Text](https://url.com/image.jpg)\n\n- List item 1\n- List item 2\n\n[Link text](https://example.com)`}
                 />
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="text-xs text-zinc-400 mt-1">
                   Use Markdown syntax for formatting. Supports headings, bold,
                   italic, images, links, lists, etc.
                 </p>
@@ -553,7 +553,7 @@ const BlogManagement = ({ csrfToken }: BlogManagementProps) => {
                 className="w-full"
               />
               {uploadingImages && (
-                <p className="text-sm text-gray-600 mt-1">Uploading...</p>
+                <p className="text-sm text-zinc-400 mt-1">Uploading...</p>
               )}
             </div>
 
@@ -566,7 +566,7 @@ const BlogManagement = ({ csrfToken }: BlogManagementProps) => {
                   {uploadedImageUrls.map((url, index) => (
                     <div
                       key={index}
-                      className="bg-white p-2 rounded border border-blue-100"
+                      className="bg-zinc-900 p-2 rounded border border-blue-100"
                     >
                       <code className="text-xs text-blue-800 block break-all">
                         ![Image description]({url})
@@ -625,7 +625,7 @@ const BlogManagement = ({ csrfToken }: BlogManagementProps) => {
                 {formData.images.map((img, index) => (
                   <div
                     key={index}
-                    className="flex items-center gap-2 bg-white p-2 rounded"
+                    className="flex items-center gap-2 bg-zinc-900 p-2 rounded"
                   >
                     <div className="w-16 h-16 relative flex-shrink-0">
                       <Image
@@ -638,7 +638,7 @@ const BlogManagement = ({ csrfToken }: BlogManagementProps) => {
                     </div>
                     <div className="flex-1 text-sm truncate">
                       <div className="font-medium truncate">{img.url}</div>
-                      <div className="text-gray-600">
+                      <div className="text-zinc-400">
                         {img.altText || "No alt text"}
                       </div>
                     </div>
@@ -662,7 +662,7 @@ const BlogManagement = ({ csrfToken }: BlogManagementProps) => {
               Related Links
             </h4>
 
-            <div className="mb-3 bg-white p-4 rounded-lg border">
+            <div className="mb-3 bg-zinc-900 p-4 rounded-lg border">
               <h5 className="text-sm font-semibold mb-3">
                 {editingLinkIndex !== null ? "Edit Link" : "Add New Link"}
               </h5>
@@ -686,7 +686,7 @@ const BlogManagement = ({ csrfToken }: BlogManagementProps) => {
                       className={`px-3 py-1 text-sm font-medium transition relative ${
                         activeLanguageTab === lang
                           ? "text-blue-600 border-b-2 border-blue-600"
-                          : "text-gray-600 hover:text-gray-900"
+                          : "text-zinc-400 hover:text-zinc-100"
                       }`}
                     >
                       {langNames[lang]}
@@ -753,7 +753,7 @@ const BlogManagement = ({ csrfToken }: BlogManagementProps) => {
                         it: { url: "", title: "" },
                       });
                     }}
-                    className="px-4 py-2 border rounded-lg hover:bg-gray-100"
+                    className="px-4 py-2 border rounded-lg hover:bg-zinc-800"
                   >
                     Cancel Edit
                   </button>
@@ -769,13 +769,13 @@ const BlogManagement = ({ csrfToken }: BlogManagementProps) => {
                     link.translations.find((t) => t.language === "en") ||
                     link.translations[0];
                   return (
-                    <div key={index} className="bg-white p-3 rounded border">
+                    <div key={index} className="bg-zinc-900 p-3 rounded border">
                       <div className="flex items-start justify-between mb-2">
                         <div className="flex-1">
                           <div className="font-medium text-sm">
                             {defaultTranslation?.title || "Untitled"}
                           </div>
-                          <div className="text-xs text-gray-600 truncate">
+                          <div className="text-xs text-zinc-400 truncate">
                             {defaultTranslation?.url || ""}
                           </div>
                         </div>
@@ -821,7 +821,7 @@ const BlogManagement = ({ csrfToken }: BlogManagementProps) => {
                         {link.translations.map((trans) => (
                           <span
                             key={trans.language}
-                            className="text-xs px-2 py-0.5 bg-gray-100 rounded"
+                            className="text-xs px-2 py-0.5 bg-zinc-800 rounded"
                           >
                             {trans.language.toUpperCase()}
                           </span>
@@ -845,7 +845,7 @@ const BlogManagement = ({ csrfToken }: BlogManagementProps) => {
             <button
               type="button"
               onClick={resetForm}
-              className="px-6 py-2 border rounded-lg hover:bg-gray-100 transition"
+              className="px-6 py-2 border rounded-lg hover:bg-zinc-800 transition"
             >
               Cancel
             </button>
@@ -856,19 +856,19 @@ const BlogManagement = ({ csrfToken }: BlogManagementProps) => {
       {/* Blog Posts List */}
       <div className="space-y-4">
         {blogPosts.length === 0 ? (
-          <div className="text-center py-8 text-gray-600">
+          <div className="text-center py-8 text-zinc-400">
             No blog posts yet. Create your first one!
           </div>
         ) : (
           blogPosts.map((post) => (
             <div
               key={post.id}
-              className="bg-white border rounded-lg p-4 shadow-sm"
+              className="bg-zinc-900 border rounded-lg p-4 shadow-sm"
             >
               <div className="flex justify-between items-start mb-2">
                 <div className="flex-1">
                   <h3 className="text-xl font-bold mb-1">{post.title}</h3>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-zinc-400">
                     By {post.author} •{" "}
                     {new Date(post.writingDate).toLocaleDateString()}
                   </p>
@@ -878,7 +878,7 @@ const BlogManagement = ({ csrfToken }: BlogManagementProps) => {
                     className={`px-3 py-1 rounded-full text-sm font-medium ${
                       post.active
                         ? "bg-green-100 text-green-800"
-                        : "bg-gray-100 text-gray-800"
+                        : "bg-zinc-800 text-zinc-200"
                     }`}
                   >
                     {post.active ? "Active" : "Draft"}
@@ -886,7 +886,7 @@ const BlogManagement = ({ csrfToken }: BlogManagementProps) => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 text-sm text-gray-600 mb-3">
+              <div className="flex items-center gap-2 text-sm text-zinc-400 mb-3">
                 {post.images.length > 0 && (
                   <span className="flex items-center gap-1">
                     <ImageIcon className="h-4 w-4" />

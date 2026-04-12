@@ -150,7 +150,7 @@ const ShowUsers: React.FC<Props> = ({ csrfToken }) => {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-amber-500"></div>
       </div>
     );
   }
@@ -170,50 +170,50 @@ const ShowUsers: React.FC<Props> = ({ csrfToken }) => {
 
       {/* Desktop view - Traditional table */}
       <div className="hidden md:block overflow-x-auto">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
+        <table className="min-w-full divide-y divide-zinc-800">
+          <thead className="bg-zinc-800">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-zinc-400 uppercase tracking-wider">
                 ID
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-zinc-400 uppercase tracking-wider">
                 Username
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-zinc-400 uppercase tracking-wider">
                 Role
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-zinc-400 uppercase tracking-wider">
                 Created At
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-zinc-400 uppercase tracking-wider">
                 Actions
               </th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="bg-zinc-900 divide-y divide-zinc-800">
             {users.map((user: User) => (
-              <tr key={user.id} className="hover:bg-gray-50">
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+              <tr key={user.id} className="hover:bg-zinc-800">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-zinc-400">
                   {user.id}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-zinc-100">
                   {user.username}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-zinc-400">
                   <span
                     className={`inline-flex px-2 py-1 rounded-full text-xs font-semibold ${
                       user.role === "admin"
-                        ? "bg-purple-200 text-purple-900"
-                        : "bg-gray-100 text-gray-800"
+                        ? "bg-amber-500/20 text-amber-300"
+                        : "bg-zinc-800 text-zinc-200"
                     }`}
                   >
                     {user.role}
                   </span>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-zinc-400">
                   {new Date(user.createdAt).toLocaleDateString()}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-zinc-400">
                   <button
                     onClick={() => handleDeleteUser(user)}
                     className="text-red-600 hover:text-red-900 p-1 rounded-md hover:bg-red-50"
@@ -234,27 +234,27 @@ const ShowUsers: React.FC<Props> = ({ csrfToken }) => {
         {users.map((user: User) => (
           <div
             key={user.id}
-            className="bg-white rounded-lg shadow-sm p-4 border border-gray-200"
+            className="bg-zinc-900 rounded-lg shadow-sm p-4 border border-zinc-700"
           >
             <div className="flex justify-between items-start">
               <div>
-                <div className="text-md font-medium text-gray-900 mb-1">
+                <div className="text-md font-medium text-zinc-100 mb-1">
                   {user.username}
                 </div>
-                <div className="text-xs text-gray-500 mb-2">ID: {user.id}</div>
+                <div className="text-xs text-zinc-400 mb-2">ID: {user.id}</div>
               </div>
               <span
                 className={`inline-flex px-2 py-1 rounded-full text-xs font-semibold ${
                   user.role === "admin"
-                    ? "bg-purple-200 text-purple-900"
-                    : "bg-gray-100 text-gray-800"
+                    ? "bg-amber-500/20 text-amber-300"
+                    : "bg-zinc-800 text-zinc-200"
                 }`}
               >
                 {user.role}
               </span>
             </div>
-            <div className="flex justify-between items-center mt-2 pt-2 border-t border-gray-100">
-              <div className="text-xs text-gray-500">
+            <div className="flex justify-between items-center mt-2 pt-2 border-t border-zinc-800">
+              <div className="text-xs text-zinc-400">
                 Created: {new Date(user.createdAt).toLocaleDateString()}
               </div>
               <button
@@ -269,16 +269,16 @@ const ShowUsers: React.FC<Props> = ({ csrfToken }) => {
           </div>
         ))}
         {users.length === 0 && (
-          <div className="text-center py-8 text-gray-500">No users found</div>
+          <div className="text-center py-8 text-zinc-400">No users found</div>
         )}
       </div>
 
       {/* Delete Confirmation Modal */}
       {deleteModalOpen && userToDelete && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-lg p-6 max-w-md w-full">
+          <div className="bg-zinc-900 rounded-lg p-6 max-w-md w-full">
             <h3 className="text-xl font-semibold mb-4">Confirm Delete</h3>
-            <p className="text-gray-600 mb-4">
+            <p className="text-zinc-400 mb-4">
               Are you sure you want to delete user &quot;{userToDelete.username}
               &quot;?
             </p>
@@ -287,7 +287,7 @@ const ShowUsers: React.FC<Props> = ({ csrfToken }) => {
               <button
                 type="button"
                 onClick={cancelDelete}
-                className="px-4 py-2 text-gray-600 hover:text-gray-800"
+                className="px-4 py-2 text-zinc-400 hover:text-zinc-200"
                 disabled={deleting}
               >
                 Cancel

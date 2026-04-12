@@ -180,7 +180,7 @@ const StockInput = ({
         if (e.key === "Enter") commit();
       }}
       disabled={disabled}
-      className="w-16 text-xs border border-gray-300 rounded px-1 py-0.5 text-center focus:outline-none focus:ring-1 focus:ring-purple-600 disabled:opacity-50"
+      className="w-16 text-xs border border-zinc-700 rounded px-1 py-0.5 text-center focus:outline-none focus:ring-1 focus:ring-purple-600 disabled:opacity-50"
       placeholder="0"
     />
   );
@@ -209,7 +209,6 @@ interface PartsGroupResponse {
 const Inventory = ({ csrfToken }: InventoryProps) => {
   const [inventoryType, setInventoryType] = useState<InventoryType>("parts");
   const [selectedGroup, setSelectedGroup] = useState<string | null>(null);
-  const [partGroups, setPartGroups] = useState<PartGroup[]>([]);
   const [groupParts, setGroupParts] = useState<Part[]>([]);
   const [stickers, setStickers] = useState<Sticker[]>([]);
   const [parts, setParts] = useState<Part[]>([]);
@@ -236,28 +235,6 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
   const [partForBikeModels, setPartForBikeModels] = useState<Part | null>(null);
   const axiosInstance = useAxios();
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-
-  // Fetch all part groups from the API
-  const fetchPartGroups = async () => {
-    setLoading(true);
-    try {
-      const response = await axiosInstance.get<PartGroup[]>(
-        '/groups/part-groups',
-        {
-          headers: {
-            Authorization: `Bearer ${storage.getItem("access_token")}`,
-            "X-CSRF-Token": csrfToken,
-          },
-        },
-      );
-      setPartGroups(response.data);
-    } catch (err: unknown) {
-      console.error("Error fetching part groups:", err);
-      setError("Failed to load part groups");
-    } finally {
-      setLoading(false);
-    }
-  };
 
   // Fetch parts for a specific group by name
   const fetchGroupParts = async (groupName: string) => {
@@ -441,11 +418,7 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
   };
 
   useEffect(() => {
-    if (inventoryType === "parts") {
-      fetchPartGroups();
-    } else {
-      fetchItems();
-    }
+    fetchItems();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inventoryType]);
 
@@ -945,7 +918,7 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
       case "unknown":
       default:
         return {
-          color: "bg-gray-100 text-gray-800",
+          color: "bg-zinc-800 text-zinc-200",
           text: "Unknown",
         };
     }
@@ -1097,13 +1070,13 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
         <h2 className="text-xl font-semibold">Inventory Management</h2>
         <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
           {/* Add inventory type toggle here */}
-          <div className="flex rounded-md overflow-hidden border border-gray-300 self-start">
+          <div className="flex rounded-md overflow-hidden border border-zinc-700 self-start">
             {/* <button
               onClick={() => switchInventoryType("stickers")}
               className={`px-3 sm:px-4 py-2 text-sm sm:text-base ${
                 inventoryType === "stickers"
-                  ? "bg-purple-700 text-white"
-                  : "bg-white text-gray-700 hover:bg-gray-50"
+                  ? "bg-amber-600 text-white"
+                  : "bg-zinc-900 text-zinc-300 hover:bg-zinc-800"
               }`}
             >
               Stickers
@@ -1112,8 +1085,8 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
               onClick={() => switchInventoryType("parts")}
               className={`px-3 sm:px-4 py-2 text-sm sm:text-base ${
                 inventoryType === "parts"
-                  ? "bg-purple-700 text-white"
-                  : "bg-white text-gray-700 hover:bg-gray-50"
+                  ? "bg-amber-600 text-white"
+                  : "bg-zinc-900 text-zinc-300 hover:bg-zinc-800"
               }`}
             >
               Parts
@@ -1132,7 +1105,7 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
-              <Search className="h-4 w-4 absolute left-3 top-3 text-gray-400" />
+              <Search className="h-4 w-4 absolute left-3 top-3 text-zinc-500" />
               <button type="submit" className="sr-only">
                 Search
               </button>
@@ -1141,7 +1114,7 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
             <div className="relative inline-block">
               <button
                 id="filter-button"
-                className="px-3 sm:px-4 py-2 border rounded-md bg-white flex items-center gap-1 whitespace-nowrap"
+                className="px-3 sm:px-4 py-2 border rounded-md bg-zinc-900 flex items-center gap-1 whitespace-nowrap"
                 onClick={() => setIsFilterOpen(!isFilterOpen)}
               >
                 <Filter className="h-4 w-4" />
@@ -1150,14 +1123,14 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
               {isFilterOpen && (
                 <div
                   id="filter-dropdown"
-                  className="mt-1 absolute right-0 w-56 bg-white rounded-md shadow-lg z-10 border"
+                  className="mt-1 absolute right-0 w-56 bg-zinc-900 rounded-md shadow-lg z-10 border"
                 >
                   <div className="p-2 space-y-1">
                     <button
                       className={`block w-full text-left px-4 py-2 rounded ${
                         status === "all"
-                          ? "bg-purple-100 text-purple-800"
-                          : "hover:bg-gray-100"
+                          ? "bg-amber-500/10 text-amber-300"
+                          : "hover:bg-zinc-800"
                       }`}
                       onClick={() => handleStatusChange("all")}
                     >
@@ -1166,8 +1139,8 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
                     <button
                       className={`block w-full text-left px-4 py-2 rounded ${
                         status === "active"
-                          ? "bg-purple-100 text-purple-800"
-                          : "hover:bg-gray-100"
+                          ? "bg-amber-500/10 text-amber-300"
+                          : "hover:bg-zinc-800"
                       }`}
                       onClick={() => handleStatusChange("active")}
                     >
@@ -1176,8 +1149,8 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
                     <button
                       className={`block w-full text-left px-4 py-2 rounded ${
                         status === "inactive"
-                          ? "bg-purple-100 text-purple-800"
-                          : "hover:bg-gray-100"
+                          ? "bg-amber-500/10 text-amber-300"
+                          : "hover:bg-zinc-800"
                       }`}
                       onClick={() => handleStatusChange("inactive")}
                     >
@@ -1193,7 +1166,7 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
 
       {/* Success message */}
       {successMessage && (
-        <div className="bg-purple-100 border border-purple-400 text-purple-800 p-3 rounded-md">
+        <div className="bg-amber-500/10 border border-purple-400 text-amber-300 p-3 rounded-md">
           {successMessage}
         </div>
       )}
@@ -1208,74 +1181,17 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
 
       {loading ? (
         <div className="flex justify-center items-center h-64">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-600"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-amber-500"></div>
         </div>
       ) : (
         <>
-          {inventoryType === "parts" && !selectedGroup ? (
-            /* Part Groups Overview - fetched from /groups/part-groups */
-            partGroups.length > 0 ? (
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-                {partGroups.map((group) => {
-                  const groupTitle = group.translations?.find(t => t.language === 'en')?.title ||
-                                     group.translations?.[0]?.title || 'Untitled';
-                  return (
-                    <button
-                      key={group.id}
-                      onClick={() => setSelectedGroup(groupTitle)}
-                      className="flex flex-col items-center justify-center gap-2 p-4 border-2 border-gray-200 rounded-xl bg-white hover:border-purple-500 hover:shadow-md transition-all text-left"
-                    >
-                      {group.image ? (
-                        <div className="w-12 h-12 rounded-full overflow-hidden relative">
-                          <NextImage
-                            src={group.image.startsWith("http") ? group.image : `https://minio-api.cwx-dev.com/part-groups/${group.image}`}
-                            alt={groupTitle}
-                            fill
-                            className="object-cover"
-                            unoptimized={true}
-                            onError={(e) => {
-                              const target = e.target as HTMLImageElement;
-                              target.src = "/512x512.png";
-                            }}
-                          />
-                        </div>
-                      ) : (
-                        <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
-                          <span className="text-purple-700 font-bold text-lg">
-                            {groupTitle.charAt(0).toUpperCase()}
-                          </span>
-                        </div>
-                      )}
-                      <span className="font-medium text-gray-900 text-sm text-center line-clamp-2">{groupTitle}</span>
-                    </button>
-                  );
-                })}
-              </div>
-            ) : (
-              <div className="flex justify-center items-center h-64 bg-gray-50 rounded-lg">
-                <p className="text-gray-500">No part groups found</p>
-              </div>
-            )
-          ) : (
-            <>
-              {/* Back button when inside a group */}
-              {inventoryType === "parts" && selectedGroup && (
-                <button
-                  onClick={() => { setSelectedGroup(null); setGroupParts([]); }}
-                  className="flex items-center gap-2 text-sm text-purple-700 hover:text-purple-900 font-medium mb-2"
-                >
-                  <ChevronLeft className="w-4 h-4" />
-                  Back to groups
-                </button>
-              )}
-
-              {/* Items grid */}
-              {itemsToRender.length > 0 ? (
+          {/* Items grid */}
+          {itemsToRender.length > 0 ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                   {(itemsToRender as (Part | Sticker)[]).map((item) => (
                 <div
                   key={item.id}
-                  className={`border rounded-lg overflow-hidden bg-white ${
+                  className={`border rounded-lg overflow-hidden bg-zinc-900 ${
                     !item.active ? "opacity-75" : ""
                   }`}
                 >
@@ -1307,7 +1223,7 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
                         )}
                       />
                     ) : (
-                      <div className="flex items-center justify-center h-full bg-gray-100 text-gray-400">
+                      <div className="flex items-center justify-center h-full bg-zinc-800 text-zinc-500">
                         No Image
                       </div>
                     )}
@@ -1315,7 +1231,7 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
 
                   <div className="p-3 sm:p-4 space-y-2">
                     <div className="flex justify-between items-start">
-                      <h3 className="font-medium text-gray-900 text-sm sm:text-base pr-2">
+                      <h3 className="font-medium text-zinc-100 text-sm sm:text-base pr-2">
                         {inventoryType === "stickers"
                           ? getTitle(item as Sticker)
                           : getPartTitle(item as Part)}
@@ -1323,7 +1239,7 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
                       <span
                         className={`text-xs px-2 py-1 rounded-full flex-shrink-0 ${
                           item.active
-                            ? "bg-purple-200 text-purple-900"
+                            ? "bg-amber-500/20 text-amber-300"
                             : "bg-red-100 text-red-800"
                         }`}
                       >
@@ -1332,16 +1248,16 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
                     </div>
 
                     <div className="flex flex-wrap justify-between text-xs sm:text-sm gap-y-1">
-                      <span className="text-gray-500 mr-2">
+                      <span className="text-zinc-400 mr-2">
                         ID: {item.id.substring(0, 8)}...
                       </span>
-                      <span className="text-gray-500">
+                      <span className="text-zinc-400">
                         Stock: {item.quantity}
                       </span>
                     </div>
 
                     <div className="flex justify-between text-xs sm:text-sm">
-                      <span className="text-gray-500 break-words">
+                      <span className="text-zinc-400 break-words">
                         Price: CHF{" "}
                         {inventoryType === "stickers"
                           ? ((item as Sticker).standardMethod === "printable"
@@ -1359,7 +1275,7 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
                                     <span className="text-red-600 font-semibold">
                                       {part.price}
                                     </span>
-                                    <span className="line-through text-gray-400">
+                                    <span className="line-through text-zinc-500">
                                       {part.initialPrice}
                                     </span>
                                   </span>
@@ -1373,7 +1289,7 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
                     {/* Type for parts */}
                     {inventoryType === "parts" && (item as Part).type && (
                       <div className="flex justify-between text-xs sm:text-sm">
-                        <span className="text-gray-500 break-words">
+                        <span className="text-zinc-400 break-words">
                           Type: {(item as Part).type}
                         </span>
                       </div>
@@ -1385,7 +1301,7 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
                         (item as Part).width != null ||
                         (item as Part).height != null ||
                         (item as Part).length != null) && (
-                        <div className="text-xs sm:text-sm text-gray-500 space-y-0.5">
+                        <div className="text-xs sm:text-sm text-zinc-400 space-y-0.5">
                           {(item as Part).weight != null && (
                             <div>Weight: {(item as Part).weight} g</div>
                           )}
@@ -1408,7 +1324,7 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
                     {inventoryType === "parts" && (
                       <div className="space-y-2">
                         <div className="flex items-center justify-between flex-wrap gap-y-1">
-                          <span className="text-xs sm:text-sm text-gray-500">
+                          <span className="text-xs sm:text-sm text-zinc-400">
                             Shipping:
                           </span>
                           <span
@@ -1442,7 +1358,7 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
                             )
                           }
                           disabled={processingItemId === item.id}
-                          className="w-full text-xs border border-gray-300 rounded-md px-2 py-1 bg-white focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent disabled:opacity-50"
+                          className="w-full text-xs border border-zinc-700 rounded-md px-2 py-1 bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent disabled:opacity-50"
                         >
                           <option value="now">Ready to ship</option>
                           <option value="in_1_3_days">Ships in 1-3 days</option>
@@ -1456,7 +1372,7 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
                         {/* Date picker for pre-order items */}
                         {(item as Part).shippingReady === "pre_order" && (
                           <div className="mt-2">
-                            <label className="block text-xs text-gray-500 mb-1">
+                            <label className="block text-xs text-zinc-400 mb-1">
                               Expected shipping date:
                             </label>
                             <input
@@ -1472,7 +1388,7 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
                                 updateShippingDate(item.id, e.target.value)
                               }
                               disabled={processingItemId === item.id}
-                              className="w-full text-xs border border-gray-300 rounded-md px-2 py-1 bg-white focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent disabled:opacity-50"
+                              className="w-full text-xs border border-zinc-700 rounded-md px-2 py-1 bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent disabled:opacity-50"
                             />
                           </div>
                         )}
@@ -1486,8 +1402,8 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
                               option.items &&
                               option.items.length > 0,
                           ) && (
-                            <div className="mt-3 pt-3 border-t border-gray-200">
-                              <h4 className="text-xs font-medium text-gray-700 mb-2">
+                            <div className="mt-3 pt-3 border-t border-zinc-700">
+                              <h4 className="text-xs font-medium text-zinc-300 mb-2">
                                 Option Stock Management
                               </h4>
                               {(item as Part).customizationOptions!.options.map(
@@ -1497,7 +1413,7 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
                                       key={option.translations.en.title}
                                       className="mb-3"
                                     >
-                                      <div className="text-xs font-medium text-gray-600 mb-1">
+                                      <div className="text-xs font-medium text-zinc-400 mb-1">
                                         {option.translations.en.title}
                                       </div>
                                       {(option as DropdownOption).items?.map(
@@ -1506,7 +1422,7 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
                                             key={dropdownItem.id}
                                             className="flex items-center gap-2 mb-1"
                                           >
-                                            <span className="text-xs text-gray-500 flex-1 truncate">
+                                            <span className="text-xs text-zinc-400 flex-1 truncate">
                                               {
                                                 dropdownItem.translations.en
                                                   .title
@@ -1571,7 +1487,7 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
                         <>
                           <button
                             onClick={() => handleEditItem(item as Part)}
-                            className="text-purple-600 hover:text-purple-800 flex items-center text-xs sm:text-sm"
+                            className="text-amber-400 hover:text-amber-300 flex items-center text-xs sm:text-sm"
                             data-tooltip-id="tooltip"
                             data-tooltip-content="Edit"
                           >
@@ -1615,26 +1531,26 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
                   ))}
                 </div>
               ) : (
-                <div className="flex justify-center items-center h-64 bg-gray-50 rounded-lg">
-                  <p className="text-gray-500">No {inventoryType} found</p>
+                <div className="flex justify-center items-center h-64 bg-zinc-800 rounded-lg">
+                  <p className="text-zinc-400">No {inventoryType} found</p>
                 </div>
               )}
 
-              {/* Pagination - only show outside group view */}
-              {(!selectedGroup) && meta.totalPages > 1 && (
+              {/* Pagination */}
+              {meta.totalPages > 1 && (
             <div className="flex justify-center items-center gap-2 py-4">
               <button
                 onClick={() =>
                   handlePageChange(Math.max(0, meta.skip - meta.limit))
                 }
                 disabled={meta.skip === 0}
-                className="p-2 rounded-md border border-gray-300 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
+                className="p-2 rounded-md border border-zinc-700 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-zinc-800"
                 aria-label="Previous page"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
 
-              <span className="text-xs sm:text-sm text-gray-600">
+              <span className="text-xs sm:text-sm text-zinc-400">
                 Page {Math.floor(meta.skip / meta.limit) + 1} of{" "}
                 {meta.totalPages}
               </span>
@@ -1642,25 +1558,23 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
               <button
                 onClick={() => handlePageChange(meta.skip + meta.limit)}
                 disabled={meta.skip + meta.limit >= meta.total}
-                className="p-2 rounded-md border border-gray-300 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
+                className="p-2 rounded-md border border-zinc-700 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-zinc-800"
                 aria-label="Next page"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
             </div>
           )}
-            </>
-          )}
         </>
       )}
       {showDeleteModal &&
         (inventoryType === "stickers" ? stickerToDelete : partToDelete) && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-            <div className="bg-white rounded-lg max-w-md w-full p-4 sm:p-6">
-              <h3 className="text-md sm:text-lg font-medium text-gray-900 mb-3 sm:mb-4">
+            <div className="bg-zinc-900 rounded-lg max-w-md w-full p-4 sm:p-6">
+              <h3 className="text-md sm:text-lg font-medium text-zinc-100 mb-3 sm:mb-4">
                 Confirm Deletion
               </h3>
-              <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
+              <p className="text-sm sm:text-base text-zinc-400 mb-4 sm:mb-6">
                 Are you sure you want to delete the{" "}
                 {inventoryType === "stickers" ? "sticker" : "part"} &quot;
                 {inventoryType === "stickers"
@@ -1676,7 +1590,7 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
                     setStickerToDelete(null);
                     setPartToDelete(null);
                   }}
-                  className="px-3 sm:px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 text-sm sm:text-base"
+                  className="px-3 sm:px-4 py-2 border border-zinc-700 rounded-md text-zinc-300 hover:bg-zinc-800 text-sm sm:text-base"
                   disabled={
                     processingItemId ===
                     (inventoryType === "stickers"
@@ -1733,9 +1647,9 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
       {/* Copy Part Modal */}
       {showCopyModal && itemToCopy && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 overflow-y-auto">
-          <div className="bg-white rounded-lg max-w-6xl w-full max-h-[90vh] flex flex-col">
-            <div className="sticky top-0 bg-white border-b px-6 py-4 flex justify-between items-center z-10">
-              <h3 className="text-lg font-medium text-gray-900">
+          <div className="bg-zinc-900 rounded-lg max-w-6xl w-full max-h-[90vh] flex flex-col">
+            <div className="sticky top-0 bg-zinc-900 border-b px-6 py-4 flex justify-between items-center z-10">
+              <h3 className="text-lg font-medium text-zinc-100">
                 Copy {inventoryType === "parts" ? "Part" : "Sticker"}
               </h3>
               <button
@@ -1743,7 +1657,7 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
                   setShowCopyModal(false);
                   setItemToCopy(null);
                 }}
-                className="text-gray-400 hover:text-gray-600"
+                className="text-zinc-500 hover:text-zinc-400"
               >
                 <svg
                   className="h-6 w-6"

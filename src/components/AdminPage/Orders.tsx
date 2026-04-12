@@ -777,45 +777,45 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
     const isLoading = loadingDiscounts[order.discountId];
 
     return (
-      <div className="border-t border-gray-200 mt-2 pt-2">
+      <div className="border-t border-zinc-700 mt-2 pt-2">
         <p className="font-medium flex items-center gap-1">
-          <Tag className="h-4 w-4 text-purple-700" />
+          <Tag className="h-4 w-4 text-amber-400" />
           Discount Information
         </p>
 
         {isLoading ? (
           <div className="flex items-center gap-2 py-1">
-            <div className="animate-spin rounded-full h-3 w-3 border-t-2 border-b-2 border-purple-600"></div>
-            <span className="text-sm text-gray-500">
+            <div className="animate-spin rounded-full h-3 w-3 border-t-2 border-b-2 border-amber-500"></div>
+            <span className="text-sm text-zinc-400">
               Loading discount details...
             </span>
           </div>
         ) : discount ? (
           <div className="space-y-1 mt-1">
             <div className="flex items-center">
-              <span className="text-purple-800 font-medium mr-2">Code:</span>
-              <span className="bg-purple-200 text-purple-900 text-xs px-2 py-0.5 rounded-full">
+              <span className="text-amber-300 font-medium mr-2">Code:</span>
+              <span className="bg-amber-500/20 text-amber-300 text-xs px-2 py-0.5 rounded-full">
                 {discount.code}
               </span>
             </div>
             <p className="text-sm">
-              <span className="text-gray-600">Type:</span>{" "}
+              <span className="text-zinc-400">Type:</span>{" "}
               {discount.type === "percentage"
                 ? `${discount.value}% off`
                 : `CHF ${(parseFloat(discount.value) || 0).toFixed(2)} off`}
             </p>
             <p className="text-sm">
-              <span className="text-gray-600">Valid period:</span>{" "}
+              <span className="text-zinc-400">Valid period:</span>{" "}
               {new Date(discount.validFrom).toLocaleDateString()} -{" "}
               {new Date(discount.validUntil).toLocaleDateString()}
             </p>
             <p className="text-sm">
-              <span className="text-gray-600">Usage:</span>{" "}
+              <span className="text-zinc-400">Usage:</span>{" "}
               {discount.usageCount}/{discount.maxUsage}
             </p>
           </div>
         ) : (
-          <p className="text-sm text-purple-700 py-1">
+          <p className="text-sm text-amber-400 py-1">
             Discount applied (Code: {order.discountCode || "N/A"})
           </p>
         )}
@@ -828,7 +828,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
       case "processing":
         return "bg-blue-100 text-blue-800";
       case "completed":
-        return "bg-purple-200 text-purple-900";
+        return "bg-amber-500/20 text-amber-300";
       case "cancelled":
         return "bg-red-100 text-red-800";
       case "stand":
@@ -836,9 +836,9 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
       case "pending":
         return "bg-orange-100 text-orange-800";
       case "cart_temp":
-        return "bg-gray-100 text-gray-600";
+        return "bg-zinc-800 text-zinc-400";
       default:
-        return "bg-gray-100 text-gray-800";
+        return "bg-zinc-800 text-zinc-200";
     }
   };
 
@@ -989,7 +989,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
   if (loading && orders.length === 0) {
     return (
       <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-amber-500"></div>
       </div>
     );
   }
@@ -1007,14 +1007,14 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
     <div>
       {/* Section Tabs */}
       <div className="mb-6">
-        <div className="border-b border-gray-200">
+        <div className="border-b border-zinc-700">
           <nav className="-mb-px flex space-x-8" aria-label="Tabs">
             <button
               onClick={() => handleSectionChange("all")}
               className={`${
                 activeSection === "all"
-                  ? "border-purple-600 text-purple-700"
-                  : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                  ? "border-amber-500 text-amber-400"
+                  : "border-transparent text-zinc-400 hover:text-zinc-300 hover:border-zinc-700"
               } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors duration-200`}
             >
               All Orders
@@ -1023,8 +1023,8 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
               onClick={() => handleSectionChange("pending")}
               className={`${
                 activeSection === "pending"
-                  ? "border-purple-600 text-purple-700"
-                  : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                  ? "border-amber-500 text-amber-400"
+                  : "border-transparent text-zinc-400 hover:text-zinc-300 hover:border-zinc-700"
               } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors duration-200`}
             >
               Pending Orders
@@ -1033,8 +1033,8 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
               onClick={() => handleSectionChange("by-product")}
               className={`${
                 activeSection === "by-product"
-                  ? "border-purple-600 text-purple-700"
-                  : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                  ? "border-amber-500 text-amber-400"
+                  : "border-transparent text-zinc-400 hover:text-zinc-300 hover:border-zinc-700"
               } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors duration-200`}
             >
               By Product
@@ -1046,17 +1046,17 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
       {/* Search */}
       <div className="mb-4">
         <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-500 pointer-events-none" />
           <input
             type="text"
             value={searchQuery}
             onChange={handleSearchChange}
             placeholder="Search by name, email, phone, city, order ID, payment ID…"
-            className="w-full pl-9 pr-10 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full pl-9 pr-10 py-2 border border-zinc-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
           />
           {loading && isSearchMode && (
             <div className="absolute right-3 top-1/2 -translate-y-1/2">
-              <div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-purple-600" />
+              <div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-amber-500" />
             </div>
           )}
         </div>
@@ -1066,12 +1066,12 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
       {activeSection === "by-product" && (
         <div className="mb-4" ref={productDropdownRef}>
           <label
-            className="block text-sm font-medium text-gray-700 mb-1"
+            className="block text-sm font-medium text-zinc-300 mb-1"
           >
             Select a product to filter orders:
           </label>
           <div className="relative w-full sm:w-96">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-500 pointer-events-none" />
             <input
               type="text"
               value={productDropdownOpen ? productSearch : productFilter || productSearch}
@@ -1081,7 +1081,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
               }}
               onFocus={() => setProductDropdownOpen(true)}
               placeholder="Search products…"
-              className="w-full pl-9 pr-8 py-2 rounded-md border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full pl-9 pr-8 py-2 rounded-md border border-zinc-700 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
             />
             {(productFilter || productSearch) && (
               <button
@@ -1090,21 +1090,21 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                   setProductSearch("");
                   setProductDropdownOpen(false);
                 }}
-                className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-400"
               >
                 ×
               </button>
             )}
             {productDropdownOpen && (
-              <div className="absolute z-20 mt-1 w-full max-h-60 overflow-y-auto bg-white border border-gray-300 rounded-md shadow-lg">
+              <div className="absolute z-20 mt-1 w-full max-h-60 overflow-y-auto bg-zinc-900 border border-zinc-700 rounded-md shadow-lg">
                 <button
                   onClick={() => {
                     setProductFilter("");
                     setProductSearch("");
                     setProductDropdownOpen(false);
                   }}
-                  className={`w-full text-left px-3 py-2 text-sm hover:bg-purple-50 ${
-                    !productFilter ? "bg-purple-100 text-purple-800 font-medium" : "text-gray-700"
+                  className={`w-full text-left px-3 py-2 text-sm hover:bg-amber-500/5 ${
+                    !productFilter ? "bg-amber-500/10 text-amber-300 font-medium" : "text-zinc-300"
                   }`}
                 >
                   All Products
@@ -1121,8 +1121,8 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                         setProductSearch("");
                         setProductDropdownOpen(false);
                       }}
-                      className={`w-full text-left px-3 py-2 text-sm hover:bg-purple-50 ${
-                        productFilter === name ? "bg-purple-100 text-purple-800 font-medium" : "text-gray-700"
+                      className={`w-full text-left px-3 py-2 text-sm hover:bg-amber-500/5 ${
+                        productFilter === name ? "bg-amber-500/10 text-amber-300 font-medium" : "text-zinc-300"
                       }`}
                     >
                       {name}
@@ -1131,7 +1131,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                 {availableProducts.filter((name) =>
                   name.toLowerCase().includes(productSearch.toLowerCase())
                 ).length === 0 && (
-                  <div className="px-3 py-2 text-sm text-gray-400">
+                  <div className="px-3 py-2 text-sm text-zinc-500">
                     No products found
                   </div>
                 )}
@@ -1155,7 +1155,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:space-x-4">
           {/* Cart Temp Toggle */}
           <div className="flex items-center space-x-2">
-            <label className="text-sm font-medium text-gray-700">
+            <label className="text-sm font-medium text-zinc-300">
               Show Cart Temp:
             </label>
             <label className="relative inline-flex items-center cursor-pointer">
@@ -1165,7 +1165,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                 onChange={(e) => setShowCartTemp(e.target.checked)}
                 className="sr-only peer"
               />
-              <div className='relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[""] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600'></div>
+              <div className='relative w-11 h-6 bg-zinc-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-amber-500/30 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[""] after:absolute after:top-[2px] after:left-[2px] after:bg-zinc-900 after:border-zinc-700 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-amber-500'></div>
             </label>
           </div>
 
@@ -1174,7 +1174,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
             <div className="flex items-center space-x-2">
               <label
                 htmlFor="statusFilter"
-                className="text-sm font-medium text-gray-700"
+                className="text-sm font-medium text-zinc-300"
               >
                 Status:
               </label>
@@ -1182,7 +1182,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                 id="statusFilter"
                 value={statusFilter}
                 onChange={handleStatusFilterChange}
-                className="rounded-md border border-gray-300 px-3 py-1.5 text-sm"
+                className="rounded-md border border-zinc-700 px-3 py-1.5 text-sm"
               >
                 <option value="">All Statuses</option>
                 <option value="stand">Stand</option>
@@ -1205,9 +1205,9 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
       )}
 
       {filteredOrders.length === 0 ? (
-        <div className="text-center py-12 bg-gray-50 rounded-lg">
-          <Package className="h-12 w-12 mx-auto text-gray-400 mb-3" />
-          <p className="text-gray-500">
+        <div className="text-center py-12 bg-zinc-800 rounded-lg">
+          <Package className="h-12 w-12 mx-auto text-zinc-500 mb-3" />
+          <p className="text-zinc-400">
             {isSearchMode
               ? `No orders found for "${searchQuery}"`
               : orders.length === 0
@@ -1231,10 +1231,10 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
             return (
               <div
                 key={order.id}
-                className="border rounded-lg overflow-hidden bg-white"
+                className="border rounded-lg overflow-hidden bg-zinc-900"
               >
                 {/* Order Header - always visible */}
-                <div className="p-4 flex flex-col sm:flex-row justify-between sm:items-center hover:bg-gray-50 gap-3">
+                <div className="p-4 flex flex-col sm:flex-row justify-between sm:items-center hover:bg-zinc-800 gap-3">
                   <div
                     className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 cursor-pointer flex-grow"
                     onClick={() => toggleOrderExpansion(order.id)}
@@ -1251,7 +1251,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                             setTimeout(() => setCopiedOrderId(null), 1500);
                           });
                         }}
-                        className="p-1 rounded hover:bg-gray-200 text-gray-400 hover:text-gray-600 transition-colors"
+                        className="p-1 rounded hover:bg-zinc-700 text-zinc-500 hover:text-zinc-400 transition-colors"
                         title="Copy order ID"
                       >
                         {copiedOrderId === order.id ? (
@@ -1261,7 +1261,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                         )}
                       </button>
                     </div>
-                    <p className="text-gray-500 text-sm">
+                    <p className="text-zinc-400 text-sm">
                       {new Date(order.orderDate).toLocaleDateString()}
                     </p>
                   </div>
@@ -1273,7 +1273,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                         e.stopPropagation();
                         void downloadInvoicePDF(order);
                       }}
-                      className="flex items-center gap-1 px-3 py-1.5 text-xs bg-purple-600 hover:bg-purple-700 text-white rounded border border-purple-700 transition-colors duration-200 font-medium shadow-sm"
+                      className="flex items-center gap-1 px-3 py-1.5 text-xs bg-amber-500 hover:bg-amber-600 text-white rounded border border-purple-700 transition-colors duration-200 font-medium shadow-sm"
                       title="Download invoice PDF"
                     >
                       <Download className="h-3 w-3" />
@@ -1289,7 +1289,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                           handleStatusChange(order.id, e.target.value);
                         }}
                         disabled={updatingStatus[order.id]}
-                        className={`px-2 py-1 text-xs rounded-full border-0 cursor-pointer focus:ring-2 focus:ring-purple-500 focus:outline-none ${getOrderStatusClass(
+                        className={`px-2 py-1 text-xs rounded-full border-0 cursor-pointer focus:ring-2 focus:ring-amber-500 focus:outline-none ${getOrderStatusClass(
                           order.status,
                         )} ${
                           updatingStatus[order.id]
@@ -1312,7 +1312,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                       )}
                     </div>
 
-                    <p className="font-medium text-purple-700">
+                    <p className="font-medium text-amber-400">
                       CHF {parseFloat(order.totalPrice).toFixed(2)}
                     </p>
                     <div
@@ -1320,9 +1320,9 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                       onClick={() => toggleOrderExpansion(order.id)}
                     >
                       {isExpanded ? (
-                        <ChevronUp className="h-5 w-5 text-gray-500" />
+                        <ChevronUp className="h-5 w-5 text-zinc-400" />
                       ) : (
-                        <ChevronDown className="h-5 w-5 text-gray-500" />
+                        <ChevronDown className="h-5 w-5 text-zinc-400" />
                       )}
                     </div>
                   </div>
@@ -1330,28 +1330,28 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
 
                 {/* Order Details - visible when expanded */}
                 {isExpanded && (
-                  <div className="border-t border-gray-200 p-4 bg-gray-50">
+                  <div className="border-t border-zinc-700 p-4 bg-zinc-800">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                       {/* Customer Information */}
                       <div>
-                        <h3 className="font-medium text-gray-900 mb-3 flex items-center gap-1">
+                        <h3 className="font-medium text-zinc-100 mb-3 flex items-center gap-1">
                           <User className="h-4 w-4" /> Customer Information
                         </h3>
-                        <div className="bg-white p-4 rounded-md shadow-sm space-y-2">
+                        <div className="bg-zinc-900 p-4 rounded-md shadow-sm space-y-2">
                           <p>
                             <span className="font-medium">Name:</span>{" "}
                             {order.firstName} {order.lastName}
                           </p>
                           <p className="flex items-center gap-1">
-                            <Mail className="h-4 w-4 text-gray-500 flex-shrink-0" />
+                            <Mail className="h-4 w-4 text-zinc-400 flex-shrink-0" />
                             <span className="break-all">{order.email}</span>
                           </p>
                           <p className="flex items-center gap-1">
-                            <Phone className="h-4 w-4 text-gray-500 flex-shrink-0" />
+                            <Phone className="h-4 w-4 text-zinc-400 flex-shrink-0" />
                             <span>{order.phone}</span>
                           </p>
                           <div className="flex gap-1 align-top">
-                            <MapPin className="h-4 w-4 text-gray-500 mt-1 flex-shrink-0" />
+                            <MapPin className="h-4 w-4 text-zinc-400 mt-1 flex-shrink-0" />
                             <div>
                               <p>
                                 {order.street} {order.houseNumber}
@@ -1363,7 +1363,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                                 {COUNTRY_NAMES[order.country] ?? order.country}
                               </p>
                               {order.additionalAddressInfo && (
-                                <p className="italic text-gray-600 text-sm mt-1">
+                                <p className="italic text-zinc-400 text-sm mt-1">
                                   {order.additionalAddressInfo}
                                 </p>
                               )}
@@ -1374,24 +1374,24 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
 
                       {/* Order Information */}
                       <div>
-                        <h3 className="font-medium text-gray-900 mb-3 flex items-center gap-1">
+                        <h3 className="font-medium text-zinc-100 mb-3 flex items-center gap-1">
                           <Package className="h-4 w-4" /> Order Information
                         </h3>
-                        <div className="bg-white p-4 rounded-md shadow-sm space-y-2">
+                        <div className="bg-zinc-900 p-4 rounded-md shadow-sm space-y-2">
                           <p className="flex items-center gap-1">
-                            <Calendar className="h-4 w-4 text-gray-500" />
+                            <Calendar className="h-4 w-4 text-zinc-400" />
                             <span>
                               {new Date(order.orderDate).toLocaleDateString()}{" "}
                               {new Date(order.orderDate).toLocaleTimeString()}
                             </span>
                           </p>
                           <p className="flex items-center gap-1">
-                            <CreditCard className="h-4 w-4 text-gray-500" />
+                            <CreditCard className="h-4 w-4 text-zinc-400" />
                             <span className="capitalize">
                               {order.paymentMethod}
                             </span>
                             {order.paymentId && (
-                              <span className="text-gray-500 text-sm">
+                              <span className="text-zinc-400 text-sm">
                                 (ID: {order.paymentId})
                               </span>
                             )}
@@ -1418,14 +1418,14 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                             <span className="font-medium">Shipping:</span> CHF{" "}
                             {parseFloat(order.shipmentCost || "0").toFixed(2)}
                           </p>
-                          <p className="text-lg font-bold text-purple-700">
+                          <p className="text-lg font-bold text-amber-400">
                             <span className="font-medium">Total:</span> CHF{" "}
                             {parseFloat(order.totalPrice).toFixed(2)}
                           </p>
                           {order.comment && (
-                            <div className="border-t border-gray-200 mt-2 pt-2">
+                            <div className="border-t border-zinc-700 mt-2 pt-2">
                               <p className="font-medium">Comment:</p>
-                              <p className="text-gray-700">{order.comment}</p>
+                              <p className="text-zinc-300">{order.comment}</p>
                             </div>
                           )}
                         </div>
@@ -1433,7 +1433,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                     </div>
 
                     {/* Order Items */}
-                    <h3 className="font-medium text-gray-900 mt-6 mb-3">
+                    <h3 className="font-medium text-zinc-100 mt-6 mb-3">
                       Order Items ({totalItems})
                     </h3>
 
@@ -1442,10 +1442,10 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                       {order.items.map((item) => (
                         <div
                           key={item.id}
-                          className="bg-white p-4 rounded-md shadow-sm"
+                          className="bg-zinc-900 p-4 rounded-md shadow-sm"
                         >
                           <div className="flex flex-col sm:flex-row items-start gap-4">
-                            <div className="w-24 h-24 sm:w-20 sm:h-20 bg-gray-200 rounded relative flex-shrink-0 mx-auto sm:mx-0">
+                            <div className="w-24 h-24 sm:w-20 sm:h-20 bg-zinc-700 rounded relative flex-shrink-0 mx-auto sm:mx-0">
                               {item.processedImage ? (
                                 <Image
                                   src={item.processedImage}
@@ -1464,7 +1464,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                                   }}
                                 />
                               ) : (
-                                <div className="w-full h-full flex items-center justify-center text-gray-500">
+                                <div className="w-full h-full flex items-center justify-center text-zinc-400">
                                   No image
                                 </div>
                               )}
@@ -1482,24 +1482,24 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                               </h4>
                               <div className="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-1 text-sm mt-1">
                                 <p>
-                                  <span className="text-gray-600">
+                                  <span className="text-zinc-400">
                                     Dimensions:
                                   </span>{" "}
                                   {item.width} x {item.height} cm
                                 </p>
                                 <p>
-                                  <span className="text-gray-600">Type:</span>{" "}
+                                  <span className="text-zinc-400">Type:</span>{" "}
                                   {item.vinyl ? "Vinyl" : "Printable"}
                                 </p>
                                 <p>
-                                  <span className="text-gray-600">
+                                  <span className="text-zinc-400">
                                     Quantity:
                                   </span>{" "}
                                   {item.quantity}
                                 </p>
                                 {item.sticker?.weight != null && (
                                   <p>
-                                    <span className="text-gray-600">
+                                    <span className="text-zinc-400">
                                       Weight:
                                     </span>{" "}
                                     {item.sticker.weight} g
@@ -1510,7 +1510,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                               {/* Customization Options */}
                               {item.customizationOptions &&
                                 item.customizationOptions.length > 0 && (
-                                  <div className="mt-2 pt-2 border-t border-gray-200">
+                                  <div className="mt-2 pt-2 border-t border-zinc-700">
                                     <p className="text-sm font-medium mb-1">
                                       Customizations:
                                     </p>
@@ -1521,7 +1521,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                                             key={idx}
                                             className="flex flex-wrap items-center"
                                           >
-                                            <span className="text-gray-600 mr-1 text-xs">
+                                            <span className="text-zinc-400 mr-1 text-xs">
                                               {option.type === "inputfield" &&
                                                 "Text:"}
                                               {option.type === "color" &&
@@ -1549,7 +1549,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                                                   "powdercoatColors" ? (
                                                 <div className="flex items-center">
                                                   <div
-                                                    className="w-3 h-3 mr-1 inline-block rounded-sm border border-gray-300"
+                                                    className="w-3 h-3 mr-1 inline-block rounded-sm border border-zinc-700"
                                                     style={{
                                                       backgroundColor:
                                                         option.value ===
@@ -1594,10 +1594,10 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                       {order.partItems?.map((item) => (
                         <div
                           key={item.id}
-                          className="bg-white p-4 rounded-md shadow-sm"
+                          className="bg-zinc-900 p-4 rounded-md shadow-sm"
                         >
                           <div className="flex flex-col sm:flex-row items-start gap-4">
-                            <div className="w-24 h-24 sm:w-20 sm:h-20 bg-gray-200 rounded relative flex-shrink-0 mx-auto sm:mx-0">
+                            <div className="w-24 h-24 sm:w-20 sm:h-20 bg-zinc-700 rounded relative flex-shrink-0 mx-auto sm:mx-0">
                               {item.processedImage ? (
                                 <Image
                                   src={item.processedImage}
@@ -1616,7 +1616,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                                   }}
                                 />
                               ) : (
-                                <div className="w-full h-full flex items-center justify-center text-gray-500">
+                                <div className="w-full h-full flex items-center justify-center text-zinc-400">
                                   No image
                                 </div>
                               )}
@@ -1624,7 +1624,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
 
                             <div className="flex-1">
                               <h4 className="font-medium">
-                                <span className="text-xs bg-purple-100 text-purple-800 px-2 py-0.5 rounded-full mr-2">
+                                <span className="text-xs bg-amber-500/10 text-amber-300 px-2 py-0.5 rounded-full mr-2">
                                   Part
                                 </span>
                                 {item.part?.translations &&
@@ -1634,18 +1634,18 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                               </h4>
                               <div className="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-1 text-sm mt-1">
                                 <p>
-                                  <span className="text-gray-600">Price:</span>{" "}
+                                  <span className="text-zinc-400">Price:</span>{" "}
                                   CHF {item.part?.price || "0"}
                                 </p>
                                 <p>
-                                  <span className="text-gray-600">
+                                  <span className="text-zinc-400">
                                     Quantity:
                                   </span>{" "}
                                   {item.quantity}
                                 </p>
                                 {(item.part?.width != null || item.part?.height != null || item.part?.length != null) && (
                                   <p>
-                                    <span className="text-gray-600">Size:</span>{" "}
+                                    <span className="text-zinc-400">Size:</span>{" "}
                                     {[item.part?.width, item.part?.height, item.part?.length]
                                       .filter((v) => v != null)
                                       .join(" × ")}{" "}
@@ -1654,7 +1654,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                                 )}
                                 {item.part?.weight != null && (
                                   <p>
-                                    <span className="text-gray-600">Weight:</span>{" "}
+                                    <span className="text-zinc-400">Weight:</span>{" "}
                                     {item.part.weight} g
                                   </p>
                                 )}
@@ -1663,7 +1663,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                               {/* Part customization options */}
                               {item.customizationOptions &&
                                 item.customizationOptions.length > 0 && (
-                                  <div className="mt-2 pt-2 border-t border-gray-200">
+                                  <div className="mt-2 pt-2 border-t border-zinc-700">
                                     <p className="text-sm font-medium mb-1">
                                       Customizations:
                                     </p>
@@ -1674,7 +1674,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                                             key={idx}
                                             className="flex flex-wrap items-center"
                                           >
-                                            <span className="text-gray-600 mr-1 text-xs">
+                                            <span className="text-zinc-400 mr-1 text-xs">
                                               {option.type === "inputfield" &&
                                                 "Text:"}
                                               {option.type === "color" &&
@@ -1710,11 +1710,11 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                       {order.powdercoatItems?.map((item) => (
                         <div
                           key={item.id}
-                          className="border rounded-lg p-3 bg-gray-50"
+                          className="border rounded-lg p-3 bg-zinc-800"
                         >
                           <div className="flex gap-3">
                             {/* Powdercoat Service Image */}
-                            <div className="w-16 h-16 bg-gray-200 rounded flex items-center justify-center overflow-hidden flex-shrink-0">
+                            <div className="w-16 h-16 bg-zinc-700 rounded flex items-center justify-center overflow-hidden flex-shrink-0">
                               {item.processedImage ? (
                                 // eslint-disable-next-line @next/next/no-img-element
                                 <img
@@ -1730,12 +1730,12 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                                     const parent = target.parentElement;
                                     if (parent) {
                                       parent.innerHTML =
-                                        '<span class="text-gray-400 text-xs">No image</span>';
+                                        '<span class="text-zinc-500 text-xs">No image</span>';
                                     }
                                   }}
                                 />
                               ) : (
-                                <span className="text-gray-400 text-xs">
+                                <span className="text-zinc-500 text-xs">
                                   No image
                                 </span>
                               )}
@@ -1752,7 +1752,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                                       "Powdercoat Service"}
                                   </h4>
                                   {item.powdercoatingService?.description && (
-                                    <p className="text-sm text-gray-600 mt-1">
+                                    <p className="text-sm text-zinc-400 mt-1">
                                       {item.powdercoatingService.description}
                                     </p>
                                   )}
@@ -1778,7 +1778,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                                   <span className="font-medium">Color:</span>{" "}
                                   <span className="inline-flex items-center gap-1">
                                     <div
-                                      className="w-4 h-4 rounded border border-gray-300"
+                                      className="w-4 h-4 rounded border border-zinc-700"
                                       style={{ backgroundColor: item.color }}
                                     />
                                     {item.color}
@@ -1793,7 +1793,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                               {/* Powdercoat customization options */}
                               {item.customizationOptions &&
                                 item.customizationOptions.length > 0 && (
-                                  <div className="mt-2 pt-2 border-t border-gray-200">
+                                  <div className="mt-2 pt-2 border-t border-zinc-700">
                                     <p className="text-sm font-medium mb-1">
                                       Customizations:
                                     </p>
@@ -1847,7 +1847,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
             <button
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}
-              className="p-2 rounded-full hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="p-2 rounded-full hover:bg-zinc-800 disabled:opacity-50 disabled:cursor-not-allowed"
               aria-label="Previous page"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -1860,7 +1860,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
             <button
               onClick={() => handlePageChange(currentPage + 1)}
               disabled={currentPage === totalPages}
-              className="p-2 rounded-full hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="p-2 rounded-full hover:bg-zinc-800 disabled:opacity-50 disabled:cursor-not-allowed"
               aria-label="Next page"
             >
               <ChevronRight className="w-5 h-5" />

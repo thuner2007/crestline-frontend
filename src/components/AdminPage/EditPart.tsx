@@ -1000,12 +1000,12 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 overflow-y-auto">
-      <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="sticky top-0 bg-white border-b px-6 py-4 flex justify-between items-center">
+      <div className="bg-zinc-900 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="sticky top-0 bg-zinc-900 border-b px-6 py-4 flex justify-between items-center">
           <h2 className="text-xl font-semibold">Edit Part</h2>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600"
+            className="text-zinc-500 hover:text-zinc-400"
           >
             <X className="h-6 w-6" />
           </button>
@@ -1020,9 +1020,9 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
           )}
 
           {success && (
-            <div className="mb-4 rounded-lg bg-purple-100 p-4 flex items-center gap-3">
-              <AlertCircle className="text-purple-600" />
-              <p className="text-purple-800">{success}</p>
+            <div className="mb-4 rounded-lg bg-amber-500/10 p-4 flex items-center gap-3">
+              <AlertCircle className="text-amber-400" />
+              <p className="text-amber-300">{success}</p>
             </div>
           )}
 
@@ -1034,12 +1034,12 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                   <div
                     key={step}
                     className={`flex flex-col items-center ${
-                      index <= currentStep ? 'text-purple-700' : 'text-gray-400'
+                      index <= currentStep ? 'text-amber-400' : 'text-zinc-500'
                     }`}
                   >
                     <div
                       className={`w-8 h-8 rounded-full ${
-                        index <= currentStep ? 'bg-purple-700' : 'bg-gray-200'
+                        index <= currentStep ? 'bg-amber-600' : 'bg-zinc-700'
                       } flex items-center justify-center text-white mb-1`}
                     >
                       {index + 1}
@@ -1060,7 +1060,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
 
               <Tab.Panels className="mt-4">
                 {/* Basic Information Panel */}
-                <Tab.Panel className="rounded-xl bg-white p-6 border border-gray-200">
+                <Tab.Panel className="rounded-xl bg-zinc-900 p-6 border border-zinc-700">
                   <h3 className="text-lg font-medium mb-4">
                     Basic Information
                   </h3>
@@ -1069,7 +1069,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                     <div>
                       <label
                         htmlFor="price"
-                        className="block text-sm font-medium text-gray-700 mb-1"
+                        className="block text-sm font-medium text-zinc-300 mb-1"
                       >
                         Price (CHF)
                       </label>
@@ -1079,7 +1079,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                         step="0.01"
                         min="0"
                         className={`w-full rounded-md border ${
-                          errors.price ? 'border-red-300' : 'border-gray-300'
+                          errors.price ? 'border-red-300' : 'border-zinc-700'
                         } px-3 py-2`}
                         {...register('price', {
                           required: 'This field is required',
@@ -1097,7 +1097,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                     <div>
                       <label
                         htmlFor="initialPrice"
-                        className="block text-sm font-medium text-gray-700 mb-1"
+                        className="block text-sm font-medium text-zinc-300 mb-1"
                       >
                         Initial Price (CHF) - Optional
                       </label>
@@ -1109,7 +1109,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                         className={`w-full rounded-md border ${
                           errors.initialPrice
                             ? 'border-red-300'
-                            : 'border-gray-300'
+                            : 'border-zinc-700'
                         } px-3 py-2`}
                         {...register('initialPrice', {
                           min: {
@@ -1119,7 +1119,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                         })}
                         placeholder="Enter original price if on sale"
                       />
-                      <p className="mt-1 text-xs text-gray-500">
+                      <p className="mt-1 text-xs text-zinc-400">
                         If entered, this will show as crossed out with the
                         current price highlighted as a discount
                       </p>
@@ -1134,7 +1134,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                     <div>
                       <label
                         htmlFor="quantity"
-                        className="block text-sm font-medium text-gray-700 mb-1"
+                        className="block text-sm font-medium text-zinc-300 mb-1"
                       >
                         Quantity in Stock
                       </label>
@@ -1142,7 +1142,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                         id="quantity"
                         type="number"
                         className={`w-full rounded-md border ${
-                          errors.quantity ? 'border-red-300' : 'border-gray-300'
+                          errors.quantity ? 'border-red-300' : 'border-zinc-700'
                         } px-3 py-2`}
                         {...register('quantity', {
                           required: 'This field is required',
@@ -1163,7 +1163,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                     <div>
                       <label
                         htmlFor="type"
-                        className="block text-sm font-medium text-gray-700 mb-1"
+                        className="block text-sm font-medium text-zinc-300 mb-1"
                       >
                         Type
                       </label>
@@ -1171,7 +1171,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                         id="type"
                         type="text"
                         className={`w-full rounded-md border ${
-                          errors.type ? 'border-red-300' : 'border-gray-300'
+                          errors.type ? 'border-red-300' : 'border-zinc-700'
                         } px-3 py-2`}
                         {...register('type', {
                           required: 'This field is required',
@@ -1188,7 +1188,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                     <div>
                       <label
                         htmlFor="sortingRank"
-                        className="block text-sm font-medium text-gray-700 mb-1"
+                        className="block text-sm font-medium text-zinc-300 mb-1"
                       >
                         Sorting Rank
                       </label>
@@ -1198,13 +1198,13 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                         className={`w-full rounded-md border ${
                           errors.sortingRank
                             ? 'border-red-300'
-                            : 'border-gray-300'
+                            : 'border-zinc-700'
                         } px-3 py-2`}
                         {...register('sortingRank', {
                           required: 'This field is required',
                         })}
                       />
-                      <p className="mt-1 text-xs text-gray-500">
+                      <p className="mt-1 text-xs text-zinc-400">
                         Higher numbers appear first in the listing
                       </p>
                     </div>
@@ -1213,7 +1213,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                     <div>
                       <label
                         htmlFor="weight"
-                        className="block text-sm font-medium text-gray-700 mb-1"
+                        className="block text-sm font-medium text-zinc-300 mb-1"
                       >
                         Weight (g) - Optional
                       </label>
@@ -1222,7 +1222,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                         type="number"
                         step="0.01"
                         min="0"
-                        className="w-full rounded-md border border-gray-300 px-3 py-2"
+                        className="w-full rounded-md border border-zinc-700 px-3 py-2"
                         {...register('weight', {
                           min: { value: 0, message: 'Weight must be positive' },
                         })}
@@ -1239,7 +1239,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                     <div>
                       <label
                         htmlFor="width"
-                        className="block text-sm font-medium text-gray-700 mb-1"
+                        className="block text-sm font-medium text-zinc-300 mb-1"
                       >
                         Width (cm) - Optional
                       </label>
@@ -1248,7 +1248,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                         type="number"
                         step="0.01"
                         min="0"
-                        className="w-full rounded-md border border-gray-300 px-3 py-2"
+                        className="w-full rounded-md border border-zinc-700 px-3 py-2"
                         {...register('width', {
                           min: { value: 0, message: 'Width must be positive' },
                         })}
@@ -1265,7 +1265,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                     <div>
                       <label
                         htmlFor="height"
-                        className="block text-sm font-medium text-gray-700 mb-1"
+                        className="block text-sm font-medium text-zinc-300 mb-1"
                       >
                         Height (cm) - Optional
                       </label>
@@ -1274,7 +1274,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                         type="number"
                         step="0.01"
                         min="0"
-                        className="w-full rounded-md border border-gray-300 px-3 py-2"
+                        className="w-full rounded-md border border-zinc-700 px-3 py-2"
                         {...register('height', {
                           min: { value: 0, message: 'Height must be positive' },
                         })}
@@ -1291,7 +1291,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                     <div>
                       <label
                         htmlFor="length"
-                        className="block text-sm font-medium text-gray-700 mb-1"
+                        className="block text-sm font-medium text-zinc-300 mb-1"
                       >
                         Length (cm) - Optional
                       </label>
@@ -1300,7 +1300,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                         type="number"
                         step="0.01"
                         min="0"
-                        className="w-full rounded-md border border-gray-300 px-3 py-2"
+                        className="w-full rounded-md border border-zinc-700 px-3 py-2"
                         {...register('length', {
                           min: { value: 0, message: 'Length must be positive' },
                         })}
@@ -1317,13 +1317,13 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                     <div>
                       <label
                         htmlFor="shippingReady"
-                        className="block text-sm font-medium text-gray-700 mb-1"
+                        className="block text-sm font-medium text-zinc-300 mb-1"
                       >
                         Shipping Status
                       </label>
                       <select
                         id="shippingReady"
-                        className="w-full rounded-md border border-gray-300 px-3 py-2"
+                        className="w-full rounded-md border border-zinc-700 px-3 py-2"
                         {...register('shippingReady')}
                       >
                         <option value="now">Ready to ship</option>
@@ -1340,14 +1340,14 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                       <div>
                         <label
                           htmlFor="shippingDate"
-                          className="block text-sm font-medium text-gray-700 mb-1"
+                          className="block text-sm font-medium text-zinc-300 mb-1"
                         >
                           Expected Shipping Date
                         </label>
                         <input
                           type="datetime-local"
                           id="shippingDate"
-                          className="w-full rounded-md border border-gray-300 px-3 py-2"
+                          className="w-full rounded-md border border-zinc-700 px-3 py-2"
                           {...register('shippingDate')}
                         />
                       </div>
@@ -1355,12 +1355,12 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
 
                     {/* Groups */}
                     <div className="col-span-full">
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                      <label className="block text-sm font-medium text-zinc-300 mb-1">
                         Groups
                       </label>
                       <div className="mt-2 grid grid-cols-1 md:grid-cols-2 gap-2">
                         <div>
-                          <h5 className="text-sm font-medium text-gray-700 mb-1">
+                          <h5 className="text-sm font-medium text-zinc-300 mb-1">
                             Part Groups
                           </h5>
                           {partGroups.map((group) => {
@@ -1376,10 +1376,10 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                                 <input
                                   type="checkbox"
                                   value={group.id}
-                                  className="h-4 w-4 rounded border-gray-300 text-purple-700 focus:ring-purple-600"
+                                  className="h-4 w-4 rounded border-zinc-700 text-amber-400 focus:ring-purple-600"
                                   {...register('groups')}
                                 />
-                                <span className="ml-2 text-sm text-gray-700">
+                                <span className="ml-2 text-sm text-zinc-300">
                                   {enTranslation?.title || 'Untitled Group'}
                                 </span>
                               </label>
@@ -1391,7 +1391,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
 
                     {/* Keywords */}
                     <div className="col-span-full">
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                      <label className="block text-sm font-medium text-zinc-300 mb-1">
                         Keywords
                       </label>
                       <div className="space-y-2">
@@ -1402,12 +1402,12 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                             onChange={(e) => setKeywordInput(e.target.value)}
                             onKeyDown={handleKeywordInputKeyDown}
                             placeholder="Add a keyword..."
-                            className="flex-1 rounded-md border border-gray-300 px-3 py-2 focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+                            className="flex-1 rounded-md border border-zinc-700 px-3 py-2 focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
                           />
                           <button
                             type="button"
                             onClick={addKeyword}
-                            className="px-4 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800 flex items-center"
+                            className="px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 flex items-center"
                           >
                             <Plus className="h-4 w-4" />
                           </button>
@@ -1417,13 +1417,13 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                             {keywords.map((keyword, index) => (
                               <span
                                 key={index}
-                                className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-purple-100 text-purple-800"
+                                className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-amber-500/10 text-amber-300"
                               >
                                 {keyword}
                                 <button
                                   type="button"
                                   onClick={() => removeKeyword(index)}
-                                  className="ml-1 text-purple-600 hover:text-purple-800"
+                                  className="ml-1 text-amber-400 hover:text-amber-300"
                                 >
                                   <X className="h-3 w-3" />
                                 </button>
@@ -1431,7 +1431,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                             ))}
                           </div>
                         )}
-                        <p className="text-sm text-gray-500">
+                        <p className="text-sm text-zinc-400">
                           Keywords help users find your part more easily
                         </p>
                       </div>
@@ -1442,12 +1442,12 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                       <input
                         id="active"
                         type="checkbox"
-                        className="h-4 w-4 rounded border-gray-300 text-purple-700 focus:ring-purple-600"
+                        className="h-4 w-4 rounded border-zinc-700 text-amber-400 focus:ring-purple-600"
                         {...register('active')}
                       />
                       <label
                         htmlFor="active"
-                        className="ml-2 text-sm text-gray-700"
+                        className="ml-2 text-sm text-zinc-300"
                       >
                         Active (visible in shop)
                       </label>
@@ -1457,23 +1457,23 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                 </Tab.Panel>
 
                 {/* Translations Panel */}
-                <Tab.Panel className="rounded-xl bg-white p-6 border border-gray-200">
+                <Tab.Panel className="rounded-xl bg-zinc-900 p-6 border border-zinc-700">
                   <h3 className="text-lg font-medium mb-4">Translations</h3>
                   <div className="space-y-6">
                     {['en', 'de', 'fr', 'it'].map((language) => (
                       <div key={language} className="border-b pb-4">
-                        <h3 className="font-medium text-gray-800 uppercase mb-3">
+                        <h3 className="font-medium text-zinc-200 uppercase mb-3">
                           {language} Translation
                         </h3>
 
                         <div className="space-y-4">
                           <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                            <label className="block text-sm font-medium text-zinc-300 mb-1">
                               Title
                             </label>
                             <input
                               type="text"
-                              className="w-full rounded-md border border-gray-300 px-3 py-2"
+                              className="w-full rounded-md border border-zinc-700 px-3 py-2"
                               {...register(
                                 `translations.${
                                   language as keyof FormData['translations']
@@ -1497,12 +1497,12 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                           </div>
 
                           <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                            <label className="block text-sm font-medium text-zinc-300 mb-1">
                               Description
                             </label>
                             <textarea
                               rows={3}
-                              className="w-full rounded-md border border-gray-300 px-3 py-2"
+                              className="w-full rounded-md border border-zinc-700 px-3 py-2"
                               {...register(
                                 `translations.${
                                   language as keyof FormData['translations']
@@ -1518,13 +1518,13 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                 </Tab.Panel>
 
                 {/* Images Panel */}
-                <Tab.Panel className="rounded-xl bg-white p-6 border border-gray-200">
+                <Tab.Panel className="rounded-xl bg-zinc-900 p-6 border border-zinc-700">
                   <h3 className="text-lg font-medium mb-4">Upload Images & Videos</h3>
                   <div className="space-y-8">
                     {/* Images Upload */}
                     <div>
-                      <h4 className="font-medium text-gray-800 mb-3">Images</h4>
-                      <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                      <h4 className="font-medium text-zinc-200 mb-3">Images</h4>
+                      <div className="border-2 border-dashed border-zinc-700 rounded-lg p-6 text-center">
                         <input
                           type="file"
                           id="images"
@@ -1535,11 +1535,11 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                         />
                         <label htmlFor="images" className="cursor-pointer">
                           <div className="flex flex-col items-center">
-                            <Upload className="h-12 w-12 text-gray-400" />
-                            <p className="mt-2 text-sm text-gray-600">
+                            <Upload className="h-12 w-12 text-zinc-500" />
+                            <p className="mt-2 text-sm text-zinc-400">
                               Click to upload images
                             </p>
-                            <p className="text-xs text-gray-500">
+                            <p className="text-xs text-zinc-400">
                               PNG, JPG, GIF up to 10MB each
                             </p>
                           </div>
@@ -1548,13 +1548,13 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
 
                       {uploading && (
                         <div className="flex justify-center mt-4">
-                          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-purple-600"></div>
+                          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-amber-500"></div>
                         </div>
                       )}
 
                       {uploadedImages.length > 0 && (
                         <div className="mt-4">
-                          <h3 className="font-medium text-gray-800 mb-3">
+                          <h3 className="font-medium text-zinc-200 mb-3">
                             Images
                           </h3>
                           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
@@ -1584,8 +1584,8 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
 
                     {/* Videos Upload */}
                     <div>
-                      <h4 className="font-medium text-gray-800 mb-3">Videos (Optional)</h4>
-                      <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                      <h4 className="font-medium text-zinc-200 mb-3">Videos (Optional)</h4>
+                      <div className="border-2 border-dashed border-zinc-700 rounded-lg p-6 text-center">
                         <input
                           type="file"
                           id="videos"
@@ -1596,11 +1596,11 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                         />
                         <label htmlFor="videos" className="cursor-pointer">
                           <div className="flex flex-col items-center">
-                            <Upload className="h-12 w-12 text-gray-400" />
-                            <p className="mt-2 text-sm text-gray-600">
+                            <Upload className="h-12 w-12 text-zinc-500" />
+                            <p className="mt-2 text-sm text-zinc-400">
                               Click to upload videos
                             </p>
-                            <p className="text-xs text-gray-500">
+                            <p className="text-xs text-zinc-400">
                               MP4, WebM, Ogg up to 100MB each
                             </p>
                           </div>
@@ -1609,7 +1609,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
 
                       {uploadedVideos.length > 0 && (
                         <div className="mt-4">
-                          <h3 className="font-medium text-gray-800 mb-3">
+                          <h3 className="font-medium text-zinc-200 mb-3">
                             Videos
                           </h3>
                           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
@@ -1641,18 +1641,18 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                 </Tab.Panel>
 
                 {/* Customization Panel */}
-                <Tab.Panel className="rounded-xl bg-white p-6 border border-gray-200">
+                <Tab.Panel className="rounded-xl bg-zinc-900 p-6 border border-zinc-700">
                   <h3 className="text-lg font-medium mb-4">
                     Customization Options
                   </h3>
                   <div className="space-y-6">
                     <div className="flex items-end space-x-4">
                       <div className="flex-1">
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                        <label className="block text-sm font-medium text-zinc-300 mb-1">
                           Option Type
                         </label>
                         <select
-                          className="w-full rounded-md border border-gray-300 px-3 py-2"
+                          className="w-full rounded-md border border-zinc-700 px-3 py-2"
                           value={optionType}
                           onChange={(e) =>
                             setOptionType(
@@ -1679,7 +1679,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                       <button
                         type="button"
                         onClick={addCustomizationOption}
-                        className="px-4 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800 flex items-center"
+                        className="px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 flex items-center"
                       >
                         <Plus className="h-4 w-4 mr-1" />
                         Add Option
@@ -1691,7 +1691,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                         {customizationOptions.map((option, optionIndex) => (
                           <div
                             key={optionIndex}
-                            className="border rounded-lg p-4 bg-gray-50 relative"
+                            className="border rounded-lg p-4 bg-zinc-800 relative"
                           >
                             <button
                               type="button"
@@ -1706,20 +1706,20 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                             <div className="space-y-4">
                               {/* Option type badge */}
                               <div className="flex items-center space-x-2">
-                                <span className="text-sm font-medium text-gray-700 capitalize">
+                                <span className="text-sm font-medium text-zinc-300 capitalize">
                                   {option.type} Option
                                 </span>
                               </div>
 
                               {/* Price adjustment */}
                               <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-1">
+                                <label className="block text-sm font-medium text-zinc-300 mb-1">
                                   Price Adjustment (CHF)
                                 </label>
                                 <input
                                   type="number"
                                   step="0.01"
-                                  className="w-32 rounded-md border border-gray-300 px-3 py-2"
+                                  className="w-32 rounded-md border border-zinc-700 px-3 py-2"
                                   value={option.priceAdjustment || 0}
                                   onChange={(e) =>
                                     updateOptionPriceAdjustment(
@@ -1733,13 +1733,13 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                               {/* Input field specific options */}
                               {option.type === 'inputfield' && (
                                 <div>
-                                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                                  <label className="block text-sm font-medium text-zinc-300 mb-1">
                                     Maximum Characters
                                   </label>
                                   <input
                                     type="number"
                                     min="1"
-                                    className="w-32 rounded-md border border-gray-300 px-3 py-2"
+                                    className="w-32 rounded-md border border-zinc-700 px-3 py-2"
                                     value={
                                       (option as InputFieldOption).max || 50
                                     }
@@ -1755,7 +1755,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
 
                               {/* Translations for option */}
                               <div className="space-y-3">
-                                <h4 className="text-sm font-medium text-gray-700">
+                                <h4 className="text-sm font-medium text-zinc-300">
                                   Option Translations
                                 </h4>
                                 {['en', 'de', 'fr', 'it'].map((lang) => (
@@ -1764,12 +1764,12 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                                     className="grid grid-cols-2 gap-3"
                                   >
                                     <div>
-                                      <label className="block text-xs font-medium text-gray-600 mb-1">
+                                      <label className="block text-xs font-medium text-zinc-400 mb-1">
                                         {lang.toUpperCase()} Title
                                       </label>
                                       <input
                                         type="text"
-                                        className="w-full rounded-md border border-gray-300 px-2 py-1 text-sm"
+                                        className="w-full rounded-md border border-zinc-700 px-2 py-1 text-sm"
                                         value={
                                           (
                                             option.translations as Record<
@@ -1789,12 +1789,12 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                                       />
                                     </div>
                                     <div>
-                                      <label className="block text-xs font-medium text-gray-600 mb-1">
+                                      <label className="block text-xs font-medium text-zinc-400 mb-1">
                                         {lang.toUpperCase()} Description
                                       </label>
                                       <input
                                         type="text"
-                                        className="w-full rounded-md border border-gray-300 px-2 py-1 text-sm"
+                                        className="w-full rounded-md border border-zinc-700 px-2 py-1 text-sm"
                                         value={
                                           (
                                             option.translations as Record<
@@ -1821,7 +1821,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                               {option.type === 'dropdown' && (
                                 <div className="space-y-3">
                                   <div className="flex justify-between items-center">
-                                    <h4 className="text-sm font-medium text-gray-700">
+                                    <h4 className="text-sm font-medium text-zinc-300">
                                       Dropdown Items
                                     </h4>
                                     <button
@@ -1829,7 +1829,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                                       onClick={() =>
                                         addDropdownItem(optionIndex)
                                       }
-                                      className="px-2 py-1 bg-purple-600 text-white rounded text-xs hover:bg-purple-700"
+                                      className="px-2 py-1 bg-amber-500 text-white rounded text-xs hover:bg-amber-600"
                                     >
                                       Add Item
                                     </button>
@@ -1838,7 +1838,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                                     (item, itemIndex) => (
                                       <div
                                         key={item.id}
-                                        className="border rounded p-3 bg-white relative"
+                                        className="border rounded p-3 bg-zinc-900 relative"
                                       >
                                         <button
                                           type="button"
@@ -1854,13 +1854,13 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                                         </button>
                                         <div className="space-y-2">
                                           <div>
-                                            <label className="block text-xs font-medium text-gray-600 mb-1">
+                                            <label className="block text-xs font-medium text-zinc-400 mb-1">
                                               Price Adjustment (CHF)
                                             </label>
                                             <input
                                               type="number"
                                               step="0.01"
-                                              className="w-24 rounded border border-gray-300 px-2 py-1 text-sm"
+                                              className="w-24 rounded border border-zinc-700 px-2 py-1 text-sm"
                                               value={item.priceAdjustment || 0}
                                               onChange={(e) =>
                                                 updateDropdownItemPriceAdjustment(
@@ -1875,12 +1875,12 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                                           {['en', 'de', 'fr', 'it'].map(
                                             (lang) => (
                                               <div key={lang}>
-                                                <label className="block text-xs font-medium text-gray-600 mb-1">
+                                                <label className="block text-xs font-medium text-zinc-400 mb-1">
                                                   {lang.toUpperCase()} Title
                                                 </label>
                                                 <input
                                                   type="text"
-                                                  className="w-full rounded border border-gray-300 px-2 py-1 text-sm"
+                                                  className="w-full rounded border border-zinc-700 px-2 py-1 text-sm"
                                                   value={
                                                     (
                                                       item.translations as Record<
@@ -1910,7 +1910,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
 
                               {option.type === 'filamentColor' && (
                                 <div className="space-y-3">
-                                  <div className="text-sm text-gray-600">
+                                  <div className="text-sm text-zinc-400">
                                     <p className="font-medium mb-2">
                                       Filament Color
                                     </p>
@@ -1924,11 +1924,11 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                                   </div>
 
                                   <div className="mt-3">
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                                    <label className="block text-sm font-medium text-zinc-300 mb-1">
                                       Filament Type
                                     </label>
                                     <select
-                                      className="w-full rounded-md border border-gray-300 px-3 py-2"
+                                      className="w-full rounded-md border border-zinc-700 px-3 py-2"
                                       value={
                                         (
                                           option as FilamentColorOption
@@ -1953,7 +1953,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
 
                               {option.type === 'powdercoatColors' && (
                                 <div className="space-y-3">
-                                  <div className="text-sm text-gray-600">
+                                  <div className="text-sm text-zinc-400">
                                     <p className="font-medium mb-2">
                                       Powdercoat Colors
                                     </p>
@@ -1967,13 +1967,13 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                                   </div>
 
                                   <div className="mt-3">
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                                    <label className="block text-sm font-medium text-zinc-300 mb-1">
                                       Price Adjustment per Color (CHF)
                                     </label>
                                     <input
                                       type="number"
                                       step="0.01"
-                                      className="w-full rounded-md border border-gray-300 px-3 py-2"
+                                      className="w-full rounded-md border border-zinc-700 px-3 py-2"
                                       value={option.priceAdjustment ?? 0}
                                       onChange={(e) =>
                                         updateOptionPriceAdjustment(
@@ -1982,7 +1982,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                                         )
                                       }
                                     />
-                                    <p className="text-xs text-gray-500 mt-1">
+                                    <p className="text-xs text-zinc-400 mt-1">
                                       Additional cost when customer selects a
                                       powdercoat color
                                     </p>
@@ -1994,7 +1994,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                         ))}
                       </div>
                     ) : (
-                      <div className="text-center py-8 text-gray-500">
+                      <div className="text-center py-8 text-zinc-400">
                         No customization options added yet. Add one using the
                         button above.
                       </div>
@@ -2006,12 +2006,12 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
             </Tab.Group>
           </form>
         </div>
-        <div className="sticky bottom-0 bg-white border-t px-6 py-4 flex justify-between items-center">
+        <div className="sticky bottom-0 bg-zinc-900 border-t px-6 py-4 flex justify-between items-center">
           <button
             type="button"
             onClick={goToPreviousStep}
             disabled={currentStep === 0}
-            className="px-6 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-6 py-2 bg-zinc-700 text-zinc-300 rounded-md hover:bg-zinc-600 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Previous Step
           </button>
@@ -2020,7 +2020,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
               <button
                 type="button"
                 onClick={goToNextStep}
-                className="px-6 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800"
+                className="px-6 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700"
               >
                 Next Step
               </button>
@@ -2029,7 +2029,7 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
               type="submit"
               form="edit-part-form"
               disabled={loading}
-              className="px-6 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800 disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center"
+              className="px-6 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 disabled:bg-zinc-600 disabled:cursor-not-allowed flex items-center"
             >
               {loading ? (
                 <>

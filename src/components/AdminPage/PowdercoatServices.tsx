@@ -403,7 +403,7 @@ const PowdercoatServices: React.FC<Props> = ({ csrfToken }) => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
-              <Search className="h-4 w-4 absolute left-3 top-3 text-gray-400" />
+              <Search className="h-4 w-4 absolute left-3 top-3 text-zinc-500" />
               <button type="submit" className="sr-only">
                 Search
               </button>
@@ -411,16 +411,16 @@ const PowdercoatServices: React.FC<Props> = ({ csrfToken }) => {
 
             <div className="relative inline-block">
               <button
-                className="px-3 sm:px-4 py-2 border rounded-md bg-white flex items-center gap-1 whitespace-nowrap"
+                className="px-3 sm:px-4 py-2 border rounded-md bg-zinc-900 flex items-center gap-1 whitespace-nowrap"
                 onClick={() => setIsFilterOpen(!isFilterOpen)}
               >
                 <Filter className="h-4 w-4" />
                 <span className="hidden sm:inline">Filter</span>
               </button>
               {isFilterOpen && (
-                <div className="mt-1 absolute right-0 w-56 bg-white rounded-md shadow-lg z-10 border">
+                <div className="mt-1 absolute right-0 w-56 bg-zinc-900 rounded-md shadow-lg z-10 border">
                   <div className="p-2 space-y-1">
-                    <label className="flex items-center px-2 py-1 hover:bg-gray-50 rounded cursor-pointer">
+                    <label className="flex items-center px-2 py-1 hover:bg-zinc-800 rounded cursor-pointer">
                       <input
                         type="checkbox"
                         checked={includeInactive}
@@ -439,7 +439,7 @@ const PowdercoatServices: React.FC<Props> = ({ csrfToken }) => {
 
       {/* Success message */}
       {successMessage && (
-        <div className="bg-purple-100 border border-purple-400 text-purple-800 p-3 rounded-md">
+        <div className="bg-amber-500/10 border border-purple-400 text-amber-300 p-3 rounded-md">
           {successMessage}
         </div>
       )}
@@ -454,7 +454,7 @@ const PowdercoatServices: React.FC<Props> = ({ csrfToken }) => {
 
       {loading ? (
         <div className="flex justify-center items-center h-64">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-600"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-amber-500"></div>
         </div>
       ) : (
         <>
@@ -464,7 +464,7 @@ const PowdercoatServices: React.FC<Props> = ({ csrfToken }) => {
               filteredServices.map((service) => (
                 <div
                   key={service.id}
-                  className={`border rounded-lg overflow-hidden bg-white ${
+                  className={`border rounded-lg overflow-hidden bg-zinc-900 ${
                     !service.active ? 'opacity-75' : ''
                   }`}
                 >
@@ -506,21 +506,21 @@ const PowdercoatServices: React.FC<Props> = ({ csrfToken }) => {
                         }
                         // Fallback for invalid URLs
                         return (
-                          <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                            <span className="text-gray-500">Invalid image</span>
+                          <div className="w-full h-full bg-zinc-700 flex items-center justify-center">
+                            <span className="text-zinc-400">Invalid image</span>
                           </div>
                         );
                       })()
                     ) : (
-                      <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                        <span className="text-gray-500">No image</span>
+                      <div className="w-full h-full bg-zinc-700 flex items-center justify-center">
+                        <span className="text-zinc-400">No image</span>
                       </div>
                     )}
                   </div>
 
                   <div className="p-3 sm:p-4 space-y-2">
                     <div className="flex justify-between items-start">
-                      <h3 className="font-medium text-sm sm:text-base text-gray-900 line-clamp-2">
+                      <h3 className="font-medium text-sm sm:text-base text-zinc-100 line-clamp-2">
                         {service.name}
                       </h3>
                       <div className="flex items-center gap-1 ml-2">
@@ -538,15 +538,15 @@ const PowdercoatServices: React.FC<Props> = ({ csrfToken }) => {
                       </div>
                     </div>
 
-                    <p className="text-xs sm:text-sm text-gray-600 line-clamp-2">
+                    <p className="text-xs sm:text-sm text-zinc-400 line-clamp-2">
                       {service.description}
                     </p>
 
                     <div className="flex justify-between items-center text-xs sm:text-sm">
-                      <span className="font-semibold text-purple-700">
+                      <span className="font-semibold text-amber-400">
                         CHF {parseFloat(service.price).toFixed(2)}
                       </span>
-                      <span className="text-gray-500">
+                      <span className="text-zinc-400">
                         {new Date(service.updatedAt).toLocaleDateString()}
                       </span>
                     </div>
@@ -592,8 +592,8 @@ const PowdercoatServices: React.FC<Props> = ({ csrfToken }) => {
                 </div>
               ))
             ) : (
-              <div className="col-span-full flex justify-center items-center h-64 bg-gray-50 rounded-lg">
-                <p className="text-gray-500">No services found</p>
+              <div className="col-span-full flex justify-center items-center h-64 bg-zinc-800 rounded-lg">
+                <p className="text-zinc-400">No services found</p>
               </div>
             )}
           </div>
@@ -603,11 +603,11 @@ const PowdercoatServices: React.FC<Props> = ({ csrfToken }) => {
       {/* Delete confirmation modal */}
       {showDeleteModal && serviceToDelete && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg max-w-md w-full p-4 sm:p-6">
-            <h3 className="text-md sm:text-lg font-medium text-gray-900 mb-3 sm:mb-4">
+          <div className="bg-zinc-900 rounded-lg max-w-md w-full p-4 sm:p-6">
+            <h3 className="text-md sm:text-lg font-medium text-zinc-100 mb-3 sm:mb-4">
               Confirm Deletion
             </h3>
-            <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
+            <p className="text-sm sm:text-base text-zinc-400 mb-4 sm:mb-6">
               Are you sure you want to delete the service &quot;
               {serviceToDelete.name}&quot;? This action cannot be undone.
             </p>
@@ -618,7 +618,7 @@ const PowdercoatServices: React.FC<Props> = ({ csrfToken }) => {
                   setShowDeleteModal(false);
                   setServiceToDelete(null);
                 }}
-                className="px-3 sm:px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 text-sm sm:text-base"
+                className="px-3 sm:px-4 py-2 border border-zinc-700 rounded-md text-zinc-300 hover:bg-zinc-800 text-sm sm:text-base"
                 disabled={processingServiceId === serviceToDelete?.id}
               >
                 Cancel
@@ -649,14 +649,14 @@ const PowdercoatServices: React.FC<Props> = ({ csrfToken }) => {
       {/* Edit service modal */}
       {showEditModal && serviceToEdit && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="sticky top-0 bg-white border-b px-6 py-4 flex justify-between items-center">
-              <h3 className="text-lg font-medium text-gray-900">
+          <div className="bg-zinc-900 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="sticky top-0 bg-zinc-900 border-b px-6 py-4 flex justify-between items-center">
+              <h3 className="text-lg font-medium text-zinc-100">
                 Edit Service: {serviceToEdit.name}
               </h3>
               <button
                 onClick={closeEditModal}
-                className="text-gray-400 hover:text-gray-600"
+                className="text-zinc-500 hover:text-zinc-400"
               >
                 <X className="h-6 w-6" />
               </button>
@@ -668,18 +668,18 @@ const PowdercoatServices: React.FC<Props> = ({ csrfToken }) => {
             >
               {/* Service Information */}
               <div className="space-y-4">
-                <h4 className="font-medium text-gray-900">
+                <h4 className="font-medium text-zinc-100">
                   Service Information
                 </h4>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-zinc-300 mb-1">
                     Service Name *
                   </label>
                   <input
                     type="text"
                     className={`w-full rounded-md border ${
-                      errors.name ? 'border-red-300' : 'border-gray-300'
+                      errors.name ? 'border-red-300' : 'border-zinc-700'
                     } px-3 py-2`}
                     {...register('name', {
                       required: 'Service name is required',
@@ -693,13 +693,13 @@ const PowdercoatServices: React.FC<Props> = ({ csrfToken }) => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-zinc-300 mb-1">
                     Description *
                   </label>
                   <textarea
                     rows={3}
                     className={`w-full rounded-md border ${
-                      errors.description ? 'border-red-300' : 'border-gray-300'
+                      errors.description ? 'border-red-300' : 'border-zinc-700'
                     } px-3 py-2`}
                     {...register('description', {
                       required: 'Description is required',
@@ -714,7 +714,7 @@ const PowdercoatServices: React.FC<Props> = ({ csrfToken }) => {
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-zinc-300 mb-1">
                       Price (CHF) *
                     </label>
                     <input
@@ -722,7 +722,7 @@ const PowdercoatServices: React.FC<Props> = ({ csrfToken }) => {
                       step="0.01"
                       min="0"
                       className={`w-full rounded-md border ${
-                        errors.price ? 'border-red-300' : 'border-gray-300'
+                        errors.price ? 'border-red-300' : 'border-zinc-700'
                       } px-3 py-2`}
                       {...register('price', {
                         required: 'Price is required',
@@ -740,10 +740,10 @@ const PowdercoatServices: React.FC<Props> = ({ csrfToken }) => {
                     <div className="flex items-center h-full pb-2">
                       <input
                         type="checkbox"
-                        className="h-4 w-4 rounded border-gray-300 text-purple-700 focus:ring-purple-600"
+                        className="h-4 w-4 rounded border-zinc-700 text-amber-400 focus:ring-purple-600"
                         {...register('active')}
                       />
-                      <label className="ml-2 text-sm text-gray-700">
+                      <label className="ml-2 text-sm text-zinc-300">
                         Active (visible to customers)
                       </label>
                     </div>
@@ -753,12 +753,12 @@ const PowdercoatServices: React.FC<Props> = ({ csrfToken }) => {
 
               {/* Images Section */}
               <div className="space-y-4">
-                <h4 className="font-medium text-gray-900">Images</h4>
+                <h4 className="font-medium text-zinc-100">Images</h4>
 
                 {/* Existing Images */}
                 {existingImages.length > 0 && (
                   <div>
-                    <h5 className="text-sm font-medium text-gray-700 mb-2">
+                    <h5 className="text-sm font-medium text-zinc-300 mb-2">
                       Current Images ({existingImages.length})
                     </h5>
                     <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
@@ -810,7 +810,7 @@ const PowdercoatServices: React.FC<Props> = ({ csrfToken }) => {
 
                 {/* Upload New Images */}
                 <div>
-                  <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center">
+                  <div className="border-2 border-dashed border-zinc-700 rounded-lg p-4 text-center">
                     <input
                       type="file"
                       id="edit-images"
@@ -821,11 +821,11 @@ const PowdercoatServices: React.FC<Props> = ({ csrfToken }) => {
                     />
                     <label htmlFor="edit-images" className="cursor-pointer">
                       <div className="flex flex-col items-center">
-                        <Upload className="h-8 w-8 text-gray-400" />
-                        <p className="mt-2 text-xs text-gray-600">
+                        <Upload className="h-8 w-8 text-zinc-500" />
+                        <p className="mt-2 text-xs text-zinc-400">
                           Add more images
                         </p>
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-zinc-400">
                           Total limit: 20 images
                         </p>
                       </div>
@@ -834,13 +834,13 @@ const PowdercoatServices: React.FC<Props> = ({ csrfToken }) => {
 
                   {uploading && (
                     <div className="flex justify-center mt-2">
-                      <div className="animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-purple-600"></div>
+                      <div className="animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-amber-500"></div>
                     </div>
                   )}
 
                   {uploadedImages.length > 0 && (
                     <div className="mt-4">
-                      <h5 className="text-sm font-medium text-gray-700 mb-2">
+                      <h5 className="text-sm font-medium text-zinc-300 mb-2">
                         New Images ({uploadedImages.length})
                       </h5>
                       <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
@@ -869,7 +869,7 @@ const PowdercoatServices: React.FC<Props> = ({ csrfToken }) => {
                   )}
                 </div>
 
-                <p className="text-xs text-gray-500">
+                <p className="text-xs text-zinc-400">
                   Total images: {existingImages.length + newImageFiles.length}
                   /20
                   {existingImages.length + newImageFiles.length === 0 &&
@@ -882,7 +882,7 @@ const PowdercoatServices: React.FC<Props> = ({ csrfToken }) => {
                 <button
                   type="button"
                   onClick={closeEditModal}
-                  className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
+                  className="px-4 py-2 border border-zinc-700 rounded-md text-zinc-300 hover:bg-zinc-800"
                   disabled={processingServiceId === serviceToEdit.id}
                 >
                   Cancel
@@ -893,7 +893,7 @@ const PowdercoatServices: React.FC<Props> = ({ csrfToken }) => {
                     processingServiceId === serviceToEdit.id ||
                     existingImages.length + newImageFiles.length === 0
                   }
-                  className="px-4 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-800 disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center"
+                  className="px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 disabled:bg-zinc-600 disabled:cursor-not-allowed flex items-center"
                 >
                   {processingServiceId === serviceToEdit.id ? (
                     <>

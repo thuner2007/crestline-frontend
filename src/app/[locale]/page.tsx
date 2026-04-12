@@ -152,7 +152,7 @@ export default async function LandingPage() {
           <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
               {/* Text */}
-              <div className="space-y-8">
+              <div className="min-w-0 space-y-8">
                 <p
                   className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-amber-400"
                   style={{ fontFamily: "var(--font-display)" }}
@@ -162,7 +162,7 @@ export default async function LandingPage() {
                 </p>
 
                 <h1
-                  className="text-5xl font-bold uppercase leading-[1.05] tracking-tight text-white md:text-6xl lg:text-7xl"
+                  className="break-words text-5xl font-bold uppercase leading-[1.05] tracking-tight text-white md:text-6xl lg:text-7xl"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   {t("heroTitle") || "Premium"}{" "}
@@ -171,13 +171,13 @@ export default async function LandingPage() {
                   </span>
                   <br />
                   <span className="text-2xl font-normal text-zinc-400 md:text-3xl lg:text-4xl">
-                    for your car.
+                    &amp; Stickers
                   </span>
                 </h1>
 
                 <p className="max-w-xl text-lg leading-relaxed text-zinc-400">
                   {t("heroDescription") ||
-                    "Precision-crafted plate holders designed in Switzerland. Easy installation, weather-resistant, and built to last."}
+                    "Precision-crafted plate holders designed in Switzerland. Easy installation, weather-resistant, and built to last. Plus custom stickers for any surface."}
                 </p>
 
                 <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -204,6 +204,18 @@ export default async function LandingPage() {
                     {t("browseCategories") || "Browse All"}
                   </Link>
                 </div>
+
+                {/* Stickers teaser pill */}
+                <p className="flex items-center gap-2 text-xs text-zinc-500">
+                  <span className="inline-block h-px w-6 bg-zinc-700" />
+                  Also available:{" "}
+                  <Link
+                    href={`/${locale}/shop`}
+                    className="font-semibold text-amber-500/80 underline-offset-2 hover:text-amber-400 hover:underline"
+                  >
+                    Car Stickers
+                  </Link>
+                </p>
               </div>
 
               {/* Product image */}
@@ -250,9 +262,10 @@ export default async function LandingPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 py-4 md:gap-x-14">
               {[
-                "No Drilling Required",
-                "Magnetic Attachment",
-                "Universal Fit",
+                "No Drilling",
+                "Waterproof 3M Tape",
+                "Magnetic Snap",
+                "Stickers",
                 "Swiss Made",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-2">
@@ -268,6 +281,113 @@ export default async function LandingPage() {
             </div>
           </div>
         </div>
+
+        {/* ── PRODUCT CATEGORIES ────────────────────────────────── */}
+        <section className="bg-zinc-950 py-20 md:py-28" aria-labelledby="product-categories-heading">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-12">
+              <p
+                className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-400"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                — what we offer
+              </p>
+              <h2
+                id="product-categories-heading"
+                className="mt-2 text-3xl font-bold uppercase tracking-tight text-white md:text-4xl"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Two Products,{" "}
+                <span className="text-amber-400">One Brand</span>
+              </h2>
+            </div>
+
+            <div className="grid gap-px bg-zinc-800 md:grid-cols-5">
+              {/* Plate Holders — primary, 3/5 width */}
+              <div className="group relative col-span-3 overflow-hidden bg-zinc-900 p-10">
+                {/* Amber left accent */}
+                <div className="absolute inset-y-0 left-0 w-1 bg-amber-500" />
+                <div className="absolute right-6 top-6">
+                  <span
+                    className="inline-block bg-amber-500 px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-zinc-950"
+                    style={{ fontFamily: "var(--font-display)" }}
+                  >
+                    Most Popular
+                  </span>
+                </div>
+                <p
+                  className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-400"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  #1 Product
+                </p>
+                <h3
+                  className="mt-3 text-3xl font-bold uppercase tracking-tight text-white md:text-4xl"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  Magnetic<br />
+                  <span className="text-amber-400">Plate Holders</span>
+                </h3>
+                <p className="mt-4 max-w-sm text-sm leading-relaxed text-zinc-400">
+                  Stick the base to your plate once with waterproof 3M tape — that&apos;s the only step that needs tools. From there, the holder snaps on magnetically and comes off just as easily, whenever you want.
+                </p>
+                <ul className="mt-6 space-y-2">
+                  {["Waterproof double-sided 3M tape base", "Magnetic snap — on & off in seconds", "Works with EU & Swiss plates"].map((feat) => (
+                    <li key={feat} className="flex items-center gap-2 text-xs text-zinc-300">
+                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-amber-500" />
+                      {feat}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href={`/${locale}/shop`}
+                  className="group/btn mt-8 inline-flex items-center gap-2 bg-amber-500 px-7 py-3 text-xs font-bold uppercase tracking-widest text-zinc-950 transition-all hover:bg-amber-400"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  Shop Plate Holders
+                  <svg className="h-3.5 w-3.5 transition-transform duration-200 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+
+              {/* Stickers — secondary, 2/5 width */}
+              <div className="group relative col-span-2 overflow-hidden bg-zinc-900/60 p-10">
+                <div className="absolute inset-y-0 left-0 w-px bg-zinc-700" />
+                <p
+                  className="text-xs font-semibold uppercase tracking-[0.25em] text-zinc-400"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  Also Available
+                </p>
+                <h3
+                  className="mt-3 text-2xl font-bold uppercase tracking-tight text-white md:text-3xl"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  <span className="text-zinc-300">Stickers</span>
+                </h3>
+                <p className="mt-4 max-w-xs text-sm leading-relaxed text-zinc-500">
+                  Personalize your car with high-quality vinyl stickers. Durable, vibrant, and cut to any shape.
+                </p>
+                <ul className="mt-6 space-y-2">
+                  {["Precision die-cut vinyl", "Weather & fade resistant", "Multiple sizes available"].map((feat) => (
+                    <li key={feat} className="flex items-center gap-2 text-xs text-zinc-400">
+                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-zinc-600" />
+                      {feat}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href={`/${locale}/shop`}
+                  className="mt-8 inline-flex items-center gap-2 border border-zinc-700 px-7 py-3 text-xs font-bold uppercase tracking-widest text-zinc-300 transition-all hover:border-zinc-500 hover:text-white"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  Browse Stickers
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* ── HOW IT WORKS ─────────────────────────────────────── */}
         <section className="bg-white py-24 md:py-32" aria-labelledby="how-it-works-heading">
@@ -287,7 +407,7 @@ export default async function LandingPage() {
                 How It <span className="text-amber-500">Works</span>
               </h2>
               <p className="mt-3 max-w-xl text-zinc-500">
-                From order to mounted in minutes — no tools, no experience needed.
+                Install takes under a minute. After that, snap it on and off whenever you feel like it.
               </p>
             </div>
 
@@ -307,7 +427,7 @@ export default async function LandingPage() {
                   Browse &amp; Order
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-zinc-500">
-                  Pick the plate holder style that matches your car. Multiple designs available in our shop.
+                  Pick the plate holder that fits your style. Multiple designs in our shop.
                 </p>
               </div>
 
@@ -323,10 +443,10 @@ export default async function LandingPage() {
                   className="mt-4 text-lg font-bold uppercase tracking-wide text-zinc-900"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
-                  Fast Delivery
+                  Stick the Base
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-zinc-500">
-                  We ship quickly from Switzerland. Your holder arrives securely packed and ready to go.
+                  Peel the waterproof 3M tape and press the base firmly onto your license plate. Done in 30 seconds, holds for years.
                 </p>
               </div>
 
@@ -342,10 +462,10 @@ export default async function LandingPage() {
                   className="mt-4 text-lg font-bold uppercase tracking-wide text-zinc-900"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
-                  Install in Seconds
+                  Snap On &amp; Off
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-zinc-500">
-                  No drilling. No tools. Align the magnetic holder with your license plate and snap it on — done.
+                  The holder clicks onto the base magnetically. Remove it, put it back — takes a second, every time.
                 </p>
               </div>
             </div>
@@ -411,7 +531,7 @@ export default async function LandingPage() {
                   {t("ctaReady") || "Ready to upgrade your car?"}
                 </h2>
                 <p className="mt-2 max-w-md text-zinc-800">
-                  {t("ctaDescription") || "Browse our full range of magnetic plate holders."}
+                  {t("ctaDescription") || "Browse our full range of magnetic plate holders and custom stickers."}
                 </p>
               </div>
               <Link
