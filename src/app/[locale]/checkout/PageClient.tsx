@@ -1448,13 +1448,6 @@ export default function CheckoutPage() {
       // Process each item in the cart
       for (const item of parsedItems) {
         if (item.type === "part" && item.part) {
-          // Parse the part schema for reliable priceAdjustment lookups
-          let partSchema: { options: Array<{ type: string; priceAdjustment?: number; items?: Array<{ id: string; priceAdjustment?: number }> }> } | null = null;
-          try {
-            const raw = item.part.customizationOptions;
-            partSchema = typeof raw === "string" ? JSON.parse(raw) : (raw as typeof partSchema);
-          } catch { /* ignore */ }
-
           // Part items go to partOrderItems array
           partItems.push({
             partId: item.part.id,
@@ -1710,13 +1703,6 @@ export default function CheckoutPage() {
         basePrice = regularPrice;
       }
     }
-
-    // Parse the part schema for reliable priceAdjustment lookups
-    let partSchema: { options: Array<{ type: string; priceAdjustment?: number; items?: Array<{ id: string; priceAdjustment?: number }> }> } | null = null;
-    try {
-      const raw = item.part.customizationOptions;
-      partSchema = typeof raw === "string" ? JSON.parse(raw) : (raw as typeof partSchema);
-    } catch { /* ignore */ }
 
     // Add price adjustments from customization options
     if (item.customizationOptions?.options?.length) {
