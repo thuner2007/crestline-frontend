@@ -371,7 +371,40 @@ export default function CartPage() {
       return;
     }
     const itemKey = getItemKey(item, index);
-    const customizationOptionsString = JSON.stringify(customizationOptions);
+    // Build a flat array with direct price adjustments so the backend can use them without schema lookup
+    const optionsArray = (customizationOptions?.options ?? []).map((option) => {
+      const baseOpt: Record<string, unknown> = {
+        type: option.type,
+        value:
+          "selectedValue" in option
+            ? String((option as { selectedValue?: unknown }).selectedValue ?? "")
+            : "value" in option
+              ? String((option as { value?: unknown }).value ?? "")
+              : "",
+        optionId: option.translations.en.title,
+      };
+      if ("priceAdjustment" in option && option.priceAdjustment) {
+        baseOpt.priceAdjustment = option.priceAdjustment;
+      }
+      if (
+        option.type === "dropdown" &&
+        "selectedValue" in option &&
+        (option as { selectedValue?: unknown }).selectedValue
+      ) {
+        const selectedItem = (
+          option as { items?: Array<{ id: string; priceAdjustment?: number }> }
+        ).items?.find(
+          (i) =>
+            i.id ===
+            String((option as { selectedValue?: unknown }).selectedValue),
+        );
+        if (selectedItem?.priceAdjustment) {
+          baseOpt.selectedItemPriceAdjustment = selectedItem.priceAdjustment;
+        }
+      }
+      return baseOpt;
+    });
+    const customizationOptionsString = JSON.stringify(optionsArray);
     const params = new URLSearchParams();
     params.append("partId", item.part.id);
     params.append("customizationOptions", customizationOptionsString);
@@ -471,25 +504,50 @@ export default function CartPage() {
       // Get base price from the part
       let basePrice = parseFloat(item.part.price || "0");
 
+      // Parse the part's own customizationOptions schema (source of truth for priceAdjustments)
+      let partSchema: { options: Array<{ type: string; priceAdjustment?: number; items?: Array<{ id: string; priceAdjustment?: number }> }> } | null = null;
+      try {
+        const raw = item.part.customizationOptions;
+        partSchema = typeof raw === "string" ? JSON.parse(raw) : (raw as typeof partSchema);
+      } catch {
+        // ignore parse errors
+      }
+
       // Add price adjustments from customization options
       if (item.customizationOptions?.options) {
         item.customizationOptions.options.forEach((option) => {
-          // Add option price adjustment if any
+          // Add option-level price adjustment if any
           if ("priceAdjustment" in option && option.priceAdjustment) {
             basePrice += option.priceAdjustment;
           }
 
-          // For dropdown options, add selected item price adjustment
+          // For dropdown options, look up the selected item's priceAdjustment
+          // Use the part schema (always up-to-date) with a fallback to stored option.items
           if (
             option.type === "dropdown" &&
             "selectedValue" in option &&
             option.selectedValue
           ) {
-            const selectedItem = option.items?.find(
-              (i) => i.id === option.selectedValue,
+            const selectedValue = option.selectedValue as string;
+
+            // Prefer looking up from the part schema (same as item page does)
+            const schemaDropdown = partSchema?.options?.find(
+              (o) => o.type === "dropdown",
             );
-            if (selectedItem && selectedItem.priceAdjustment) {
-              basePrice += selectedItem.priceAdjustment;
+            const schemaItem = schemaDropdown?.items?.find(
+              (i) => i.id === selectedValue,
+            );
+
+            if (schemaItem?.priceAdjustment) {
+              basePrice += schemaItem.priceAdjustment;
+            } else {
+              // Fallback: use items stored in the cart option
+              const storedItem = option.items?.find(
+                (i) => i.id === selectedValue,
+              );
+              if (storedItem && storedItem.priceAdjustment) {
+                basePrice += storedItem.priceAdjustment;
+              }
             }
           }
         });
@@ -558,6 +616,13 @@ export default function CartPage() {
             color: item.powdercoatColorId || item.color || "", // Always include color field
           });
         } else if (item.type === "part" && item.part) {
+          // Parse the part schema for reliable priceAdjustment lookups
+          let partSchema: { options: Array<{ type: string; priceAdjustment?: number; items?: Array<{ id: string; priceAdjustment?: number }> }> } | null = null;
+          try {
+            const raw = item.part.customizationOptions;
+            partSchema = typeof raw === "string" ? JSON.parse(raw) : (raw as typeof partSchema);
+          } catch { /* ignore */ }
+
           // Part items go to partOrderItems array
           partItems.push({
             partId: item.part.id,
@@ -580,18 +645,26 @@ export default function CartPage() {
                   baseOption.priceAdjustment = option.priceAdjustment;
                 }
 
-                // For dropdown options, add selected item price adjustment
+                // For dropdown options, look up selected item price adjustment
+                // Prefer part schema (source of truth), fall back to stored option.items
                 if (
                   option.type === "dropdown" &&
                   "selectedValue" in option &&
                   option.selectedValue
                 ) {
-                  const selectedItem = option.items?.find(
-                    (i) => i.id === option.selectedValue,
+                  const selectedValue = String(option.selectedValue);
+                  const schemaDropdown = partSchema?.options?.find(
+                    (o) => o.type === "dropdown",
                   );
-                  if (selectedItem && selectedItem.priceAdjustment) {
-                    baseOption.selectedItemPriceAdjustment =
-                      selectedItem.priceAdjustment;
+                  const schemaItem = schemaDropdown?.items?.find(
+                    (i) => i.id === selectedValue,
+                  );
+                  const adjustment =
+                    schemaItem?.priceAdjustment ??
+                    option.items?.find((i) => i.id === selectedValue)?.priceAdjustment;
+
+                  if (adjustment) {
+                    baseOption.selectedItemPriceAdjustment = adjustment;
                   }
                 }
 

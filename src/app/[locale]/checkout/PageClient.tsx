@@ -1388,21 +1388,62 @@ export default function CheckoutPage() {
       // Process each item in the cart
       for (const item of parsedItems) {
         if (item.type === "part" && item.part) {
+          // Parse the part schema for reliable priceAdjustment lookups
+          let partSchema: { options: Array<{ type: string; priceAdjustment?: number; items?: Array<{ id: string; priceAdjustment?: number }> }> } | null = null;
+          try {
+            const raw = item.part.customizationOptions;
+            partSchema = typeof raw === "string" ? JSON.parse(raw) : (raw as typeof partSchema);
+          } catch { /* ignore */ }
+
           // Part items go to partOrderItems array
           partItems.push({
             partId: item.part.id,
             quantity: item.amount,
             customizationOptions:
-              item.customizationOptions?.options?.map((option) => ({
-                type: option.type,
-                value:
-                  "selectedValue" in option
-                    ? String(option.selectedValue ?? "")
-                    : "value" in option
-                      ? String(option.value ?? "")
-                      : "",
-                optionId: option.translations.en.title,
-              })) || [],
+              item.customizationOptions?.options?.map((option) => {
+                const baseOption: {
+                  type: string;
+                  value: string;
+                  optionId: string;
+                  priceAdjustment?: number;
+                  selectedItemPriceAdjustment?: number;
+                } = {
+                  type: option.type,
+                  value:
+                    "selectedValue" in option
+                      ? String(option.selectedValue ?? "")
+                      : "value" in option
+                        ? String(option.value ?? "")
+                        : "",
+                  optionId: option.translations.en.title,
+                };
+
+                if ("priceAdjustment" in option && option.priceAdjustment) {
+                  baseOption.priceAdjustment = option.priceAdjustment;
+                }
+
+                if (
+                  option.type === "dropdown" &&
+                  "selectedValue" in option &&
+                  option.selectedValue
+                ) {
+                  const selectedValue = String(option.selectedValue);
+                  const schemaDropdown = partSchema?.options?.find(
+                    (o) => o.type === "dropdown",
+                  );
+                  const schemaItem = schemaDropdown?.items?.find(
+                    (i) => i.id === selectedValue,
+                  );
+                  const adjustment =
+                    schemaItem?.priceAdjustment ??
+                    option.items?.find((i) => i.id === selectedValue)?.priceAdjustment;
+                  if (adjustment) {
+                    baseOption.selectedItemPriceAdjustment = adjustment;
+                  }
+                }
+
+                return baseOption;
+              }) || [],
           });
         } else if (item.type === "powdercoat" && item.powdercoatService) {
           // Powdercoat service items go to powdercoatServiceOrderItems array
@@ -1613,6 +1654,13 @@ export default function CheckoutPage() {
       }
     }
 
+    // Parse the part schema for reliable priceAdjustment lookups
+    let partSchema: { options: Array<{ type: string; priceAdjustment?: number; items?: Array<{ id: string; priceAdjustment?: number }> }> } | null = null;
+    try {
+      const raw = item.part.customizationOptions;
+      partSchema = typeof raw === "string" ? JSON.parse(raw) : (raw as typeof partSchema);
+    } catch { /* ignore */ }
+
     // Add price adjustments from customization options
     if (item.customizationOptions?.options) {
       item.customizationOptions.options.forEach((option) => {
@@ -1620,17 +1668,24 @@ export default function CheckoutPage() {
           basePrice += option.priceAdjustment;
         }
 
-        // For dropdown options, add selected item price adjustment
+        // For dropdown options, look up selected item price adjustment from part schema
         if (
           option.type === "dropdown" &&
           "selectedValue" in option &&
           option.selectedValue
         ) {
-          const selectedItem = option.items?.find(
-            (i) => i.id === option.selectedValue,
+          const selectedValue = option.selectedValue as string;
+          const schemaDropdown = partSchema?.options?.find(
+            (o) => o.type === "dropdown",
           );
-          if (selectedItem && selectedItem.priceAdjustment) {
-            basePrice += selectedItem.priceAdjustment;
+          const schemaItem = schemaDropdown?.items?.find(
+            (i) => i.id === selectedValue,
+          );
+          const adjustment =
+            schemaItem?.priceAdjustment ??
+            option.items?.find((i) => i.id === selectedValue)?.priceAdjustment;
+          if (adjustment) {
+            basePrice += adjustment;
           }
         }
       });
