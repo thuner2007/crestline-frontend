@@ -68,6 +68,14 @@ export interface OrderPartItem {
     type: string;
     value: string;
     optionId: string | number;
+    priceAdjustment?: number;
+    selectedItemPriceAdjustment?: number;
+    translations?: {
+      de: { title: string; description?: string };
+      en: { title: string; description?: string };
+      fr: { title: string; description?: string };
+      it: { title: string; description?: string };
+    };
   }[];
   quantity: number;
   part?: {
@@ -1635,7 +1643,16 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
                               <div className="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-1 text-sm mt-1">
                                 <p>
                                   <span className="text-zinc-400">Price:</span>{" "}
-                                  CHF {item.part?.price || "0"}
+                                  CHF {(
+                                    parseFloat(item.part?.price || "0") +
+                                    (item.customizationOptions || []).reduce(
+                                      (sum, opt) =>
+                                        sum +
+                                        (opt.priceAdjustment || 0) +
+                                        (opt.selectedItemPriceAdjustment || 0),
+                                      0,
+                                    )
+                                  ).toFixed(2)}
                                 </p>
                                 <p>
                                   <span className="text-zinc-400">

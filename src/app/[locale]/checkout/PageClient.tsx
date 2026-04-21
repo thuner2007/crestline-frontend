@@ -87,6 +87,8 @@ interface PartOrderItem {
     type: string;
     value: string;
     optionId: string;
+    priceAdjustment?: number;
+    selectedItemPriceAdjustment?: number;
   }>;
 }
 
@@ -799,16 +801,47 @@ function CheckoutForm({
           partId: item.part.id,
           quantity: item.amount,
           customizationOptions:
-            item.customizationOptions?.options?.map((option) => ({
-              type: option.type,
-              value:
+            item.customizationOptions?.options?.map((option) => {
+              // Use part schema as source of truth for price adjustments
+              let partSchema = item.part!.customizationOptions as any;
+              if (typeof partSchema === "string") {
+                try { partSchema = JSON.parse(partSchema); } catch { partSchema = null; }
+              }
+              const schemaOptions: any[] = partSchema?.options || [];
+              const schemaOpt = schemaOptions.find(
+                (so) =>
+                  so.type === option.type &&
+                  so.translations?.en?.title === option.translations?.en?.title,
+              );
+
+              const selectedVal =
                 "selectedValue" in option
                   ? String(option.selectedValue ?? "")
                   : "value" in option
                     ? String(option.value ?? "")
-                    : "",
-              optionId: option.translations.en.title,
-            })) || [],
+                    : "";
+
+              const optAdj =
+                schemaOpt?.priceAdjustment ??
+                ("priceAdjustment" in option ? (option as any).priceAdjustment : undefined);
+
+              let selectedItemPriceAdjustment: number | undefined;
+              if (option.type === "dropdown" && selectedVal) {
+                const itemsList: any[] = schemaOpt?.items || (option as any).items || [];
+                const selItem = itemsList.find((i: any) => i.id === selectedVal);
+                selectedItemPriceAdjustment = selItem?.priceAdjustment;
+              }
+
+              return {
+                type: option.type,
+                value: selectedVal,
+                optionId: option.translations.en.title,
+                ...(optAdj != null && optAdj !== 0 ? { priceAdjustment: optAdj } : {}),
+                ...(selectedItemPriceAdjustment != null
+                  ? { selectedItemPriceAdjustment }
+                  : {}),
+              };
+            }) || [],
         });
       } else if (item.type === "powdercoat" && item.powdercoatService) {
         // Handle powdercoat service items
@@ -1049,11 +1082,38 @@ function CheckoutForm({
           // Use the base price from the part
           unitPrice = parseFloat(item.part.price || "0");
           
-          // Add customization price adjustments
-          if (item.customizationOptions?.options) {
+          // Add customization price adjustments using part schema as source of truth
+          if (item.customizationOptions?.options?.length) {
+            let partSchema = item.part.customizationOptions as any;
+            if (typeof partSchema === "string") {
+              try { partSchema = JSON.parse(partSchema); } catch { partSchema = null; }
+            }
+            const schemaOptions: any[] = partSchema?.options || [];
+
             item.customizationOptions.options.forEach((option) => {
-              if (option.priceAdjustment) {
-                unitPrice += option.priceAdjustment;
+              const schemaOpt = schemaOptions.find(
+                (so) =>
+                  so.type === option.type &&
+                  so.translations?.en?.title === option.translations?.en?.title,
+              );
+              const optAdj =
+                schemaOpt?.priceAdjustment ??
+                ("priceAdjustment" in option ? (option as any).priceAdjustment : 0) ??
+                0;
+              if (optAdj) unitPrice += optAdj;
+
+              if (option.type === "dropdown") {
+                const selectedVal =
+                  "selectedValue" in option
+                    ? (option as any).selectedValue
+                    : "value" in option
+                      ? (option as any).value
+                      : null;
+                if (selectedVal) {
+                  const itemsList: any[] = schemaOpt?.items || (option as any).items || [];
+                  const selItem = itemsList.find((i: any) => i.id === selectedVal);
+                  if (selItem?.priceAdjustment) unitPrice += selItem.priceAdjustment;
+                }
               }
             });
           }
@@ -1393,16 +1453,47 @@ export default function CheckoutPage() {
             partId: item.part.id,
             quantity: item.amount,
             customizationOptions:
-              item.customizationOptions?.options?.map((option) => ({
-                type: option.type,
-                value:
+              item.customizationOptions?.options?.map((option) => {
+                // Use the part's full schema as the source of truth for price adjustments
+                let partSchema = item.part!.customizationOptions as any;
+                if (typeof partSchema === "string") {
+                  try { partSchema = JSON.parse(partSchema); } catch { partSchema = null; }
+                }
+                const schemaOptions: any[] = partSchema?.options || [];
+                const schemaOpt = schemaOptions.find(
+                  (so) =>
+                    so.type === option.type &&
+                    so.translations?.en?.title === option.translations?.en?.title,
+                );
+
+                const selectedVal =
                   "selectedValue" in option
                     ? String(option.selectedValue ?? "")
                     : "value" in option
                       ? String(option.value ?? "")
-                      : "",
-                optionId: option.translations.en.title,
-              })) || [],
+                      : "";
+
+                const optAdj =
+                  schemaOpt?.priceAdjustment ??
+                  ("priceAdjustment" in option ? (option as any).priceAdjustment : undefined);
+
+                let selectedItemPriceAdjustment: number | undefined;
+                if (option.type === "dropdown" && selectedVal) {
+                  const itemsList: any[] = schemaOpt?.items || (option as any).items || [];
+                  const selItem = itemsList.find((i: any) => i.id === selectedVal);
+                  selectedItemPriceAdjustment = selItem?.priceAdjustment;
+                }
+
+                return {
+                  type: option.type,
+                  value: selectedVal,
+                  optionId: option.translations.en.title,
+                  ...(optAdj != null && optAdj !== 0 ? { priceAdjustment: optAdj } : {}),
+                  ...(selectedItemPriceAdjustment != null
+                    ? { selectedItemPriceAdjustment }
+                    : {}),
+                };
+              }) || [],
           });
         } else if (item.type === "powdercoat" && item.powdercoatService) {
           // Powdercoat service items go to powdercoatServiceOrderItems array
@@ -1614,23 +1705,42 @@ export default function CheckoutPage() {
     }
 
     // Add price adjustments from customization options
-    if (item.customizationOptions?.options) {
-      item.customizationOptions.options.forEach((option) => {
-        if ("priceAdjustment" in option && option.priceAdjustment) {
-          basePrice += option.priceAdjustment;
-        }
+    if (item.customizationOptions?.options?.length) {
+      // Use the part's full schema as the source of truth for price adjustments
+      let partSchema = item.part.customizationOptions as any;
+      if (typeof partSchema === "string") {
+        try { partSchema = JSON.parse(partSchema); } catch { partSchema = null; }
+      }
+      const schemaOptions: any[] = partSchema?.options || [];
 
-        // For dropdown options, add selected item price adjustment
-        if (
-          option.type === "dropdown" &&
-          "selectedValue" in option &&
-          option.selectedValue
-        ) {
-          const selectedItem = option.items?.find(
-            (i) => i.id === option.selectedValue,
-          );
-          if (selectedItem && selectedItem.priceAdjustment) {
-            basePrice += selectedItem.priceAdjustment;
+      item.customizationOptions.options.forEach((option) => {
+        // Find matching option in part schema by type + English title
+        const schemaOpt = schemaOptions.find(
+          (so) =>
+            so.type === option.type &&
+            so.translations?.en?.title === option.translations?.en?.title,
+        );
+
+        // Option-level price adjustment (prefer schema, fallback to stored)
+        const optAdj =
+          schemaOpt?.priceAdjustment ??
+          ("priceAdjustment" in option ? (option as any).priceAdjustment : 0) ??
+          0;
+        if (optAdj) basePrice += optAdj;
+
+        // For dropdown: find the selected item's price adjustment
+        if (option.type === "dropdown") {
+          const selectedVal =
+            "selectedValue" in option
+              ? (option as any).selectedValue
+              : "value" in option
+                ? (option as any).value
+                : null;
+          if (selectedVal) {
+            const itemsList: any[] =
+              schemaOpt?.items || (option as any).items || [];
+            const selItem = itemsList.find((i: any) => i.id === selectedVal);
+            if (selItem?.priceAdjustment) basePrice += selItem.priceAdjustment;
           }
         }
       });

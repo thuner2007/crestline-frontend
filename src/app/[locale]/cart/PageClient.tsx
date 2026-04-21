@@ -468,28 +468,45 @@ export default function CartPage() {
 
     // Handle part items
     if (item.type === "part" && item.part) {
-      // Get base price from the part
       let basePrice = parseFloat(item.part.price || "0");
 
-      // Add price adjustments from customization options
-      if (item.customizationOptions?.options) {
-        item.customizationOptions.options.forEach((option) => {
-          // Add option price adjustment if any
-          if ("priceAdjustment" in option && option.priceAdjustment) {
-            basePrice += option.priceAdjustment;
-          }
+      if (item.customizationOptions?.options?.length) {
+        // Use the part's full schema as the source of truth for price adjustments
+        let partSchema = item.part.customizationOptions as any;
+        if (typeof partSchema === "string") {
+          try { partSchema = JSON.parse(partSchema); } catch { partSchema = null; }
+        }
+        const schemaOptions: any[] = partSchema?.options || [];
 
-          // For dropdown options, add selected item price adjustment
-          if (
-            option.type === "dropdown" &&
-            "selectedValue" in option &&
-            option.selectedValue
-          ) {
-            const selectedItem = option.items?.find(
-              (i) => i.id === option.selectedValue,
-            );
-            if (selectedItem && selectedItem.priceAdjustment) {
-              basePrice += selectedItem.priceAdjustment;
+        item.customizationOptions.options.forEach((option) => {
+          // Find matching option in part schema by type + English title
+          const schemaOpt = schemaOptions.find(
+            (so) =>
+              so.type === option.type &&
+              so.translations?.en?.title === option.translations?.en?.title,
+          );
+
+          // Option-level price adjustment (prefer schema value, fallback to stored)
+          const optAdj =
+            schemaOpt?.priceAdjustment ??
+            ("priceAdjustment" in option ? (option as any).priceAdjustment : 0) ??
+            0;
+          if (optAdj) basePrice += optAdj;
+
+          // For dropdown: find the selected item's price adjustment
+          if (option.type === "dropdown") {
+            const selectedVal =
+              "selectedValue" in option
+                ? (option as any).selectedValue
+                : "value" in option
+                  ? (option as any).value
+                  : null;
+            if (selectedVal) {
+              // Try schema items first, then stored items
+              const itemsList: any[] =
+                schemaOpt?.items || (option as any).items || [];
+              const selItem = itemsList.find((i: any) => i.id === selectedVal);
+              if (selItem?.priceAdjustment) basePrice += selItem.priceAdjustment;
             }
           }
         });
@@ -564,6 +581,18 @@ export default function CartPage() {
             quantity: item.amount,
             customizationOptions:
               item.customizationOptions?.options?.map((option) => {
+                // Use the part's full schema as the source of truth for price adjustments
+                let partSchema = item.part!.customizationOptions as any;
+                if (typeof partSchema === "string") {
+                  try { partSchema = JSON.parse(partSchema); } catch { partSchema = null; }
+                }
+                const schemaOptions: any[] = partSchema?.options || [];
+                const schemaOpt = schemaOptions.find(
+                  (so) =>
+                    so.type === option.type &&
+                    so.translations?.en?.title === option.translations?.en?.title,
+                );
+
                 const baseOption: OrderedItemCustomizationOption = {
                   type: option.type,
                   value:
@@ -575,23 +604,28 @@ export default function CartPage() {
                   optionId: option.translations.en.title,
                 };
 
-                // Add price adjustment if present on the option itself
-                if ("priceAdjustment" in option && option.priceAdjustment) {
-                  baseOption.priceAdjustment = option.priceAdjustment;
+                // Option-level price adjustment (prefer schema)
+                const optAdj =
+                  schemaOpt?.priceAdjustment ??
+                  ("priceAdjustment" in option ? (option as any).priceAdjustment : undefined);
+                if (optAdj != null && optAdj !== 0) {
+                  baseOption.priceAdjustment = optAdj;
                 }
 
-                // For dropdown options, add selected item price adjustment
-                if (
-                  option.type === "dropdown" &&
-                  "selectedValue" in option &&
-                  option.selectedValue
-                ) {
-                  const selectedItem = option.items?.find(
-                    (i) => i.id === option.selectedValue,
-                  );
-                  if (selectedItem && selectedItem.priceAdjustment) {
-                    baseOption.selectedItemPriceAdjustment =
-                      selectedItem.priceAdjustment;
+                // For dropdown: selected item price adjustment (prefer schema)
+                if (option.type === "dropdown") {
+                  const selectedVal =
+                    "selectedValue" in option
+                      ? (option as any).selectedValue
+                      : "value" in option
+                        ? (option as any).value
+                        : null;
+                  if (selectedVal) {
+                    const itemsList: any[] = schemaOpt?.items || (option as any).items || [];
+                    const selItem = itemsList.find((i: any) => i.id === selectedVal);
+                    if (selItem?.priceAdjustment) {
+                      baseOption.selectedItemPriceAdjustment = selItem.priceAdjustment;
+                    }
                   }
                 }
 
@@ -1132,7 +1166,7 @@ export default function CartPage() {
                                     <div className="flex items-center gap-2 mt-1">
                                       <span className="text-sm text-amber-400 font-bold">
                                         CHF{" "}
-                                        {parseFloat(item.part.price).toFixed(2)}
+                                        {calculateItemPrice(item).toFixed(2)}
                                       </span>
                                       <span className="text-sm text-zinc-500 line-through">
                                         CHF{" "}
@@ -1827,7 +1861,7 @@ export default function CartPage() {
                               parseFloat(item.part.price) && (
                               <div className="flex items-center gap-2 mt-1">
                                 <span className="text-sm text-amber-400 font-semibold">
-                                  CHF {parseFloat(item.part.price).toFixed(2)}
+                                  CHF {calculateItemPrice(item).toFixed(2)}
                                 </span>
                                 <span className="text-sm text-zinc-500 line-through">
                                   CHF{" "}
