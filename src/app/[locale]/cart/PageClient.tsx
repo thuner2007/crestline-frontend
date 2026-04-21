@@ -371,7 +371,40 @@ export default function CartPage() {
       return;
     }
     const itemKey = getItemKey(item, index);
-    const customizationOptionsString = JSON.stringify(customizationOptions);
+    // Build a flat array with direct price adjustments so the backend can use them without schema lookup
+    const optionsArray = (customizationOptions?.options ?? []).map((option) => {
+      const baseOpt: Record<string, unknown> = {
+        type: option.type,
+        value:
+          "selectedValue" in option
+            ? String((option as { selectedValue?: unknown }).selectedValue ?? "")
+            : "value" in option
+              ? String((option as { value?: unknown }).value ?? "")
+              : "",
+        optionId: option.translations.en.title,
+      };
+      if ("priceAdjustment" in option && option.priceAdjustment) {
+        baseOpt.priceAdjustment = option.priceAdjustment;
+      }
+      if (
+        option.type === "dropdown" &&
+        "selectedValue" in option &&
+        (option as { selectedValue?: unknown }).selectedValue
+      ) {
+        const selectedItem = (
+          option as { items?: Array<{ id: string; priceAdjustment?: number }> }
+        ).items?.find(
+          (i) =>
+            i.id ===
+            String((option as { selectedValue?: unknown }).selectedValue),
+        );
+        if (selectedItem?.priceAdjustment) {
+          baseOpt.selectedItemPriceAdjustment = selectedItem.priceAdjustment;
+        }
+      }
+      return baseOpt;
+    });
+    const customizationOptionsString = JSON.stringify(optionsArray);
     const params = new URLSearchParams();
     params.append("partId", item.part.id);
     params.append("customizationOptions", customizationOptionsString);
@@ -575,6 +608,13 @@ export default function CartPage() {
             color: item.powdercoatColorId || item.color || "", // Always include color field
           });
         } else if (item.type === "part" && item.part) {
+          // Parse the part schema for reliable priceAdjustment lookups
+          let partSchema: { options: Array<{ type: string; priceAdjustment?: number; items?: Array<{ id: string; priceAdjustment?: number }> }> } | null = null;
+          try {
+            const raw = item.part.customizationOptions;
+            partSchema = typeof raw === "string" ? JSON.parse(raw) : (raw as typeof partSchema);
+          } catch { /* ignore */ }
+
           // Part items go to partOrderItems array
           partItems.push({
             partId: item.part.id,

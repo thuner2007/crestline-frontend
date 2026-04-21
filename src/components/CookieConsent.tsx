@@ -33,36 +33,38 @@ const CookieConsent = () => {
   if (!showConsent) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9998] p-4">
-      <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="p-6">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            {t('title')}
-          </h2>
-
-          <div className="text-gray-700 mb-6 space-y-4">
-            <p className="text-base leading-relaxed">{t('message')}</p>
-
-            <p className="text-sm">
-              <Link
-                href={`/${locale}/privacy`}
-                className="text-purple-700 hover:text-purple-800 underline"
-              >
-                {t('learnMore')}
-              </Link>
+    <div className="fixed bottom-0 left-0 right-0 z-[9998] border-t border-zinc-800 bg-zinc-950">
+      <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex-1">
+            <h2
+              className="mb-1 text-xs font-bold uppercase tracking-[0.2em] text-white"
+              style={{ fontFamily: 'var(--font-display)' }}
+            >-
+              {t('title')}
+            </h2>
+            <p className="text-sm leading-relaxed text-zinc-500">
+              {t('message')}
             </p>
+            <Link
+              href={`/${locale}/privacy`}
+              className="mt-1 inline-block text-xs text-amber-400 underline hover:text-amber-300"
+            >
+              {t('learnMore')}
+            </Link>
           </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-end">
+          <div className="flex shrink-0 flex-col gap-2 sm:flex-row">
             <button
               onClick={handleAcceptOptional}
-              className="px-6 py-3 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-colors font-medium"
+              className="border border-zinc-700 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-zinc-400 transition-colors hover:border-zinc-500 hover:text-white"
+              style={{ fontFamily: 'var(--font-display)' }}
             >
               {t('acceptOptional')}
             </button>
             <button
               onClick={handleAcceptAll}
-              className="px-6 py-3 bg-purple-700 text-white rounded-md hover:bg-purple-800 transition-colors font-medium"
+              className="bg-amber-500 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-zinc-950 transition-colors hover:bg-amber-400"
+              style={{ fontFamily: 'var(--font-display)' }}
             >
               {t('acceptAll')}
             </button>
