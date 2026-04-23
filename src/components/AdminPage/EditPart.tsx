@@ -147,6 +147,7 @@ interface Part {
   };
   keywords?: string[];
   groups?: PartGroup[];
+  sections?: { id: string; translations: { language: string; title: string }[] }[];
 }
 
 interface Props {
@@ -184,6 +185,10 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
   const [partGroups, setPartGroups] = useState<
     { id: string; translations: Translation[] }[]
   >([]);
+  const [partSections, setPartSections] = useState<
+    { id: string; translations: Translation[]; active: boolean }[]
+  >([]);
+  const [selectedSections, setSelectedSections] = useState<string[]>([]);
   const [keywords, setKeywords] = useState<string[]>([]);
   const [keywordInput, setKeywordInput] = useState<string>('');
 
@@ -307,6 +312,13 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
       console.log("[EditPart] setting customizationOptions:", JSON.stringify(customizationOptionsFromPart, null, 2));
       setCustomizationOptions(customizationOptionsFromPart);
 
+      // Set selected sections
+      if (part.sections && part.sections.length > 0) {
+        setSelectedSections(part.sections.map((s) => s.id));
+      } else {
+        setSelectedSections([]);
+      }
+
       // Store original values for comparison
       setOriginalValues({
         price: parseFloat(part.price) || 10.0,
@@ -366,12 +378,17 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
           : [];
         setFilamentTypes(types);
 
-        const [partGroupsResponse] = await Promise.all([
+        const [partGroupsResponse, partSectionsResponse] = await Promise.all([
           axiosInstance.get<{ id: string; translations: Translation[] }[]>(
             '/groups/part-groups'
           ),
+          axiosInstance.get<{ id: string; translations: Translation[]; active: boolean }[]>(
+            '/part-sections',
+            { params: { includeInactive: 'false' } }
+          ),
         ]);
         setPartGroups(partGroupsResponse.data);
+        setPartSections(partSectionsResponse.data);
       } catch (err) {
         console.error('Error fetching data:', err);
         setError('Failed to load data');
@@ -956,6 +973,34 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
         }
       );
 
+      // Sync section assignments
+      await axiosInstance.put(
+        `/part-sections`,
+        {},
+        { headers: { Authorization: `Bearer ${storage.getItem('access_token')}`, 'X-CSRF-Token': csrfToken } }
+      ).catch(() => {}); // ignore if this endpoint doesn't exist yet
+
+      // Get current section IDs for the part
+      const originalSectionIds = (part.sections ?? []).map((s) => s.id);
+      const toAdd = selectedSections.filter((id) => !originalSectionIds.includes(id));
+      const toRemove = originalSectionIds.filter((id) => !selectedSections.includes(id));
+
+      await Promise.all([
+        ...toAdd.map((sectionId) =>
+          axiosInstance.post(
+            `/part-sections/${sectionId}/parts/${part.id}`,
+            {},
+            { headers: { Authorization: `Bearer ${storage.getItem('access_token')}`, 'X-CSRF-Token': csrfToken } }
+          )
+        ),
+        ...toRemove.map((sectionId) =>
+          axiosInstance.delete(
+            `/part-sections/${sectionId}/parts/${part.id}`,
+            { headers: { Authorization: `Bearer ${storage.getItem('access_token')}`, 'X-CSRF-Token': csrfToken } }
+          )
+        ),
+      ]);
+
       setSuccess('Part updated successfully!');
       onUpdate(response.data);
       setTimeout(() => {
@@ -1388,6 +1433,46 @@ const EditPart: React.FC<Props> = ({ csrfToken, part, onClose, onUpdate }) => {
                         </div>
                       </div>
                     </div>
+
+                    {/* Sections */}
+                    {partSections.length > 0 && (
+                      <div className="col-span-full">
+                        <label className="block text-sm font-medium text-zinc-300 mb-1">
+                          Sections
+                        </label>
+                        <p className="text-xs text-zinc-500 mb-2">
+                          Assign this part to one or more sections (e.g. Plate Holders, Hoodies).
+                        </p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                          {partSections.map((section) => {
+                            const title =
+                              section.translations.find((t) => t.language === 'en')?.title ||
+                              section.translations[0]?.title ||
+                              'Untitled';
+                            const isChecked = selectedSections.includes(section.id);
+                            return (
+                              <label key={section.id} className="flex items-center">
+                                <input
+                                  type="checkbox"
+                                  checked={isChecked}
+                                  onChange={(e) => {
+                                    if (e.target.checked) {
+                                      setSelectedSections((prev) => [...prev, section.id]);
+                                    } else {
+                                      setSelectedSections((prev) =>
+                                        prev.filter((id) => id !== section.id)
+                                      );
+                                    }
+                                  }}
+                                  className="h-4 w-4 rounded border-zinc-700 text-amber-400 focus:ring-amber-500"
+                                />
+                                <span className="ml-2 text-sm text-zinc-300">{title}</span>
+                              </label>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
 
                     {/* Keywords */}
                     <div className="col-span-full">

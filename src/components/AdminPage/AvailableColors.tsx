@@ -1,15 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-  IconButton,
-  TextField,
-  Button,
-} from '@mui/material';
-import { Delete, Add } from '@mui/icons-material';
+import { Trash2, Plus } from 'lucide-react';
 import storage from '@/lib/storage';
 import tinycolor from 'tinycolor2';
 import useAxios from '@/useAxios';
@@ -237,7 +227,7 @@ const AvailableColors: React.FC<Props> = ({ csrfToken }) => {
       <h2 className='text-xl font-semibold'>Manage Vinyl Colors</h2>
 
       {error && (
-        <div className='bg-red-50 text-red-600 p-3 rounded-md'>{error}</div>
+        <div className='bg-red-950 border border-red-700 text-red-400 p-3 rounded-md'>{error}</div>
       )}
 
       <div className='flex gap-4 items-end mb-6'>
@@ -254,13 +244,14 @@ const AvailableColors: React.FC<Props> = ({ csrfToken }) => {
               }}
             />
             <div className='flex flex-col gap-1'>
-              <TextField
+              <input
+                type="text"
                 value={newColor}
                 onChange={handleColorInput}
                 onFocus={() => newColor && setShowSuggestions(true)}
                 onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
                 placeholder='Enter color name or code'
-                size='small'
+                className="px-3 py-1.5 bg-zinc-900 border border-zinc-700 rounded text-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
               />
               {isValidColor(newColor) && (
                 <div className='text-xs text-zinc-400'>
@@ -290,55 +281,60 @@ const AvailableColors: React.FC<Props> = ({ csrfToken }) => {
             )}
           </div>
         </div>
-        <Button
-          variant='contained'
-          color='primary'
-          startIcon={<Add />}
+        <button
           onClick={handleAddColor}
           disabled={!newColor || !isValidColor(newColor)}
+          className="flex items-center gap-2 px-4 py-2 bg-amber-500 text-white rounded-md hover:bg-amber-600 disabled:opacity-50"
         >
+          <Plus className="h-4 w-4" />
           Add Color
-        </Button>
+        </button>
       </div>
 
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>Color Preview</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Hex / RGB</TableCell>
-            <TableCell align='right'>Actions</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {colors.map((color) => {
-            const colorInfo = getColorInfo(color);
-            return (
-              <TableRow key={color}>
-                <TableCell>
-                  <div
-                    className='w-8 h-8 rounded-full border border-zinc-700'
-                    style={{ backgroundColor: colorInfo.hex }}
-                  />
-                </TableCell>
-                <TableCell>{color}</TableCell>
-                <TableCell>
-                  <div className='text-sm text-zinc-400'>
-                    {colorInfo.hex}
-                    <br />
-                    {colorInfo.rgb}
-                  </div>
-                </TableCell>
-                <TableCell align='right'>
-                  <IconButton onClick={() => handleDelete(color)} color='error'>
-                    <Delete />
-                  </IconButton>
-                </TableCell>
-              </TableRow>
-            );
-          })}
-        </TableBody>
-      </Table>
+      <div className="bg-zinc-900 border border-zinc-700 rounded-lg overflow-hidden">
+        <table className="w-full">
+          <thead className="bg-zinc-800 border-b border-zinc-700">
+            <tr>
+              <th className="px-4 py-3 text-left text-xs font-medium text-zinc-400 uppercase tracking-wider">Color Preview</th>
+              <th className="px-4 py-3 text-left text-xs font-medium text-zinc-400 uppercase tracking-wider">Name</th>
+              <th className="px-4 py-3 text-left text-xs font-medium text-zinc-400 uppercase tracking-wider">Hex / RGB</th>
+              <th className="px-4 py-3 text-right text-xs font-medium text-zinc-400 uppercase tracking-wider">Actions</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-zinc-800">
+            {colors.map((color) => {
+              const colorInfo = getColorInfo(color);
+              return (
+                <tr key={color} className="hover:bg-zinc-800">
+                  <td className="px-4 py-3">
+                    <div
+                      className='w-8 h-8 rounded-full border border-zinc-700'
+                      style={{ backgroundColor: colorInfo.hex }}
+                    />
+                  </td>
+                  <td className="px-4 py-3 text-zinc-100">{color}</td>
+                  <td className="px-4 py-3">
+                    <div className='text-sm text-zinc-400'>
+                      {colorInfo.hex}
+                      <br />
+                      {colorInfo.rgb}
+                    </div>
+                  </td>
+                  <td className="px-4 py-3 text-right">
+                    <button
+                      onClick={() => handleDelete(color)}
+                      className="p-2 text-red-500 hover:bg-red-900/30 rounded-md"
+                      title="Delete color"
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

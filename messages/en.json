@@ -6,19 +6,19 @@
   },
   "metadata": {
     "partGroup": {
-      "title": "Supermoto Parts | Revsticks - Customization for Every Style",
-      "description": "Explore our selection of high-quality supermoto parts for your bike. Customize your ride with premium components.",
-      "keywords": "supermoto parts, motorcycle parts, bike accessories, supermoto customization, high-quality parts"
+      "title": "Car Parts | Revsticks - Customization for Every Style",
+      "description": "Explore our selection of high-quality car parts for your vehicle. Customize your ride with premium components.",
+      "keywords": "car parts, car parts, car accessories, car customization, high-quality parts"
     },
     "parts": {
-      "title": "Supermoto Parts | Revsticks - Customization for Every Style",
-      "description": "Explore our selection of high-quality supermoto parts for your bike. Customize your ride with premium components.",
-      "keywords": "supermoto parts, motorcycle parts, bike accessories, supermoto customization, high-quality parts"
+      "title": "Car Parts | Revsticks - Customization for Every Style",
+      "description": "Explore our selection of high-quality car parts for your vehicle. Customize your ride with premium components.",
+      "keywords": "car parts, car parts, car accessories, car customization, high-quality parts"
     },
     "part": {
-      "title": "Supermoto Parts | Revsticks - Customization for Every Style",
-      "description": "Discover the part for your supermoto. Customize your ride with premium components.",
-      "keywords": "supermoto part, motorcycle part, bike accessory, {name}, supermoto customization"
+      "title": "Car Parts | Revsticks - Customization for Every Style",
+      "description": "Discover the part for your car. Customize your ride with premium components.",
+      "keywords": "car part, car accessory, vehicle accessory, {name}, car customization"
     },
     "home": {
       "title": "Plate Holders & Car Accessories - Crestline Customs Switzerland",
@@ -110,8 +110,8 @@
     },
     "blog": {
       "title": "Blog | RevSticks - Stories, Tips & Insights",
-      "description": "Read the latest news, tips, and stories from RevSticks. Discover supermoto insights, customization guides, and community highlights.",
-      "keywords": "supermoto blog, motorcycle tips, bike customization, RevSticks news, supermoto insights"
+      "description": "Read the latest news, tips, and stories from RevSticks. Discover car insights, customization guides, and community highlights.",
+      "keywords": "car blog, car tips, bike customization, RevSticks news, car insights"
     },
     "register": {
       "title": "Register | Revsticks - Customization for Every Style",
@@ -155,7 +155,7 @@
     "riders": {
       "title": "Our Riders | Revsticks - Team & Community",
       "description": "Meet our amazing riders and ambassadors who represent the RevSticks brand with style and passion.",
-      "keywords": "riders, team, ambassadors, motorcycle riders, supermoto riders, RevSticks team"
+      "keywords": "riders, team, ambassadors, car drivers, car enthusiasts, RevSticks team"
     },
     "story": {
       "title": "Our Story | RevSticks",
@@ -164,11 +164,11 @@
     },
     "powdercoat": {
       "title": "Powdercoat Services - RevSticks",
-      "description": "Professional powdercoating services for supermoto parts. High-quality, durable finishes with fast turnaround times."
+      "description": "Professional powdercoating services for car parts. High-quality, durable finishes with fast turnaround times."
     },
     "powdercoatColors": {
       "title": "Powdercoat Colors - RevSticks",
-      "description": "Explore our range of premium powdercoat colors for supermoto parts. Choose from blue, red, orange, purple, black and white finishes with professional quality and durability."
+      "description": "Explore our range of premium powdercoat colors for car parts. Choose from blue, red, orange, purple, black and white finishes with professional quality and durability."
     },
     "powdercoatInformation": {
       "title": "Powdercoat Information - RevSticks",
@@ -195,7 +195,7 @@
     "exploreParts": "Explore Parts"
   },
   "homepage": {
-    "title1": "Supermoto Parts",
+    "title1": "Car Parts",
     "title2": "From Switzerland",
     "subtitle": "Magnetic plate holders from Switzerland",
     "powdercoatingTitle": "Powdercoating Service",
@@ -207,10 +207,10 @@
     "collabSubtitle": "We’ve teamed up with Anania.ch to bring you cool designs and high-quality products.",
     "collabText": "Learn more about our collaboration",
     "stickers": "Stickers",
-    "stickersDescription": "Stickers for your bike and more",
+    "stickersDescription": "Stickers for your vehicle and more",
     "supermotoParts": "Magnetic Plate Holders",
     "superMotoPartsDescription": "Plate holders and stickers for your car",
-    "featuredDescription": "Discover our selection of supermoto parts.",
+    "featuredDescription": "Discover our selection of car parts.",
     "exploreNow": "Explore Now",
     "shopNow": "Shop Now",
     "todaysChoice": "Featured Products",
@@ -239,7 +239,7 @@
     "fastShippingText": "We process and ship your order quickly.",
     "swissBrand": "Swiss Made",
     "swissBrandText": "Designed and tested in Switzerland, on Swiss roads.",
-    "readyText": "Ready to upgrade your bike?",
+    "readyText": "Ready to upgrade your vehicle?",
     "startDesigning": "Browse our parts.",
     "getStarted": "Get Started",
     "featuredItems": "Featured Items",
@@ -258,11 +258,11 @@
     "limitedStock": "Only 8 Left",
     "ledIndicator": "LED Indicator",
     "ledIndicatorsTitle": "Now Available",
-    "ledIndicatorDescription": "LED indicators for your supermoto.",
-    "ledIndicatorsDescription": "Upgrade your bike with our LED turn signals.",
+    "ledIndicatorDescription": "LED indicators for your car.",
+    "ledIndicatorsDescription": "Upgrade your vehicle with our LED turn signals.",
     "shopLEDIndicators": "Shop LED Indicators",
     "rearviewMirrorsTitle": "Rearview Mirrors",
-    "rearviewMirrorsDescription": "Upgrade your bike with premium rearview mirrors. High quality, sleek design and easy installation.",
+    "rearviewMirrorsDescription": "Upgrade your vehicle with premium rearview mirrors. High quality, sleek design and easy installation.",
     "shopRearviewMirrors": "Shop Rearview Mirrors",
     "getItNow": "Get it now",
     "shopProducts": "Shop Products",
@@ -304,9 +304,9 @@
     "cookies": "Cookie Policy"
   },
   "parts": {
-    "partsTitle": "Supermoto Parts",
-    "partsDescription": "High-quality supermoto parts and accessories for your bike",
-    "title": "Supermoto Parts",
+    "partsTitle": "Car Parts",
+    "partsDescription": "High-quality car parts and accessories for your vehicle",
+    "title": "Car Parts",
     "loading": "Loading parts...",
     "loadingParts": "Getting the latest parts information...",
     "noParts": "No parts found",
@@ -337,7 +337,7 @@
     "securePaymentTag": "100% Secure",
     "securePaymentDesc": "SSL encrypted",
     "viewNow": "View Products",
-    "superMotoParts": "Supermoto Parts",
+    "superMotoParts": "Car Parts",
     "superMotoHero": "High quality parts designed for peak performance and style",
     "qualityParts": "Quality Parts",
     "qualityDesc": "All our parts are made with premium materials and designed to last",
@@ -346,7 +346,7 @@
     "expertSupport": "Expert Support",
     "supportDesc": "Our team of motorcycle enthusiasts is here to help you",
     "browseCategories": "Browse Categories",
-    "browseCategoriesDesc": "Find the parts you need for your supermoto build",
+    "browseCategoriesDesc": "Find the parts you need for your car build",
     "explore": "Explore",
     "hot": "HOT",
     "browseTip": "Browse all categories and find your perfect parts. Free shipping on orders over 100 CHF in Switzerland!",
@@ -364,7 +364,7 @@
     "rider3Location": "Lucerne",
     "rider3Quote": "Great selection of high-quality parts. My bike has never performed better!",
     "readyToRide": "Ready to Upgrade Your Ride?",
-    "readyToRideDesc": "Build your dream supermoto with our premium parts collection",
+    "readyToRideDesc": "Build your dream car with our premium parts collection",
     "startBuilding": "Start Building",
     "unnamedGroup": "Unnamed Group",
     "addToCart": "Add to Cart",
@@ -384,9 +384,10 @@
     },
     "partsForBike": "Parts for {bike}",
     "universalParts": "Universal Parts",
-    "noPartsForBike": "We currently don't have specific parts for your bike in this category.",
+    "noPartsForBike": "We currently don't have specific parts for your vehicle in this category.",
     "checkUniversalParts": "Check out our universal parts below that fit various bikes.",
-    "compatibleWith": "Compatible with:"
+    "compatibleWith": "Compatible with:",
+    "allSections": "All"
   },
   "shop": {
     "noStickers": "No stickers found.",
@@ -945,17 +946,17 @@
     "heroTitle": "It started with a dream",
     "heroSubtitle": "Building low cost and good looking products in Switzerland",
     "introTitle": "The Beginning",
-    "introText": "RevSticks was born from a simple vision: to create high-quality, affordable supermoto products that are designed in Switzerland and made by riders for riders.",
+    "introText": "RevSticks was born from a simple vision: to create high-quality, affordable car products that are designed in Switzerland and made by riders for riders.",
     "dreamTitle": "The Dream",
     "dreamText": "It all started with a dream - the vision to build low cost yet beautiful products right here in Switzerland. We believed that quality doesn't have to be expensive and that true innovation comes from passion.",
     "passionTitle": "Passion Meets Innovation",
-    "passionText": "As passionate supermoto riders ourselves, we understood the community's needs firsthand. We knew what products were missing and how we could make them better.",
+    "passionText": "As passionate car enthusiasts ourselves, we understood the community's needs firsthand. We knew what products were missing and how we could make them better.",
     "swissQualityTitle": "Swiss Quality",
     "swissQualityText": "Made in Switzerland stands for precision, quality, and reliability. These values are lived in every product we develop.",
     "communityTitle": "Community First",
     "communityText": "Our community is at the center of everything we do. Their feedback, ideas, and passion drive us to always get better.",
     "futureTitle": "The Future",
-    "futureText": "What started as a dream has become reality today. But this is just the beginning. We continue to work on developing the best products for the supermoto community.",
+    "futureText": "What started as a dream has become reality today. But this is just the beginning. We continue to work on developing the best products for the car community.",
     "ctaTitle": "Become part of our story",
     "ctaText": "Discover our products and become part of the RevSticks family.",
     "exploreProducts": "Explore Products",
@@ -963,14 +964,14 @@
   },
   "powdercoatColors": {
     "title": "Powdercoat Colors",
-    "description": "Discover our range of high-quality powdercoat colors for your supermoto parts. Choose from vibrant finishes that provide both protection and style.",
+    "description": "Discover our range of high-quality powdercoat colors for your car parts. Choose from vibrant finishes that provide both protection and style.",
     "selectedColor": "Selected Color",
     "confirmSelection": "Confirm your color selection to continue.",
     "cancel": "Cancel",
     "confirm": "Confirm Selection",
     "loading": "Processing...",
     "infoTitle": "Professional Quality Finishes",
-    "infoDescription": "All our powdercoat colors feature UV-resistant properties and sandblasting preparation for the best adhesion and durability. Each finish is professionally applied to ensure a smooth, long-lasting result that will protect and enhance your supermoto parts.",
+    "infoDescription": "All our powdercoat colors feature UV-resistant properties and sandblasting preparation for the best adhesion and durability. Each finish is professionally applied to ensure a smooth, long-lasting result that will protect and enhance your car parts.",
     "selectColorButton": "Select Color",
     "breadcrumb": {
       "home": "Home",
@@ -1000,8 +1001,8 @@
   "powdercoat": {
     "comingSoon": "Coming Soon!",
     "title": "Powdercoat Services",
-    "description": "Professional powdercoating services for supermoto parts",
-    "subtitle": "Professional powdercoating for your supermoto parts",
+    "description": "Professional powdercoating services for car parts",
+    "subtitle": "Professional powdercoating for your car parts",
     "blackWeekBanner": {
       "title": "Black Week Sale!",
       "description": "Get 20% off all powdercoating services until December 1st",
@@ -1031,7 +1032,7 @@
     "fastTurnaround": "Processing after receipt within 1-3 business days",
     "fastTurnaroundDesc": "Quick service to get your parts back to you as soon as possible",
     "readyToCoat": "Ready to Transform Your Parts?",
-    "readyToCoatDesc": "Get professional powdercoating services that will make your supermoto stand out from the crowd.",
+    "readyToCoatDesc": "Get professional powdercoating services that will make your car stand out from the crowd.",
     "getStarted": "Get Started",
     "browseTip": "Click on any service to view detailed information and request a quote.",
     "serviceFeatures": "Service Features",
@@ -1196,7 +1197,7 @@
   },
   "blog": {
     "title": "RevSticks Blog",
-    "description": "Read the latest news, tips, and stories from RevSticks. Discover supermoto insights, customization guides, and community highlights.",
+    "description": "Read the latest news, tips, and stories from RevSticks. Discover car insights, customization guides, and community highlights.",
     "subtitle": "Stories, tips & tutorials from the RevSticks team",
     "recentPosts": "Recent Posts",
     "welcome": "Welcome",

@@ -1,10 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Groups from "./Groups";
-import Variations from "./Variations";
 import PartAccessories from "./PartAccessories";
-import BikeModels from "./BikeModels";
+import PartSections from "./PartSections";
 
 interface ProductCatalogProps {
   csrfToken: string;
@@ -12,8 +10,8 @@ interface ProductCatalogProps {
 
 const ProductCatalog = ({ csrfToken }: ProductCatalogProps) => {
   const [activeTab, setActiveTab] = useState<
-    "groups" | "variations" | "accessories" | "bikes"
-  >("groups");
+    "sections" | "accessories"
+  >("sections");
 
   return (
     <div>
@@ -21,33 +19,21 @@ const ProductCatalog = ({ csrfToken }: ProductCatalogProps) => {
 
       {/* Tabs */}
       <div className="border-b border-zinc-700 mb-6">
-        <nav className="-mb-px flex space-x-8" aria-label="Tabs">
+        <nav className="-mb-px flex space-x-8 overflow-x-auto" aria-label="Tabs">
           <button
-            onClick={() => setActiveTab("groups")}
+            onClick={() => setActiveTab("sections")}
             className={`
               whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm
               ${
-                activeTab === "groups"
+                activeTab === "sections"
                   ? "border-amber-500 text-amber-400"
                   : "border-transparent text-zinc-400 hover:text-zinc-300 hover:border-zinc-700"
               }
             `}
           >
-            Groups
+            Part Sections
           </button>
-          <button
-            onClick={() => setActiveTab("variations")}
-            className={`
-              whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm
-              ${
-                activeTab === "variations"
-                  ? "border-amber-500 text-amber-400"
-                  : "border-transparent text-zinc-400 hover:text-zinc-300 hover:border-zinc-700"
-              }
-            `}
-          >
-            Variations
-          </button>
+          
           <button
             onClick={() => setActiveTab("accessories")}
             className={`
@@ -61,30 +47,15 @@ const ProductCatalog = ({ csrfToken }: ProductCatalogProps) => {
           >
             Part Accessories
           </button>
-          <button
-            onClick={() => setActiveTab("bikes")}
-            className={`
-              whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm
-              ${
-                activeTab === "bikes"
-                  ? "border-amber-500 text-amber-400"
-                  : "border-transparent text-zinc-400 hover:text-zinc-300 hover:border-zinc-700"
-              }
-            `}
-          >
-            Bike Models
-          </button>
         </nav>
       </div>
 
       {/* Tab Content */}
       <div>
-        {activeTab === "groups" && <Groups csrfToken={csrfToken} />}
-        {activeTab === "variations" && <Variations csrfToken={csrfToken} />}
+        {activeTab === "sections" && <PartSections csrfToken={csrfToken} />}
         {activeTab === "accessories" && (
           <PartAccessories csrfToken={csrfToken} />
         )}
-        {activeTab === "bikes" && <BikeModels csrfToken={csrfToken} />}
       </div>
     </div>
   );

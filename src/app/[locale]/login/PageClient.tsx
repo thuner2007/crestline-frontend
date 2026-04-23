@@ -158,7 +158,7 @@ const LoginPage = () => {
 
   return (
     <div
-      className={`min-h-screen flex items-center justify-center bg-zinc-950 px-4 ${oswald.variable} ${dmSans.variable}`}
+      className={`min-h-screen w-full flex items-center justify-center bg-zinc-950 px-4 ${oswald.variable} ${dmSans.variable}`}
       style={{
         backgroundImage:
           "radial-gradient(circle, rgba(245,158,11,0.12) 1px, transparent 1px)",

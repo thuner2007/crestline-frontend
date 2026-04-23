@@ -1060,7 +1060,7 @@ const Orders: React.FC<Props> = ({ csrfToken }) => {
             value={searchQuery}
             onChange={handleSearchChange}
             placeholder="Search by name, email, phone, city, order ID, payment ID…"
-            className="w-full pl-9 pr-10 py-2 border border-zinc-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+            className="w-full pl-9 pr-10 py-2 border border-zinc-700 rounded-lg text-sm bg-zinc-900 text-zinc-100 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-amber-500"
           />
           {loading && isSearchMode && (
             <div className="absolute right-3 top-1/2 -translate-y-1/2">

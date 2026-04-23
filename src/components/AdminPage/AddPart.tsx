@@ -168,6 +168,10 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
   const [partGroups, setPartGroups] = useState<
     { id: string; translations: Translation[] }[]
   >([]);
+  const [partSections, setPartSections] = useState<
+    { id: string; translations: Translation[]; active: boolean }[]
+  >([]);
+  const [selectedSections, setSelectedSections] = useState<string[]>([]);
   const [keywords, setKeywords] = useState<string[]>([]);
   const [keywordInput, setKeywordInput] = useState<string>("");
 
@@ -233,12 +237,17 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
           : [];
         setFilamentTypes(types);
 
-        const [partGroupsResponse] = await Promise.all([
+        const [partGroupsResponse, partSectionsResponse] = await Promise.all([
           axiosInstance.get<{ id: string; translations: Translation[] }[]>(
             "/groups/part-groups",
-          ), // Add this line to fetch part groups
+          ),
+          axiosInstance.get<{ id: string; translations: Translation[]; active: boolean }[]>(
+            "/part-sections",
+            { params: { includeInactive: "false" } },
+          ),
         ]);
-        setPartGroups(partGroupsResponse.data); // Store part groups
+        setPartGroups(partGroupsResponse.data);
+        setPartSections(partSectionsResponse.data);
       } catch (err) {
         console.error("Error fetching data:", err);
         setError("Failed to load data");
@@ -664,13 +673,31 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
       }
 
       // Submit the form with all data and images
-      await axiosInstance.post<{ success: boolean }>("/parts", formData, {
+      const createdPart = await axiosInstance.post<{ id: string }>("/parts", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${storage.getItem("access_token")}`,
           "X-CSRF-Token": csrfToken,
         },
       });
+
+      // Assign part to selected sections
+      if (selectedSections.length > 0 && createdPart.data?.id) {
+        await Promise.all(
+          selectedSections.map((sectionId) =>
+            axiosInstance.post(
+              `/part-sections/${sectionId}/parts/${createdPart.data.id}`,
+              {},
+              {
+                headers: {
+                  Authorization: `Bearer ${storage.getItem("access_token")}`,
+                  "X-CSRF-Token": csrfToken,
+                },
+              }
+            )
+          )
+        );
+      }
 
       setSuccess("Part created successfully!");
       reset();
@@ -681,6 +708,7 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
       setCustomizationOptions([]);
       setKeywords([]);
       setKeywordInput("");
+      setSelectedSections([]);
 
       // Call onSuccess callback if provided
       if (onSuccess) {
@@ -1059,6 +1087,51 @@ const AddPart: React.FC<Props> = ({ csrfToken, initialData, onSuccess }) => {
                     </div>
                   </div>
                 </div>
+
+                {/* Sections */}
+                {partSections.length > 0 && (
+                  <div className="col-span-full">
+                    <label className="block text-sm font-medium text-zinc-300 mb-1">
+                      Sections
+                    </label>
+                    <p className="text-xs text-zinc-500 mb-2">
+                      Assign this part to one or more sections (e.g. Plate Holders, Hoodies).
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                      {partSections.map((section) => {
+                        const title =
+                          section.translations.find((t) => t.language === "en")
+                            ?.title || "Untitled";
+                        const isChecked = selectedSections.includes(section.id);
+                        return (
+                          <div key={section.id} className="flex items-center">
+                            <input
+                              type="checkbox"
+                              id={`section-${section.id}`}
+                              checked={isChecked}
+                              onChange={(e) => {
+                                if (e.target.checked) {
+                                  setSelectedSections((prev) => [...prev, section.id]);
+                                } else {
+                                  setSelectedSections((prev) =>
+                                    prev.filter((id) => id !== section.id)
+                                  );
+                                }
+                              }}
+                              className="h-4 w-4 rounded border-zinc-700 text-amber-400 focus:ring-amber-500"
+                            />
+                            <label
+                              htmlFor={`section-${section.id}`}
+                              className="ml-2 text-sm text-zinc-300"
+                            >
+                              {title}
+                            </label>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
 
                 {/* Keywords */}
                 <div className="col-span-full">

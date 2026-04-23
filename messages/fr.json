@@ -6,23 +6,23 @@
   },
   "metadata": {
     "partGroup": {
-      "title": "Supermoto Parts | Revsticks - Customization for Every Style",
-      "description": "Explore our selection of high-quality supermoto parts for your bike. Customize your ride with premium components.",
-      "keywords": "supermoto parts, motorcycle parts, bike accessories, supermoto customization, high-quality parts"
+      "title": "Supervoiture Parts | Revsticks - Customization for Every Style",
+      "description": "Explore our selection of high-quality supervoiture parts for your bike. Customize your ride with premium components.",
+      "keywords": "supervoiture parts, voiturercycle parts, bike accessories, supervoiture customization, high-quality parts"
     },
     "parts": {
-      "title": "Supermoto Parts | Revsticks - Customization for Every Style",
-      "description": "Explore our selection of high-quality supermoto parts for your bike. Customize your ride with premium components.",
-      "keywords": "supermoto parts, motorcycle parts, bike accessories, supermoto customization, high-quality parts"
+      "title": "Supervoiture Parts | Revsticks - Customization for Every Style",
+      "description": "Explore our selection of high-quality supervoiture parts for your bike. Customize your ride with premium components.",
+      "keywords": "supervoiture parts, voiturercycle parts, bike accessories, supervoiture customization, high-quality parts"
     },
     "part": {
-      "title": "Supermoto Part | Revsticks - Customization for Every Style",
-      "description": "Explorer notre sélection de pièces de supermoto de haute qualité pour votre moto. Personnalisez votre conduite avec des composants premium.",
-      "keywords": "pièces de supermoto, pièces de moto, accessoires de moto, personnalisation de supermoto, pièces de haute qualité"
+      "title": "Supervoiture Part | Revsticks - Customization for Every Style",
+      "description": "Explorer notre sélection de pièces automobiles de haute qualité pour votre véhicule. Personnalisez votre conduite avec des composants premium.",
+      "keywords": "pièces automobiles, pièces de voiture, accessoires de voiture, personnalisation automobile, pièces de haute qualité"
     },
     "home": {
-      "title": "Pièces détachées pour supermotards - RevSticks Suisse",
-      "description": "Achetez des pièces et des autocollants Supermoto en Suisse. Accessoires personnalisés pour motos, designs professionnels et expédition rapide depuis la Suisse.",
+      "title": "Pièces détachées pour automobiles - RevSticks Suisse",
+      "description": "Achetez des pièces et des autocollants Supervoiture en Suisse. Accessoires personnalisés pour voitures, designs professionnels et expédition rapide depuis la Suisse.",
       "keywords": "autocollants, autocollants personnalisés, autocollants sur mesure, boutique d'autocollants, magasin d'autocollants, conception d'autocollants, éditeur d'autocollants"
     },
     "account": {
@@ -105,8 +105,8 @@
     },
     "blog": {
       "title": "Blog | RevSticks - Histoires, Conseils & Insights",
-      "description": "Lisez les dernières actualités, conseils et histoires de RevSticks. Découvrez des insights supermoto, des guides de personnalisation et des temps forts de la communauté.",
-      "keywords": "blog supermoto, conseils moto, personnalisation vélo, actualités RevSticks, insights supermoto"
+      "description": "Lisez les dernières actualités, conseils et histoires de RevSticks. Découvrez des insights automobiles, des guides de personnalisation et des temps forts de la communauté.",
+      "keywords": "blog automobile, conseils voiture, personnalisation vélo, actualités RevSticks, insights automobiles"
     },
     "contact": {
       "title": "Contact | RevSticks - Entrez en contact",
@@ -154,8 +154,8 @@
     },
     "riders": {
       "title": "Nos Pilotes | Revsticks - Équipe & Communauté",
-      "description": "Rencontrez nos incroyables pilotes et ambassadeurs qui représentent la marque RevSticks avec style et passion.",
-      "keywords": "pilotes, équipe, ambassadeurs, motards, pilotes supermoto, équipe RevSticks"
+      "description": "Rencontrez nos incroyables conducteurs et ambassadeurs qui représentent la marque RevSticks avec style et passion.",
+      "keywords": "conducteurs, équipe, ambassadeurs, conducteurs, passionnés d'automobile, équipe RevSticks"
     },
     "story": {
       "title": "Notre Histoire | RevSticks",
@@ -164,11 +164,11 @@
     },
     "powdercoat": {
       "title": "Services de Revêtement en Poudre - RevSticks",
-      "description": "Services professionnels de revêtement en poudre pour pièces supermoto. Finitions de haute qualité et durables avec délais de traitement rapides."
+      "description": "Services professionnels de revêtement en poudre pour pièces supervoiture. Finitions de haute qualité et durables avec délais de traitement rapides."
     },
     "powdercoatColors": {
       "title": "Couleurs de Poudrage - RevSticks",
-      "description": "Explorez notre gamme de couleurs de poudrage premium pour pièces supermoto. Choisissez parmi bleu, rouge, orange, violet, noir et blanc avec qualité professionnelle et durabilité."
+      "description": "Explorez notre gamme de couleurs de poudrage premium pour pièces supervoiture. Choisissez parmi bleu, rouge, orange, violet, noir et blanc avec qualité professionnelle et durabilité."
     },
     "powdercoatInformation": {
       "title": "Informations Revêtement en Poudre - RevSticks",
@@ -195,7 +195,7 @@
     "exploreParts": "Explorer les pièces"
   },
   "homepage": {
-    "title1": "Pièces Supermoto",
+    "title1": "Pièces Automobiles",
     "title2": "De Suisse",
     "subtitle": "Supports de plaque magnétiques de Suisse",
     "powdercoatingTitle": "Service de revêtement en poudre",
@@ -207,10 +207,10 @@
     "collabSubtitle": "Nous avons collaboré avec Anania.ch.",
     "collabText": "En savoir plus sur notre collaboration",
     "stickers": "Autocollants",
-    "stickersDescription": "Autocollants pour votre moto et plus encore",
-    "supermotoParts": "Supports de plaque magnétiques",
+    "stickersDescription": "Autocollants pour votre véhicule et plus encore",
+    "supervoitureParts": "Supports de plaque magnétiques",
     "superMotoPartsDescription": "Supports de plaque et stickers pour votre voiture",
-    "featuredDescription": "Découvrez notre sélection de pièces supermoto.",
+    "featuredDescription": "Découvrez notre sélection de pièces supervoiture.",
     "exploreNow": "Explorer maintenant",
     "shopNow": "Acheter maintenant",
     "todaysChoice": "Produits en Vedette",
@@ -224,43 +224,43 @@
     "trustedBrand": "Marque de confiance",
     "happyCustomers": "Clients",
     "partsSold": "Pièces vendues",
-    "rating": "De confiance des pilotes",
+    "rating": "De confiance des conducteurs",
     "dataProtection": "Données protégées",
     "dataProtectionText": "Conforme RGPD",
     "style": "Pièces de qualité",
-    "styleText": "Pièces pour votre supermoto.",
+    "styleText": "Pièces pour votre voiture.",
     "cheapPrices": "Prix équitables",
     "cheapPricesText": "Prix honnêtes pour des pièces de qualité.",
     "whyChooseUs": "Pourquoi nous choisir",
     "whyChooseUsTitle": "Pourquoi Crestline",
-    "whyChooseUsSubtitle": "Nous comprenons ce dont les pilotes ont besoin.",
+    "whyChooseUsSubtitle": "Nous comprenons ce dont les conducteurs ont besoin.",
     "fastShippingText": "Nous traitons et expédions votre commande rapidement.",
     "swissBrand": "Swiss Made",
     "swissBrandText": "Conçu et testé en Suisse, sur les routes suisses.",
-    "readyText": "Prêt à améliorer votre moto ?",
+    "readyText": "Prêt à améliorer votre véhicule ?",
     "startDesigning": "Parcourez nos pièces.",
     "getStarted": "Commencer",
     "featuredItems": "Articles en vedette",
     "ridersTitle": "Nos Pilotes Communautaires",
-    "ridersSubtitle": "Rencontrez les pilotes qui représentent RevSticks",
+    "ridersSubtitle": "Rencontrez les conducteurs qui représentent RevSticks",
     "viewAllRiders": "Voir Tous les Pilotes",
     "aboutUsLabel": "À propos de nous",
-    "fromRidersForRiders": "De pilotes pour pilotes",
-    "aboutUsDescription": "Nous sommes des pilotes qui comprennent ce dont la communauté a besoin. Nos produits viennent d'une vraie expérience.",
-    "aboutUsSecondParagraph": "Créé par des pilotes, pour des pilotes.",
+    "fromRidersForRiders": "De conducteurs pour conducteurs",
+    "aboutUsDescription": "Nous sommes des conducteurs qui comprennent ce dont la communauté a besoin. Nos produits viennent d'une vraie expérience.",
+    "aboutUsSecondParagraph": "Créé par des conducteurs, pour des conducteurs.",
     "readOurStory": "Lire notre histoire",
     "communityDriven": "Axé sur la communauté",
-    "communityDrivenDescription": "Conçu par des pilotes, pour des pilotes",
+    "communityDrivenDescription": "Conçu par des conducteurs, pour des conducteurs",
     "newInShop": "NOUVEAU EN BOUTIQUE",
     "newProduct": "NOUVEAU EN BOUTIQUE",
     "limitedStock": "Seulement 8 restants",
     "ledIndicator": "Clignotant LED",
     "ledIndicatorsTitle": "Maintenant disponible",
-    "ledIndicatorDescription": "La dernière innovation en éclairage supermoto. Clignotants LED premium conçus pour le style et la performance.",
-    "ledIndicatorsDescription": "Améliorez votre moto avec nos clignotants LED premium. Haute qualité, design élégant et installation facile.",
+    "ledIndicatorDescription": "La dernière innovation en éclairage supervoiture. Clignotants LED premium conçus pour le style et la performance.",
+    "ledIndicatorsDescription": "Améliorez votre véhicule avec nos clignotants LED premium. Haute qualité, design élégant et installation facile.",
     "shopLEDIndicators": "Acheter clignotants LED",
     "rearviewMirrorsTitle": "Rétroviseurs",
-    "rearviewMirrorsDescription": "Améliorez votre moto avec des rétroviseurs premium. Haute qualité, design élégant et installation facile.",
+    "rearviewMirrorsDescription": "Améliorez votre véhicule avec des rétroviseurs premium. Haute qualité, design élégant et installation facile.",
     "shopRearviewMirrors": "Acheter rétroviseurs",
     "getItNow": "L'obtenir maintenant",
     "shopProducts": "Voir les produits",
@@ -276,7 +276,7 @@
     "browseCategoriesDesc": "Trouvez le bon produit pour votre voiture"
   },
   "navigation": {
-    "parts": "Pièces Supermoto",
+    "parts": "Pièces Automobiles",
     "login": "Connexion",
     "register": "S'inscrire"
   },
@@ -294,7 +294,7 @@
   },
   "footer": {
     "aboutUs": "À propos de nous",
-    "aboutUsText": "Pièces supermoto de Suisse. Découvrez et commandez aujourd'hui!",
+    "aboutUsText": "Pièces supervoiture de Suisse. Découvrez et commandez aujourd'hui!",
     "allProducts": "Tous les produits",
     "community": "Communauté",
     "riders": "Pilotes",
@@ -343,9 +343,9 @@
     "goBack": "Retour"
   },
   "parts": {
-    "partsTitle": "Pièces Supermoto",
-    "partsDescription": "Pièces supermoto et accessoires de haute qualité pour votre moto",
-    "title": "Pièces Supermoto",
+    "partsTitle": "Pièces Automobiles",
+    "partsDescription": "Pièces supervoiture et accessoires de haute qualité pour votre véhicule",
+    "title": "Pièces Automobiles",
     "loading": "Chargement des pièces...",
     "loadingParts": "Obtention des dernières informations sur les pièces...",
     "noParts": "Aucune pièce trouvée",
@@ -376,23 +376,23 @@
     "securePaymentTag": "100% Sécurisé",
     "securePaymentDesc": "Chiffrement SSL",
     "viewNow": "Voir les produits",
-    "superMotoParts": "Pièces Supermoto",
+    "superMotoParts": "Pièces Automobiles",
     "superMotoHero": "Pièces de haute qualité conçues pour des performances et un style optimaux",
     "qualityParts": "Pièces de qualité",
     "qualityDesc": "Toutes nos pièces sont fabriquées avec des matériaux premium et conçues pour durer",
     "fastDelivery": "Livraison rapide",
     "deliveryDesc": "Expédition rapide pour vous livrer vos pièces dès que possible",
     "expertSupport": "Support expert",
-    "supportDesc": "Notre équipe de passionnés de moto est là pour vous aider",
+    "supportDesc": "Notre équipe de passionnés d'automobile est là pour vous aider",
     "browseCategories": "Parcourir les catégories",
-    "browseCategoriesDesc": "Trouvez les pièces dont vous avez besoin pour votre projet supermoto",
+    "browseCategoriesDesc": "Trouvez les pièces dont vous avez besoin pour votre projet automobile",
     "explore": "Explorer",
     "hot": "TOP",
     "browseTip": "Parcourez toutes les catégories et trouvez vos pièces parfaites. Livraison gratuite dès 100 CHF en Suisse !",
-    "joinThousands": "Rejoignez 500+ pilotes satisfaits",
+    "joinThousands": "Rejoignez 500+ conducteurs satisfaits",
     "easyReturns": "Retours faciles dans les 30 jours",
     "customerSupport": "Support client 24/7",
-    "ridersFavorites": "Les favoris des pilotes",
+    "ridersFavorites": "Les favoris des conducteurs",
     "rider1Name": "Max S.",
     "rider1Location": "Zurich",
     "rider1Quote": "Ces pièces ont complètement transformé mon expérience de conduite. La qualité est exceptionnelle !",
@@ -401,9 +401,9 @@
     "rider2Quote": "Livraison rapide et les pièces s'adaptent parfaitement. Je vais certainement commander davantage.",
     "rider3Name": "Tom R.",
     "rider3Location": "Lucerne",
-    "rider3Quote": "Grand choix de pièces de haute qualité. Ma moto n'a jamais été aussi performante !",
-    "readyToRide": "Prêt à améliorer votre moto ?",
-    "readyToRideDesc": "Construisez la supermoto de vos rêves avec notre collection de pièces premium",
+    "rider3Quote": "Grand choix de pièces de haute qualité. Ma voiture n'a jamais été aussi performante !",
+    "readyToRide": "Prêt à améliorer votre véhicule ?",
+    "readyToRideDesc": "Construisez la supervoiture de vos rêves avec notre collection de pièces premium",
     "startBuilding": "Commencer",
     "unnamedGroup": "Groupe sans nom",
     "addToCart": "Ajouter au panier",
@@ -423,9 +423,10 @@
     },
     "partsForBike": "Pièces pour {bike}",
     "universalParts": "Pièces Universelles",
-    "noPartsForBike": "Nous n'avons actuellement pas de pièces spécifiques pour votre moto dans cette catégorie.",
-    "checkUniversalParts": "Découvrez nos pièces universelles ci-dessous qui conviennent à différentes motos.",
-    "compatibleWith": "Compatible avec:"
+    "noPartsForBike": "Nous n'avons actuellement pas de pièces spécifiques pour votre véhicule dans cette catégorie.",
+    "checkUniversalParts": "Découvrez nos pièces universelles ci-dessous qui conviennent à différentes voitures.",
+    "compatibleWith": "Compatible avec:",
+    "allSections": "Tous"
   },
   "editor": {
     "addedToCart": "Design ajouté au panier !",
@@ -548,7 +549,7 @@
     "peopleViewing": "personnes consultent ceci en ce moment",
     "soldLast24h": "vendus au cours des dernières 24 heures",
     "trustedBy": "Approuvé par",
-    "riders": "pilotes",
+    "riders": "conducteurs",
     "sslEncrypted": "Paiement crypté SSL",
     "gdprCompliant": "Conforme RGPD & sécurisé",
     "savingOnShipping": "Vous économisez sur les frais de livraison!",
@@ -948,17 +949,17 @@
     "heroTitle": "Cela a commencé par un rêve",
     "heroSubtitle": "Construire des produits abordables et beaux en Suisse",
     "introTitle": "Le Commencement",
-    "introText": "RevSticks est né d'une vision simple : créer des produits supermoto de haute qualité et abordables, conçus en Suisse et faits par des pilotes pour des pilotes.",
+    "introText": "RevSticks est né d'une vision simple : créer des produits automobiles de haute qualité et abordables, conçus en Suisse et faits par des conducteurs pour des conducteurs.",
     "dreamTitle": "Le Rêve",
     "dreamText": "Tout a commencé par un rêve - la vision de construire des produits abordables mais beaux directement ici en Suisse. Nous croyions que la qualité ne doit pas être chère et que la vraie innovation vient de la passion.",
     "passionTitle": "La Passion Rencontre l'Innovation",
-    "passionText": "En tant que pilotes supermoto passionnés nous-mêmes, nous comprenions les besoins de la communauté de première main. Nous savions quels produits manquaient et comment nous pouvions les améliorer.",
+    "passionText": "En tant que passionnés d'automobile passionnés nous-mêmes, nous comprenions les besoins de la communauté de première main. Nous savions quels produits manquaient et comment nous pouvions les améliorer.",
     "swissQualityTitle": "Qualité Suisse",
     "swissQualityText": "Fabriqué en Suisse signifie précision, qualité et fiabilité. Ces valeurs sont vécues dans chaque produit que nous développons.",
     "communityTitle": "La Communauté d'Abord",
     "communityText": "Notre communauté est au centre de tout ce que nous faisons. Leurs commentaires, idées et passion nous poussent à toujours nous améliorer.",
     "futureTitle": "L'Avenir",
-    "futureText": "Ce qui a commencé comme un rêve est devenu réalité aujourd'hui. Mais ce n'est que le début. Nous continuons à travailler pour développer les meilleurs produits pour la communauté supermoto.",
+    "futureText": "Ce qui a commencé comme un rêve est devenu réalité aujourd'hui. Mais ce n'est que le début. Nous continuons à travailler pour développer les meilleurs produits pour la communauté automobile.",
     "ctaTitle": "Faites partie de notre histoire",
     "ctaText": "Découvrez nos produits et devenez partie de la famille RevSticks.",
     "exploreProducts": "Explorer les Produits",
@@ -966,14 +967,14 @@
   },
   "powdercoatColors": {
     "title": "Couleurs de Poudrage",
-    "description": "Découvrez notre gamme de couleurs de poudrage de haute qualité pour vos pièces supermoto. Choisissez parmi des finitions vibrantes qui offrent à la fois protection et style.",
+    "description": "Découvrez notre gamme de couleurs de poudrage de haute qualité pour vos pièces supervoiture. Choisissez parmi des finitions vibrantes qui offrent à la fois protection et style.",
     "selectedColor": "Couleur Sélectionnée",
     "confirmSelection": "Confirmez votre sélection de couleur pour continuer.",
     "cancel": "Annuler",
     "confirm": "Confirmer la Sélection",
     "loading": "Traitement...",
     "infoTitle": "Finitions de Qualité Professionnelle",
-    "infoDescription": "Toutes nos couleurs de poudrage offrent des propriétés résistantes aux UV et une préparation par sablage pour la meilleure adhérence et durabilité. Chaque finition est appliquée professionnellement pour assurer un résultat lisse et durable qui protégera et améliorera vos pièces supermoto.",
+    "infoDescription": "Toutes nos couleurs de poudrage offrent des propriétés résistantes aux UV et une préparation par sablage pour la meilleure adhérence et durabilité. Chaque finition est appliquée professionnellement pour assurer un résultat lisse et durable qui protégera et améliorera vos pièces supervoiture.",
     "selectColorButton": "Sélectionner Couleur",
     "breadcrumb": {
       "home": "Accueil",
@@ -1003,8 +1004,8 @@
   "powdercoat": {
     "comingSoon": "Bientôt disponible",
     "title": "Services de Poudrage",
-    "description": "Services professionnels de poudrage pour pièces supermoto",
-    "subtitle": "Poudrage professionnel pour vos pièces supermoto",
+    "description": "Services professionnels de poudrage pour pièces supervoiture",
+    "subtitle": "Poudrage professionnel pour vos pièces supervoiture",
     "blackWeekBanner": {
       "title": "Soldes Black Week !",
       "description": "Obtenez 20% de réduction sur tous les services de poudrage jusqu'au 1er décembre",
@@ -1034,7 +1035,7 @@
     "fastTurnaround": "Traitement après réception : 1 à 3 jours ouvrables",
     "fastTurnaroundDesc": "Service rapide pour vous rendre vos pièces dès que possible",
     "readyToCoat": "Prêt à transformer vos pièces ?",
-    "readyToCoatDesc": "Obtenez des services de poudrage professionnels qui feront ressortir votre supermoto de la foule.",
+    "readyToCoatDesc": "Obtenez des services de poudrage professionnels qui feront ressortir votre voiture de la foule.",
     "getStarted": "Commencer",
     "browseTip": "Cliquez sur n'importe quel service pour voir les informations détaillées et demander un devis.",
     "serviceFeatures": "Caractéristiques du Service",

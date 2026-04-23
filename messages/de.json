@@ -7,22 +7,22 @@
   "metadata": {
     "partGroup": {
       "title": "Teile | Revsticks - Individuelle Sticker für Jeden Stil",
-      "description": "Entdecke unsere Premium-Auswahl an Supermoto-Teilen, entworfen und getestet von Profis für maximale Leistung und Stil.",
-      "keywords": "Teile, Supermoto, Motorrad, Zubehör, Leistung, Stil, Qualität, Revsticks"
+      "description": "Entdecke unsere Premium-Auswahl an Auto-Teilen, entworfen und getestet von Profis für maximale Leistung und Stil.",
+      "keywords": "Teile, Auto, Auto, Zubehör, Leistung, Stil, Qualität, Revsticks"
     },
     "parts": {
       "title": "Teile | Revsticks - Individuelle Sticker für Jeden Stil",
-      "description": "Entdecke unsere Premium-Auswahl an Supermoto-Teilen, entworfen und getestet von Profis für maximale Leistung und Stil.",
-      "keywords": "Teile, Supermoto, Motorrad, Zubehör, Leistung, Stil, Qualität, Revsticks"
+      "description": "Entdecke unsere Premium-Auswahl an Auto-Teilen, entworfen und getestet von Profis für maximale Leistung und Stil.",
+      "keywords": "Teile, Auto, Auto, Zubehör, Leistung, Stil, Qualität, Revsticks"
     },
     "part": {
-      "title": "Supermoto Part | Revsticks - Individuelle Sticker für Jeden Stil",
-      "description": "Entdecke die Supermoto Teile von Revsticks. Hochwertige Teile für deine Supermoto-Anpassung.",
-      "keywords": "Teile, Supermoto, Motorrad, Zubehör, Leistung, Stil, Qualität, Revsticks"
+      "title": "Auto Part | Revsticks - Individuelle Sticker für Jeden Stil",
+      "description": "Entdecke die Auto-Teile von Revsticks. Hochwertige Teile für deine Auto-Anpassung.",
+      "keywords": "Teile, Auto, Auto, Zubehör, Leistung, Stil, Qualität, Revsticks"
     },
     "home": {
-      "title": "Supermoto Teile - RevSticks Schweiz",
-      "description": "Shoppe Supermoto Teile und Sticker in der Schweiz. Individuelle Motorrad-Accessoires, professionelle Designs und schneller Schweizer Versand.",
+      "title": "Auto-Teile - RevSticks Schweiz",
+      "description": "Shoppe Auto-Teile und Sticker in der Schweiz. Individuelle Auto-Accessoires, professionelle Designs und schneller Schweizer Versand.",
       "keywords": "Sticker, Aufkleber, individuell, personalisiert, einzigartig, kreativ, Design, Stil, Farbe, Persönlichkeit"
     },
     "account": {
@@ -105,8 +105,8 @@
     },
     "blog": {
       "title": "Blog | RevSticks - Geschichten, Tipps & Einblicke",
-      "description": "Lese die neuesten Nachrichten, Tipps und Geschichten von RevSticks. Entdecke Supermoto-Einblicke, Anpassungsanleitungen und Community-Highlights.",
-      "keywords": "Supermoto Blog, Motorrad Tipps, Bike Anpassung, RevSticks News, Supermoto Einblicke"
+      "description": "Lese die neuesten Nachrichten, Tipps und Geschichten von RevSticks. Entdecke Auto-Einblicke, Anpassungsanleitungen und Community-Highlights.",
+      "keywords": "Auto Blog, Auto Tipps, Bike Anpassung, RevSticks News, Auto Einblicke"
     },
     "contact": {
       "title": "Kontakt | Revsticks - Trete mit uns in Kontakt",
@@ -155,7 +155,7 @@
     "riders": {
       "title": "Unsere Fahrer | Revsticks - Team & Community",
       "description": "Lerne unsere talentierten Fahrer und Botschafter kennen, die die Marke RevSticks mit Stil und Leidenschaft repräsentieren.",
-      "keywords": "Fahrer, Team, Botschafter, Motorradfahrer, Supermoto-Fahrer, RevSticks Team"
+      "keywords": "Fahrer, Team, Botschafter, Autofahrer, Auto-Enthusiasten, RevSticks Team"
     },
     "story": {
       "title": "Unsere Geschichte | RevSticks",
@@ -164,11 +164,11 @@
     },
     "powdercoat": {
       "title": "Pulverbeschichtungsservice - RevSticks",
-      "description": "Professionelle Pulverbeschichtungsservices für Supermoto-Teile. Hochwertige, langlebige Oberflächen mit schneller Bearbeitung."
+      "description": "Professionelle Pulverbeschichtungsservices für Auto-Teile. Hochwertige, langlebige Oberflächen mit schneller Bearbeitung."
     },
     "powdercoatColors": {
       "title": "Pulverbeschichtungs-Farben - RevSticks",
-      "description": "Entdecke unsere Auswahl an Premium-Pulverbeschichtungsfarben für Supermoto-Teile. Wähle aus Blau, Rot, Orange, Lila, Schwarz und Weiß mit professioneller Qualität und Haltbarkeit."
+      "description": "Entdecke unsere Auswahl an Premium-Pulverbeschichtungsfarben für Auto-Teile. Wähle aus Blau, Rot, Orange, Lila, Schwarz und Weiß mit professioneller Qualität und Haltbarkeit."
     },
     "powdercoatInformation": {
       "title": "Pulverbeschichtung Informationen - RevSticks",
@@ -195,7 +195,7 @@
     "exploreParts": "Teile entdecken"
   },
   "homepage": {
-    "title1": "Supermoto Teile",
+    "title1": "Auto-Teile",
     "title2": "Aus der Schweiz",
     "subtitle": "Magnetische Nummernschildhalter aus der Schweiz",
     "powdercoatingTitle": "Pulverbeschichtungsservice",
@@ -207,10 +207,10 @@
     "collabSubtitle": "Wir haben mit Anania.ch zusammengearbeitet.",
     "collabText": "Mehr über unsere Zusammenarbeit erfahren",
     "stickers": "Sticker",
-    "stickersDescription": "Sticker für dein Bike und mehr",
+    "stickersDescription": "Sticker für dein Fahrzeug und mehr",
     "supermotoParts": "Magnetische Nummernschildhalter",
     "superMotoPartsDescription": "Nummernschildhalter und Sticker für dein Auto",
-    "featuredDescription": "Entdecke unsere Auswahl an Supermoto-Teilen.",
+    "featuredDescription": "Entdecke unsere Auswahl an Auto-Teilen.",
     "exploreNow": "Jetzt entdecken",
     "shopNow": "Jetzt shoppen",
     "todaysChoice": "Ausgewählte Produkte",
@@ -243,11 +243,11 @@
     "limitedStock": "Nur noch 8 Stück",
     "ledIndicator": "LED Blinker",
     "ledIndicatorsTitle": "Jetzt verfügbar",
-    "ledIndicatorDescription": "LED Blinker für deine Supermoto.",
-    "ledIndicatorsDescription": "Rüste dein Bike mit unseren LED-Blinkern auf.",
+    "ledIndicatorDescription": "LED Blinker für deine Auto.",
+    "ledIndicatorsDescription": "Rüste dein Fahrzeug mit unseren LED-Blinkern auf.",
     "shopLEDIndicators": "LED Blinker shoppen",
     "rearviewMirrorsTitle": "Rückspiegel",
-    "rearviewMirrorsDescription": "Rüste dein Bike mit Premium-Rückspiegeln auf. Hohe Qualität, schlankes Design und einfache Montage.",
+    "rearviewMirrorsDescription": "Rüste dein Fahrzeug mit Premium-Rückspiegeln auf. Hohe Qualität, schlankes Design und einfache Montage.",
     "shopRearviewMirrors": "Rückspiegel shoppen",
     "getItNow": "Jetzt holen",
     "shopProducts": "Produkte shoppen",
@@ -263,7 +263,7 @@
     "dataProtection": "Datenschutz",
     "dataProtectionText": "DSGVO-konform",
     "style": "Qualitätsteile",
-    "styleText": "Teile für deine Supermoto.",
+    "styleText": "Teile für deine Auto.",
     "cheapPrices": "Faire Preise",
     "cheapPricesText": "Ehrliche Preise für Qualitätsteile.",
     "whyChooseUs": "Warum wir?",
@@ -276,7 +276,7 @@
     "browseCategoriesDesc": "Finde das richtige Produkt für dein Auto"
   },
   "navigation": {
-    "parts": "Supermoto Teile",
+    "parts": "Auto-Teile",
     "login": "Anmelden",
     "register": "Registrieren"
   },
@@ -292,7 +292,7 @@
   },
   "footer": {
     "aboutUs": "Über uns",
-    "aboutUsText": "Aufkleber und Supermoto Teile – für deinen persönlichen Style und jedes Projekt. Entdecke jetzt und bestelle noch heute!",
+    "aboutUsText": "Aufkleber und Auto-Teile – für deinen persönlichen Style und jedes Projekt. Entdecke jetzt und bestelle noch heute!",
     "allProducts": "Alle Produkte",
     "community": "Community",
     "riders": "Fahrer",
@@ -341,9 +341,9 @@
     "goBack": "Zurück"
   },
   "parts": {
-    "partsTitle": "Supermoto Teile",
-    "partsDescription": "Hochwertige Supermoto-Teile und Zubehör für dein Bike",
-    "title": "Supermoto Teile",
+    "partsTitle": "Auto-Teile",
+    "partsDescription": "Hochwertige Auto-Teile und Zubehör für dein Fahrzeug",
+    "title": "Auto-Teile",
     "loading": "Teile werden geladen...",
     "loadingParts": "Die neuesten Teile-Informationen werden geladen...",
     "noParts": "Keine Teile gefunden",
@@ -374,16 +374,16 @@
     "securePaymentTag": "100% Sicher",
     "securePaymentDesc": "SSL verschlüsselt",
     "viewNow": "Produkte anzeigen",
-    "superMotoParts": "Supermoto Teile",
+    "superMotoParts": "Auto-Teile",
     "superMotoHero": "Hochwertige Teile für maximale Leistung und Stil",
     "qualityParts": "Qualitätsteile",
     "qualityDesc": "Alle unsere Teile werden aus erstklassigen Materialien hergestellt und sind auf Langlebigkeit ausgelegt",
     "fastDelivery": "Schneller Versand",
     "deliveryDesc": "Schneller Versand, damit du deine Teile so schnell wie möglich erhältst",
     "expertSupport": "Experten-Support",
-    "supportDesc": "Unser Team aus Motorradenthusiasten steht dir zur Seite",
+    "supportDesc": "Unser Team aus Auto-Enthusiasten steht dir zur Seite",
     "browseCategories": "Kategorien durchsuchen",
-    "browseCategoriesDesc": "Finde die Teile, die du für deinen Supermoto-Aufbau benötigst",
+    "browseCategoriesDesc": "Finde die Teile, die du für deinen Auto-Aufbau benötigst",
     "explore": "Erkunden",
     "hot": "HEISS",
     "browseTip": "Durchsuche alle Kategorien und finde deine perfekten Teile. Kostenloser Versand ab 100 CHF innerhalb der Schweiz!",
@@ -400,8 +400,8 @@
     "rider3Name": "Tom R.",
     "rider3Location": "Luzern",
     "rider3Quote": "Große Auswahl an hochwertigen Teilen. Mein Bike hat noch nie besser performt!",
-    "readyToRide": "Bereit, dein Bike aufzurüsten?",
-    "readyToRideDesc": "Baue deine Traum-Supermoto mit unserer Premium-Teilekollektion",
+    "readyToRide": "Bereit, dein Fahrzeug aufzurüsten?",
+    "readyToRideDesc": "Baue deine Traum-Auto mit unserer Premium-Teilekollektion",
     "startBuilding": "Jetzt loslegen",
     "unnamedGroup": "Unbenannte Gruppe",
     "addToCart": "In den Warenkorb",
@@ -421,9 +421,10 @@
     },
     "partsForBike": "Teile für {bike}",
     "universalParts": "Universelle Teile",
-    "noPartsForBike": "Derzeit haben wir keine spezifischen Teile für dein Motorrad in dieser Kategorie.",
-    "checkUniversalParts": "Schau dir unsere universellen Teile unten an, die für verschiedene Motorräder geeignet sind.",
-    "compatibleWith": "Kompatibel mit:"
+    "noPartsForBike": "Derzeit haben wir keine spezifischen Teile für dein Auto in dieser Kategorie.",
+    "checkUniversalParts": "Schau dir unsere universellen Teile unten an, die für verschiedene Fahrzeuge geeignet sind.",
+    "compatibleWith": "Kompatibel mit:",
+    "allSections": "Alle"
   },
   "editor": {
     "addedToCart": "Design zum Warenkorb hinzugefügt!",
@@ -946,17 +947,17 @@
     "heroTitle": "Es begann mit einem Traum",
     "heroSubtitle": "Kostengünstige und schöne Produkte in der Schweiz zu entwickeln",
     "introTitle": "Der Anfang",
-    "introText": "RevSticks wurde aus einer einfachen Vision heraus geboren: hochwertige, erschwingliche Supermoto-Produkte zu schaffen, die in der Schweiz entwickelt und von Fahrern für Fahrer gemacht werden.",
+    "introText": "RevSticks wurde aus einer einfachen Vision heraus geboren: hochwertige, erschwingliche Auto-Produkte zu schaffen, die in der Schweiz entwickelt und von Fahrern für Fahrer gemacht werden.",
     "dreamTitle": "Der Traum",
     "dreamText": "Alles begann mit einem Traum - der Vision, kostengünstige und dennoch schöne Produkte direkt hier in der Schweiz zu entwickeln. Wir glaubten daran, dass Qualität nicht teuer sein muss und dass echte Innovation aus Leidenschaft entsteht.",
     "passionTitle": "Leidenschaft trifft Innovation",
-    "passionText": "Als leidenschaftliche Supermoto-Fahrer verstanden wir die Bedürfnisse der Community aus erster Hand. Wir wussten, welche Produkte fehlten und wie wir sie besser machen konnten.",
+    "passionText": "Als leidenschaftliche Auto-Enthusiasten verstanden wir die Bedürfnisse der Community aus erster Hand. Wir wussten, welche Produkte fehlten und wie wir sie besser machen konnten.",
     "swissQualityTitle": "Schweizer Qualität",
     "swissQualityText": "Hergestellt in der Schweiz steht für Präzision, Qualität und Zuverlässigkeit. Diese Werte leben wir in jedem Produkt, das wir entwickeln.",
     "communityTitle": "Community First",
     "communityText": "Unsere Community steht im Mittelpunkt von allem, was wir tun. Deine Rückmeldungen, Ideen und Leidenschaft treiben uns an, immer besser zu werden.",
     "futureTitle": "Die Zukunft",
-    "futureText": "Was als Traum begann, ist heute Realität geworden. Aber das ist erst der Anfang. Wir arbeiten kontinuierlich daran, die besten Produkte für die Supermoto-Community zu entwickeln.",
+    "futureText": "Was als Traum begann, ist heute Realität geworden. Aber das ist erst der Anfang. Wir arbeiten kontinuierlich daran, die besten Produkte für die Auto-Community zu entwickeln.",
     "ctaTitle": "Teil unserer Geschichte werden",
     "ctaText": "Entdecke unsere Produkte und werde Teil der RevSticks Familie.",
     "exploreProducts": "Produkte entdecken",
@@ -964,14 +965,14 @@
   },
   "powdercoatColors": {
     "title": "Pulverbeschichtungs-Farben",
-    "description": "Entdecke unsere Auswahl an hochwertigen Pulverbeschichtungsfarben für deine Supermoto-Teile. Wähle aus lebendigen Oberflächen, die sowohl Schutz als auch Stil bieten.",
+    "description": "Entdecke unsere Auswahl an hochwertigen Pulverbeschichtungsfarben für deine Auto-Teile. Wähle aus lebendigen Oberflächen, die sowohl Schutz als auch Stil bieten.",
     "selectedColor": "Gewählte Farbe",
     "confirmSelection": "Bestätige deine Farbauswahl um fortzufahren.",
     "cancel": "Abbrechen",
     "confirm": "Auswahl bestätigen",
     "loading": "Verarbeitung...",
     "infoTitle": "Professionelle Qualitätsoberflächen",
-    "infoDescription": "Alle unsere Pulverbeschichtungsfarben verfügen über UV-beständige Eigenschaften und Sandstrahlen-Vorbereitung für die beste Haftung und Haltbarkeit. Jede Oberfläche wird professionell aufgetragen, um ein glattes, langlebiges Ergebnis zu gewährleisten, das deine Supermoto-Teile schützt und verbessert.",
+    "infoDescription": "Alle unsere Pulverbeschichtungsfarben verfügen über UV-beständige Eigenschaften und Sandstrahlen-Vorbereitung für die beste Haftung und Haltbarkeit. Jede Oberfläche wird professionell aufgetragen, um ein glattes, langlebiges Ergebnis zu gewährleisten, das deine Auto-Teile schützt und verbessert.",
     "selectColorButton": "Farbe wählen",
     "breadcrumb": {
       "home": "Startseite",
@@ -1001,8 +1002,8 @@
   "powdercoat": {
     "comingSoon": "Demnächst verfügbar!",
     "title": "Pulverbeschichtungsservice",
-    "description": "Professionelle Pulverbeschichtung für Supermoto-Teile",
-    "subtitle": "Professionelle Pulverbeschichtung für deine Supermoto-Teile",
+    "description": "Professionelle Pulverbeschichtung für Auto-Teile",
+    "subtitle": "Professionelle Pulverbeschichtung für deine Auto-Teile",
     "blackWeekBanner": {
       "title": "Black Week Sale!",
       "description": "Erhalte 20% Rabatt auf alle Pulverbeschichtungsservices bis 1. Dezember",
@@ -1032,7 +1033,7 @@
     "fastTurnaround": "Bearbeitung nach Erhalt innerhalb von 1-3 Werktagen",
     "fastTurnaroundDesc": "Schneller Service, um deine Teile so schnell wie möglich zurückzubekommen",
     "readyToCoat": "Bereit, deine Teile zu verwandeln?",
-    "readyToCoatDesc": "Hole dir professionelle Pulverbeschichtungsservices, die dein Supermoto aus der Masse herausstechen lassen.",
+    "readyToCoatDesc": "Hole dir professionelle Pulverbeschichtungsservices, die dein Auto aus der Masse herausstechen lassen.",
     "getStarted": "Jetzt starten",
     "browseTip": "Klicke auf einen Service, um detaillierte Informationen anzuzeigen und ein Angebot anzufordern.",
     "serviceFeatures": "Service-Eigenschaften",
@@ -1197,7 +1198,7 @@
   },
   "blog": {
     "title": "RevSticks Blog",
-    "description": "Lese die neuesten Nachrichten, Tipps und Geschichten von RevSticks. Entdecke Supermoto-Einblicke, Anpassungsanleitungen und Community-Highlights.",
+    "description": "Lese die neuesten Nachrichten, Tipps und Geschichten von RevSticks. Entdecke Auto-Einblicke, Anpassungsanleitungen und Community-Highlights.",
     "subtitle": "Geschichten, Tipps & Anleitungen vom RevSticks Team",
     "recentPosts": "Neueste Beiträge",
     "welcome": "Willkommen",

@@ -19,7 +19,6 @@ import { Tooltip } from "react-tooltip";
 import useAxios from "@/useAxios";
 import EditPart from "./EditPart";
 import AddPart from "./AddPart";
-import AssignBikeModels from "./AssignBikeModels";
 import { Bike } from "lucide-react";
 
 interface InventoryProps {
@@ -111,6 +110,14 @@ interface PartGroup {
   }>;
 }
 
+// Part Section interface
+interface PartSectionMeta {
+  id: string;
+  sortingRank?: number;
+  active?: boolean;
+  translations: { language: string; title: string }[];
+}
+
 // Add interface for Part
 interface Part {
   id: string;
@@ -146,6 +153,7 @@ interface Part {
   keywords?: string[];
   groups?: PartGroup[];
   bikeModels?: BikeModel[];
+  sections?: PartSectionMeta[];
 }
 
 // Controlled stock input that only calls the update when typing is finished
@@ -180,7 +188,7 @@ const StockInput = ({
         if (e.key === "Enter") commit();
       }}
       disabled={disabled}
-      className="w-16 text-xs border border-zinc-700 rounded px-1 py-0.5 text-center focus:outline-none focus:ring-1 focus:ring-purple-600 disabled:opacity-50"
+      className="w-16 text-xs border border-zinc-700 rounded px-1 py-0.5 text-center bg-zinc-900 text-zinc-100 focus:outline-none focus:ring-1 focus:ring-purple-600 disabled:opacity-50"
       placeholder="0"
     />
   );
@@ -198,12 +206,6 @@ interface StickerResponse {
 interface PartResponse {
   data: Part[];
   meta?: Meta;
-}
-
-// API response for parts by group name
-interface PartsGroupResponse {
-  groupTitles: { en: string; de: string; fr: string; it: string };
-  parts: Part[];
 }
 
 const Inventory = ({ csrfToken }: InventoryProps) => {
@@ -231,71 +233,12 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
   const [partToEdit, setPartToEdit] = useState<Part | null>(null);
   const [showCopyModal, setShowCopyModal] = useState(false);
   const [itemToCopy, setItemToCopy] = useState<Part | null>(null);
-  const [showBikeModelsModal, setShowBikeModelsModal] = useState(false);
-  const [partForBikeModels, setPartForBikeModels] = useState<Part | null>(null);
+  const [, setShowBikeModelsModal] = useState(false);
+  const [, setPartForBikeModels] = useState<Part | null>(null);
   const axiosInstance = useAxios();
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-
-  // Fetch parts for a specific group by name
-  const fetchGroupParts = async (groupName: string) => {
-    setLoading(true);
-    setError(null);
-    try {
-      const response = await axiosInstance.get<PartsGroupResponse>(
-        `/parts/partGroup/by-name/${encodeURIComponent(groupName)}`,
-        {
-          headers: {
-            Authorization: `Bearer ${storage.getItem("access_token")}`,
-            "X-CSRF-Token": csrfToken,
-          },
-        },
-      );
-
-      const partIds = response.data.parts.map((p) => p.id);
-
-      // Fetch with-stock data for these parts to get option stock levels
-      let stockMap: Record<string, Part> = {};
-      if (partIds.length > 0) {
-        try {
-          const stockResponse = await axiosInstance.get<PartResponse>(
-            `/parts/with-stock?amount=100&start=0`,
-            {
-              headers: {
-                Authorization: `Bearer ${storage.getItem("access_token")}`,
-                "X-CSRF-Token": csrfToken,
-              },
-            },
-          );
-          stockMap = Object.fromEntries(
-            stockResponse.data.data.map((p) => [p.id, p]),
-          );
-        } catch {
-          // stock fetch failed, continue without stock data
-        }
-      }
-
-      const processedParts = response.data.parts.map((item) => {
-        const withStock = stockMap[item.id];
-        return {
-          ...item,
-          // Prefer with-stock customizationOptions (includes per-item stock)
-          customizationOptions: withStock?.customizationOptions ?? item.customizationOptions,
-          images: item.images.map((img: string) =>
-            img.startsWith("http")
-              ? img
-              : `https://minio-api.cwx-dev.com/parts/${img}`,
-          ),
-        };
-      });
-
-      setGroupParts(processedParts);
-    } catch (err: unknown) {
-      console.error("Error fetching group parts:", err);
-      setError("Failed to load parts for this group");
-    } finally {
-      setLoading(false);
-    }
-  };
+  const [allSections, setAllSections] = useState<PartSectionMeta[]>([]);
+  const [selectedSectionId, setSelectedSectionId] = useState<string | null>(null);
 
   // Fetch items with pagination and filtering options
   const fetchItems = async (
@@ -303,6 +246,7 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
     statusFilter = status,
     search = searchTerm,
     itemType = inventoryType,
+    sectionId = selectedSectionId,
   ) => {
     setLoading(true);
     setError(null);
@@ -316,6 +260,10 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
 
       if (search) {
         params.append("search", search);
+      }
+
+      if (sectionId && itemType === "parts") {
+        params.append("sectionId", sectionId);
       }
 
       const endpoint =
@@ -422,13 +370,21 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inventoryType]);
 
-  // When a group is selected, fetch its parts from the dedicated endpoint
+  // Fetch part sections for the tab bar
   useEffect(() => {
-    if (selectedGroup && inventoryType === "parts") {
-      fetchGroupParts(selectedGroup);
+    if (inventoryType === "parts") {
+      axiosInstance
+        .get<PartSectionMeta[]>("/part-sections?includeInactive=true", {
+          headers: {
+            Authorization: `Bearer ${storage.getItem("access_token")}`,
+            "X-CSRF-Token": csrfToken,
+          },
+        })
+        .then((res) => setAllSections(res.data))
+        .catch(() => {});
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedGroup]);
+  }, [inventoryType]);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -877,6 +833,12 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
     );
   };
 
+  // Helper function to get section title
+  const getSectionTitle = (section: PartSectionMeta): string =>
+    section.translations.find((t) => t.language === "en")?.title ||
+    section.translations[0]?.title ||
+    "Unknown Section";
+
   // Helper function to get shipping status color and text
   const getShippingStatusInfo = (
     shippingReady: string,
@@ -1006,6 +968,14 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
     setError(null);
     setSelectedGroup(null);
     setGroupParts([]);
+    setSelectedSectionId(null);
+  };
+
+  // Switch section tab
+  const handleSectionChange = (sectionId: string | null) => {
+    setSelectedSectionId(sectionId);
+    setMeta({ total: 0, limit: 20, skip: 0, totalPages: 0 });
+    fetchItems(0, status, searchTerm, inventoryType, sectionId);
   };
 
   // Filter items client-side if search term is provided
@@ -1164,6 +1134,35 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
         </div>
       </div>
 
+      {/* Section tabs for parts */}
+      {inventoryType === "parts" && allSections.length > 0 && (
+        <div className="flex flex-wrap gap-2">
+          <button
+            onClick={() => handleSectionChange(null)}
+            className={`px-3 py-1.5 rounded-md text-sm font-medium border transition-colors ${
+              selectedSectionId === null
+                ? "bg-amber-600 border-amber-600 text-white"
+                : "border-zinc-700 text-zinc-300 hover:bg-zinc-800"
+            }`}
+          >
+            All
+          </button>
+          {allSections.map((sec) => (
+            <button
+              key={sec.id}
+              onClick={() => handleSectionChange(sec.id)}
+              className={`px-3 py-1.5 rounded-md text-sm font-medium border transition-colors ${
+                selectedSectionId === sec.id
+                  ? "bg-amber-600 border-amber-600 text-white"
+                  : "border-zinc-700 text-zinc-300 hover:bg-zinc-800"
+              }`}
+            >
+              {getSectionTitle(sec)}
+            </button>
+          ))}
+        </div>
+      )}
+
       {/* Success message */}
       {successMessage && (
         <div className="bg-amber-500/10 border border-purple-400 text-amber-300 p-3 rounded-md">
@@ -1187,8 +1186,8 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
         <>
           {/* Items grid */}
           {itemsToRender.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                  {(itemsToRender as (Part | Sticker)[]).map((item) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              {(itemsToRender as (Part | Sticker)[]).map((item) => (
                 <div
                   key={item.id}
                   className={`border rounded-lg overflow-hidden bg-zinc-900 ${
@@ -1528,13 +1527,13 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
                     </div>
                   </div>
                 </div>
-                  ))}
-                </div>
-              ) : (
-                <div className="flex justify-center items-center h-64 bg-zinc-800 rounded-lg">
-                  <p className="text-zinc-400">No {inventoryType} found</p>
-                </div>
-              )}
+              ))}
+            </div>
+          ) : (
+            <div className="flex justify-center items-center h-64 bg-zinc-800 rounded-lg">
+              <p className="text-zinc-400">No {inventoryType} found</p>
+            </div>
+          )}
 
               {/* Pagination */}
               {meta.totalPages > 1 && (
@@ -1690,30 +1689,6 @@ const Inventory = ({ csrfToken }: InventoryProps) => {
           </div>
         </div>
       )}
-
-      {/* Assign Bike Models Modal */}
-      {showBikeModelsModal && partForBikeModels && (
-        <AssignBikeModels
-          partId={partForBikeModels.id}
-          partTitle={
-            partForBikeModels.translations.find((t) => t.language === "en")
-              ?.title || "Part"
-          }
-          currentBikeModels={
-            (partForBikeModels as Part & { bikeModels?: BikeModel[] })
-              .bikeModels || []
-          }
-          onClose={() => {
-            setShowBikeModelsModal(false);
-            setPartForBikeModels(null);
-          }}
-          onSuccess={() => {
-            fetchItems();
-          }}
-          csrfToken={csrfToken}
-        />
-      )}
-
       <Tooltip id="tooltip" />
     </div>
   );

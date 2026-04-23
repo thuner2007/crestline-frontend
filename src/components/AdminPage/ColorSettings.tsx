@@ -2,16 +2,13 @@
 
 import { useState } from "react";
 import AvailableColors from "./AvailableColors";
-import PowdercoatColors from "./PowdercoatColors";
-import FilamentColors from "./FilamentColors";
-import FilamentTypes from "./FilamentTypes";
 
 interface ColorSettingsProps {
   csrfToken: string;
 }
 
 const ColorSettings = ({ csrfToken }: ColorSettingsProps) => {
-  const [activeTab, setActiveTab] = useState<"vinyl" | "powdercoat" | "filament" | "filament-types">("vinyl");
+  const [activeTab, setActiveTab] = useState<"vinyl">("vinyl");
 
   return (
     <div>
@@ -33,60 +30,12 @@ const ColorSettings = ({ csrfToken }: ColorSettingsProps) => {
           >
             Vinyl Colors
           </button>
-          <button
-            onClick={() => setActiveTab("powdercoat")}
-            className={`
-              whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm
-              ${
-                activeTab === "powdercoat"
-                  ? "border-amber-500 text-amber-400"
-                  : "border-transparent text-zinc-400 hover:text-zinc-300 hover:border-zinc-700"
-              }
-            `}
-          >
-            Powdercoat Colors
-          </button>
-          <button
-            onClick={() => setActiveTab("filament")}
-            className={`
-              whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm
-              ${
-                activeTab === "filament"
-                  ? "border-amber-500 text-amber-400"
-                  : "border-transparent text-zinc-400 hover:text-zinc-300 hover:border-zinc-700"
-              }
-            `}
-          >
-            Filament Colors
-          </button>
-          <button
-            onClick={() => setActiveTab("filament-types")}
-            className={`
-              whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm
-              ${
-                activeTab === "filament-types"
-                  ? "border-amber-500 text-amber-400"
-                  : "border-transparent text-zinc-400 hover:text-zinc-300 hover:border-zinc-700"
-              }
-            `}
-          >
-            Filament Types
-          </button>
         </nav>
       </div>
 
       {/* Tab Content */}
       <div>
         {activeTab === "vinyl" && <AvailableColors csrfToken={csrfToken} />}
-        {activeTab === "powdercoat" && (
-          <PowdercoatColors csrfToken={csrfToken} />
-        )}
-        {activeTab === "filament" && (
-          <FilamentColors csrfToken={csrfToken} />
-        )}
-        {activeTab === "filament-types" && (
-          <FilamentTypes csrfToken={csrfToken} />
-        )}
       </div>
     </div>
   );
